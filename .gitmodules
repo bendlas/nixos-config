@@ -1,0 +1,4 @@
+[submodule "nixpkgs-unstable-channel"]
+	path = nixpkgs-unstable-channel
+	url = git@github.com:bendlas/nixpkgs.git
+	branch = local-packages

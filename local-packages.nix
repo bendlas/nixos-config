@@ -6,30 +6,33 @@
   environment = {
     systemPackages = (with pkgs; [
       ## dev-essentials 
-      binutils gcc gdb gnumake pkgconfig python git
+      binutils gcc gdb gnumake pkgconfig python git patchelf radare2 valgrind
       
       ## essentials
-      file screen tmux htop wget psmisc gptfdisk gparted gnupg file unzip lsof bind hdparm pmutils iotop rlwrap traceroute emacs which nmap wireshark nix-repl iptables telnet tree reptyr
+      file screen tmux htop wget psmisc gptfdisk gparted gnupg file unzip lsof bind hdparm pmutils iotop rlwrap traceroute emacs which nmap wireshark nix-repl iptables telnet tree reptyr pciutils ntfs3g multipath_tools lm_sensors
 
       ## dev
-      debootstrap mercurial subversion cmake rustc cargoSnapshot pypy nim leiningen gettext
+      debootstrap mercurial subversion cmake rustc cargo nim leiningen gettext # pypy
+      jdk jdk.jre maven3 ant nodejs s3cmd pythonPackages.ipython guile guile_lib # nodePackages.grunt-cli
+      lua luajit luarocks
       #sdlmame androidsdk_4_4
 
       ## desktop
       dmenu glxinfo liberation_ttf xlibs.xkill xlibs.xmodmap xlibs.xbacklight xlibs.xrandr
+      aspell aspellDicts.en aspellDicts.de
 
-      ## dev
-      jdk jdk.jre maven3 ant nodejs nodePackages.grunt-cli s3cmd pythonPackages.ipython guile
       
       ## apps
-      firefoxWrapper deluge dosbox alsaUtils clementine gimp winetricks geoip idea.idea-ultimate chromium vlc inkscape texLiveFull steam dropbox-cli bitcoin nmap_graphical unrar wine gitAndTools.hub bsdiff
+      firefoxWrapper deluge dosbox alsaUtils clementine gimp winetricks geoip idea.idea-ultimate chromium vlc inkscape texLiveFull steam dropbox-cli bitcoin nmap_graphical unrar p7zip wine gitAndTools.hub bsdiff antimony blender links2
       
       ## sound
-      qjackctl jack2 beep
+      qjackctl jack2Full beep
 
       ##virt
-      qemu_kvm virtmanager
-    ]);
+      qemu_kvm qemu virtmanager
+    ] ++ (with haskellngPackages; [
+      ghc cabal-install cabal2nix
+    ]));
     sessionVariables = {
       NIX_PATH = pkgs.lib.mkForce([
         "nixpkgs=/etc/nixos/nixpkgs-unstable-channel"
@@ -50,7 +53,6 @@
         shell = "/run/current-system/sw/bin/zsh";
         isNormalUser = true;
         uid = 1000;
-        ## password = "a";
       };
       christine = {
         description = "Christine Brameshuber";
@@ -90,7 +92,7 @@
   virtualisation.libvirtd.enable = true;
 
   boot = {
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_4_1;
     kernel.sysctl."fs.inotify.max_user_watches" = 100000;
   };
 

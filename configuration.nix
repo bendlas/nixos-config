@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 { ## Outsource nixpkgs.config to be shared with nix-env
-  nixpkgs.config = import /etc/nix/nixpkgs-config.nix;
+  nixpkgs.config = import ./nixpkgs-config.nix;
 
   require = [
      # Include the results of the hardware scan.
