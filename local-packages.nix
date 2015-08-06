@@ -9,7 +9,7 @@
       binutils gcc gdb gnumake pkgconfig python git patchelf radare2 valgrind
       
       ## essentials
-      file screen tmux htop wget psmisc gptfdisk gparted gnupg file unzip lsof bind hdparm pmutils iotop rlwrap traceroute emacs which nmap wireshark nix-repl iptables telnet tree reptyr pciutils ntfs3g multipath_tools lm_sensors xpra roxterm nodejs #e19.terminology
+      file screen tmux htop wget psmisc gptfdisk gparted gnupg file unzip lsof bind hdparm pmutils iotop rlwrap traceroute emacs which nmap wireshark nix-repl iptables telnet tree reptyr pciutils ntfs3g multipath_tools lm_sensors xpra roxterm nodejs ent #e19.terminology
 
       ## dev
       debootstrap mercurial subversion cmake rustc cargo nim leiningen gettext # pypy
