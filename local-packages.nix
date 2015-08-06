@@ -15,7 +15,7 @@
       debootstrap mercurial subversion cmake rustc cargo nim leiningen gettext # pypy
       jdk jdk.jre maven3 ant nodejs s3cmd pythonPackages.ipython guile guile_lib # nodePackages.grunt-cli
       lua luajit luarocks
-      androidsdk_4_4 #sdlmame
+      #androidsdk_4_4 #sdlmame
 
       ## desktop
       dmenu glxinfo liberation_ttf xlibs.xkill xlibs.xmodmap xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp

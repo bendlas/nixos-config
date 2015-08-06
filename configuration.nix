@@ -62,13 +62,13 @@
         exwm.enable = true;
       };
       synaptics = {
-        enable = true;
+        enable = false;
         twoFingerScroll = true;
       };
     };
     upower.enable = true;
   };
-  hardware.trackpoint.emulateWheel = true;
+  hardware.trackpoint.emulateWheel = false;
   security.sudo.wheelNeedsPassword = false;
   nix = {
     buildCores = 4;
