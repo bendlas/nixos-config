@@ -9,13 +9,13 @@
       binutils gcc gdb gnumake pkgconfig python git patchelf radare2 valgrind
       
       ## essentials
-      file screen tmux htop wget psmisc gptfdisk gparted gnupg file unzip lsof bind hdparm pmutils iotop rlwrap traceroute emacs which nmap wireshark nix-repl iptables telnet tree reptyr pciutils ntfs3g multipath_tools lm_sensors
+      file screen tmux htop wget psmisc gptfdisk gparted gnupg file unzip lsof bind hdparm pmutils iotop rlwrap traceroute emacs which nmap wireshark nix-repl iptables telnet tree reptyr pciutils ntfs3g multipath_tools lm_sensors xpra roxterm nodejs #e19.terminology
 
       ## dev
       debootstrap mercurial subversion cmake rustc cargo nim leiningen gettext # pypy
       jdk jdk.jre maven3 ant nodejs s3cmd pythonPackages.ipython guile guile_lib # nodePackages.grunt-cli
       lua luajit luarocks
-      #sdlmame androidsdk_4_4
+      androidsdk_4_4 #sdlmame
 
       ## desktop
       dmenu glxinfo liberation_ttf xlibs.xkill xlibs.xmodmap xlibs.xbacklight xlibs.xrandr

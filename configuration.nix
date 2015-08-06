@@ -51,12 +51,20 @@
       enable = true;
       layout = "us";
       xkbOptions = "eurosign:e";
-      displayManager.gdm.enable = true;
+      displayManager.lightdm.enable = true;
       desktopManager.gnome3.enable = true;
-      videoDrivers = [ "nvidia" ];
+      desktopManager.e19.enable = true;
+      windowManager = {
+        stumpwm.enable = true;
+      };
+      synaptics = {
+        enable = true;
+        twoFingerScroll = true;
+      };
     };
   };
-  
+  hardware.trackpoint.emulateWheel = true;
+  security.sudo.wheelNeedsPassword = false;
   nix = {
     buildCores = 4;
     extraOptions = ''
