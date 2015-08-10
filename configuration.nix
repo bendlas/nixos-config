@@ -19,7 +19,7 @@
       version = 2;
       device = "/dev/sdb";
     };
-    kernelParams = [ "nomodeset" ];
+    kernelParams = [ "nomodeset" "resume=UUID=b3254264-6843-4eed-b817-81f692d2ca07" ];
   };
 
   networking = rec {
@@ -49,13 +49,17 @@
     locate.enable = true;
     xserver = {
       enable = true;
+      exportConfiguration = true;
       layout = "us";
       xkbOptions = "eurosign:e";
+      #displayManager.slim.enable = true;
       displayManager.lightdm.enable = true;
-      desktopManager.gnome3.enable = true;
-      desktopManager.e19.enable = true;
+      #displayManager.gdm.enable = true;
+      #desktopManager.gnome3.enable = true;
+      #desktopManager.e19.enable = true;
       windowManager = {
         stumpwm.enable = true;
+        exwm.enable = true;
       };
       synaptics = {
         enable = true;

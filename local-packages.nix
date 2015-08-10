@@ -6,7 +6,7 @@
   environment = {
     systemPackages = (with pkgs; [
       ## dev-essentials 
-      binutils gcc gdb gnumake pkgconfig python git patchelf radare2 valgrind
+      binutils gcc gdb gnumake pkgconfig python git patchelf radare2 valgrind sbcl
       
       ## essentials
       file screen tmux htop wget psmisc gptfdisk gparted gnupg file unzip lsof bind hdparm pmutils iotop rlwrap traceroute emacs which nmap wireshark nix-repl iptables telnet tree reptyr pciutils ntfs3g multipath_tools lm_sensors xpra roxterm nodejs #e19.terminology
@@ -21,7 +21,6 @@
       dmenu glxinfo liberation_ttf xlibs.xkill xlibs.xmodmap xlibs.xbacklight xlibs.xrandr
       aspell aspellDicts.en aspellDicts.de
 
-      
       ## apps
       firefoxWrapper deluge dosbox alsaUtils clementine gimp winetricks geoip idea.idea-ultimate chromium vlc inkscape texLiveFull steam dropbox-cli bitcoin nmap_graphical unrar p7zip wine gitAndTools.hub bsdiff antimony blender links2
       
