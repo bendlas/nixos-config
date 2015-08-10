@@ -22,6 +22,9 @@
       aspell aspellDicts.en aspellDicts.de
       dunst libnotify
 
+      ## nvidia
+      linuxPackages.nvidia_x11
+
       ## apps
       firefoxWrapper deluge dosbox alsaUtils clementine gimp winetricks geoip idea.idea-ultimate chromium vlc inkscape texLiveFull steam dropbox-cli bitcoin nmap_graphical unrar p7zip wine gitAndTools.hub bsdiff antimony blender links2 zip unzip
       

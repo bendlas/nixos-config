@@ -57,6 +57,7 @@
       #displayManager.gdm.enable = true;
       #desktopManager.gnome3.enable = true;
       #desktopManager.e19.enable = true;
+      videoDrivers = [ "nvidia" ];
       windowManager = {
         stumpwm.enable = true;
         exwm.enable = true;
