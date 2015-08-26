@@ -66,6 +66,7 @@
         twoFingerScroll = true;
       };
     };
+    upower.enable = true;
   };
   hardware.trackpoint.emulateWheel = true;
   security.sudo.wheelNeedsPassword = false;

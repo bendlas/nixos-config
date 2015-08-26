@@ -18,11 +18,12 @@
       androidsdk_4_4 #sdlmame
 
       ## desktop
-      dmenu glxinfo liberation_ttf xlibs.xkill xlibs.xmodmap xlibs.xbacklight xlibs.xrandr
+      dmenu glxinfo liberation_ttf xlibs.xkill xlibs.xmodmap xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp
       aspell aspellDicts.en aspellDicts.de
+      dunst libnotify
 
       ## apps
-      firefoxWrapper deluge dosbox alsaUtils clementine gimp winetricks geoip idea.idea-ultimate chromium vlc inkscape texLiveFull steam dropbox-cli bitcoin nmap_graphical unrar p7zip wine gitAndTools.hub bsdiff antimony blender links2
+      firefoxWrapper deluge dosbox alsaUtils clementine gimp winetricks geoip idea.idea-ultimate chromium vlc inkscape texLiveFull steam dropbox-cli bitcoin nmap_graphical unrar p7zip wine gitAndTools.hub bsdiff antimony blender links2 zip unzip
       
       ## sound
       qjackctl jack2Full beep
@@ -31,7 +32,7 @@
       qemu_kvm qemu virtmanager
     ] ++ (with haskellngPackages; [
       ghc cabal-install cabal2nix
-    ]));
+    ] ++ pkgs.gnome3.corePackages ++ pkgs.gnome3.optionalPackages));
     sessionVariables = {
       NIX_PATH = pkgs.lib.mkForce([
         "nixpkgs=/etc/nixos/nixpkgs-unstable-channel"
@@ -53,11 +54,6 @@
         isNormalUser = true;
         uid = 1000;
       };
-      christine = {
-        description = "Christine Brameshuber";
-        isNormalUser = true;
-	uid = 1001;
-      };
     };
     extraGroups = {
       realtime = {};
@@ -68,7 +64,7 @@
   services = {
     i2p.enable = true;
     # freenet.enable = true;
-    virtualboxHost.enable = true;
+    virtualbox.host.enable = true;
     postgresql = {
       enable = true;
       package = pkgs.postgresql;
