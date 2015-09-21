@@ -60,7 +60,7 @@
       videoDrivers = [ "nvidia" ];
       windowManager = {
         stumpwm.enable = true;
-        exwm.enable = true;
+#        exwm.enable = true;
       };
       synaptics = {
         enable = false;

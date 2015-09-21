@@ -9,7 +9,8 @@
       binutils gcc gdb gnumake pkgconfig python git patchelf radare2 valgrind sbcl
       
       ## essentials
-      file screen tmux htop wget psmisc gptfdisk gparted gnupg file unzip lsof bind hdparm pmutils iotop rlwrap traceroute emacs which nmap wireshark nix-repl iptables telnet tree reptyr pciutils ntfs3g multipath_tools lm_sensors xpra roxterm nodejs ent #e19.terminology
+      file screen tmux htop wget psmisc gptfdisk gparted gnupg file unzip lsof bind hdparm pmutils iotop rlwrap traceroute emacs which wireshark nix-repl iptables telnet tree reptyr pciutils ntfs3g multipath_tools lm_sensors xpra roxterm nodejs ent unetbootin davfs2
+      #e19.terminology
 
       ## dev
       debootstrap mercurial subversion cmake rustc cargo nim leiningen gettext # pypy
@@ -26,7 +27,9 @@
       linuxPackages.nvidia_x11
 
       ## apps
-      firefoxWrapper deluge dosbox alsaUtils clementine gimp winetricks geoip idea.idea-ultimate chromium vlc inkscape texLiveFull steam dropbox-cli bitcoin nmap_graphical unrar p7zip wine gitAndTools.hub bsdiff antimony blender links2 zip unzip
+      firefoxWrapper deluge dosbox alsaUtils clementine gimp geoip idea.idea-ultimate chromium vlc inkscape steam dropbox-cli bitcoin nmap_graphical unrar p7zip gitAndTools.hub bsdiff antimony blender links2 zip unzip # texlive.combined.scheme-full
+      texLiveFull
+      wine winetricks
       
       ## sound
       qjackctl jack2Full beep
@@ -45,7 +48,6 @@
         "/nix/var/nix/profiles/per-user/root/channels"
       ]);
     };
-    gnome3.packageSet = pkgs.gnome3_16;
   };
     
   users = {
@@ -90,7 +92,7 @@
   virtualisation.libvirtd.enable = true;
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_4_1;
+    kernelPackages = pkgs.linuxPackages_4_2;
     kernel.sysctl."fs.inotify.max_user_watches" = 100000;
   };
 
