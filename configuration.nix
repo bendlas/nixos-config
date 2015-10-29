@@ -20,6 +20,7 @@
       device = "/dev/sdb";
     };
     kernelParams = [ "nomodeset" "resume=UUID=b3254264-6843-4eed-b817-81f692d2ca07" ];
+    initrd.availableKernelModules = [ "bcache" ];
   };
 
   networking = rec {
