@@ -9,14 +9,15 @@
       binutils gcc gdb gnumake pkgconfig python git patchelf radare2 valgrind sbcl
       
       ## essentials
-      file screen tmux htop wget psmisc gptfdisk gparted gnupg file unzip lsof bind hdparm pmutils iotop rlwrap traceroute emacs which wireshark nix-repl iptables telnet tree reptyr pciutils ntfs3g multipath_tools lm_sensors xpra roxterm nodejs ent unetbootin davfs2
-      #e19.terminology
+      file screen tmux htop wget psmisc gptfdisk gparted gnupg file unzip lsof bind hdparm pmutils iotop rlwrap traceroute emacs
+      which wireshark nix-repl iptables telnet tree reptyr pciutils ntfs3g multipath_tools lm_sensors xpra roxterm nodejs ent
+      unetbootin davfs2 btrfsProgs
 
       ## dev
-      debootstrap mercurial subversion cmake rustc cargo nim leiningen gettext # pypy
-      jdk jdk.jre maven3 ant nodejs s3cmd pythonPackages.ipython guile guile_lib # nodePackages.grunt-cli
+      debootstrap mercurial subversion cmake rustc cargo nim leiningen gettext pypy
+      jdk jdk.jre maven3 ant nodejs s3cmd pythonPackages.ipython guile guile_lib nodePackages.grunt-cli
       lua luajit luarocks
-      #androidsdk_4_4 #sdlmame
+      androidsdk_4_4 sdlmame
 
       ## desktop
       dmenu glxinfo liberation_ttf xlibs.xkill xlibs.xmodmap xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp
@@ -27,8 +28,7 @@
       linuxPackages.nvidia_x11
 
       ## apps
-      firefoxWrapper deluge dosbox alsaUtils clementine gimp geoip idea.idea-ultimate chromium vlc inkscape steam dropbox-cli bitcoin nmap_graphical unrar p7zip gitAndTools.hub bsdiff antimony blender links2 zip unzip # texlive.combined.scheme-full
-      texLiveFull
+      firefoxWrapper deluge dosbox alsaUtils clementine gimp geoip idea.idea-ultimate chromium vlc inkscape steam dropbox-cli bitcoin nmap_graphical unrar p7zip gitAndTools.hub bsdiff antimony blender links2 zip unzip texLiveFull
       wine winetricks
       
       ## sound

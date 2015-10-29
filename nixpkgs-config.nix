@@ -14,10 +14,10 @@
   chromium = {
    enablePepperFlash = true;
   };
-  wine = {
-    release = "staging";
-    build = "wineWow";
-  };
+#  wine = {
+#    release = "staging";
+#    build = "wineWow";
+#  };
 
   packageOverrides = pkgs: rec {
     jdk = pkgs.oraclejdk8;
@@ -34,5 +34,15 @@
       pkgs.ghostscript
       pkgs.aspell
     ];
+    chromium = pkgs.chromium.override {
+      enablePepperFlash = true;
+      pulseSupport = true;
+      ## broken
+      # enableNaCl = true;
+    };
+    wine = pkgs.wine.override {
+      wineRelease = "staging";
+      wineBuild = "wineWow";
+    };
   };
 }
