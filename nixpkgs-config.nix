@@ -23,7 +23,7 @@
     jdk = pkgs.oraclejdk8;
     jre = jdk.jre;
     postgresql = pkgs.postgresql94;
-    linuxPackages = pkgs.linuxPackages_4_2;
+    linuxPackages = pkgs.linuxPackages_4_3;
     emacs = pkgs.emacsWithPackages.override {
       emacs = pkgs.emacs.override {
         inherit (pkgs) alsaLib imagemagick acl gpm;
