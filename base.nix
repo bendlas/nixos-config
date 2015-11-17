@@ -36,15 +36,13 @@ in {
     };
   };
 
-  networking.extraHosts = ''
-    127.0.0.1 ${config.networking.hostName}
-    ::1 ${config.networking.hostName}
-  '';
-
-  require = [
-     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-  ];
+  networking = {
+    connman.enable = true;
+    extraHosts = ''
+      127.0.0.1 ${config.networking.hostName}
+      ::1 ${config.networking.hostName}
+    '';
+  };
 
   time.timeZone = "Europe/Vienna";
 

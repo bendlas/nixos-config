@@ -16,11 +16,14 @@
     firefoxWrapper deluge dosbox alsaUtils clementine gimp geoip
     idea.idea-ultimate chromium vlc inkscape steam dropbox-cli bitcoin
     nmap_graphical unrar p7zip gitAndTools.hub bsdiff antimony blender
-    links2 texLiveFull wine winetricks qjackctl jack2Full beep
+    links2 texLiveFull wine winetricks qjackctl jack2Full beep radare2
+    valgrind sbcl
 
     qemu_kvm qemu virtmanager
-
-  ] ++ pkgs.gnome3.corePackages ++ pkgs.gnome3.optionalPackages);
+    
+  ] ++ (with haskellngPackages; [
+    ghc cabal-install cabal2nix
+  ] ++ pkgs.gnome3.corePackages ++ pkgs.gnome3.optionalPackages));
 
   users = {
     extraUsers."herwig".extraGroups = [
@@ -84,7 +87,6 @@
     upower.enable = true;
   };
 
-  hardware.trackpoint.emulateWheel = false;
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;

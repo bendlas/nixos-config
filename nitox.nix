@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 { ## Outsource nixpkgs.config to be shared with nix-env
-  require = [ ./desktop.nix ];
+  require = [ ./desktop.nix ./hardware-configuration.nitox.nix ];
 
   boot = {
     loader.grub = {
@@ -20,7 +20,6 @@
   networking = rec {
     hostName = "nitox";
     hostId = "f26c47cc";
-    networkmanager.enable = true;
     extraHosts = ''
       127.0.0.1 leihfix.local static.local jk.local hdnews.local hdirect.local
     '';
