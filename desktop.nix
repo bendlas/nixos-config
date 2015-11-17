@@ -7,7 +7,7 @@
 
     debootstrap mercurial subversion cmake rustc cargo nim ant pypy
     pythonPackages.ipython guile guile_lib nodePackages.grunt-cli lua
-    luajit luarocks androidsdk_4_4 sdlmame
+    luajit luarocks androidsdk_4_4 sdlmame racket
 
     dmenu glxinfo liberation_ttf xlibs.xkill xlibs.xmodmap
     xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp aspell
@@ -17,7 +17,8 @@
     idea.idea-ultimate chromium vlc inkscape steam dropbox-cli bitcoin
     nmap_graphical unrar p7zip gitAndTools.hub bsdiff antimony blender
     links2 texLiveFull wine winetricks qjackctl jack2Full beep radare2
-    valgrind sbcl
+    valgrind sbcl npm2nix lyx nix-generate-from-cpan paprefs pavucontrol
+    pinentry
 
     qemu_kvm qemu virtmanager
     

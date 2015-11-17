@@ -9,7 +9,7 @@ in {
     iptables telnet reptyr tree multipath_tools lm_sensors ent davfs2
     btrfsProgs dmidecode nmap git
 
-    leiningen gettext jdk jdk.jre maven3 s3cmd
+    leiningen gettext jdk jdk.jre maven3 s3cmd sqlite
 
   ]);
 
