@@ -7,9 +7,9 @@ in {
     file screen tmux htop wget psmisc utillinuxCurses zip unzip lsof
     bind hdparm pmutils iotop rlwrap traceroute emacs which nix-repl
     iptables telnet reptyr tree multipath_tools lm_sensors ent davfs2
-    btrfsProgs dmidecode nmap git
+    btrfsProgs dmidecode nmap git gnupg1compat vde2 gradle gnumake
 
-    leiningen gettext jdk jdk.jre maven3 s3cmd sqlite
+    leiningen gettext jdk jdk.jre maven3 s3cmd sqlite python
     (callPackage ./git-update-channel.nix {})
 
   ]);

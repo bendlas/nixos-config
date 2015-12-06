@@ -3,6 +3,10 @@
 { ## Outsource nixpkgs.config to be shared with nix-env
   require = [ ./desktop.nix ./xsession.nix ./hardware-configuration.lenix.nix ];
 
+  environment.systemPackages = (with pkgs; [
+    bluez5
+  ]);
+
   boot = {
     loader = {
       gummiboot.enable = true;
@@ -17,7 +21,12 @@
     extraHosts = ''
       127.0.0.1 leihfix.local static.local jk.local hdnews.local hdirect.local
     '';
-    firewall.enable = false;
+    firewall.enable = true;
+    nat = {
+      enable = true;
+      internalInterfaces = [ "ve-+" ];
+      externalInterface = "wlp3s0";
+    };
   };
 
   services.xserver = {
@@ -30,6 +39,11 @@
     desktopManager.gnome3.enable = true;
   };
 
-  hardware.trackpoint.emulateWheel = true;
+  hardware = {
+    trackpoint.emulateWheel = true;
+    bluetooth.enable = true;
+  };
+
+  #containers.lintox.path = "/nix/var/nix/profiles/lintox";
 
 }

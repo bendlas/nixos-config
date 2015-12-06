@@ -14,16 +14,14 @@
   chromium = {
    enablePepperFlash = true;
   };
-#  wine = {
-#    release = "staging";
-#    build = "wineWow";
-#  };
 
   packageOverrides = pkgs: rec {
     jdk = pkgs.oraclejdk8;
     jre = jdk.jre;
     postgresql = pkgs.postgresql94;
     linuxPackages = pkgs.linuxPackages_4_3;
+    gnupg = pkgs.gnupg21;
+    nmap = pkgs.nmap_graphical;
     emacs = pkgs.emacsWithPackages.override {
       emacs = pkgs.emacs.override {
         inherit (pkgs) alsaLib imagemagick acl gpm;

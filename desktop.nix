@@ -3,9 +3,9 @@
 
   environment.systemPackages = (with pkgs; [
 
-    pciutils ntfs3g wireshark xpra roxterm nodejs unetbootin
+    pciutils ntfs3g wireshark xpra roxterm nodejs unetbootin gparted
 
-    debootstrap mercurial subversion cmake rustc cargo nim ant pypy
+    debootstrap mercurial subversion cmake rustc cargo nim ant pypy pixie
     pythonPackages.ipython guile guile_lib nodePackages.grunt-cli lua
     luajit luarocks androidsdk_4_4 sdlmame racket
 
@@ -15,7 +15,7 @@
 
     firefoxWrapper deluge dosbox alsaUtils clementine gimp geoip
     idea.idea-ultimate chromium vlc inkscape steam dropbox-cli bitcoin
-    nmap_graphical unrar p7zip gitAndTools.hub bsdiff antimony blender
+    unrar p7zip gitAndTools.hub bsdiff antimony blender
     links2 texLiveFull wine winetricks qjackctl jack2Full beep radare2
     valgrind sbcl npm2nix lyx nix-generate-from-cpan paprefs pavucontrol
     pinentry
@@ -99,5 +99,7 @@
   };
 
   hardware.opengl.driSupport32Bit = true;
+
+  programs.cdemu.enable = true;
   
 }
