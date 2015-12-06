@@ -10,18 +10,9 @@ in {
     btrfsProgs dmidecode nmap git
 
     leiningen gettext jdk jdk.jre maven3 s3cmd sqlite
+    (callPackage ./git-update-channel.nix {})
 
   ]);
-
-/*  environment.sessionVariables = {
-    NIX_PATH = pkgs.lib.mkForce([
-      "nixpkgs=/etc/nixos/nixpkgs-unstable-channel"
-      "nixos=/etc/nixos/nixpkgs-unstable-channel/nixos"
-      "nixos-config=/etc/nixos/configuration.nix"
-      "/nix/var/nix/profiles/per-user/root/channels/nixos"
-      "/nix/var/nix/profiles/per-user/root/channels"
-    ]);
-  }; */
 
   ## Outsource nixpkgs.config to be shared with nix-env
   nixpkgs.config = npc;
@@ -84,11 +75,9 @@ in {
 
   nix = {
     nixPath = [
-      "nixpkgs=/etc/nixos/nixpkgs-unstable-channel"
-      "nixos=/etc/nixos/nixpkgs-unstable-channel/nixos"
+      "nixpkgs=/etc/nixos/pkgs"
+      "nixos=/etc/nixos/pkgs/nixos"
       "nixos-config=/etc/nixos/configuration.nix"
-      "/nix/var/nix/profiles/per-user/root/channels/nixos"
-      "/nix/var/nix/profiles/per-user/root/channels"
     ];
     buildCores = 4;
     extraOptions = ''
