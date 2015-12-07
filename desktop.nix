@@ -7,7 +7,7 @@
 
     debootstrap mercurial subversion cmake rustc cargo nim ant pypy pixie
     pythonPackages.ipython guile guile_lib nodePackages.grunt-cli lua
-    luajit luarocks androidsdk_4_4 sdlmame racket
+    luajit luarocks androidsdk_4_4 racket # sdlmame ## ftp.archlinux.org unavailable
 
     dmenu glxinfo liberation_ttf xlibs.xkill xlibs.xmodmap
     xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp aspell
@@ -22,7 +22,7 @@
 
     qemu_kvm qemu virtmanager
     
-  ] ++ (with haskellngPackages; [
+  ] ++ (with haskellPackages; [
     ghc cabal-install cabal2nix
   ] ++ pkgs.gnome3.corePackages ++ pkgs.gnome3.optionalPackages));
 
