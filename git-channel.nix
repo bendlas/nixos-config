@@ -1,6 +1,6 @@
-{ git, runCommand, cacert, url, rev }:
+{ git, runCommand, cacert, url, rev, name ? "channel" }:
 
-runCommand "git-channel" {
+runCommand "git-${name}" {
   dummy = builtins.currentTime;
   buildInputs = [ git ];
   GIT_SSL_CAINFO = "${cacert}/etc/ssl/certs/ca-bundle.crt";
