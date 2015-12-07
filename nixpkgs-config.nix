@@ -16,7 +16,7 @@
   };
 
   packageOverrides = let
-    pkgs-stable = import ./pkgs-stable {};
+    pkgs-stable = import ./pkgs-stable { config = {}; };
   in pkgs: rec {
     jdk = pkgs.oraclejdk8;
     jre = jdk.jre;
