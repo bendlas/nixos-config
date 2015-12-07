@@ -15,7 +15,9 @@
    enablePepperFlash = true;
   };
 
-  packageOverrides = pkgs: rec {
+  packageOverrides = let
+    pkgs-stable = import ./pkgs-stable {};
+  in pkgs: rec {
     jdk = pkgs.oraclejdk8;
     jre = jdk.jre;
     postgresql = pkgs.postgresql94;
@@ -42,5 +44,7 @@
       wineRelease = "staging";
       wineBuild = "wineWow";
     };
+    ## FIXME https://github.com/NixOS/nixpkgs/issues/11534
+    fail2ban = pkgs-stable.fail2ban;
   };
 }
