@@ -26,6 +26,10 @@ in {
       isNormalUser = true;
       uid = 1000;
     };
+    "giuls" = {
+      description = "Giuls";
+      isNormalUser = true;
+    };
   };
 
   networking = {
