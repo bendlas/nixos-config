@@ -6,7 +6,7 @@
 
   firefox = {
    enableGoogleTalkPlugin = true;
-   enableAdobeFlash = true;
+   enableAdobeFlash = false;
    enableGnomeExtensions = true;
 #  jre = true;
   };

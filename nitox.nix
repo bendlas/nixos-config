@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 { ## Outsource nixpkgs.config to be shared with nix-env
-  require = [ ./desktop.nix ./xsession.nix ./hardware-configuration.nitox.nix ];
+  require = [ ./desktop.nix ./hardware-configuration.nitox.nix ./xsession.nix ];
 
   boot = {
     loader.grub = {
@@ -29,8 +29,8 @@
   services.xserver = {
     videoDrivers = [ "nvidia" ];
     #displayManager.lightdm.enable = true;
-    displayManager.sddm.enable = true;
-    desktopManager.gnome3.enable = true;
+    #displayManager.sddm.enable = true;
+    #desktopManager.gnome3.enable = true;
   };
   
 }
