@@ -11,7 +11,7 @@
 
     dmenu glxinfo liberation_ttf xlibs.xkill xlibs.xmodmap
     xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp aspell
-    aspellDicts.en aspellDicts.de dunst libnotify
+    aspellDicts.en aspellDicts.de dunst libnotify google-musicmanager
 
     firefoxWrapper deluge dosbox alsaUtils clementine gimp geoip
     idea.idea-ultimate chromium vlc inkscape steam dropbox-cli bitcoin
