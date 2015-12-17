@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 { ## Outsource nixpkgs.config to be shared with nix-env
-  require = [ ./desktop.nix ./xsession.nix ./hardware-configuration.lenix.nix ];
+  require = [ ./desktop.nix ./hardware-configuration.lenix.nix ./xsession.nix ];
 
   environment.systemPackages = (with pkgs; [
     bluez5
@@ -29,14 +29,15 @@
     };
   };
 
-  services.xserver = {
-    videoDrivers = [ "intel" ];
-    synaptics = {
-        enable = true;
-        twoFingerScroll = true;
+  services = {
+    xserver = {
+      videoDrivers = [ "intel" ];
+      synaptics = {
+          enable = true;
+          twoFingerScroll = true;
+      };
     };
-    displayManager.sddm.enable = true;
-    desktopManager.gnome3.enable = true;
+    printing.enable = true;
   };
 
   hardware = {

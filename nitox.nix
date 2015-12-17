@@ -28,9 +28,6 @@
 
   services.xserver = {
     videoDrivers = [ "nvidia" ];
-    #displayManager.lightdm.enable = true;
-    #displayManager.sddm.enable = true;
-    #desktopManager.gnome3.enable = true;
   };
   
 }

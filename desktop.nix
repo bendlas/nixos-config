@@ -75,15 +75,8 @@
       exportConfiguration = true;
       layout = "us";
       xkbOptions = "eurosign:e";
-      #displayManager.slim.enable = true;
-      #displayManager.lightdm.enable = true;
       displayManager.gdm.enable = true;
       desktopManager.gnome3.enable = true;
-      #desktopManager.e19.enable = true;
-#      windowManager = {
-#        stumpwm.enable = true;
-#        exwm.enable = true;
-#      };
     };
     upower.enable = true;
   };
