@@ -8,7 +8,7 @@ in {
     bind hdparm pmutils iotop rlwrap traceroute emacs which nix-repl
     iptables telnet reptyr tree multipath_tools lm_sensors ent davfs2
     btrfsProgs dmidecode nmap git gnupg1compat vde2 gradle gnumake
-    socat
+    socat libressl
 
     leiningen gettext jdk jdk.jre maven3 s3cmd sqlite python
     (callPackage ./git-update-channel.nix {})
@@ -17,6 +17,8 @@ in {
 
   ## Outsource nixpkgs.config to be shared with nix-env
   nixpkgs.config = npc;
+  ## TODO replace with full config include
+  system.copySystemConfiguration = true;
 
   users.extraUsers = {
     "herwig" = {

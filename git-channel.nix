@@ -11,5 +11,6 @@ runCommand "git-${name}" {
   echo git fetch --depth=1 "${url}" "${rev}"
   git fetch --depth=1 "${url}" "${rev}"
   git checkout FETCH_HEAD
+  echo -n "-pre-$(git rev-parse FETCH_HEAD | head -c 16)" > .version-suffix
   rm -r .git
 ''
