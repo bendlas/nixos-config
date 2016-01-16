@@ -8,51 +8,34 @@
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "sd_mod" "sdhci_pci" ];
+  boot.initrd.availableKernelModules = [ "ahci" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/sda6";
+    { device = "/dev/disk/by-uuid/1abf791d-f96a-4882-bc13-9c5fdb80bf91";
       fsType = "btrfs";
-      options = "subvol=subvolumes/sysroot";
     };
 
   fileSystems."/home" =
-    { device = "/dev/sda6";
-      fsType = "btrfs";
-      options = "subvol=subvolumes/home";
+    { device = "/dev/disk/by-uuid/405695fb-b0b1-4b73-85c1-c1db8a2a9e89";
+      fsType = "ext4";
     };
 
-  fileSystems."/var" =
-    { device = "/dev/sda6";
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/802fb342-e7ea-4f73-a38b-4a05ca1a5f6b";
       fsType = "btrfs";
-      options = "subvol=subvolumes/var";
-    };
-
-  fileSystems."/nix/store" =
-    { device = "/dev/sda6";
-      fsType = "btrfs";
-      options = "subvol=subvolumes/store";
     };
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/F8BB-5A15";
       fsType = "vfat";
     };
-
   fileSystems."/tmp" =
     { device = "temp";
       fsType = "tmpfs";
       options = "size=16g,mode=1777";
     };
-
-  fileSystems."/etc/nixos" =
-    { device = "/dev/sda6";
-      fsType = "btrfs";
-      options = "subvol=subvolumes/etc-nixos";
-    };
-
   swapDevices =
     [ { device = "/dev/disk/by-uuid/6567b6fd-c570-412e-8f53-b6ba1733640c"; }
     ];

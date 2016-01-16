@@ -37,7 +37,10 @@
           twoFingerScroll = true;
       };
     };
-    printing.enable = true;
+    printing = {
+      enable = true;
+      drivers = [ pkgs.splix ];
+    };
   };
 
   hardware = {

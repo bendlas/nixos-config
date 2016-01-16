@@ -33,6 +33,7 @@ in {
       isNormalUser = true;
     };
   };
+  users.extraGroups = { nobody = {}; };
 
   networking = {
     connman.enable = true;

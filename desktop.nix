@@ -76,6 +76,7 @@
       layout = "us";
       xkbOptions = "eurosign:e";
       displayManager.gdm.enable = true;
+      #displayManager.sddm.enable = true;
       desktopManager.gnome3.enable = true;
     };
     upower.enable = true;

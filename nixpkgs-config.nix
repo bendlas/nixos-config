@@ -15,10 +15,19 @@
    enablePepperFlash = true;
   };
 
+  wine = {
+    release = "staging";
+    build = "wineWow";
+  };
+
+  splix.unstable = true;
+
   packageOverrides = let
     pkgs-stable = import ./pkgs-stable { config = {}; };
   in pkgs: rec {
-    jdk = pkgs.oraclejdk8;
+    jdk = pkgs.oraclejdk8.override {
+      installjce = true;
+    };
     jre = jdk.jre;
     postgresql = pkgs.postgresql94;
     linuxPackages = pkgs.linuxPackages_4_3;
@@ -40,11 +49,6 @@
       ## broken
       # enableNaCl = true;
     };
-    wine = pkgs.wine.override {
-      wineRelease = "staging";
-      wineBuild = "wineWow";
-    };
-    ## FIXME https://github.com/NixOS/nixpkgs/issues/11534
     fail2ban = pkgs-stable.fail2ban;
   };
 }
