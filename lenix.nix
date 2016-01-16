@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 { ## Outsource nixpkgs.config to be shared with nix-env
-  require = [ ./desktop.nix ./hardware-configuration.lenix.nix ./xsession.nix ];
+  require = [ ./desktop.nix ./hardware-configuration.lenix.nix ./xsession.nix ./dev.nix ];
 
   environment.systemPackages = (with pkgs; [
     bluez5
@@ -18,15 +18,7 @@
   networking = rec {
     hostName = "lenix";
     hostId = "f26c47cd";
-    extraHosts = ''
-      127.0.0.1 leihfix.local static.local jk.local hdnews.local hdirect.local
-    '';
-    firewall.enable = true;
-    nat = {
-      enable = true;
-      internalInterfaces = [ "ve-+" ];
-      externalInterface = "wlp3s0";
-    };
+    nat.externalInterface = "wlp3s0";
   };
 
   services = {
