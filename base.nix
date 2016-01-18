@@ -31,6 +31,7 @@ in {
     "giuls" = {
       description = "Giuls";
       isNormalUser = true;
+      uid = 1001;
     };
   };
   users.extraGroups = { nobody = {}; };
