@@ -18,7 +18,7 @@
     unrar p7zip gitAndTools.hub bsdiff antimony blender
     links2 texLiveFull wine winetricks qjackctl jack2Full beep radare2
     valgrind sbcl npm2nix lyx nix-generate-from-cpan paprefs pavucontrol
-    pinentry pgadmin
+    pinentry pgadmin audacity dos2unix
 
     qemu_kvm qemu virtmanager
     
