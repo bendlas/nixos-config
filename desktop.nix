@@ -6,7 +6,7 @@
     pciutils ntfs3g wireshark xpra roxterm nodejs unetbootin gparted
 
     debootstrap mercurial subversion cmake rustc cargo nim ant pypy pixie
-    pythonPackages.ipython guile guile_lib nodePackages.grunt-cli lua
+    pythonPackages.ipython guile guile_lib nodePackages.grunt-cli lua go mono
     luajit luarocks androidsdk_4_4 racket # sdlmame ## ftp.archlinux.org unavailable
 
     dmenu glxinfo liberation_ttf xlibs.xkill xlibs.xmodmap
@@ -19,6 +19,7 @@
     links2 texLiveFull wine winetricks qjackctl jack2Full beep radare2
     valgrind sbcl npm2nix lyx nix-generate-from-cpan paprefs pavucontrol
     pinentry pgadmin audacity dos2unix
+    google-musicmanager teamspeak_client
 
     qemu_kvm qemu virtmanager
     
