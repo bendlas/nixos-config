@@ -31,17 +31,9 @@
     linuxPackages = pkgs.linuxPackages_4_4;
     gnupg = pkgs.gnupg21;
     nmap = pkgs.nmap_graphical;
-    emacs = let
-      customEmacsPackages = pkgs.emacsPackagesNg.override (super: self: {
-        emacs = pkgs.emacs.override {
-          inherit (pkgs) alsaLib imagemagick acl gpm;
-          inherit (pkgs.gnome3) gconf;
-          withGTK3 = true; withGTK2 = false;
-        };
-      });
-    in customEmacsPackages.emacsWithPackages (epkgs: [
-      pkgs.ghostscript pkgs.aspell
-    ]);
+    emacs = pkgs.callPackage ./emacs.nix {
+      emacs = pkgs.emacs25pre;
+    };
     chromium = pkgs.chromium.override {
       enablePepperFlash = true;
       pulseSupport = true;

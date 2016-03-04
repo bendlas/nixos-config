@@ -5,7 +5,7 @@
 
     pciutils ntfs3g wireshark xpra roxterm nodejs unetbootin gparted
 
-    debootstrap mercurial subversion cmake rustc cargo nim ant pixie pypy # go
+    debootstrap mercurial subversion cmake rustc cargo nim ant pypy dust # pixie # go
     pythonPackages.ipython guile guile_lib nodePackages.grunt-cli lua mono
     luajit luarocks androidsdk_4_4 racket # sdlmame ## ftp.archlinux.org unavailable
 

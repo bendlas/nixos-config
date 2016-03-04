@@ -29,21 +29,11 @@
       options = "size=1G";
     };
 
-  fileSystems."/mnt/sda7" =
-    { device = "/dev/disk/by-uuid/ed75da71-565e-4d1d-a4be-d0871d7fbbe1";
-      fsType = "ext4";
-    };
-
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/bf4791ad-62c0-481d-bc8c-a800ad9cf8f8";
       fsType = "ext4";
     };
-
-  fileSystems."/mnt/sda8" =
-    { device = "/dev/disk/by-uuid/5f9d6310-3aa4-4376-9a7d-78a086c7db28";
-      fsType = "ext4";
-    };
-
+    
   swapDevices =
     [ { device = "/dev/disk/by-uuid/58a029ec-27e3-49cd-9ec1-2452ede1cec5"; }
       { device = "/dev/disk/by-uuid/c4bd389b-dd2d-4777-a2f3-d55bbe000566"; }
