@@ -6,7 +6,11 @@ let emacsPackages = emacsPackagesNgGen (emacs.override {
   withGTK3 = true; withGTK2 = false;
 }); in
 
-emacsPackages.emacsWithPackages ( epkgs: with epkgs; [
+emacsPackages.emacsWithPackages ( epkgs: with (
+       epkgs.melpaPackages
+    // epkgs.elpaPackages
+    // epkgs.melpaStablePackages
+  ); [
 
   cider clj-refactor cljsbuild-mode clojars clojure-mode
   cyberpunk-theme gh gitignore-mode groovy-mode haskell-mode htmlize
