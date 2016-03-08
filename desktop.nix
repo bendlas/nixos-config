@@ -5,9 +5,9 @@
 
     pciutils ntfs3g wireshark xpra roxterm nodejs unetbootin gparted
 
-    debootstrap mercurial subversion cmake rustc cargo nim ant pypy dust # pixie # go
+    debootstrap mercurial subversion cmake rustc cargo nim ant pypy dust go
     pythonPackages.ipython guile guile_lib nodePackages.grunt-cli lua mono
-    luajit luarocks androidsdk_4_4 racket # sdlmame ## ftp.archlinux.org unavailable
+    luajit luarocks androidsdk_4_4 racket
 
     dmenu glxinfo liberation_ttf xlibs.xkill xlibs.xmodmap
     xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp aspell
@@ -15,13 +15,13 @@
 
     firefoxWrapper deluge dosbox alsaUtils clementine gimp geoip
     idea.idea-ultimate chromium vlc inkscape steam dropbox-cli bitcoin
-    unrar p7zip bsdiff antimony blender # gitAndTools.hub
+    unrar p7zip bsdiff blender gitAndTools.hub # antimony
     links2 texLiveFull wine winetricks qjackctl jack2Full beep radare2
     valgrind sbcl npm2nix lyx nix-generate-from-cpan paprefs pavucontrol
     pinentry pgadmin audacity dos2unix
     google-musicmanager teamspeak_client
 
-    qemu_kvm qemu virtmanager
+    qemu_kvm qemu # virtmanager
     
   ] ++ (with haskellPackages; [
     ghc cabal-install cabal2nix
@@ -89,7 +89,8 @@
   };
 
   virtualisation = {
-    libvirtd.enable = true;
+    ## xen build is broken
+    libvirtd.enable = false;
     virtualbox.host.enable = true;
   };
 
