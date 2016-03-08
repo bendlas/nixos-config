@@ -31,9 +31,7 @@
     linuxPackages = pkgs.linuxPackages_4_4;
     gnupg = pkgs.gnupg21;
     nmap = pkgs.nmap_graphical;
-    emacs = pkgs.callPackage ./emacs.nix {
-      emacs = pkgs.emacs25pre;
-    };
+    inherit (pkgs.callPackage ./emacs.nix { }) emacsPackages emacs;
     chromium = pkgs.chromium.override {
       enablePepperFlash = true;
       pulseSupport = true;
