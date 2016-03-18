@@ -23,9 +23,9 @@
 
     qemu_kvm qemu # virtmanager
     
-  ] ++ (with haskellPackages; [
-    ghc cabal-install cabal2nix
-  ] ++ pkgs.gnome3.corePackages ++ pkgs.gnome3.optionalPackages));
+#  ] ++ (with haskellPackages; [
+#    ghc cabal-install cabal2nix
+  ] ++ pkgs.gnome3.corePackages ++ pkgs.gnome3.optionalPackages);
 
   users = {
     extraUsers."herwig".extraGroups = [
