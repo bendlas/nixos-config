@@ -28,7 +28,6 @@
     };
     jre = jdk.jre;
     postgresql = pkgs.postgresql95;
-    linuxPackages = pkgs.linuxPackages_4_4;
     gnupg = pkgs.gnupg21;
     nmap = pkgs.nmap_graphical;
     inherit (pkgs.callPackage ./emacs.nix { }) emacsPackages emacs;
@@ -37,6 +36,12 @@
       pulseSupport = true;
       ## broken
       # enableNaCl = true;
+    };
+    linuxPackages = pkgs.linuxPackages_4_5;
+    stdenv = pkgs.stdenv // {
+      platform = pkgs.stdenv.platform // {
+        kernelExtraConfig = "CONFIG_CHECKPOINT_RESTORE y";
+      };
     };
   };
 }
