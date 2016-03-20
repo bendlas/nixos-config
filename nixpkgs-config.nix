@@ -40,7 +40,11 @@
     linuxPackages = pkgs.linuxPackages_4_5;
     stdenv = pkgs.stdenv // {
       platform = pkgs.stdenv.platform // {
-        kernelExtraConfig = "CONFIG_CHECKPOINT_RESTORE y";
+        kernelExtraConfig = ''
+          EXPERT y
+          CHECKPOINT_RESTORE y
+          RFKILL_INPUT y
+        '';
       };
     };
   };
