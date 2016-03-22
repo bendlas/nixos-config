@@ -3,6 +3,8 @@
 
   environment.systemPackages = (with pkgs; [
 
+    abiword gnumeric thunderbird skype
+
     pciutils ntfs3g wireshark xpra roxterm nodejs unetbootin gparted
 
     debootstrap mercurial subversion cmake rustc cargo nim ant pypy dust go
