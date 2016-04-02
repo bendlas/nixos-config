@@ -7,7 +7,7 @@
 
     pciutils ntfs3g wireshark xpra roxterm nodejs unetbootin gparted
 
-    debootstrap mercurial subversion cmake rustc cargo nim ant pypy dust go
+    debootstrap mercurial subversion cmake rustc cargo nim ant go # pypy dust
     pythonPackages.ipython guile guile_lib nodePackages.grunt-cli lua mono
     luajit luarocks androidsdk_4_4 racket
 
@@ -18,7 +18,7 @@
     firefoxWrapper deluge dosbox alsaUtils clementine gimp geoip
     idea.idea-ultimate chromium vlc inkscape steam dropbox-cli bitcoin
     unrar p7zip bsdiff blender gitAndTools.hub # antimony
-    links2 texLiveFull wine winetricks qjackctl jack2Full beep radare2
+    links2 texLiveFull qjackctl jack2Full beep # radare2 wine winetricks
     valgrind sbcl npm2nix lyx nix-generate-from-cpan paprefs pavucontrol
     pinentry pgadmin audacity dos2unix
     google-musicmanager teamspeak_client
@@ -93,7 +93,7 @@
   virtualisation = {
     ## xen build is broken
     libvirtd.enable = false;
-    virtualbox.host.enable = true;
+    virtualbox.host.enable = false;
   };
 
   hardware.opengl.driSupport32Bit = true;
