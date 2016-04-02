@@ -1,8 +1,8 @@
-{ emacs25pre, emacsPackagesNgGen, pkgs }:
+{ emacs24, emacsPackagesNgGen, pkgs }:
 
 let
 
-  emacsPackages = emacsPackagesNgGen (emacs25pre.override {
+  emacsPackages = emacsPackagesNgGen (emacs24.override {
     inherit (pkgs) alsaLib imagemagick acl gpm;
     inherit (pkgs.gnome3) gconf;
     withGTK3 = true; withGTK2 = false;
