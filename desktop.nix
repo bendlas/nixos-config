@@ -3,7 +3,7 @@
 
   environment.systemPackages = (with pkgs; [
 
-    abiword gnumeric thunderbird skype
+    abiword gnumeric thunderbird # skype
 
     pciutils ntfs3g wireshark xpra roxterm nodejs unetbootin gparted
 
