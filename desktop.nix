@@ -18,7 +18,7 @@
     firefoxWrapper deluge dosbox alsaUtils clementine gimp geoip
     idea.idea-ultimate chromium vlc inkscape steam dropbox-cli bitcoin
     unrar p7zip bsdiff blender gitAndTools.hub # antimony
-    links2 texLiveFull qjackctl jack2Full beep # radare2 wine winetricks
+    links2 texLiveFull qjackctl jack2Full beep wine winetricks # radare2
     valgrind sbcl npm2nix lyx nix-generate-from-cpan paprefs pavucontrol
     pinentry pgadmin audacity dos2unix
     google-musicmanager teamspeak_client
