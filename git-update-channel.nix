@@ -17,7 +17,7 @@ writeScriptBin "update-git-channel" ''
     echo "Updating '$TARGET' to '$REV'"
   fi
 
-  ${nix}/bin/nix-build \
+  ${nix.out}/bin/nix-build \
     -E "with import <nixpkgs> {}; callPackage ${./git-channel.nix} { url = \"https://github.com/bendlas/nixpkgs.git\"; rev = \"$REV\"; name = \"$REV-$CHAN-channel\"; }" \
     --out-link "$TARGET"
 ''
