@@ -11,19 +11,28 @@
     pythonPackages.ipython guile guile_lib nodePackages.grunt-cli lua mono
     luajit luarocks androidsdk_4_4 racket
 
-    dmenu glxinfo liberation_ttf xlibs.xkill xlibs.xmodmap
+    dmenu glxinfo liberation_ttf xlibs.xkill
     xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp aspell
     aspellDicts.en aspellDicts.de dunst libnotify
 
-    firefoxWrapper deluge dosbox alsaUtils clementine gimp geoip
+    firefox deluge dosbox alsaUtils clementine gimp geoip
     idea.idea-ultimate chromium vlc inkscape steam dropbox-cli bitcoin
     unrar p7zip bsdiff blender gitAndTools.hub # antimony
-    links2 texLiveFull qjackctl jack2Full beep wine winetricks # radare2
+    links2 qjackctl jack2Full beep wine winetricks # radare2 texLiveFull
     valgrind sbcl npm2nix lyx nix-generate-from-cpan paprefs pavucontrol
-    pinentry pgadmin audacity dos2unix
+    pinentry dos2unix # audacity pgadmin
     google-musicmanager teamspeak_client
 
+    thunderbird 
+
     qemu_kvm qemu # virtmanager
+
+    (texlive.combine {
+      inherit (texlive) scheme-small koma-script mathpazo
+                        booktabs pdfpages hyperref; # g-brief numprint unravel xstring -- sha-mismatch??
+    })
+
+    dwarf-fortress dwarf-therapist dwarf-fortress-packages.phoebus-theme
     
 #  ] ++ (with haskellPackages; [
 #    ghc cabal-install cabal2nix
