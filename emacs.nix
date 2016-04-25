@@ -10,9 +10,7 @@ let
 
   emacs = emacsPackages.emacsWithPackages (epkgs: with epkgs; [
 
-    melpaPackages.cider
-
-    clj-refactor cljsbuild-mode clojars clojure-mode
+    clj-refactor cljsbuild-mode clojars clojure-mode cider
     cyberpunk-theme gh gitignore-mode groovy-mode haskell-mode htmlize
     ibuffer-tramp ido-ubiquitous ido-completing-read-plus idris-mode
     igrep javap-mode ninja-mode igrep geiser commenter js2-mode
