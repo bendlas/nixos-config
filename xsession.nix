@@ -98,11 +98,15 @@ in {
     };
   };
   environment = {
-    variables.GIO_EXTRA_MODULES = [
-      "${gnome3.dconf}/lib/gio/modules"
-      "${gnome3.glib_networking}/lib/gio/modules"
-      "${gnome3.gvfs}/lib/gio/modules"
-    ];
+    variables = {
+      GIO_EXTRA_MODULES = [
+        "${gnome3.dconf}/lib/gio/modules"
+        "${gnome3.glib_networking}/lib/gio/modules"
+        "${gnome3.gvfs}/lib/gio/modules"
+      ];
+      # mouse wheel in gnome apps
+      GDK_CORE_DEVICE_EVENTS = "1";
+    };
     systemPackages = gnome3.corePackages ++ gnome3.optionalPackages;
     pathsToLink = [ "/share" ];
   };
