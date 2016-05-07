@@ -3,11 +3,11 @@
 
   environment.systemPackages = (with pkgs; [
 
-    abiword gnumeric thunderbird # skype
+    abiword gnumeric thunderbird skype
 
     pciutils ntfs3g wireshark xpra roxterm nodejs unetbootin gparted
 
-    debootstrap mercurial subversion cmake rustc cargo nim ant go # pypy dust
+    debootstrap mercurial subversion cmake rustc cargo nim ant go pypy dust
     pythonPackages.ipython guile guile_lib nodePackages.grunt-cli lua mono
     luajit luarocks androidsdk_4_4 racket
 
@@ -18,21 +18,21 @@
     firefox deluge dosbox alsaUtils clementine gimp geoip
     idea.idea-ultimate chromium vlc inkscape steam dropbox-cli bitcoin
     unrar p7zip bsdiff blender gitAndTools.hub # antimony
-    links2 qjackctl jack2Full beep wine winetricks # radare2 texLiveFull
+    links2 qjackctl jack2Full beep wine winetricks # radare2
     valgrind sbcl npm2nix lyx nix-generate-from-cpan paprefs pavucontrol
-    pinentry dos2unix # audacity pgadmin
+    pinentry dos2unix audacity pgadmin
     google-musicmanager teamspeak_client
 
     thunderbird 
 
-    qemu_kvm qemu # virtmanager
+    qemu_kvm qemu virtmanager
 
     (texlive.combine {
       inherit (texlive) scheme-small koma-script mathpazo
                         booktabs pdfpages hyperref; # g-brief numprint unravel xstring -- sha-mismatch??
     })
 
-    dwarf-fortress dwarf-therapist dwarf-fortress-packages.phoebus-theme
+    # dwarf-fortress dwarf-therapist dwarf-fortress-packages.phoebus-theme
     
 #  ] ++ (with haskellPackages; [
 #    ghc cabal-install cabal2nix
