@@ -23,10 +23,6 @@
   splix.unstable = true;
 
   packageOverrides = pkgs: rec {
-    jdk = pkgs.oraclejdk8.override {
-      installjce = true;
-    };
-    jre = jdk.jre;
     postgresql = pkgs.postgresql95;
     gnupg = pkgs.gnupg21;
     nmap = pkgs.nmap_graphical;
