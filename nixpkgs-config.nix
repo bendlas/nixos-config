@@ -33,6 +33,7 @@
       ## broken
       # enableNaCl = true;
     };
+    wine = pkgs.wineFull;
     linuxPackages = pkgs.linuxPackages_4_5;
     stdenv = pkgs.stdenv // {
       platform = pkgs.stdenv.platform // {
