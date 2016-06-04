@@ -9,7 +9,7 @@
 
   boot = {
     loader = {
-      gummiboot.enable = true;
+      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
     kernelParams = [ "resume=UUID=6567b6fd-c570-412e-8f53-b6ba1733640c" ];
