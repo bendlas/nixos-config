@@ -92,6 +92,9 @@
       desktopManager.gnome3.enable = true;
     };
     upower.enable = true;
+    dbus.packages = with pkgs; [
+      miraclecast
+    ];
   };
 
   hardware.pulseaudio = {
