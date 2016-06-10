@@ -28,8 +28,11 @@
     qemu_kvm qemu virtmanager
 
     (texlive.combine {
-      inherit (texlive) scheme-small koma-script mathpazo
-                        booktabs pdfpages hyperref; # g-brief numprint unravel xstring -- sha-mismatch??
+      inherit (texlive) scheme-medium koma-script mathpazo
+                        booktabs pdfpages hyperref g-brief xstring numprint unravel
+                        collection-latex collection-latexextra collection-latexrecommended
+                        collection-fontsrecommended
+                        ; # g-brief numprint unravel xstring -- sha-mismatch??
     })
 
     # dwarf-fortress dwarf-therapist dwarf-fortress-packages.phoebus-theme
