@@ -3,7 +3,7 @@
 {
   networking = {
     extraHosts = ''
-      127.0.0.1 leihfix.local static.local jk.local hdnews.local hdirect.local
+      127.0.0.1 leihfix.local static.local jk.local hdnews.local hdirect.local stats.local
     '';
     firewall = {
       enable = true;
