@@ -1,6 +1,7 @@
 {
   nix.trustedBinaryCaches = [ "http://nixos.org/binary-cache" "http://cache.nixos.org" ];
   allowUnfree = true;
+  allowBroken = false;
     
   virtualbox.enableExtensionPack = true;
 
@@ -19,8 +20,6 @@
     release = "staging";
     build = "wineWow";
   };
-
-  splix.unstable = true;
 
   packageOverrides = pkgs: rec {
     postgresql = pkgs.postgresql95;
