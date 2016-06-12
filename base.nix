@@ -8,7 +8,7 @@ in {
     bind hdparm pmutils iotop rlwrap traceroute emacs which nix-repl
     iptables telnet reptyr tree multipath_tools lm_sensors ent davfs2
     btrfsProgs dmidecode nmap gitFull gnupg1compat vde2 gradle gnumake
-    socat libressl diffoscope vim patchelf gcc clisp
+    socat libressl diffoscope vim patchelf gcc clisp parted
 
     boot leiningen gettext jdk jdk.jre maven3 s3cmd sqlite python criu
     (callPackage ./git-update-channel.nix {})
