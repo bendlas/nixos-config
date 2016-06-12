@@ -20,13 +20,13 @@
   fileSystems."/tmp" =
     { device = "tmp";
       fsType = "tmpfs";
-      options = "size=16G";
+      options = [ "size=16G" "mode=1777" ];
     };
 
   fileSystems."/var/tmp" =
     { device = "vartmp";
       fsType = "tmpfs";
-      options = "size=1G";
+      options = [ "size=1G" "mode=1777" ];
     };
 
   fileSystems."/boot" =

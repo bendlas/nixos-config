@@ -15,25 +15,25 @@
   fileSystems."/" =
     { device = "/dev/sda6";
       fsType = "btrfs";
-      options = "subvol=subvolumes/sysroot";
+      options = [ "subvol=subvolumes/sysroot" ];
     };
 
   fileSystems."/home" =
     { device = "/dev/sda6";
       fsType = "btrfs";
-      options = "subvol=subvolumes/home";
+      options = [ "subvol=subvolumes/home" ];
     };
 
   fileSystems."/var" =
     { device = "/dev/sda6";
       fsType = "btrfs";
-      options = "subvol=subvolumes/var";
+      options = [ "subvol=subvolumes/var" ];
     };
 
   fileSystems."/nix/store" =
     { device = "/dev/sda6";
       fsType = "btrfs";
-      options = "subvol=subvolumes/store";
+      options = [ "subvol=subvolumes/store" ];
     };
 
   fileSystems."/boot" =
@@ -44,13 +44,19 @@
   fileSystems."/tmp" =
     { device = "temp";
       fsType = "tmpfs";
-      options = "size=16g,mode=1777";
+      options = [ "size=16G" "mode=1777" ];
+    };
+
+  fileSystems."/var/tmp" =
+    { device = "vartmp";
+      fsType = "tmpfs";
+      options = [ "size=1G" "mode=1777" ];
     };
 
   fileSystems."/etc/nixos" =
     { device = "/dev/sda6";
       fsType = "btrfs";
-      options = "subvol=subvolumes/etc-nixos";
+      options = [ "subvol=subvolumes/etc-nixos" ];
     };
 
   swapDevices =
