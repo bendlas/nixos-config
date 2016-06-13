@@ -1,12 +1,15 @@
-{ emacs24, emacsPackagesNgGen, pkgs }:
+{ emacs24, emacs24PackagesNg, pkgs }:
 
 let
 
-  emacsPackages = emacsPackagesNgGen (emacs24.override {
-    inherit (pkgs) alsaLib imagemagick acl gpm;
-    inherit (pkgs.gnome3) gconf;
-    withGTK3 = true; withGTK2 = false;
+  emacsPackages = emacs24PackagesNg.override (super: self: {
+    emacs = emacs24.override {
+      inherit (pkgs) alsaLib imagemagick acl gpm;
+      inherit (pkgs.gnome3) gconf;
+      withGTK3 = true; withGTK2 = false;
+    };
   });
+
 
   emacs = emacsPackages.emacsWithPackages (epkgs: with epkgs; [
 
