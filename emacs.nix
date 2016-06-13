@@ -22,7 +22,7 @@ let
     paredit nim-mode mmm-mode markdown-mode magit-gh-pulls macrostep
     levenshtein php-mode rainbow-delimiters skewer-mode skewer-less
     skewer-reload-stylesheets slamhound slime smex undo-tree wanderlust
-    yasnippet magit with-editor string-edit keyfreq
+    yasnippet magit with-editor string-edit keyfreq scala-mode # ensime
 
     pkgs.ghostscript pkgs.aspell
 
