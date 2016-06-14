@@ -23,10 +23,11 @@
     pinentry dos2unix audacity pgadmin
     google-musicmanager teamspeak_client
 
-    thunderbird 
+    thunderbird stalin ffmpeg ipfs
 
     qemu_kvm qemu virtmanager
 
+    (sbt.override { jre = jdk7.jre; })
     (texlive.combine {
       inherit (texlive) scheme-medium koma-script mathpazo
                         booktabs pdfpages hyperref g-brief xstring numprint unravel
