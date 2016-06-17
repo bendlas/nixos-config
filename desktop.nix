@@ -23,7 +23,7 @@
     pinentry dos2unix audacity pgadmin
     google-musicmanager teamspeak_client
 
-    thunderbird stalin ffmpeg ipfs
+    thunderbird ffmpeg # stalin ipfs
 
     qemu_kvm qemu virtmanager
 
