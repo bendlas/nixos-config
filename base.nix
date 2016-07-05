@@ -10,7 +10,7 @@ in {
     btrfsProgs dmidecode nmap gitFull gnupg1compat vde2 gradle gnumake
     socat libressl diffoscope vim patchelf gcc clisp parted
 
-    boot leiningen gettext jdk jdk.jre maven3 s3cmd sqlite python criu
+    boot leiningen gettext jdk jdk.jre maven3 s3cmd sqlite python criu mkpasswd
     (callPackage ./git-update-channel.nix {})
 
   ]);
