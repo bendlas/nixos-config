@@ -23,6 +23,7 @@ let
     levenshtein php-mode rainbow-delimiters skewer-mode skewer-less
     skewer-reload-stylesheets slamhound slime smex undo-tree wanderlust
     yasnippet magit with-editor string-edit keyfreq scala-mode # ensime
+    uuidgen
 
     pkgs.ghostscript pkgs.aspell
 

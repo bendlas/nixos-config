@@ -25,6 +25,8 @@
 
     thunderbird ffmpeg sauerbraten # stalin ipfs
 
+    nixui gnome3.cheese youtube-dl
+
     qemu_kvm qemu virtmanager
 
     (sbt.override { jre = jdk7.jre; })
