@@ -33,7 +33,10 @@
       # enableNaCl = true;
     };
     wine = pkgs.wineFull;
-    linuxPackages = pkgs.linuxPackages_4_6;
+    linuxPackages = pkgs.linuxPackages_4_7;
+    pixie = pkgs.pixie.override {
+      buildWithPypy = true;
+    };
     stdenv = pkgs.stdenv // {
       platform = pkgs.stdenv.platform // {
         kernelExtraConfig = ''

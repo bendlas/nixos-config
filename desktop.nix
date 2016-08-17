@@ -25,7 +25,7 @@
 
     thunderbird ffmpeg sauerbraten # stalin ipfs
 
-    nixui gnome3.cheese youtube-dl
+    nixui gnome3.cheese youtube-dl imagemagick
 
     qemu_kvm qemu virtmanager
 
