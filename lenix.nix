@@ -24,6 +24,7 @@
   services = {
     xserver = {
       videoDrivers = [ "intel" ];
+      libinput.enable = false;
       synaptics = {
           enable = true;
           twoFingerScroll = true;
@@ -39,6 +40,8 @@
     trackpoint.emulateWheel = true;
     bluetooth.enable = true;
   };
+
+  #  boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
 
   #containers.lintox.path = "/nix/var/nix/profiles/lintox";
 
