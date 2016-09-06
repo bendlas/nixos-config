@@ -14,7 +14,7 @@ let
   emacs = emacsPackages.emacsWithPackages (epkgs: with epkgs; [
 
     clj-refactor cljsbuild-mode clojars clojure-mode cider
-    cyberpunk-theme gh gitignore-mode groovy-mode haskell-mode htmlize
+    cyberpunk-theme gh gitignore-mode groovy-mode haskell-mode # htmlize
     ibuffer-tramp ido-ubiquitous ido-completing-read-plus idris-mode
     igrep javap-mode ninja-mode igrep geiser commenter js2-mode
     js2-highlight-vars js2-refactor js2-closure json-mode json-reformat
