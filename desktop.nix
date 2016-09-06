@@ -77,6 +77,13 @@
   require = [ ./base.nix ];
   services = {
     i2p.enable = true;
+    tor = {
+      enable = true;
+      client.enable = true;
+      relay.enable = true;
+      relay.isBridge = true;
+      relay.portSpec = "80";
+    };
     postgresql.authentication = pkgs.lib.mkForce ''
       local all all                trust
       host  all all 127.0.0.1/32   trust
