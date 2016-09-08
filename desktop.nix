@@ -16,7 +16,7 @@
     aspellDicts.en aspellDicts.de dunst libnotify
 
     firefox deluge dosbox alsaUtils clementine gimp geoip
-    idea.idea-ultimate chromium vlc inkscape steam dropbox-cli bitcoin
+    idea.idea-community chromium vlc inkscape steam dropbox-cli bitcoin
     unrar p7zip bsdiff blender gitAndTools.hub # antimony
     links2 qjackctl jack2Full beep wine winetricks # radare2
     valgrind sbcl npm2nix lyx nix-generate-from-cpan paprefs pavucontrol
