@@ -7,7 +7,7 @@
     '';
     firewall = {
       enable = true;
-      # allowedTCPPorts = [ 22 80 443 3449 8000 8080 8020 8023 ];
+      allowedTCPPorts = [ 22 8023 ]; # 80 443 3449 8000 8080 8020 
     };
     nat = {
       enable = true;
