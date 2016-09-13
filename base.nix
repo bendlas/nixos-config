@@ -33,7 +33,10 @@ in {
   users.extraGroups = { nobody = {}; };
 
   networking = {
-    connman.enable = true;
+    connman = {
+      enable = true;
+      extraFlags = [ "--nodnsproxy" ];
+    };
     extraHosts = ''
       127.0.0.1 ${config.networking.hostName}
       ::1 ${config.networking.hostName}
