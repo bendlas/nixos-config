@@ -9,7 +9,7 @@
 
     debootstrap mercurial subversion cmake rustc cargo nim ant go pypy dust
     pythonPackages.ipython guile guile_lib nodePackages.grunt-cli lua mono
-    luajit luarocks androidsdk_4_4 racket
+    luajit luarocks racket
 
     dmenu glxinfo liberation_ttf xlibs.xkill
     xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp aspell
@@ -37,6 +37,7 @@
                         collection-fontsrecommended
                         ; # g-brief numprint unravel xstring -- sha-mismatch??
     })
+    androidenv.androidsdk_7_0_extras
 
     # dwarf-fortress dwarf-therapist dwarf-fortress-packages.phoebus-theme
     
