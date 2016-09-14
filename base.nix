@@ -72,6 +72,7 @@ in {
       package = pkgs.postgresql;
       enableTCPIP = true;
     };
+    resolved.enable = true;
   };
 
   security.sudo.wheelNeedsPassword = false;
