@@ -26,7 +26,7 @@ let
        [org.gnome.desktop.screensaver]
        picture-uri='${pkgs.nixos-artwork}/share/artwork/gnome/Gnome_Dark.png'
      EOF
-     ${pkgs.glib}/bin/glib-compile-schemas $out/share/nixos-gsettings-schemas/nixos-gsettings-desktop-schemas/glib-2.0/schemas/
+     ${pkgs.glib.dev}/bin/glib-compile-schemas $out/share/nixos-gsettings-schemas/nixos-gsettings-desktop-schemas/glib-2.0/schemas/
     '';
   };
   addSessionPath = [ gnome3.gnome_shell gnome3.gnome-shell-extensions ];
