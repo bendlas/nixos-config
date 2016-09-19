@@ -38,6 +38,7 @@
                         ; # g-brief numprint unravel xstring -- sha-mismatch??
     })
     androidenv.androidsdk_7_0_extras
+    linuxPackages.systemtap
 
     # dwarf-fortress dwarf-therapist dwarf-fortress-packages.phoebus-theme
     
