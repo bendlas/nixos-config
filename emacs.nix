@@ -1,9 +1,9 @@
-{ emacs24, emacs24PackagesNg, pkgs }:
+{ emacs25, emacs25PackagesNg, pkgs }:
 
 let
 
-  emacsPackages = emacs24PackagesNg.override (super: self: {
-    emacs = emacs24.override {
+  emacsPackages = emacs25PackagesNg.override (super: self: {
+    emacs = emacs25.override {
       inherit (pkgs) alsaLib imagemagick acl gpm;
       inherit (pkgs.gnome3) gconf;
       withGTK3 = true; withGTK2 = false;
@@ -27,7 +27,7 @@ let
 
     pkgs.ghostscript pkgs.aspell
 
-    tramp # use more recent version 
+    # tramp # use more recent version 
 
   ]);
 
