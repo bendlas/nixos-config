@@ -33,10 +33,9 @@ in {
   users.extraGroups = { nobody = {}; };
 
   networking = {
-    connman = {
-      enable = true;
-      extraFlags = [ "--nodnsproxy" ];
-    };
+    firewall.enable = true;
+    networkmanager.enable = false;
+    useNetworkd = true;
     extraHosts = ''
       127.0.0.1 ${config.networking.hostName}
       ::1 ${config.networking.hostName}
@@ -72,7 +71,6 @@ in {
       package = pkgs.postgresql;
       enableTCPIP = true;
     };
-    resolved.enable = true;
   };
 
   security.sudo.wheelNeedsPassword = false;
