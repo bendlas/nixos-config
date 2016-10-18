@@ -19,6 +19,10 @@
     hostName = "lenix";
     hostId = "f26c47cd";
     nat.externalInterface = "wlp3s0";
+    wireless = {
+      enable = true;
+      userControlled.enable = true;
+    };
   };
 
   services = {
