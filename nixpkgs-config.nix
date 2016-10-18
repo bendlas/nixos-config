@@ -1,4 +1,9 @@
-{
+let enableDebugInfo_ = lib: pkg:
+  lib.overrideDerivation pkg (attrs: {
+    outputs = attrs.outputs or [ "out" ] ++ [ "debug" ];
+    buildInputs = attrs.buildInputs ++ [ <nixpkgs/pkgs/build-support/setup-hooks/separate-debug-info.sh> ];
+  });
+in {
   nix.trustedBinaryCaches = [ "http://nixos.org/binary-cache" "http://cache.nixos.org" ];
   allowUnfree = true;
   allowBroken = false;
@@ -25,7 +30,7 @@
     postgresql = pkgs.postgresql95;
     gnupg = pkgs.gnupg21;
     nmap = pkgs.nmap_graphical;
-    inherit (pkgs.callPackage ./emacs.nix { }) emacsPackages emacs;
+    inherit (pkgs.callPackage ./emacs.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsPackages emacs;
     chromium = pkgs.chromium.override {
       enablePepperFlash = true;
       pulseSupport = true;

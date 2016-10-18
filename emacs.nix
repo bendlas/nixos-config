@@ -1,13 +1,13 @@
-{ emacs25, emacs25PackagesNg, pkgs }:
+{ emacs25, emacs25PackagesNg, enableDebugInfo, pkgs }:
 
 let
 
   emacsPackages = emacs25PackagesNg.override (super: self: {
-    emacs = emacs25.override {
+    emacs = enableDebugInfo (emacs25.override {
       inherit (pkgs) alsaLib imagemagick acl gpm;
       inherit (pkgs.gnome3) gconf;
       withGTK3 = true; withGTK2 = false;
-    };
+    });
   });
 
 
@@ -23,7 +23,7 @@ let
     levenshtein php-mode rainbow-delimiters skewer-mode skewer-less
     skewer-reload-stylesheets slamhound slime smex undo-tree wanderlust
     yasnippet magit with-editor string-edit keyfreq scala-mode # ensime
-    uuidgen systemtap-mode
+    uuidgen systemtap-mode gn
 
     pkgs.ghostscript pkgs.aspell
 
