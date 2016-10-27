@@ -5,7 +5,9 @@
 { config, pkgs, ... }:
 
 { ## Outsource nixpkgs.config to be shared with nix-env
-  require = [ ./desktop.nix ./hardware-configuration.nitox.nix ./xsession.nix ./dev.nix ];
+  require = [ ./desktop.nix ./hardware-configuration.nitox.nix ./xsession.nix ./dev.nix ./taalo.nix ];
+
+  vuizvui.user.aszlig.programs.taalo-build.enable = true;
 
   boot = {
     loader.grub = {

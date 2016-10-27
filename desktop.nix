@@ -5,7 +5,7 @@
 
     abiword gnumeric thunderbird skype
 
-    pciutils ntfs3g wireshark xpra roxterm nodejs unetbootin gparted
+    pciutils ntfs3g wireshark xpra eterm st finalterm nodejs unetbootin gparted
 
     debootstrap mercurial subversion cmake rustc cargo nim ant go pypy dust
     pythonPackages.ipython guile guile_lib nodePackages.grunt-cli lua mono

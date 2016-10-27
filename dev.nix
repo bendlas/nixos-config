@@ -14,8 +14,8 @@
       internalInterfaces = [ "ve-+" ];
     };
   };
-  #environment.systemPackages = (with pkgs; [
-  #  emacs.emacs.debug
-  #]);
+  environment.systemPackages = (with pkgs; [
+    emacs.emacs.debug
+  ]);
   environment.enableDebugInfo = true;
 }
