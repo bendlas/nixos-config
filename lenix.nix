@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 { ## Outsource nixpkgs.config to be shared with nix-env
-  require = [ ./desktop.nix ./hardware-configuration.lenix.nix ./xsession.nix ./dev.nix ];
+  require = [ ./desktop.nix ./hardware-configuration.lenix.nix ./xsession.nix ./dev.nix ./power-savings.nix ];
 
   environment.systemPackages = (with pkgs; [
     bluez5
@@ -46,7 +46,5 @@
   };
 
   #  boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
-
-  #containers.lintox.path = "/nix/var/nix/profiles/lintox";
 
 }

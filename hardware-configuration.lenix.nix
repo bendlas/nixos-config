@@ -15,25 +15,25 @@
   fileSystems."/" =
     { device = "/dev/sda6";
       fsType = "btrfs";
-      options = [ "subvol=subvolumes/sysroot" ];
+      options = [ "subvol=subvolumes/sysroot" "commit=60" ];
     };
 
   fileSystems."/home" =
     { device = "/dev/sda6";
       fsType = "btrfs";
-      options = [ "subvol=subvolumes/home" ];
+      options = [ "subvol=subvolumes/home" "commit=60" ];
     };
 
   fileSystems."/var" =
     { device = "/dev/sda6";
       fsType = "btrfs";
-      options = [ "subvol=subvolumes/var" ];
+      options = [ "subvol=subvolumes/var" "commit=60" ];
     };
 
   fileSystems."/nix/store" =
     { device = "/dev/sda6";
       fsType = "btrfs";
-      options = [ "subvol=subvolumes/store" ];
+      options = [ "subvol=subvolumes/store" "commit=60" ];
     };
 
   fileSystems."/boot" =
@@ -56,7 +56,7 @@
   fileSystems."/etc/nixos" =
     { device = "/dev/sda6";
       fsType = "btrfs";
-      options = [ "subvol=subvolumes/etc-nixos" ];
+      options = [ "subvol=subvolumes/etc-nixos" "commit=60" ];
     };
 
   swapDevices =
