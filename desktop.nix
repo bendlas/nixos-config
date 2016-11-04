@@ -102,9 +102,10 @@
       exportConfiguration = true;
       layout = "us";
       xkbOptions = "eurosign:e";
-      displayManager.gdm.enable = true;
-      #displayManager.sddm.enable = true;
+      #displayManager.gdm.enable = true;
       desktopManager.gnome3.enable = true;
+      displayManager.kdm.enable = true;
+      #desktopManager.kde4.enable = true;
     };
     upower.enable = true;
     dbus.packages = with pkgs; [
