@@ -5,9 +5,13 @@
 { config, pkgs, ... }:
 
 { ## Outsource nixpkgs.config to be shared with nix-env
-  require = [ ./desktop.nix ./hardware-configuration.nitox.nix ./xsession.nix ./dev.nix ./taalo.nix ];
+  require = [ ./desktop.nix ./hardware-configuration.nitox.nix ./dev.nix ./taalo.nix ./xsession.nix ];
 
   vuizvui.user.aszlig.programs.taalo-build.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    zcash
+  ];
 
   boot = {
     loader.grub = {
@@ -26,7 +30,7 @@
   };
 
   services.xserver = {
-    videoDrivers = [ "nvidia" ];
+    videoDrivers = [ "nvidia" "nouveau" "nv" "vesa" ];
   };
   
 }
