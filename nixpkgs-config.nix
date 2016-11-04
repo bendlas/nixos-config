@@ -4,7 +4,6 @@ let enableDebugInfo_ = lib: pkg:
     buildInputs = attrs.buildInputs ++ [ <nixpkgs/pkgs/build-support/setup-hooks/separate-debug-info.sh> ];
   });
 in {
-  nix.trustedBinaryCaches = [ "http://nixos.org/binary-cache" "http://cache.nixos.org" ];
   allowUnfree = true;
   allowBroken = false;
     
