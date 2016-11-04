@@ -27,7 +27,7 @@
 
     nixui gnome3.cheese youtube-dl imagemagick
 
-    qemu_kvm qemu virtmanager
+    qemu_kvm qemu virtmanager zcash
 
     (sbt.override { jre = jdk7.jre; })
     (texlive.combine {

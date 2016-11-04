@@ -9,10 +9,6 @@
 
   vuizvui.user.aszlig.programs.taalo-build.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    zcash
-  ];
-
   boot = {
     loader.grub = {
       enable = true;
