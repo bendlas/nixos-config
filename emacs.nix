@@ -1,14 +1,13 @@
-{ emacs25, emacs25PackagesNg, enableDebugInfo, pkgs }:
+{ emacs25, emacsPackagesNgGen, enableDebugInfo, pkgs }:
 
 let
 
-  emacsPackages = emacs25PackagesNg.override (super: self: {
-    emacs = enableDebugInfo (emacs25.override {
+  emacsPackages = emacsPackagesNgGen (
+    enableDebugInfo (emacs25.override {
       inherit (pkgs) alsaLib imagemagick acl gpm;
       inherit (pkgs.gnome3) gconf;
-      withGTK3 = true; withGTK2 = false;
-    });
-  });
+      withGTK3 = true; withGTK2 = false; withXwidgets = true;
+    }));
 
 
   emacs = emacsPackages.emacsWithPackages (epkgs: with epkgs; [
