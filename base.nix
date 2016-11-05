@@ -66,11 +66,6 @@ in {
       startWhenNeeded = true;
     };
     locate.enable = true;
-    postgresql = {
-      enable = true;
-      package = pkgs.postgresql;
-      enableTCPIP = true;
-    };
   };
 
   security.sudo.wheelNeedsPassword = false;
@@ -86,9 +81,6 @@ in {
       "nixos=/etc/nixos/pkgs/nixos"
       "nixos-config=/etc/nixos/configuration.nix"
     ];
-    #trustedBinaryCaches = [ "https://nixos.org/binary-cache" "https://cache.nixos.org" ];
-    trustedBinaryCaches = [ "https://headcounter.org/hydra" ];
-    binaryCachePublicKeys = [ "headcounter.org:/7YANMvnQnyvcVB6rgFTdb8p5LG1OTXaO+21CaOSBzg=" ];
     buildCores = 4;
     extraOptions = ''
       binary-caches-parallel-connections = 24

@@ -1,9 +1,7 @@
 { config, pkgs, ... }:
 
 { ## Outsource nixpkgs.config to be shared with nix-env
-  require = [ ./desktop.nix ./hardware-configuration.lenix.nix ./xsession.nix ./dev.nix ./power-savings.nix ./taalo.nix ];
-
-  vuizvui.user.aszlig.programs.taalo-build.enable = true;
+  require = [ ./desktop.nix ./hardware-configuration.lenix.nix ./xsession.nix ./dev.nix ./power-savings.nix ];
 
   environment.systemPackages = (with pkgs; [
     bluez5
