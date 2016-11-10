@@ -13,7 +13,7 @@
       version = 2;
       device = "/dev/sdb";
     };
-    kernelParams = [ "nomodeset" "resume=UUID=b3254264-6843-4eed-b817-81f692d2ca07" ];
+    kernelParams = [ "nomodeset" "resume=UUID=58a029ec-27e3-49cd-9ec1-2452ede1cec5" "resume=UUID=c4bd389b-dd2d-4777-a2f3-d55bbe000566" ];
     initrd.availableKernelModules = [ "bcache" ];
   };
 
