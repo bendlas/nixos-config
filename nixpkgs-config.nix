@@ -17,7 +17,12 @@ in {
   };
 
   chromium = {
-   enablePepperFlash = true;
+    enablePepperFlash = true;
+    enableWideVine = true;
+    enableNaCl = true;
+    pulseSupport = true;
+    gnomeSupport = true;
+    gnomeKeyringSupport = true;
   };
 
   wine = {
