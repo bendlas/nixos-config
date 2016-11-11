@@ -25,6 +25,9 @@
 
   services.xserver = {
     videoDrivers = [ "nvidia" "nouveau" "nv" "vesa" ];
+    deviceSection = ''
+      Option "Coolbits" "12"
+    '';
   };
 
 }
