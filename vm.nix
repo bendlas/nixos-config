@@ -2,7 +2,7 @@
 {
   imports = [
     #./base.nix
-    ./desktop.nix # ./xsession.nix
+    #./desktop.nix # ./xsession.nix
   ];
 
   users.extraUsers.root.password = "123";
@@ -12,9 +12,24 @@
 
   networking.hostName = "vm";
 
-  environment.systemPackages = with pkgs; [ ];
+  environment.systemPackages = with pkgs; [ sudo ];
   environment.enableDebugInfo = true;
 
-  services.xserver.displayManager.qingy.enable = true;
-  services.xserver.displayManager.kdm.enable = lib.mkForce false;
+  services.xserver = {
+      enable = true;
+      layout = "de";
+      xkbOptions = "eurosign:e";
+      #displayManager.qingy.enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome3.enable = true;
+    };
+
+  time.timeZone = "Europe/Vienna";
+
+  i18n = {
+    consoleFont = "lat9w-16";
+    consoleKeyMap = "de";
+    defaultLocale = "de_AT.UTF-8";
+  };
+
 }
