@@ -21,7 +21,7 @@
     links2 qjackctl jack2Full beep wine winetricks # radare2
     valgrind sbcl npm2nix lyx nix-generate-from-cpan paprefs pavucontrol
     pinentry dos2unix audacity pgadmin
-    google-musicmanager teamspeak_client
+    google-musicmanager teamspeak_client xlibs.xhost
 
     thunderbird ffmpeg sauerbraten # stalin ipfs
 
