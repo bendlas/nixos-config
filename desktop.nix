@@ -41,10 +41,16 @@
     linuxPackages.systemtap
 
     # dwarf-fortress dwarf-therapist dwarf-fortress-packages.phoebus-theme
-    
+
 #  ] ++ (with haskellPackages; [
 #    ghc cabal-install cabal2nix
   ] ++ pkgs.gnome3.corePackages ++ pkgs.gnome3.optionalPackages);
+
+  fonts = {
+    fonts = with pkgs; [
+      font-droid proggyfonts dejavu_fonts inconsolata profont anonymousPro
+    ];
+  };
 
   users = {
     extraUsers."herwig".extraGroups = [
@@ -75,7 +81,7 @@
     setgid = false;
     permissions = "u+rx,g+x";
   }];
-  
+
   require = [ ./base.nix ];
   services = {
     i2p.enable = true;
@@ -127,5 +133,5 @@
   hardware.opengl.driSupport32Bit = true;
 
   programs.cdemu.enable = true;
-  
+
 }
