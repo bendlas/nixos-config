@@ -11,7 +11,7 @@ in {
     socat libressl diffoscope vim patchelf gcc clisp parted usbutils
     rsync gnupg gdb powertop lshw libxslt letsencrypt
 
-    boot leiningen gettext jdk jdk.jre maven3 s3cmd sqlite python criu mkpasswd
+    boot leiningen gettext jdk jdk.jre maven3 s3cmd sqlite python criu mkpasswd cask
     (callPackage ./git-update-channel.nix {})
 
   ]);
