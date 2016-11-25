@@ -22,7 +22,7 @@ let
     levenshtein php-mode rainbow-delimiters skewer-mode skewer-less
     skewer-reload-stylesheets slamhound slime smex undo-tree wanderlust
     yasnippet magit with-editor string-edit keyfreq scala-mode # ensime
-    uuidgen systemtap-mode gn coffee-mode
+    uuidgen systemtap-mode gn coffee-mode cask-mode
 
     pkgs.ghostscript pkgs.aspell
 
