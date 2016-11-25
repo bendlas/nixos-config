@@ -23,7 +23,7 @@ let
     skewer-reload-stylesheets slamhound slime smex undo-tree wanderlust
     yasnippet magit with-editor string-edit keyfreq scala-mode # ensime
     uuidgen systemtap-mode gn coffee-mode cask-mode elf-mode
-    elfeed elfeed-goodies elfeed-web elfeed-org
+    elfeed elfeed-goodies elfeed-web elfeed-org tidy
 
     pkgs.ghostscript pkgs.aspell
 
