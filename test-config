@@ -4,4 +4,4 @@ READLINK="$(nix-build --no-out-link '<nixpkgs>' -A coreutils)/bin/readlink"
 ## http://stackoverflow.com/a/24114056/278651
 SELFDIR="$(dirname -- "$($READLINK -e -- "$BASH_SOURCE")")"
 
-nixos-rebuild -I "nixos-config=$SELFDIR/test-config.nix" dry-run
+exec nixos-rebuild -I "nixos-config=$SELFDIR/test-config.nix" dry-run
