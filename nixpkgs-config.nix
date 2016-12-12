@@ -42,7 +42,7 @@ in {
       # enableNaCl = true;
     };
     wine = pkgs.wineFull;
-    linuxPackages = pkgs.linuxPackages_4_8;
+    linuxPackages = pkgs.linuxPackages_4_9;
     pixie = pkgs.pixie.override {
       buildWithPypy = true;
     };
