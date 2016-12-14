@@ -31,11 +31,10 @@
 
     (sbt.override { jre = jdk7.jre; })
     (texlive.combine {
-      inherit (texlive) scheme-medium koma-script mathpazo
+      inherit (texlive) scheme-medium koma-script mathpazo gtl
                         booktabs pdfpages hyperref g-brief xstring numprint unravel
                         collection-latex collection-latexextra collection-latexrecommended
-                        collection-fontsrecommended
-                        ; # g-brief numprint unravel xstring -- sha-mismatch??
+                        collection-fontsrecommended;
     })
     androidenv.androidsdk_7_1_1_extras
     linuxPackages.systemtap
