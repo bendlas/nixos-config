@@ -36,7 +36,7 @@
                         collection-latex collection-latexextra collection-latexrecommended
                         collection-fontsrecommended;
     })
-    androidenv.androidsdk_7_1_1_extras
+    # androidenv.androidsdk_7_1_1_extras
     linuxPackages.systemtap
 
     # dwarf-fortress dwarf-therapist dwarf-fortress-packages.phoebus-theme
