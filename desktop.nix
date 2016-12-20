@@ -19,7 +19,7 @@
     idea.idea-community chromium vlc inkscape steam dropbox-cli bitcoin
     unrar p7zip bsdiff blender gitAndTools.hub # antimony
     links2 qjackctl jack2Full beep wine winetricks # radare2
-    valgrind sbcl npm2nix lyx nix-generate-from-cpan paprefs pavucontrol
+    valgrind sbcl lyx nix-generate-from-cpan paprefs pavucontrol # npm2nix
     pinentry dos2unix audacity pgadmin
     google-musicmanager teamspeak_client xlibs.xhost
 
