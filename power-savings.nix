@@ -21,10 +21,11 @@
     udev.extraRules = ''
       ACTION=="add", SUBSYSTEM=="net", KERNEL=="eth*", RUN+="${pkgs.ethtool}/bin/ethtool -s %k wol d"
       ACTION=="add", SUBSYSTEM=="net", KERNEL=="wlan*", RUN+="${pkgs.iw}/bin/iw dev %k set power_save on"
-      ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"
       ACTION=="add", SUBSYSTEM=="pci", ATTR{power/control}="auto"
       ACTION=="add", SUBSYSTEM=="scsi_host", KERNEL=="host*", ATTR{link_power_management_policy}="min_power"
     '';
+    ## this leads to non-responsive input devices
+    # ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"
     i2p.enable = pkgs.lib.mkForce false;
     tor.enable = pkgs.lib.mkForce false;
   };
