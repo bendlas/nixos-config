@@ -10,9 +10,9 @@ let
     }));
 
 
-  emacs = emacsPackages.emacsWithPackages (epkgs: with epkgs; [
+  emacs = emacsPackages.emacsWithPackages (epkgs: (with epkgs; [
 
-    clj-refactor cljsbuild-mode clojars clojure-mode cider
+    cljsbuild-mode clojars clojure-mode cider
     cyberpunk-theme gh gitignore-mode groovy-mode haskell-mode htmlize
     ibuffer-tramp ido-ubiquitous ido-completing-read-plus idris-mode
     igrep javap-mode ninja-mode igrep geiser commenter js2-mode
@@ -29,7 +29,13 @@ let
 
     # tramp # use more recent version 
 
-  ]);
+  ]) ++ (with epkgs.melpaPackages; [
+
+    # use more recent (unstable) versions
+
+    clj-refactor
+  
+  ]));
 
 
 in {
