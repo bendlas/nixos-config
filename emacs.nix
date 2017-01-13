@@ -20,14 +20,15 @@ let
     jvm-mode multiple-cursors nix-mode nixos-options org org-present
     paredit nim-mode mmm-mode markdown-mode magit-gh-pulls macrostep
     levenshtein php-mode rainbow-delimiters skewer-mode skewer-less
-    skewer-reload-stylesheets slamhound slime smex undo-tree wanderlust
+    skewer-reload-stylesheets slime smex undo-tree wanderlust
     yasnippet magit with-editor string-edit keyfreq scala-mode # ensime
     uuidgen systemtap-mode gn coffee-mode cask-mode elf-mode
     elfeed elfeed-goodies elfeed-web elfeed-org tidy
 
     pkgs.ghostscript pkgs.aspell
 
-    # tramp # use more recent version 
+    # tramp # use more recent version
+    # slamhound # not available any more
 
   ]) ++ (with epkgs.melpaPackages; [
 
