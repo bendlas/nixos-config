@@ -18,7 +18,7 @@ in {
 
   chromium = {
     enablePepperFlash = true;
-    enableWideVine = true;
+    enableWideVine = false; ## FIX elfinfo
     enableNaCl = true;
     pulseSupport = true;
     gnomeSupport = true;

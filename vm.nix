@@ -1,8 +1,8 @@
 { config, pkgs, lib, ... }:
 {
   imports = [
-    #./base.nix
-    #./desktop.nix # ./xsession.nix
+    ./base.nix
+    ./desktop.nix # ./xsession.nix
   ];
 
   users.extraUsers.root.password = "123";
@@ -16,20 +16,23 @@
   environment.enableDebugInfo = true;
 
   services.xserver = {
-      enable = true;
-      layout = "de";
-      xkbOptions = "eurosign:e";
-      #displayManager.qingy.enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome3.enable = true;
-    };
-
-  time.timeZone = "Europe/Vienna";
-
-  i18n = {
-    consoleFont = "lat9w-16";
-    consoleKeyMap = "de";
-    defaultLocale = "de_AT.UTF-8";
+  #    enable = true;
+  #    layout = "de";
+  #    xkbOptions = "eurosign:e";
+  #    #displayManager.qingy.enable = true;
+    #displayManager.kdm.enable = lib.mkForce false;
+    #displayManager.gdm.enable = true;
+    desktopManager.gnome3.enable = true;
+    windowManager.exwm.enable = true;
+  #    desktopManager.gnome3.enable = true;
   };
+
+  #time.timeZone = "Europe/Vienna";
+
+  #i18n = {
+  #  consoleFont = "lat9w-16";
+  #  consoleKeyMap = "de";
+  #  defaultLocale = "de_AT.UTF-8";
+  #};
 
 }
