@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
 { ## Outsource nixpkgs.config to be shared with nix-env
-  require = [ ./desktop.nix ./hardware-configuration.lenix.nix ./xsession.nix ./dev.nix ./power-savings.nix ];
+  require = [ ./desktop.nix ./hardware-configuration.lenix.nix ./dev.nix ./power-savings.nix
+     # ./xsession.nix
+  ];
 
   environment.systemPackages = (with pkgs; [
     bluez5
