@@ -110,6 +110,7 @@
       #displayManager.gdm.enable = true;
       desktopManager.gnome3.enable = true;
       displayManager.kdm.enable = true;
+      windowManager.exwm.enable = true;
       #desktopManager.kde4.enable = true;
     };
     upower.enable = true;
