@@ -2,15 +2,7 @@
 
 let
 
-  emacsPackages = emacsPackagesNgGen (
-    enableDebugInfo (emacs25.override {
-      inherit (pkgs) alsaLib imagemagick acl gpm;
-      inherit (pkgs.gnome3) gconf;
-      withGTK3 = true; withGTK2 = false; withXwidgets = true;
-    }));
-
-
-  emacs = emacsPackages.emacsWithPackages (epkgs: (with epkgs; [
+  builtinPackages = epkgs: (with epkgs; [
 
     cljsbuild-mode clojars clojure-mode cider
     cyberpunk-theme gh gitignore-mode groovy-mode haskell-mode htmlize
@@ -36,11 +28,24 @@ let
 
     clj-refactor
   
-  ]));
+  ]);
+
+  emacsPackages = emacsPackagesNgGen (
+    enableDebugInfo (emacs25.override {
+      inherit (pkgs) alsaLib imagemagick acl gpm;
+      inherit (pkgs.gnome3) gconf;
+      withGTK3 = true; withGTK2 = false; withXwidgets = true;
+    }));
+
+  emacsWithPackages = pfn:
+    emacsPackages.emacsWithPackages (epkgs:
+      (builtinPackages epkgs) ++ (pfn epkgs));
+
+  emacs = emacsWithPackages (_: []);
 
 
 in {
 
-  inherit emacsPackages emacs;
+  inherit emacsPackages emacs emacsWithPackages;
 
 }
