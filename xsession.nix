@@ -90,7 +90,7 @@ in {
           # Find the mouse
           export XCURSOR_PATH=~/.icons:${config.system.path}/share/icons
 
-          ${pkgs.stumpwm}/bin/stumpwm&
+          ${pkgs.stumpwm-git}/bin/stumpwm&
           waitPID=$!
           #${gnome3.gnome_session}/bin/gnome-session&
           #waitPID=$!
