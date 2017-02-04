@@ -73,6 +73,10 @@ in {
   programs.zsh = {
     enable = true;
     promptInit = "";
+    interactiveShellInit = ''
+      unalias run-help
+      autoload -Uz run-help
+    '';
   };
 
   nix = {
