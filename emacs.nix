@@ -12,7 +12,7 @@ let
     jvm-mode multiple-cursors nix-mode nixos-options org org-present
     paredit nim-mode mmm-mode markdown-mode magit-gh-pulls macrostep
     levenshtein php-mode rainbow-delimiters skewer-mode skewer-less
-    skewer-reload-stylesheets slime smex undo-tree wanderlust
+    skewer-reload-stylesheets smex undo-tree wanderlust
     yasnippet magit with-editor string-edit keyfreq scala-mode # ensime
     uuidgen systemtap-mode gn coffee-mode cask-mode elf-mode
     elfeed elfeed-goodies elfeed-web elfeed-org tidy
@@ -26,7 +26,7 @@ let
 
     # use more recent (unstable) versions
 
-    clj-refactor
+    clj-refactor slime
   
   ]);
 
