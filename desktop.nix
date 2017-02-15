@@ -17,17 +17,17 @@
 
     firefox deluge dosbox alsaUtils clementine gimp geoip
     idea.idea-community chromium vlc inkscape steam dropbox-cli bitcoin
-    unrar p7zip bsdiff blender gitAndTools.hub # antimony
-    links2 qjackctl jack2Full beep wine winetricks # radare2
-    valgrind sbcl lyx nix-generate-from-cpan paprefs pavucontrol # npm2nix
+    unrar p7zip bsdiff blender gitAndTools.hub antimony
+    links2 qjackctl jack2Full beep wine winetricks radare2
+    valgrind sbcl lyx nix-generate-from-cpan paprefs pavucontrol npm2nix
     pinentry dos2unix audacity pgadmin
     google-musicmanager teamspeak_client xlibs.xhost
 
-    thunderbird ffmpeg sauerbraten # stalin ipfs
+    thunderbird ffmpeg sauerbraten ipfs # stalin
 
-    gnome3.cheese youtube-dl imagemagick # nixui
+    gnome3.cheese youtube-dl imagemagick nixui
 
-    qemu_kvm qemu virtmanager zcash
+    qemu_kvm qemu virtmanager zcash ja2-stracciatella
 
     (sbt.override { jre = jdk7.jre; })
     (texlive.combine {
