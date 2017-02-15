@@ -34,7 +34,7 @@ let
     enableDebugInfo (emacs25.override {
       inherit (pkgs) alsaLib imagemagick acl gpm;
       inherit (pkgs.gnome3) gconf;
-      withGTK3 = true; withGTK2 = false; withXwidgets = true;
+      withGTK3 = true; withGTK2 = false;
     }));
 
   emacsWithPackages = pfn:
