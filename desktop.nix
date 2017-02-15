@@ -72,14 +72,16 @@
   }];
 
   ## wireshark fix
-  security.setuidOwners = [{
-    program = "dumpcap";
-    owner = "root";
-    group = "wireshark";
-    setuid = true;
-    setgid = false;
-    permissions = "u+rx,g+x";
-  }];
+  security.wrappers = {
+    dumpcap = {
+      source = "${pkgs.wireshark}/bin/dumpcap";
+      owner = "root";
+      group = "wireshark";
+      setuid = true;
+      setgid = false;
+      permissions = "u+rx,g+x";
+    };
+  };
 
   require = [ ./base.nix ];
   services = {
