@@ -31,8 +31,7 @@ in {
   };
 
   packageOverrides = pkgs: rec {
-    postgresql = pkgs.postgresql95;
-    gnupg = pkgs.gnupg21;
+    postgresql = pkgs.postgresql96;
     nmap = pkgs.nmap_graphical;
     inherit (pkgs.callPackage ./emacs.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsPackages emacs emacsWithPackages;
     chromium = pkgs.chromium.override {
