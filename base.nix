@@ -65,7 +65,16 @@ in {
       passwordAuthentication = false;
       startWhenNeeded = true;
     };
-    locate.enable = true;
+    locate = {
+      enable = true;
+      locate = pkgs.lib.overrideDerivation pkgs.findutils (attrs: {
+        patches = attrs.patches or [] ++ [ (pkgs.fetchurl {
+          # https://bugs.launchpad.net/ubuntu/+source/findutils/+bug/1364492
+          url = https://launchpadlibrarian.net/304000719/find_bug.patch;
+          sha256 = "0dpq2kxsl4lr5wqjqkdjsvskl06xnrrglz5z6w2k58kf7336gqad";
+        }) ];
+      });
+    };
   };
 
   security.sudo.wheelNeedsPassword = false;
