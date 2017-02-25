@@ -121,6 +121,11 @@
       miraclecast
     ];
     openssh.forwardX11 = true;
+    avahi = {
+      enable = true;
+      publish.enable = true;
+      wideArea = false;
+    };
   };
 
   hardware.pulseaudio = {
