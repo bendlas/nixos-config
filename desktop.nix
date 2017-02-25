@@ -123,7 +123,11 @@
     openssh.forwardX11 = true;
     avahi = {
       enable = true;
-      publish.enable = true;
+      publish = {
+        enable = true;
+        userServices = true;
+      };
+      nssmdns = true;
       wideArea = false;
     };
   };
