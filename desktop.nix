@@ -142,6 +142,8 @@
     };
   };
 
+  networking.firewall.allowedTCPPorts = [ 4713 ];
+
   virtualisation = {
     ## xen build is broken
     libvirtd.enable = true;
