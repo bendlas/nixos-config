@@ -120,6 +120,7 @@
     dbus.packages = with pkgs; [
       miraclecast
     ];
+    openssh.forwardX11 = true;
   };
 
   hardware.pulseaudio = {
