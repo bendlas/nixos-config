@@ -125,6 +125,11 @@
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
+    tcp.enable = true;
+    zeroconf = {
+      discovery.enable = true;
+      publish.enable = true;
+    };
   };
 
   virtualisation = {
