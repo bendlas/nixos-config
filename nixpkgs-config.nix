@@ -40,7 +40,7 @@ in {
       # enableNaCl = true;
     };
     wine = pkgs.wineFull;
-    linuxPackages = pkgs.linuxPackages_4_10;
+    linuxPackages = pkgs.linuxPackages_4_9;
     pixie = pkgs.pixie.override {
       buildWithPypy = true;
     };
@@ -61,12 +61,12 @@ in {
         #  MODULES y
         #  MODULE_UNLOAD y
         #  UPROBES y
-        kernelExtraConfig = ''
-          EXPERT y
-          CHECKPOINT_RESTORE y
-          RFKILL_INPUT y
-          DEBUG_INFO y
-        '';
+        #kernelExtraConfig = ''
+        #  EXPERT y
+        #  CHECKPOINT_RESTORE y
+        #  RFKILL_INPUT y
+        #  DEBUG_INFO y
+        #'';
       };
     };
   };
