@@ -15,7 +15,7 @@
     xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp aspell
     aspellDicts.en aspellDicts.de dunst libnotify
 
-    firefox deluge dosbox alsaUtils gimp geoip # clementine ## depends on insecure libplist
+    firefox deluge dosbox alsaUtils gimp geoip clementine
     idea.idea-community chromium vlc inkscape steam dropbox-cli bitcoin
     unrar p7zip bsdiff blender gitAndTools.hub antimony
     links2 qjackctl jack2Full beep wine winetricks radare2
