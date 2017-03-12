@@ -52,6 +52,12 @@ in {
   };
 
   services = {
+    nscd.enable = false;
+    resolved = {
+      enable = true;
+      # resolveDnschainQueries = true;
+      domains = [ "bendlas.net" ];
+    };
     fail2ban = {
       enable = true;
       jails = {
