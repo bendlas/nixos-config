@@ -52,11 +52,13 @@ in {
   };
 
 
-  environment.etc."resolv.conf".text = ''
-    ## Use systemd-resolved.service as dns service
-    nameserver 127.0.0.53
-    search bendlas.net
-  '';
+  environment.etc."resolv.conf" = pkgs.lib.mkForce {
+    text = ''
+      ## Use systemd-resolved.service as dns service
+      nameserver 127.0.0.53
+      search bendlas.net
+    '';
+  };
 
   services = {
     nscd.enable = false;
