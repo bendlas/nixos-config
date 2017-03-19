@@ -13,7 +13,7 @@ let
     paredit nim-mode mmm-mode markdown-mode magit-gh-pulls macrostep
     levenshtein php-mode rainbow-delimiters skewer-mode skewer-less
     skewer-reload-stylesheets smex undo-tree wanderlust
-    yasnippet magit with-editor string-edit keyfreq scala-mode # ensime
+    yasnippet magit magithub with-editor string-edit keyfreq scala-mode # ensime
     uuidgen systemtap-mode gn coffee-mode cask-mode elf-mode
     elfeed elfeed-goodies elfeed-web elfeed-org tidy volume
 
