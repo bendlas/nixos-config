@@ -29,7 +29,6 @@
 
     qemu_kvm qemu virtmanager zcash ja2-stracciatella
 
-    (sbt.override { jre = jdk7.jre; })
     (texlive.combine {
       inherit (texlive) scheme-medium koma-script mathpazo gtl
                         booktabs pdfpages hyperref g-brief xstring numprint unravel
