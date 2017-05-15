@@ -27,7 +27,7 @@
 
     gnome3.cheese youtube-dl imagemagick nixui
 
-    qemu_kvm qemu virtmanager zcash ja2-stracciatella
+    qemu_kvm qemu zcash ja2-stracciatella # virtmanager
 
     (texlive.combine {
       inherit (texlive) scheme-medium koma-script mathpazo gtl
@@ -39,6 +39,8 @@
     linuxPackages.systemtap
 
     # dwarf-fortress dwarf-therapist dwarf-fortress-packages.phoebus-theme
+    (dwarf-fortress.override { theme = "phoebus"; enableDFHack = true; })
+    dwarf-therapist
 
 #  ] ++ (with haskellPackages; [
 #    ghc cabal-install cabal2nix
