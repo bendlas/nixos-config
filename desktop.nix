@@ -3,9 +3,9 @@
 
   environment.systemPackages = (with pkgs; [
 
-    abiword gnumeric thunderbird skype visualvm
+    abiword gnumeric thunderbird visualvm # skype
 
-    pciutils ntfs3g wireshark xpra eterm st finalterm nodejs unetbootin gparted
+    pciutils ntfs3g wireshark st nodejs unetbootin gparted
 
     debootstrap mercurial subversion cmake rustc cargo nim ant go pypy dust
     pythonPackages.ipython guile nodePackages.grunt-cli lua mono
@@ -15,19 +15,19 @@
     xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp aspell
     aspellDicts.en aspellDicts.de dunst libnotify
 
-    firefox deluge dosbox alsaUtils gimp geoip clementine
-    idea.idea-community chromium vlc inkscape steam dropbox-cli bitcoin
-    unrar p7zip bsdiff blender gitAndTools.hub antimony
+    firefox deluge dosbox alsaUtils gimp geoip # clementine
+    chromium vlc inkscape dropbox-cli bitcoin # steam idea.idea-community
+    unrar p7zip bsdiff gitAndTools.hub antimony # blender
     links2 qjackctl jack2Full beep wine winetricks radare2
     valgrind sbcl lyx nix-generate-from-cpan paprefs pavucontrol npm2nix
     pinentry dos2unix audacity pgadmin
-    google-musicmanager teamspeak_client xlibs.xhost
+    google-musicmanager xlibs.xhost # teamspeak_client
 
-    thunderbird ffmpeg sauerbraten ipfs # stalin
+    ffmpeg # sauerbraten ipfs # stalin
 
     gnome3.cheese youtube-dl imagemagick nixui
 
-    qemu_kvm qemu zcash ja2-stracciatella # virtmanager
+    qemu_kvm qemu ja2-stracciatella # virtmanager zcash
 
     (texlive.combine {
       inherit (texlive) scheme-medium koma-script mathpazo gtl
@@ -155,6 +155,6 @@
 
   hardware.opengl.driSupport32Bit = true;
 
-  programs.cdemu.enable = true;
+  programs.cdemu.enable = false;
 
 }

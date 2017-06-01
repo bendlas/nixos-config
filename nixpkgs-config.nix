@@ -16,15 +16,6 @@ in {
 #  jre = true;
   };
 
-  chromium = {
-    enablePepperFlash = true;
-    enableWideVine = false; ## FIX elfinfo
-    enableNaCl = true;
-    pulseSupport = true;
-    gnomeSupport = true;
-    gnomeKeyringSupport = true;
-  };
-
   wine = {
     release = "staging";
     build = "wineWow";
@@ -35,12 +26,15 @@ in {
     inherit (pkgs.callPackage ./emacs.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsPackages emacs emacsWithPackages;
     chromium = pkgs.chromium.override {
       enablePepperFlash = true;
+      enableWideVine = false; ## FIX elfinfo
       pulseSupport = true;
-      ## broken
-      # enableNaCl = true;
+      #gnomeSupport = true;
+      #gnomeKeyringSupport = true;
+      #enableNaCl = false; # broken
+      #gconfPackage = pkgs.gnome3.gconf;
     };
     wine = pkgs.wineFull;
-    linuxPackages = pkgs.linuxPackages_4_10;
+    linuxPackages = pkgs.linuxPackages_4_11;
     pixie = pkgs.pixie.override {
       buildWithPypy = true;
     };
