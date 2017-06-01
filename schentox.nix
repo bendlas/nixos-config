@@ -29,11 +29,6 @@
   services = {
     xserver = {
       videoDrivers = [ "nouveau" "vesa" ];
-      libinput.enable = false;
-      synaptics = {
-          enable = true;
-          twoFingerScroll = true;
-      };
     };
     printing = {
       enable = true;
