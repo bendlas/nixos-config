@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 { ## Outsource nixpkgs.config to be shared with nix-env
   require = [ ./desktop.nix ./hardware-configuration.schentox.nix ./dev.nix ./xsession.nix ]; # ./power-savings.nix
@@ -34,6 +34,8 @@
       enable = true;
       drivers = [ pkgs.splix ];
     };
+    i2p.enable = lib.mkForce false;
+    tor.enable = lib.mkForce false;
   };
 
   hardware = {
