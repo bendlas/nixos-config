@@ -39,6 +39,11 @@ in {
     pixie = pkgs.pixie.override {
       buildWithPypy = true;
     };
+    dwarf-fortress = pkgs.dwarf-fortress.override {
+      theme = "phoebus";
+      enableDFHack = true;
+      # enableSoundSense = true;
+    };
     stdenv = pkgs.stdenv // {
       platform = pkgs.stdenv.platform // {
         # http://pkgs.fedoraproject.org/cgit/rpms/kernel.git/tree/Kbuild-Add-an-option-to-enable-GCC-VTA.patch
