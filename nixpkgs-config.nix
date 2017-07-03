@@ -22,6 +22,7 @@ in {
   };
 
   packageOverrides = pkgs: rec {
+    dwarf-fortress = pkgs.dwarf-fortress.override { theme = "phoebus"; enableDFHack = true; };
     nmap = pkgs.nmap_graphical;
     inherit (pkgs.callPackage ./emacs.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsPackages emacs emacsWithPackages;
     chromium = pkgs.chromium.override {

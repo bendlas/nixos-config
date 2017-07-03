@@ -39,7 +39,7 @@
     linuxPackages.systemtap
 
     # dwarf-fortress dwarf-therapist dwarf-fortress-packages.phoebus-theme
-    (dwarf-fortress.override { theme = "phoebus"; enableDFHack = true; })
+    dwarf-fortress
     dwarf-therapist
 
 #  ] ++ (with haskellPackages; [
