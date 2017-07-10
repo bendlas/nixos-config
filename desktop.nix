@@ -50,7 +50,7 @@
 
   fonts = {
     fonts = with pkgs; [
-      font-droid proggyfonts dejavu_fonts inconsolata profont anonymousPro
+      font-droid proggyfonts dejavu_fonts inconsolata profont anonymousPro fira-code
     ];
   };
 
