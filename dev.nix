@@ -6,7 +6,7 @@
 
   networking = {
     extraHosts = ''
-      127.0.0.1 leihfix.local static.local jk.local hdnews.local hdirect.local stats.local
+      127.0.0.1 leihfix.local static.local jk.local hdnews.local hdirect.local stats.local sub.hdnews.local
     '';
     firewall = {
       allowedTCPPorts = [ 22 443 3449 ]; # 80 443 8000
