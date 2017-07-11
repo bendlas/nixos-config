@@ -15,7 +15,12 @@ in {
     boot leiningen gettext jdk jdk.jre maven3 s3cmd sqlite python criu mkpasswd cask
     (callPackage ./git-update-channel.nix {})
 
-  ]);
+  ] ++ [(
+    runCommand "git-new-workdir" {} ''
+      mkdir $out
+      ln -s ${git}/share/git/contrib/workdir $out/bin
+    ''
+  )]);
 
   ## Outsource nixpkgs.config to be shared with nix-env
   nixpkgs.config = npc;
