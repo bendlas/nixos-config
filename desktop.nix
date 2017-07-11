@@ -7,7 +7,7 @@
 
     pciutils ntfs3g wireshark st nodejs unetbootin gparted
 
-    debootstrap mercurial subversion cmake rustc cargo nim ant go pypy dust
+    debootstrap mercurial subversion cmake rustc cargo nim ant go # pypy dust
     pythonPackages.ipython guile nodePackages.grunt-cli lua mono
     luajit luarocks racket
 
@@ -90,7 +90,7 @@
   services = {
     i2p.enable = true;
     tor = {
-      enable = true;
+      enable = false; # FIXME true;
       client.enable = true;
       relay.enable = true;
       relay.isBridge = true;
@@ -130,7 +130,7 @@
         enable = true;
         userServices = true;
       };
-      nssmdns = true;
+      nssmdns = false;
       wideArea = false;
     };
   };
