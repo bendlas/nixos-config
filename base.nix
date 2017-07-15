@@ -101,6 +101,7 @@ in {
       autoload -Uz run-help
     '';
   };
+  programs.mosh.enable = true;
 
   nix = {
     nixPath = [
