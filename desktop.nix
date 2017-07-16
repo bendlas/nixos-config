@@ -3,11 +3,11 @@
 
   environment.systemPackages = (with pkgs; [
 
-    abiword gnumeric thunderbird visualvm # skype
+    abiword gnumeric thunderbird visualvm skype
 
     pciutils ntfs3g wireshark st nodejs unetbootin gparted
 
-    debootstrap mercurial subversion cmake rustc cargo nim ant go # pypy dust
+    debootstrap mercurial subversion cmake rustc cargo nim ant go pypy dust
     pythonPackages.ipython guile nodePackages.grunt-cli lua mono
     luajit luarocks racket
 
@@ -15,13 +15,15 @@
     xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp aspell
     aspellDicts.en aspellDicts.de dunst libnotify
 
-    firefox deluge dosbox alsaUtils gimp geoip # clementine
-    chromium vlc inkscape dropbox-cli bitcoin # steam idea.idea-community
-    unrar p7zip bsdiff gitAndTools.hub antimony # blender
+    firefox deluge dosbox alsaUtils gimp geoip clementine
+    chromium vlc inkscape dropbox-cli bitcoin steam idea.idea-community
+    unrar p7zip bsdiff gitAndTools.hub antimony blender
     links2 qjackctl jack2Full beep wine winetricks radare2
     valgrind sbcl lyx nix-generate-from-cpan paprefs pavucontrol npm2nix
     pinentry dos2unix audacity pgadmin
     google-musicmanager xlibs.xhost # teamspeak_client
+
+    texlive-bendlas
 
     ffmpeg # sauerbraten ipfs # stalin
 
@@ -29,12 +31,6 @@
 
     qemu_kvm qemu ja2-stracciatella # virtmanager zcash
 
-    (texlive.combine {
-      inherit (texlive) scheme-medium koma-script mathpazo gtl
-                        booktabs pdfpages hyperref g-brief xstring numprint unravel
-                        collection-latex collection-latexextra collection-latexrecommended
-                        collection-fontsrecommended;
-    })
     # androidenv.androidsdk_7_1_1_extras
     linuxPackages.systemtap
 

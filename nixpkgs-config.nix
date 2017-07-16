@@ -43,6 +43,13 @@ in {
       enableDFHack = true;
       # enableSoundSense = true;
     };
+    texlive-bendlas = pkgs.texlive.combine {
+      inherit (pkgs.texlive)
+        scheme-medium koma-script mathpazo gtl
+        booktabs pdfpages hyperref g-brief xstring numprint unravel
+        collection-latex collection-latexextra collection-latexrecommended
+        collection-fontsrecommended;
+    };
     stdenv = pkgs.stdenv // {
       platform = pkgs.stdenv.platform // {
         # http://pkgs.fedoraproject.org/cgit/rpms/kernel.git/tree/Kbuild-Add-an-option-to-enable-GCC-VTA.patch
