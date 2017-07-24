@@ -36,7 +36,7 @@
     };
     printing = {
       enable = true;
-      drivers = [ pkgs.splix ];
+      drivers = [ pkgs.splix pkgs.brgenml1cupswrapper ];
     };
   };
 
