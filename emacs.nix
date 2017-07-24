@@ -15,7 +15,7 @@ let
     skewer-reload-stylesheets smex undo-tree wanderlust
     yasnippet magit magithub with-editor string-edit keyfreq scala-mode # ensime
     uuidgen systemtap-mode gn coffee-mode cask-mode elf-mode
-    elfeed elfeed-goodies elfeed-web elfeed-org tidy volume
+    elfeed elfeed-goodies elfeed-web elfeed-org tidy volume dockerfile-mode yaml-mode
 
     pkgs.ghostscript pkgs.aspell
 

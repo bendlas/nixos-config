@@ -23,6 +23,9 @@
   environment.systemPackages = (with pkgs; [
     emacs.emacs.debug
   ]);
+  virtualisation.docker = {
+    enable = true;
+  };
   environment.enableDebugInfo = true;
   services = {
     postgresql = {
