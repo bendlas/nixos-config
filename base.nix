@@ -7,7 +7,7 @@ in {
     file screen tmux htop wget psmisc utillinuxCurses zip unzip lsof
     bind hdparm pmutils iotop rlwrap traceroute emacs which nix-repl
     iptables telnet reptyr tree multipath_tools lm_sensors ent davfs2
-    btrfsProgs dmidecode nmap gitFull gnupg1compat vde2 gradle gnumake
+    btrfsProgs dmidecode nmap gitFull vde2 gradle gnumake
     socat libressl diffoscope vim patchelf gcc clisp parted usbutils
     rsync gnupg gdb powertop lshw libxslt letsencrypt dvtm abduco dtach
     nox
@@ -61,7 +61,6 @@ in {
     text = ''
       ## Use systemd-resolved.service as dns service
       nameserver 127.0.0.53
-      # search bendlas.net
     '';
   };
 
@@ -69,7 +68,6 @@ in {
     nscd.enable = false;
     resolved = {
       enable = true;
-      domains = [ "bendlas.net" ];
     };
     fail2ban = {
       enable = true;
