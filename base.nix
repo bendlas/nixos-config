@@ -61,6 +61,8 @@ in {
     text = ''
       ## Use systemd-resolved.service as dns service
       nameserver 127.0.0.53
+      ## Fallback server on Xiala.net in case we got a sig stripping dns server
+      nameserver 77.109.148.136
     '';
   };
 
@@ -68,6 +70,8 @@ in {
     nscd.enable = false;
     resolved = {
       enable = true;
+      dnssec = "true"; # "allow-downgrade";
+      fallbackDns = [ "77.109.148.136" "2001:1620:2078:136::" ];
     };
     fail2ban = {
       enable = true;
