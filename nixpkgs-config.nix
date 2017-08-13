@@ -38,6 +38,10 @@ in {
     pixie = pkgs.pixie.override {
       buildWithPypy = true;
     };
+    pinentry = pkgs.pinentry.override {
+      gtk2 = null;
+      gcr = pkgs.gnome3.gcr;
+    };
     dwarf-fortress = pkgs.dwarf-fortress.override {
       theme = "phoebus";
       enableDFHack = true;
