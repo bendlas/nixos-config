@@ -25,6 +25,8 @@
   ]);
   virtualisation.docker = {
     enable = true;
+    enableOnBoot = false;
+
   };
   environment.enableDebugInfo = true;
   services = {
@@ -45,6 +47,7 @@
       shell = "/run/current-system/sw/bin/zsh";
       isNormalUser = true;
     };
+    "herwig".extraGroups = [ "docker" ];
   };
 
 }
