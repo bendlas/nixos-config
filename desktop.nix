@@ -141,6 +141,7 @@
     };
   };
 
+  ## Pulseaudio uses 4713
   # networking.firewall.allowedTCPPorts = [ 4713 ];
 
   virtualisation = {
