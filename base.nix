@@ -5,14 +5,14 @@ in {
   environment.systemPackages = (with pkgs; [
 
     file screen tmux htop wget psmisc utillinuxCurses zip unzip lsof
-    bind hdparm pmutils iotop rlwrap traceroute emacs which nix-repl
+    bind hdparm pmutils iotop rlwrap traceroute which nix-repl # emacs ## is added by enabling exwm
     iptables telnet reptyr tree multipath_tools lm_sensors ent davfs2
     btrfsProgs dmidecode nmap gitFull vde2 gradle gnumake
     socat libressl diffoscope vim patchelf gcc clisp parted usbutils
     rsync gnupg gdb powertop lshw libxslt letsencrypt dvtm abduco dtach
     nox
 
-    boot leiningen gettext jdk jdk.jre maven3 s3cmd sqlite python criu mkpasswd cask
+    boot leiningen gettext jdk maven3 s3cmd sqlite python criu mkpasswd cask
     (callPackage ./git-update-channel.nix {})
 
   ] ++ [(

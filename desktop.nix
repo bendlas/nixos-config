@@ -3,12 +3,12 @@
 
   environment.systemPackages = (with pkgs; [
 
-    abiword gnumeric thunderbird visualvm skype
+    abiword gnumeric thunderbird visualvm # skype
 
     pciutils ntfs3g wireshark st nodejs unetbootin gparted
 
     debootstrap mercurial subversion cmake rustc cargo nim ant go pypy dust
-    pythonPackages.ipython guile nodePackages.grunt-cli lua mono
+    pythonPackages.ipython guile nodePackages.grunt-cli mono
     luajit luarocks racket
 
     dmenu glxinfo liberation_ttf xlibs.xkill
@@ -141,7 +141,7 @@
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 4713 ];
+  # networking.firewall.allowedTCPPorts = [ 4713 ];
 
   virtualisation = {
     ## xen build is broken
