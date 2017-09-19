@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 {
   imports = [
-    ./desktop.nix ./xsession.nix ./dev.nix ./power-savings.nix
+    ./desktop.nix ./dev.nix ./power-savings.nix # ./xsession.nix
   ];
   fileSystems."/" = { device = "/dev/null"; };
   boot.loader.grub.enable = false;

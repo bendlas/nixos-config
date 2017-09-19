@@ -34,7 +34,7 @@ in {
       #gconfPackage = pkgs.gnome3.gconf;
     };
     wine = pkgs.wineFull;
-    linuxPackages = pkgs.linuxPackages_4_12;
+    linuxPackages = pkgs.linuxPackages_4_13;
     pixie = pkgs.pixie.override {
       buildWithPypy = true;
     };

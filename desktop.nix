@@ -89,8 +89,8 @@
       enable = false; # FIXME true;
       client.enable = true;
       relay.enable = true;
-      relay.isBridge = true;
-      relay.portSpec = "80";
+      relay.role = "bridge";
+      relay.port = "80";
     };
     postgresql.authentication = pkgs.lib.mkForce ''
       local all all                trust

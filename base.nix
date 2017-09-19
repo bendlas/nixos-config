@@ -115,6 +115,7 @@ in {
       binary-caches-parallel-connections = 24
       gc-keep-outputs = false
       gc-keep-derivations = false
+      build-use-sandbox = true
     '';
   };
   
