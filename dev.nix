@@ -21,7 +21,7 @@
     };
   };
   environment.systemPackages = (with pkgs; [
-    emacs.emacs.debug
+    emacs.emacs.debug docker_compose
   ]);
   virtualisation.docker = {
     enable = true;
