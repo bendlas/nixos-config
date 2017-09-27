@@ -40,6 +40,7 @@ in {
 
   networking = {
     firewall.enable = true;
+    firewall.allowedTCPPorts = [ 22 ];
     networkmanager.enable = false;
     useNetworkd = true;
     extraHosts = ''
