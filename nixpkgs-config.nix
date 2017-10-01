@@ -45,7 +45,7 @@ in {
     dwarf-fortress = pkgs.dwarf-fortress.override {
       theme = "phoebus";
       enableDFHack = true;
-      # enableSoundSense = true;
+      enableSoundSense = true;
     };
     texlive-bendlas = pkgs.texlive.combine {
       inherit (pkgs.texlive)
