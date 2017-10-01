@@ -13,7 +13,7 @@ in {
     nox
 
     boot leiningen gettext jdk maven3 s3cmd sqlite python criu mkpasswd cask
-    (callPackage ./git-update-channel.nix {})
+    (callPackage ./update-git-channel.nix {})
 
   ] ++ [(
     runCommand "git-new-workdir" {} ''
@@ -107,7 +107,7 @@ in {
 
   nix = {
     nixPath = [
-      "nixpkgs=/etc/nixos/pkgs"
+      "nixpkgs=${callPackage /etc/nixos/pkgs.nix {}}"
       "nixos=/etc/nixos/pkgs/nixos"
       "nixos-config=/etc/nixos/configuration.nix"
     ];
