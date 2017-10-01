@@ -23,7 +23,8 @@ rev=`git ls-remote https://github.com/bendlas/nixpkgs.git refs/heads/$2 | cut -f
 writeDescriptor $rev 0000000000000000000000000000000000000000000000000000000000000000 > $DUMMY/channel.nix
 
 sha256=$(nix-prefetch-url $DUMMY -A channel)
-rm -r $DUMMY
 
-writeDescriptor $rev $sha256 > $1
+writeDescriptor $rev $sha256 > $DUMMY/channel.nix
+
+nix-build $DUMMY -A channel --out-link $1
 

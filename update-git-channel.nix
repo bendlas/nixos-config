@@ -1,7 +1,6 @@
 { writeScriptBin, nix }:
 
 writeScriptBin "update-git-channel" ''
-  set -e
   REV=$1
   TARGET="/etc/nixos/pkgs.git"
 
@@ -12,5 +11,5 @@ writeScriptBin "update-git-channel" ''
     echo "Updating '$TARGET' to '$REV'"
   fi
 
-  ${./git-channel.sh} $TARGET $REV
+  exec ${./git-channel.sh} $TARGET $REV
 ''
