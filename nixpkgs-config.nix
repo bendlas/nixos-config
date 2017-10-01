@@ -47,7 +47,6 @@ in {
       enableDFHack = true;
       enableSoundSense = true;
       enableStoneSense = true;
-      enableIsoWorld = true;
     };
     texlive-bendlas = pkgs.texlive.combine {
       inherit (pkgs.texlive)
