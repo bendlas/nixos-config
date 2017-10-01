@@ -28,7 +28,9 @@ writeDescriptor $rev $sha256 > $DUMMY/channel.nix
 
 PKGS=`nix-build $DUMMY -A channel --no-out-link`
 
+cat > $DUMMY/default.nix <<EOF
+{ channel = (import $PKGS {}).callPackage ./channel.nix {}; }
+EOF
 [ -L $1 ] && rm $1
-
-nix-build $PKGS $DUMMY -A channel --out-link $1
+nix-build $DUMMY -A channel --out-link $1
 
