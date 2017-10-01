@@ -26,5 +26,9 @@ sha256=$(nix-prefetch-url $DUMMY -A channel)
 
 writeDescriptor $rev $sha256 > $DUMMY/channel.nix
 
-nix-build $DUMMY -A channel --out-link $1
+PKGS=`nix-build $DUMMY -A channel --no-out-link`
+
+[ -L $1 ] && rm $1
+
+nix-build $PKGS $DUMMY -A channel --out-link $1
 
