@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 { ## Outsource nixpkgs.config to be shared with nix-env
-  require = [ ./desktop.nix ./hardware-configuration.nitox.nix ./dev.nix ./xsession.nix ];
+  require = [ ./desktop.nix ./hardware-configuration.nitox.nix ./dev.nix ];
 
   boot = {
     loader.grub = {

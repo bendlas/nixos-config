@@ -4,7 +4,6 @@
     ./base.nix
     ./desktop.nix
     # ./dev.nix
-    # ./xsession.nix
   ];
 
   users.extraUsers.root.password = "123";
