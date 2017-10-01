@@ -1,6 +1,7 @@
 { writeScriptBin, nix }:
 
 writeScriptBin "update-git-channel" ''
+  set -e
   REV=$1
   CHAN=$2
   
