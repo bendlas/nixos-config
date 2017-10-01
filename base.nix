@@ -107,7 +107,7 @@ in {
 
   nix = {
     nixPath = [
-      "nixpkgs=${callPackage /etc/nixos/pkgs.nix {}}"
+      "nixpkgs=${pkgs.callPackage /etc/nixos/pkgs.nix {}}"
       "nixos=/etc/nixos/pkgs/nixos"
       "nixos-config=/etc/nixos/configuration.nix"
     ];
