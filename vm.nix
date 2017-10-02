@@ -3,7 +3,7 @@
   imports = [
     ./base.nix
     ./desktop.nix
-    # ./dev.nix
+    ./dev.nix
   ];
 
   users.extraUsers.root.password = "123";
@@ -12,6 +12,7 @@
   users.mutableUsers = false;
 
   networking.hostName = "vm";
+  networking.nat.externalInterface = "dummy";
 
   environment.systemPackages = with pkgs; [ sudo ];
   environment.enableDebugInfo = true;
