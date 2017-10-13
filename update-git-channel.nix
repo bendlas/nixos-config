@@ -2,7 +2,7 @@
 
 writeScriptBin "update-git-channel" ''
   REV=$1
-  TARGET="/etc/nixos/pkgs.git"
+  TARGET="/etc/nixos/pkgs"
 
   if [ -z "$REV" ]; then
    echo "$0 <revision>"
