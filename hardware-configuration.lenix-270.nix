@@ -20,6 +20,7 @@
   fileSystems."/tmp" =
     { device = "TMP";
       fsType = "tmpfs";
+      options = [ "size=16G" "mode=1777" ];
     };
 
   fileSystems."/boot" =
