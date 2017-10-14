@@ -77,7 +77,6 @@ in {
           CHECKPOINT_RESTORE y
           RFKILL_INPUT y
           DEBUG_INFO y
-          FW_LOADER_USER_HELPER_FALLBACK y
         '';
       };
     };
