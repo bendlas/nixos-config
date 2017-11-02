@@ -33,6 +33,10 @@ in {
       #enableNaCl = false; # broken
       #gconfPackage = pkgs.gnome3.gconf;
     };
+    # Mass rebuild
+    #xdg-open = pkgs.xdg-open.override {
+    #  mimiSupport = true;
+    #};
     wine = pkgs.wineFull;
     linuxPackages = pkgs.linuxPackages_4_13;
     pixie = pkgs.pixie.override {

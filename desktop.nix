@@ -42,7 +42,7 @@
 #    ghc cabal-install cabal2nix
   ] ++ pkgs.gnome3.corePackages ++ pkgs.gnome3.optionalPackages);
 
-  system.extraDependencies = [ pkgs.virtualbox.meta.extensionPack ];
+  system.extraDependencies = [ pkgs.virtualbox.extensionPack ];
 
   fonts = {
     fonts = with pkgs; [
