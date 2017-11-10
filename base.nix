@@ -12,7 +12,7 @@ in {
     rsync gnupg gdb powertop lshw libxslt letsencrypt dvtm abduco dtach
     nox
 
-    boot leiningen gettext jdk maven3 s3cmd sqlite python criu mkpasswd cask
+    boot leiningen gettext jdk maven3 s3cmd sqlite python mkpasswd # cask criu
     (callPackage ./update-git-channel.nix {})
 
   ] ++ [(

@@ -9,7 +9,7 @@
 
     debootstrap mercurial subversion cmake rustc cargo nim ant go pypy dust
     pythonPackages.ipython guile nodePackages.grunt-cli mono
-    luajit luarocks racket
+    luajit luarocks # racket
 
     dmenu glxinfo liberation_ttf xlibs.xkill
     xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp aspell
