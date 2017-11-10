@@ -43,7 +43,8 @@
   hardware = {
     trackpoint.emulateWheel = true;
     bluetooth.enable = true;
-    enableRedistributableFirmware = true;
+    # enableRedistributableFirmware = true;
+    firmware = [ pkgs.firmwareLinuxNonfree ];
   };
 
   #  boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
