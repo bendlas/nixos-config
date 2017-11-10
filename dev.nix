@@ -37,8 +37,8 @@
     };
   };
   nix = {
-    # trustedBinaryCaches = [ "https://headcounter.org/hydra" ];
-    # binaryCachePublicKeys = [ "headcounter.org:/7YANMvnQnyvcVB6rgFTdb8p5LG1OTXaO+21CaOSBzg=" ];
+    trustedBinaryCaches = [ "https://headcounter.org/hydra" ];
+    binaryCachePublicKeys = [ "headcounter.org:/7YANMvnQnyvcVB6rgFTdb8p5LG1OTXaO+21CaOSBzg=" ];
   };
 
   users.extraUsers = {
