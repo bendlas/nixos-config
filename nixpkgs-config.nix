@@ -38,7 +38,7 @@ in {
     #  mimiSupport = true;
     #};
     wine = pkgs.wineFull;
-    linuxPackages = pkgs.linuxPackages_4_13;
+    linuxPackages = pkgs.linuxPackages_4_14;
     pixie = pkgs.pixie.override {
       buildWithPypy = true;
     };

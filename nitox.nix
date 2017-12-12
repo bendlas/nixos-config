@@ -8,7 +8,6 @@
   require = [ ./desktop.nix ./hardware-configuration.nitox.nix ./dev.nix ];
 
   boot = {
-    supportedFilesystems = [ "zfs" ];
     loader.grub = {
       enable = true;
       version = 2;
