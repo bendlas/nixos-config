@@ -57,8 +57,7 @@ in {
     defaultLocale = "en_US.UTF-8";
   };
 
-  boot.supportedFilesystems = [ # "zfs" # spl is broken on 4.14
-   ];
+  boot.supportedFilesystems = [ "zfs" ];
 
   environment.etc."resolv.conf" = pkgs.lib.mkForce {
     text = ''
