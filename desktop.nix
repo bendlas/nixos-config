@@ -16,7 +16,7 @@
     aspellDicts.en aspellDicts.de dunst libnotify
 
     firefox deluge dosbox alsaUtils gimp geoip clementine
-    chromium vlc inkscape dropbox-cli bitcoin steam idea.idea-community
+    chromium vlc inkscape dropbox-cli steam idea.idea-community # bitcoin
     unrar p7zip bsdiff gitAndTools.hub antimony blender
     links2 qjackctl jack2Full beep wine winetricks radare2
     valgrind sbcl lyx nix-generate-from-cpan paprefs pavucontrol npm2nix
@@ -152,6 +152,6 @@
 
   hardware.opengl.driSupport32Bit = true;
 
-  programs.cdemu.enable = true;
+  programs.cdemu.enable = false;
 
 }
