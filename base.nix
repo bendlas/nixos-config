@@ -10,7 +10,7 @@ in {
     btrfsProgs dmidecode nmap gitFull vde2 gradle gnumake
     socat libressl diffoscope vim patchelf gcc clisp parted usbutils
     rsync gnupg gdb powertop lshw libxslt letsencrypt dvtm abduco dtach
-    nox
+    nox pv
 
     boot leiningen gettext jdk maven3 s3cmd sqlite python mkpasswd # cask criu
     (callPackage ./update-git-channel.nix {})
