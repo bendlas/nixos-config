@@ -13,7 +13,7 @@ in {
     nox pv
 
     boot leiningen gettext jdk maven3 s3cmd sqlite python mkpasswd # cask criu
-    (callPackage ./update-git-channel.nix {})
+    (callPackage ./update-git-channel.nix {}) taalo-build
 
   ] ++ [(
     runCommand "git-new-workdir" {} ''

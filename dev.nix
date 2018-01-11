@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  require = [ ./taalo.nix ];
-  vuizvui.user.aszlig.programs.taalo-build.enable = true;
+  ## require = [ ./taalo.nix ];
+  ## vuizvui.user.aszlig.programs.taalo-build.enable = true;
 
   networking = {
     extraHosts = ''
