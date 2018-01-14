@@ -21,6 +21,11 @@
     hostName = "nitox";
     hostId = "f26c47cc";
     nat.externalInterface = "enp5s0";
+    firewall.allowedTCPPorts = [ 80 443 ];
+    nat.forwardPorts = [
+      { destination = ":80";  sourcePort = 8080; }
+      { destination = ":443"; sourcePort = 8443; }
+    ];
   };
 
   services.xserver = {
@@ -30,4 +35,27 @@
     '';
   };
 
+  security.acme = {
+    certs = {
+      "nitox.bendlas.net" = {
+        email = "herwig@bendlas.net";
+        webroot = "/var/lib/letsencrypt-nitox/webroot";
+        extraDomains = {
+          "rastox.bendlas.net" = null;
+          "testextra.bendlas.net" = null;
+        };
+        postRun = ''
+          ROOT=/etc/letsencrypt/live/nitox.bendlas.net
+          OUT=/var/lib/letsencrypt-nitox
+          mkdir -p $OUT
+          ${pkgs.openssl}/bin/openssl pkcs12 -export \
+            -in fullchain.pem -inkey $ROOT/privkey.pem \
+            -out $OUT/keystore.p12 \
+            -name nitox -CAfile $ROOT/chain.pem -caname root \
+            -password file:$OUT/keystore.pw
+          chmod a+r $OUT/keystore.p12
+        '';
+      };
+    };
+  };
 }
