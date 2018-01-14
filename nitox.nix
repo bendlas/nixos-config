@@ -23,8 +23,8 @@
     nat.externalInterface = "enp5s0";
     firewall.allowedTCPPorts = [ 80 443 ];
     nat.forwardPorts = [
-      { destination = ":80";  sourcePort = 8080; }
-      { destination = ":443"; sourcePort = 8443; }
+      { destination = ":8080";  sourcePort = 80; }
+      { destination = ":8443"; sourcePort = 443; }
     ];
   };
 
