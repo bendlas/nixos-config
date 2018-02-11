@@ -1,8 +1,9 @@
 { config, pkgs, ... }:
 let npc = import ./nixpkgs-config.nix;
 in {
+  boot.kernelPackages = pkgs.linuxPackages_4_15;
 
-  environment.systemPackages = (with pkgs; [
+  environment.systemPackages = with pkgs; [
 
     file screen tmux htop wget psmisc utillinuxCurses zip unzip lsof
     bind hdparm pmutils iotop rlwrap traceroute which nix-repl # emacs ## is added by enabling exwm
@@ -13,14 +14,10 @@ in {
     nox pv
 
     boot leiningen gettext jdk maven3 s3cmd sqlite python mkpasswd # cask criu
-    (callPackage ./update-git-channel.nix {}) taalo-build
 
-  ] ++ [(
-    runCommand "git-new-workdir" {} ''
-      mkdir $out
-      ln -s ${git}/share/git/contrib/workdir $out/bin
-    ''
-  )]);
+    taalo-build git-new-workdir update-git-channel
+
+  ];
 
   ## Outsource nixpkgs.config to be shared with nix-env
   nixpkgs.config = npc;
@@ -96,15 +93,19 @@ in {
 
   security.sudo.wheelNeedsPassword = false;
 
-  programs.zsh = {
-    enable = true;
-    promptInit = "";
-    interactiveShellInit = ''
-      unalias run-help
-      autoload -Uz run-help
-    '';
+  programs = {
+    mosh.enable = true;
+    criu.enable = true;
+    systemtap.enable = true;
+    zsh = {
+      enable = true;
+      promptInit = "";
+      interactiveShellInit = ''
+        unalias run-help
+        autoload -Uz run-help
+      '';
+    };
   };
-  programs.mosh.enable = true;
 
   nix = {
     nixPath = [

@@ -32,7 +32,6 @@
     qemu_kvm qemu ja2-stracciatella # virtmanager zcash
 
     # androidenv.androidsdk_7_1_1_extras
-    linuxPackages.systemtap
 
     # dwarf-fortress dwarf-therapist dwarf-fortress-packages.phoebus-theme
     dwarf-fortress

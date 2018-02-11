@@ -22,7 +22,12 @@ in {
   };
 
   packageOverrides = pkgs: rec {
+    git-new-workdir = pkgs.runCommand "git-new-workdir" {} ''
+      mkdir $out
+      ln -s ${pkgs.git}/share/git/contrib/workdir $out/bin
+    '';
     taalo-build = pkgs.callPackage ./taalo-build.nix { };
+    update-git-channel = pkgs.callPackage ./update-git-channel.nix {};
     nmap = pkgs.nmap_graphical;
     inherit (pkgs.callPackage ./emacs.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsPackages emacs emacsWithPackages;
     chromium = pkgs.chromium.override {
@@ -39,7 +44,7 @@ in {
     #  mimiSupport = true;
     #};
     wine = pkgs.wineFull;
-    linuxPackages = pkgs.linuxPackages_4_15;
+#    linuxPackages = pkgs.linuxPackages_4_15;
     pixie = pkgs.pixie.override {
       buildWithPypy = true;
     };
@@ -60,30 +65,30 @@ in {
         collection-latex collection-latexextra collection-latexrecommended
         collection-fontsrecommended;
     };
-    stdenv = pkgs.stdenv // {
-      platform = pkgs.stdenv.platform // {
-        # http://pkgs.fedoraproject.org/cgit/rpms/kernel.git/tree/Kbuild-Add-an-option-to-enable-GCC-VTA.patch
-        ## criu support
-        #  EXPERT y
-        #  CHECKPOINT_RESTORE y
-        ## modified by EXPERT y
-        #  RFKILL_INPUT y
-        ## systemtap support
-        #  DEBUG_INFO y
-        ## default correct
-        #  KPROBES y
-        #  RELAY y
-        #  DEBUG_FS y
-        #  MODULES y
-        #  MODULE_UNLOAD y
-        #  UPROBES y
-        kernelExtraConfig = ''
-          EXPERT y
-          CHECKPOINT_RESTORE y
-          RFKILL_INPUT y
-          DEBUG_INFO y
-        '';
-      };
-    };
+    # stdenv = pkgs.stdenv // {
+    #   platform = pkgs.stdenv.platform // {
+    #     # http://pkgs.fedoraproject.org/cgit/rpms/kernel.git/tree/Kbuild-Add-an-option-to-enable-GCC-VTA.patch
+    #     ## criu support
+    #     #  EXPERT y
+    #     #  CHECKPOINT_RESTORE y
+    #     ## modified by EXPERT y
+    #     #  RFKILL_INPUT y
+    #     ## systemtap support
+    #     #  DEBUG_INFO y
+    #     ## default correct
+    #     #  KPROBES y
+    #     #  RELAY y
+    #     #  DEBUG_FS y
+    #     #  MODULES y
+    #     #  MODULE_UNLOAD y
+    #     #  UPROBES y
+    #     kernelExtraConfig = ''
+    #       EXPERT y
+    #       CHECKPOINT_RESTORE y
+    #       RFKILL_INPUT y
+    #       DEBUG_INFO y
+    #     '';
+    #   };
+    # };
   };
 }
