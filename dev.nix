@@ -9,7 +9,8 @@
       127.0.0.1 leihfix.local static.local jk.local hdnews.local hdirect.local stats.local sub.hdnews.local app.phoenix.dev mobile.phoenix.dev
     '';
     firewall = {
-      #allowedTCPPorts = [ 80 443 3449 ]; # 80 443 8000
+      #allowedTCPPorts = [ 22 ];
+      allowedTCPPorts = [ 22 80 443 3449 8081 8000 8080 ];
       #allowedTCPPortRanges = [
       #  { from = 8000; to = 9000; }
       #];
