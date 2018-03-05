@@ -36,6 +36,7 @@
       package = pkgs.postgresql;
       enableTCPIP = true;
     };
+    teamviewer.enable = true;
   };
   nix = {
     trustedBinaryCaches = [ "https://headcounter.org/hydra" ];
