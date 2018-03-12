@@ -6,7 +6,7 @@ in {
   environment.systemPackages = with pkgs; [
 
     file screen tmux htop wget psmisc utillinuxCurses zip unzip lsof
-    bind hdparm pmutils iotop rlwrap traceroute which nix-repl # emacs ## is added by enabling exwm
+    bind hdparm pmutils iotop rlwrap traceroute which # emacs ## is added by enabling exwm
     iptables telnet reptyr tree multipath_tools lm_sensors ent davfs2
     btrfsProgs dmidecode nmap gitFull vde2 gradle gnumake
     socat libressl diffoscope vim patchelf gcc clisp parted usbutils
