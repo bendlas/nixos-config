@@ -18,11 +18,11 @@
       fsType = "btrfs";
     };
 
-  fileSystems."/tmp" =
-    { device = "tmp";
-      fsType = "tmpfs";
-      options = [ "size=48G" "mode=1777" ];
-    };
+  #fileSystems."/tmp" =
+  #  { device = "tmp";
+  #    fsType = "tmpfs";
+  #    options = [ "size=48G" "mode=1777" ];
+  #  };
 
   fileSystems."/var/tmp" =
     { device = "vartmp";
