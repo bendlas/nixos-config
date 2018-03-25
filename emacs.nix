@@ -16,7 +16,7 @@ let
     yasnippet magit magithub with-editor string-edit keyfreq scala-mode # ensime
     uuidgen systemtap-mode gn coffee-mode cask-mode elf-mode
     elfeed elfeed-goodies elfeed-web elfeed-org volume dockerfile-mode yaml-mode
-    impatient-mode cmake-mode
+    impatient-mode # cmake-mode
 
     pkgs.ghostscript pkgs.aspell
 
