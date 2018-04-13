@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let npc = import ./nixpkgs-config.nix;
 in {
-  boot.kernelPackages = pkgs.linuxPackages_4_15;
+  boot.kernelPackages = pkgs.linuxPackages_4_16;
 
   environment.systemPackages = with pkgs; [
 
