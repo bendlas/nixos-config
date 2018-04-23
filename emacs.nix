@@ -4,9 +4,8 @@ let
 
   builtinPackages = epkgs: (with epkgs; [
 
-    cljsbuild-mode clojars clojure-mode cider
     cyberpunk-theme gh gitignore-mode groovy-mode haskell-mode htmlize
-    ibuffer-tramp ido-ubiquitous ido-completing-read-plus idris-mode
+    ibuffer-tramp ido-completing-read-plus idris-mode crm-custom
     javap-mode ninja-mode geiser commenter js2-mode
     js2-highlight-vars js2-refactor js2-closure json-mode json-reformat
     jvm-mode multiple-cursors nix-mode nixos-options org org-present
@@ -28,6 +27,7 @@ let
     # use more recent (unstable) versions
 
     clj-refactor slime
+    cljsbuild-mode clojars clojure-mode cider
   
   ]);
 
