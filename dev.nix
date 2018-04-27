@@ -4,6 +4,8 @@
   ## require = [ ./taalo.nix ];
   ## vuizvui.user.aszlig.programs.taalo-build.enable = true;
 
+  require = [ ./matrix.nix ];
+
   networking = {
     extraHosts = ''
       127.0.0.1 leihfix.local static.local jk.local hdnews.local hdirect.local stats.local sub.hdnews.local app.phoenix.dev mobile.phoenix.dev
