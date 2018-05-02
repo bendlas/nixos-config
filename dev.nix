@@ -4,7 +4,7 @@
   ## require = [ ./taalo.nix ];
   ## vuizvui.user.aszlig.programs.taalo-build.enable = true;
 
-  require = [ ./matrix.nix ];
+  ## require = [ ./matrix.nix ];
 
   networking = {
     extraHosts = ''
