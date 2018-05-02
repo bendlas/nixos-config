@@ -11,7 +11,7 @@ let
     jvm-mode multiple-cursors nix-mode nixos-options org org-present
     paredit nim-mode mmm-mode markdown-mode magit-gh-pulls macrostep
     levenshtein php-mode rainbow-delimiters skewer-mode skewer-less
-    skewer-reload-stylesheets smex undo-tree wanderlust elixir-mode alchemist
+    skewer-reload-stylesheets smex undo-tree wanderlust erlang elixir-mode alchemist
     yasnippet magit magithub with-editor string-edit keyfreq scala-mode # ensime
     uuidgen systemtap-mode gn coffee-mode cask-mode elf-mode
     elfeed elfeed-goodies elfeed-web elfeed-org volume dockerfile-mode yaml-mode

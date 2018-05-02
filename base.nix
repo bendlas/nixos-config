@@ -54,7 +54,7 @@ in {
     defaultLocale = "en_US.UTF-8";
   };
 
-  boot.supportedFilesystems = [ "zfs" ];
+  ## boot.supportedFilesystems = [ "zfs" ];
 
   environment.etc."resolv.conf" = pkgs.lib.mkForce {
     text = ''
