@@ -22,7 +22,7 @@
     valgrind sbcl lyx nix-generate-from-cpan paprefs pavucontrol npm2nix
     pinentry dos2unix audacity pgadmin
     google-musicmanager xlibs.xhost # teamspeak_client
-    gcolor3
+    gcolor3 signal-desktop
 
     texlive-bendlas
 
