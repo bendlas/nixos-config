@@ -28,7 +28,6 @@ in {
     '';
     taalo-build = pkgs.callPackage ./taalo-build.nix { };
     update-git-channel = pkgs.callPackage ./update-git-channel.nix {};
-    nmap = pkgs.nmap_graphical;
     inherit (pkgs.callPackage ./emacs.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsPackages emacs emacsWithPackages;
     chromium = pkgs.chromium.override {
       enablePepperFlash = true;
