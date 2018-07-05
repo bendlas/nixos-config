@@ -13,7 +13,7 @@ let
     levenshtein php-mode rainbow-delimiters skewer-mode skewer-less
     skewer-reload-stylesheets smex undo-tree wanderlust erlang elixir-mode alchemist
     yasnippet magit magithub with-editor string-edit keyfreq scala-mode # ensime
-    uuidgen systemtap-mode gn coffee-mode cask-mode elf-mode
+    uuidgen systemtap-mode gn coffee-mode cask-mode elf-mode lua-mode
     elfeed elfeed-goodies elfeed-web elfeed-org volume dockerfile-mode yaml-mode
     impatient-mode # cmake-mode
 
