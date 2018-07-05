@@ -12,7 +12,8 @@
     '';
     firewall = {
       #allowedTCPPorts = [ 22 ];
-      allowedTCPPorts = [ 22 80 443 3449 8081 8000 8080 ];
+      allowedTCPPorts = [ 22 80 443 3449 8081 8000 8080 9981 9982 ];
+      allowedUDPPorts = [ 9981 9982 ];
       #allowedTCPPortRanges = [
       #  { from = 8000; to = 9000; }
       #];
