@@ -3,6 +3,7 @@ let npc = import ./nixpkgs-config.nix;
 in {
   system.nixos.stateVersion = "18.03";
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.cleanTmpDir = true;
 
   environment.systemPackages = with pkgs; [
 
