@@ -1,4 +1,4 @@
-{ emacs25, emacsPackagesNgGen, enableDebugInfo, pkgs }:
+{ emacs26, emacsPackagesNgGen, enableDebugInfo, pkgs }:
 
 let
 
@@ -32,7 +32,7 @@ let
   ]);
 
   emacsPackages = emacsPackagesNgGen (
-    enableDebugInfo (emacs25.override {
+    enableDebugInfo (emacs26.override {
       inherit (pkgs) alsaLib imagemagick acl gpm;
       inherit (pkgs.gnome3) gconf;
       withGTK3 = true; withGTK2 = false;
