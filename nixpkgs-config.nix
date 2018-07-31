@@ -36,7 +36,7 @@ in {
       #gnomeSupport = true;
       #gnomeKeyringSupport = true;
       #enableNaCl = false; # broken
-      #gconfPackage = pkgs.gnome3.gconf;
+      #gconfPackage = pkgs.gnome2.GConf;
     };
     # Mass rebuild
     #xdg-open = pkgs.xdg-open.override {

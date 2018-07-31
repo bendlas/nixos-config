@@ -9,10 +9,10 @@ let
     javap-mode ninja-mode geiser commenter js2-mode
     js2-highlight-vars js2-refactor js2-closure json-mode json-reformat
     jvm-mode multiple-cursors nix-mode nixos-options org org-present
-    paredit nim-mode mmm-mode markdown-mode magit-gh-pulls macrostep
+    paredit nim-mode mmm-mode markdown-mode macrostep # magit-gh-pulls
     levenshtein php-mode rainbow-delimiters skewer-mode skewer-less
     skewer-reload-stylesheets smex undo-tree wanderlust erlang elixir-mode alchemist
-    yasnippet magit magithub with-editor string-edit keyfreq scala-mode # ensime
+    yasnippet magit with-editor string-edit keyfreq scala-mode # ensime magithub
     uuidgen systemtap-mode gn coffee-mode cask-mode elf-mode lua-mode
     elfeed elfeed-goodies elfeed-web elfeed-org volume dockerfile-mode yaml-mode
     impatient-mode # cmake-mode
@@ -34,7 +34,7 @@ let
   emacsPackages = emacsPackagesNgGen (
     enableDebugInfo (emacs26.override {
       inherit (pkgs) alsaLib imagemagick acl gpm;
-      inherit (pkgs.gnome3) gconf;
+      gconf = pkgs.gnome2.GConf;
       withGTK3 = true; withGTK2 = false;
     }));
 
