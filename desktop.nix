@@ -17,7 +17,7 @@
 
     firefox deluge dosbox alsaUtils gimp geoip # clementine
     chromium vlc inkscape dropbox-cli steam idea.idea-community bitcoin
-    unrar p7zip bsdiff gitAndTools.hub blender # antimony
+    unrar p7zip bsdiff gitAndTools.hub # blender # antimony
     links2 qjackctl jack2Full beep wine winetricks radare2
     valgrind sbcl lyx nix-generate-from-cpan paprefs pavucontrol npm2nix
     pinentry dos2unix audacity pgadmin
