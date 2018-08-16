@@ -15,7 +15,7 @@ let
     yasnippet magit with-editor string-edit keyfreq scala-mode # ensime magithub
     uuidgen systemtap-mode gn coffee-mode cask-mode elf-mode lua-mode
     elfeed elfeed-goodies elfeed-web elfeed-org volume dockerfile-mode yaml-mode
-    impatient-mode # cmake-mode
+    impatient-mode cmake-mode
 
     pkgs.ghostscript pkgs.aspell
 
@@ -33,9 +33,9 @@ let
 
   emacsPackages = emacsPackagesNgGen (
     enableDebugInfo (emacs26.override {
-      inherit (pkgs) alsaLib imagemagick acl gpm;
-      gconf = pkgs.gnome2.GConf;
+      inherit (pkgs) alsaLib imagemagick acl gpm Xaw3d;
       withGTK3 = true; withGTK2 = false;
+      withXwidgets = true;
     }));
 
   emacsWithPackages = pfn:
