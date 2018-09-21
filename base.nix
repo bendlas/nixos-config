@@ -2,8 +2,7 @@
 let npc = import ./nixpkgs-config.nix;
 in {
   system.stateVersion = "18.03";
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_4_17;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.cleanTmpDir = true;
 
   environment.systemPackages = with pkgs; [
@@ -72,7 +71,7 @@ in {
     nscd.enable = false;
     resolved = {
       enable = true;
-      dnssec = "true"; # "allow-downgrade";
+      dnssec = "allow-downgrade";
       fallbackDns = [ "77.109.148.136" "2001:1620:2078:136::" ];
     };
     fail2ban = {
