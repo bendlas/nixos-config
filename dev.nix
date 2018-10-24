@@ -8,7 +8,8 @@
 
   networking = {
     extraHosts = ''
-      127.0.0.1 leihfix.local static.local jk.local hdnews.local hdirect.local stats.local sub.hdnews.local app.phoenix.dev mobile.phoenix.dev
+      127.0.0.1  app.phoenix.dev mobile.phoenix.dev
+      10.233.1.2 jk.local hdnews.local hdirect.local static.local stats.local sub.hdnews.local
     '';
     firewall = {
       #allowedTCPPorts = [ 22 ];
