@@ -17,7 +17,7 @@ in {
 
     boot leiningen gettext jdk maven3 s3cmd sqlite python mkpasswd # cask criu
     
-    cowsay
+    cowsay elfutils binutils
     
     taalo-build git-new-workdir update-git-channel
 
