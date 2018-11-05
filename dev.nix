@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
-
+let
+  container-host-ip = "10.233.2.1";
+  vitox-ip = "10.233.2.2";
+in
 {
   ## require = [ ./taalo.nix ];
   ## vuizvui.user.aszlig.programs.taalo-build.enable = true;
@@ -9,7 +12,7 @@
   networking = {
     extraHosts = ''
       127.0.0.1  app.phoenix.dev mobile.phoenix.dev
-      10.233.1.2 jk.local hdnews.local hdirect.local static.local stats.local sub.hdnews.local
+      ${vitox-ip} jk.local hdnews.local hdirect.local static.local stats.local sub.hdnews.local
     '';
     firewall = {
       #allowedTCPPorts = [ 22 ];
@@ -69,6 +72,14 @@
       isNormalUser = true;
     };
     "herwig".extraGroups = [ "docker" ];
+  };
+
+  containers.vitox = {
+    config = /home/herwig/checkout/net.bendlas-next/etc/nixos/instances/vitox.nix;
+    privateNetwork = true;
+    hostAddress = container-host-ip;
+    localAddress = vitox-ip;
+    bindMounts."/src/net.bendlas".hostPath = "/home/herwig/checkout/net.bendlas-next";
   };
 
 }
