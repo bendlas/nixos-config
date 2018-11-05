@@ -70,6 +70,11 @@ in {
   };
 
   services = {
+    syncthing = {
+      enable = true;
+      openDefaultPorts = true;
+      user = "herwig";
+    };
     nscd.enable = false;
     resolved = {
       enable = true;
