@@ -74,12 +74,12 @@ in
     "herwig".extraGroups = [ "docker" ];
   };
 
-  containers.vitox = {
-    config = /home/herwig/checkout/net.bendlas-next/etc/nixos/instances/vitox.nix;
-    privateNetwork = true;
-    hostAddress = container-host-ip;
-    localAddress = vitox-ip;
-    bindMounts."/src/net.bendlas".hostPath = "/home/herwig/checkout/net.bendlas-next";
-  };
+  # containers.vitox = {
+  #   config = /home/herwig/checkout/net.bendlas-next/etc/nixos/instances/vitox.nix;
+  #   privateNetwork = true;
+  #   hostAddress = container-host-ip;
+  #   localAddress = vitox-ip;
+  #   bindMounts."/src/net.bendlas".hostPath = "/home/herwig/checkout/net.bendlas-next";
+  # };
 
 }
