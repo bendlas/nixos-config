@@ -6,7 +6,7 @@ let
 
     cyberpunk-theme gh gitignore-mode groovy-mode haskell-mode htmlize
     ibuffer-tramp ido-completing-read-plus idris-mode crm-custom
-    javap-mode ninja-mode geiser commenter js2-mode
+    javap-mode ninja-mode geiser commenter js2-mode xref-js2
     js2-highlight-vars js2-refactor js2-closure json-mode json-reformat
     jvm-mode multiple-cursors nix-mode nixos-options org org-present
     paredit nim-mode mmm-mode markdown-mode macrostep # magit-gh-pulls
@@ -15,7 +15,9 @@ let
     yasnippet magit with-editor string-edit keyfreq scala-mode # ensime magithub
     uuidgen systemtap-mode gn coffee-mode cask-mode elf-mode lua-mode
     elfeed elfeed-goodies elfeed-web elfeed-org volume dockerfile-mode yaml-mode
-    impatient-mode cmake-mode
+    impatient-mode cmake-mode livescript-mode
+
+    ivy ivy-xref treemacs
 
     pkgs.ghostscript pkgs.aspell
 
