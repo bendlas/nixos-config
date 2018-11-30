@@ -16,8 +16,7 @@ let
     uuidgen systemtap-mode gn coffee-mode cask-mode elf-mode lua-mode
     elfeed elfeed-goodies elfeed-web elfeed-org volume dockerfile-mode yaml-mode
     impatient-mode cmake-mode livescript-mode
-
-    ivy ivy-xref treemacs
+    ivy ivy-xref treemacs elmacro
 
     pkgs.ghostscript pkgs.aspell
 

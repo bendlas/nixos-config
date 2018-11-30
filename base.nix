@@ -16,9 +16,10 @@ in {
     nox pv nethogs iftop jq
 
     boot leiningen gettext jdk maven3 s3cmd sqlite python mkpasswd # cask criu
-    
+    clojure lumo
+
     cowsay elfutils binutils
-    
+
     taalo-build git-new-workdir update-git-channel
 
   ];
@@ -130,5 +131,5 @@ in {
       build-use-sandbox = true
     '';
   };
-  
+
 }
