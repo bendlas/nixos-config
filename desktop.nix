@@ -9,16 +9,16 @@
 
     debootstrap mercurial subversion cmake rustc cargo nim ant go pypy dust
     pythonPackages.ipython guile nodePackages.grunt-cli mono
-    luajit luarocks # racket
+    luajit luarocks racket
 
     dmenu glxinfo liberation_ttf xlibs.xkill
     xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp aspell
     aspellDicts.en aspellDicts.de dunst libnotify
 
-    firefox deluge dosbox alsaUtils gimp geoip # clementine
+    firefox deluge dosbox alsaUtils gimp geoip clementine
     chromium vlc inkscape steam idea.idea-community bitcoin
-    unrar p7zip bsdiff gitAndTools.hub # blender # antimony
-    links2 qjackctl jack2Full beep wine winetricks radare2
+    unrar p7zip bsdiff gitAndTools.hub blender # antimony
+    links2 qjackctl jack2Full beep wine winetricks radare2 cutter
     valgrind sbcl lyx nix-generate-from-cpan paprefs pavucontrol npm2nix
     pinentry dos2unix audacity pgadmin
     google-musicmanager xlibs.xhost # teamspeak_client
@@ -26,7 +26,7 @@
 
     texlive-bendlas
 
-    ffmpeg # sauerbraten ipfs # stalin
+    ffmpeg ipfs # stalin sauerbraten
 
     gnome3.cheese youtube-dl imagemagick nixui
 
@@ -37,6 +37,9 @@
     # dwarf-fortress dwarf-therapist dwarf-fortress-packages.phoebus-theme
     dwarf-fortress
     dwarf-therapist
+
+    # telegram webtorrent
+    tdesktop webtorrent_desktop
 
 #  ] ++ (with haskellPackages; [
 #    ghc cabal-install cabal2nix
