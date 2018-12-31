@@ -9,27 +9,26 @@ let
     javap-mode ninja-mode geiser commenter js2-mode xref-js2
     js2-highlight-vars js2-refactor js2-closure json-mode json-reformat
     jvm-mode multiple-cursors nix-mode nixos-options org org-present
-    paredit nim-mode mmm-mode markdown-mode macrostep # magit-gh-pulls
+    paredit nim-mode mmm-mode markdown-mode macrostep
     levenshtein php-mode rainbow-delimiters skewer-mode skewer-less
     skewer-reload-stylesheets smex undo-tree wanderlust erlang elixir-mode alchemist
-    yasnippet magit with-editor string-edit keyfreq scala-mode # ensime magithub
+    yasnippet magit with-editor string-edit keyfreq scala-mode
     uuidgen systemtap-mode gn coffee-mode cask-mode elf-mode lua-mode
     elfeed elfeed-goodies elfeed-web elfeed-org volume dockerfile-mode yaml-mode
     impatient-mode cmake-mode livescript-mode
     ivy ivy-xref treemacs elmacro
 
-    pkgs.ghostscript pkgs.aspell
-
-    # tramp # use more recent version
-    # slamhound # not available any more
-
   ]) ++ (with epkgs.melpaPackages; [
-
-    # use more recent (unstable) versions
 
     clj-refactor slime
     cljsbuild-mode clojars clojure-mode cider
-  
+    ensime magithub
+    # magit-gh-pulls ## tries to access /homeless-shelter
+
+  ]) ++ (with pkgs; [
+
+    ghostscript aspell
+
   ]);
 
   emacsPackages = emacsPackagesNgGen (
