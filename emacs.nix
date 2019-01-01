@@ -22,9 +22,11 @@ let
 
     clj-refactor slime
     cljsbuild-mode clojars clojure-mode cider
-    ensime magithub
+    ensime
     # magit-gh-pulls ## tries to access /homeless-shelter
 
+  ]) ++ (with epkgs.melpaPackages; [
+    magithub
   ]) ++ (with pkgs; [
 
     ghostscript aspell
