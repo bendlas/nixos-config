@@ -20,6 +20,7 @@ in {
     clojure lumo
 
     cowsay elfutils binutils nettools
+    ncurses ## for infocmp
 
     taalo-build git-new-workdir update-git-channel
 
