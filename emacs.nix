@@ -18,7 +18,7 @@ let
     impatient-mode cmake-mode livescript-mode
     ivy ivy-xref treemacs elmacro
 
-  ]) ++ (with epkgs.melpaPackages; [
+  ]) ++ (with epkgs.melpaStablePackages; [
 
     clj-refactor slime
     cljsbuild-mode clojars clojure-mode cider
