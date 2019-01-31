@@ -7,7 +7,7 @@
 
     pciutils ntfs3g wireshark st nodejs unetbootin gparted
 
-    debootstrap mercurial subversion cmake rustc cargo nim ant go pypy dust
+    debootstrap mercurial subversion cmake rustc cargo nim ant go pypy
     pythonPackages.ipython guile nodePackages.grunt-cli mono
     luajit luarocks racket
 
@@ -49,7 +49,7 @@
 
   fonts = {
     fonts = with pkgs; [
-      font-droid proggyfonts dejavu_fonts inconsolata profont anonymousPro fira-code
+      noto-fonts proggyfonts dejavu_fonts inconsolata profont anonymousPro fira-code
     ];
   };
 

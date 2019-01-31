@@ -17,10 +17,10 @@ in {
     nox pv nethogs iftop jq
 
     boot leiningen gettext jdk maven3 s3cmd sqlite python mkpasswd # cask criu
-    clojure lumo
+    clojure # lumo
 
     cowsay elfutils binutils nettools
-    ncurses.dev ## for infocmp, figwheel repl
+    ncurses ncurses.dev ## for infocmp, figwheel repl
 
     taalo-build git-new-workdir update-git-channel
 
@@ -61,7 +61,7 @@ in {
     defaultLocale = "en_US.UTF-8";
   };
 
-  ## boot.supportedFilesystems = [ "zfs" ];
+  ## boot.supportedFilesystems = [ "bcachefs" ]; ## "zfs" ];
 
   environment.etc."resolv.conf" = pkgs.lib.mkForce {
     text = ''
