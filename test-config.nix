@@ -6,5 +6,6 @@
   networking.hostId = "cafebabe";
   networking.nat.externalInterface = "dummy";
   services.xserver.videoDrivers = [ "nvidia" "nouveau" "nv" "vesa" "intel" ];
+  hardware.firmware = [ pkgs.firmwareLinuxNonfree ];
 
 }
