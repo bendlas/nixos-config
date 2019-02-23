@@ -6,8 +6,6 @@ let enableDebugInfo_ = lib: pkg:
 in {
   allowUnfree = true;
   allowBroken = false;
-    
-  virtualbox.enableExtensionPack = true;
 
   firefox = {
    enableGoogleTalkPlugin = true;

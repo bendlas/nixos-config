@@ -151,7 +151,10 @@
   virtualisation = {
     ## xen build is broken
     libvirtd.enable = true;
-    virtualbox.host.enable = true;
+    virtualbox.host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
   };
 
   hardware.opengl.driSupport32Bit = true;
