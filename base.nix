@@ -14,7 +14,7 @@ in {
     btrfsProgs dmidecode nmap gitFull vde2 gradle gnumake
     socat libressl diffoscope vim patchelf gcc clisp parted usbutils
     rsync gnupg gdb powertop lshw libxslt letsencrypt dvtm abduco dtach
-    nox pv nethogs iftop jq
+    nox pv nethogs iftop jq iftop
 
     boot leiningen gettext jdk maven3 s3cmd sqlite python mkpasswd # cask criu
     clojure # lumo
