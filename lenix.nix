@@ -13,7 +13,6 @@
       efi.canTouchEfiVariables = true;
     };
     kernelParams = [ "resume=UUID=6567b6fd-c570-412e-8f53-b6ba1733640c" ];
-    kernelPackages = pkgs.linuxPackages_4_19;
   };
 
   networking = rec {
