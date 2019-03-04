@@ -9,6 +9,8 @@ in
 
   ## require = [ ./matrix.nix ];
 
+
+
   networking = {
     extraHosts = ''
       127.0.0.1  app.phoenix.dev mobile.phoenix.dev
@@ -45,7 +47,7 @@ in
   };
   environment.systemPackages = (with pkgs; [
     emacs.emacs.debug docker_compose
-    nixopsUnstable virtmanager
+    nixops virtmanager
   ]);
   virtualisation.docker = {
     enable = true;
