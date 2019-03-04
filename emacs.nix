@@ -8,7 +8,7 @@ let
     ibuffer-tramp ido-completing-read-plus idris-mode crm-custom
     javap-mode ninja-mode geiser commenter js2-mode xref-js2
     js2-highlight-vars js2-refactor js2-closure json-mode json-reformat
-    jvm-mode multiple-cursors nix-mode nixos-options org org-present
+    jvm-mode multiple-cursors nixos-options org org-present
     paredit nim-mode mmm-mode markdown-mode macrostep
     levenshtein php-mode rainbow-delimiters skewer-mode skewer-less
     skewer-reload-stylesheets smex undo-tree wanderlust erlang elixir-mode alchemist
@@ -26,7 +26,7 @@ let
     # magit-gh-pulls ## tries to access /homeless-shelter
 
   ]) ++ (with epkgs.melpaPackages; [
-    magithub cljsbuild-mode clojars
+    magithub cljsbuild-mode clojars nix-mode
   ]) ++ (with pkgs; [
 
     ghostscript aspell
