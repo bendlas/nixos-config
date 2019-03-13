@@ -35,6 +35,13 @@
     '';
   };
 
+  services.nfs.server = {
+    enable = true;
+    exports = ''
+      /var/public    10.0.0.2(rw)
+    '';
+  };
+
   security.acme = {
     certs = {
       "nitox.bendlas.net" = {
