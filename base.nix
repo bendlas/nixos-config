@@ -125,12 +125,12 @@ in {
       "nixos=/etc/nixos/pkgs/nixos"
       "nixos-config=/etc/nixos/configuration.nix"
     ];
+    # sandboxPaths = [ "/var/cache/ccache-chromium/" ];
     buildCores = 4;
     extraOptions = ''
       binary-caches-parallel-connections = 24
       gc-keep-outputs = false
       gc-keep-derivations = false
-      build-use-sandbox = true
     '';
   };
 
