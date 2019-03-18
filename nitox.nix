@@ -5,7 +5,20 @@
 { config, pkgs, ... }:
 
 { ## Outsource nixpkgs.config to be shared with nix-env
-  require = [ ./desktop.nix ./hardware-configuration.nitox.nix ./dev.nix ];
+  require = [ ./desktop.nix ./hardware-configuration.nitox.nix ./dev.nix
+    {
+      networking.firewall.allowedTCPPorts = [ 2049 111 4000 4001 ];
+      networking.firewall.allowedUDPPorts = [ 2049 111 4000 4001 ];
+      services.nfs.server = {
+        enable = true;
+        statdPort = 4000;
+        lockdPort = 4001;
+        exports = ''
+          /var/public    10.0.2.0/24(rw,nohide,insecure,no_subtree_check,fsid=0) 192.168.0.0/24(rw,nohide,insecure,no_subtree_check,fsid=0)
+        '';
+      };
+    }
+  ];
 
   boot = {
     loader.grub = {
@@ -32,13 +45,6 @@
     videoDrivers = [ "nvidia" "nouveau" "nv" "vesa" ];
     deviceSection = ''
       Option "Coolbits" "12"
-    '';
-  };
-
-  services.nfs.server = {
-    enable = true;
-    exports = ''
-      /var/public    10.0.0.2(rw)
     '';
   };
 
