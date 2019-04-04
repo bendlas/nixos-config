@@ -33,6 +33,7 @@
     '';
   };
 
+  hardware.cpu.intel.updateMicrocode = true;
   };
 
   networking = rec {
