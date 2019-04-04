@@ -68,15 +68,6 @@ in {
 
   ## boot.supportedFilesystems = [ "bcachefs" ]; ## "zfs" ];
 
-  environment.etc."resolv.conf" = pkgs.lib.mkForce {
-    text = ''
-      ## Use systemd-resolved.service as dns service
-      nameserver 127.0.0.53
-      ## Fallback server on Xiala.net in case we got a sig stripping dns server
-      nameserver 77.109.148.136
-    '';
-  };
-
   services = {
     syncthing = {
       enable = true;
@@ -87,7 +78,7 @@ in {
     resolved = {
       enable = true;
       dnssec = "allow-downgrade";
-      fallbackDns = [ "77.109.148.136" "2001:1620:2078:136::" ];
+      fallbackDns = [ "77.109.148.136" "2001:1620:2078:136::" "8.8.8.8" ];
     };
     fail2ban = {
       enable = true;
