@@ -85,7 +85,7 @@
     };
   };
 
-  require = [ ./base.nix ];
+  require = [ ./base.nix ./io-scheduler.nix ];
   services = {
     i2p.enable = true;
     tor = {
