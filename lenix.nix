@@ -16,7 +16,7 @@
   };
 
   networking = rec {
-    hostName = "lenix";
+    hostName = "lenix.bendlas.net";
     hostId = "f26c47cd";
     nat.externalInterface = "wlp3s0";
     wireless = {
@@ -41,6 +41,7 @@
   };
 
   hardware = {
+    cpu.intel.updateMicrocode = true;
     trackpoint.emulateWheel = true;
     bluetooth.enable = true;
     # enableRedistributableFirmware = true;

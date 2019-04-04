@@ -31,7 +31,7 @@
   };
 
   networking = rec {
-    hostName = "nitox";
+    hostName = "nitox.bendlas.net";
     hostId = "f26c47cc";
     nat.externalInterface = "enp5s0";
     firewall.allowedTCPPorts = [ 80 443 ];
