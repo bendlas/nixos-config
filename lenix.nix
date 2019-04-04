@@ -4,7 +4,7 @@
   require = [ ./desktop.nix ./hardware-configuration.lenix-270.nix ./dev.nix ./power-savings.nix ];
 
   environment.systemPackages = (with pkgs; [
-    bluez5
+    bluez5 crda wireless-regdb
   ]);
 
   boot = {
@@ -46,6 +46,12 @@
     bluetooth.enable = true;
     # enableRedistributableFirmware = true;
     firmware = [ pkgs.firmwareLinuxNonfree ];
+    opengl = {
+      enable = true;
+      extraPackages = with pkgs; [
+        vaapiIntel
+      ];
+    };
   };
 
   #  boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
