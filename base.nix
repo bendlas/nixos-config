@@ -124,7 +124,7 @@ in {
     extraOptions = ''
       binary-caches-parallel-connections = 24
       gc-keep-outputs = false
-      gc-keep-derivations = false
+      gc-keep-derivations = true
     '';
   };
 
