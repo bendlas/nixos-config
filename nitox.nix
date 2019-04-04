@@ -34,6 +34,11 @@
   };
 
   hardware.cpu.intel.updateMicrocode = true;
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      vaapiVdpau
+    ];
   };
 
   networking = rec {
