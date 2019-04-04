@@ -94,9 +94,7 @@ in {
       passwordAuthentication = false;
       startWhenNeeded = true;
     };
-    locate = {
-      enable = true;
-    };
+    locate.enable = false;
   };
 
   security.sudo.wheelNeedsPassword = false;
