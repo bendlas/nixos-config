@@ -16,6 +16,7 @@
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/3d369f1e-b1b5-4c36-90da-f34f2e0f6af0";
       fsType = "btrfs";
+      options = [ "nossd" "discard" "compress=lzo" "noatime" "autodefrag" ];
     };
 
   #fileSystems."/tmp" =
