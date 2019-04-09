@@ -12,7 +12,7 @@ let
     paredit nim-mode mmm-mode markdown-mode macrostep
     levenshtein php-mode rainbow-delimiters skewer-mode skewer-less
     skewer-reload-stylesheets smex undo-tree wanderlust erlang elixir-mode alchemist
-    yasnippet magit with-editor string-edit keyfreq scala-mode
+    yasnippet with-editor string-edit keyfreq scala-mode
     uuidgen systemtap-mode gn coffee-mode cask-mode elf-mode # lua-mode
     elfeed elfeed-goodies elfeed-web elfeed-org volume dockerfile-mode yaml-mode
     impatient-mode cmake-mode livescript-mode
@@ -20,13 +20,14 @@ let
 
   ]) ++ (with epkgs.melpaStablePackages; [
 
-    clj-refactor slime
-    clojure-mode cider
-    ensime
+    slime cider ensime
     # magit-gh-pulls ## tries to access /homeless-shelter
 
   ]) ++ (with epkgs.melpaPackages; [
-    magithub cljsbuild-mode clojars nix-mode
+  
+    magit magithub cljsbuild-mode clojars nix-mode
+    clj-refactor clojure-mode
+    
   ]) ++ (with pkgs; [
 
     ghostscript aspell
