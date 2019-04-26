@@ -25,7 +25,7 @@ let
 
   ]) ++ (with epkgs.melpaPackages; [
   
-    magit magit-popup magithub cljsbuild-mode clojars nix-mode
+    magit magit-popup cljsbuild-mode clojars nix-mode
     clj-refactor clojure-mode
     
   ]) ++ (with pkgs; [
