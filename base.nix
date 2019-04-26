@@ -78,6 +78,10 @@ in {
     resolved = {
       enable = true;
       dnssec = "allow-downgrade";
+      extraConfig = ''
+        DNS=8.8.8.8
+        DNSOverTLS=opportunistic
+      '';
       fallbackDns = [ "77.109.148.136" "2001:1620:2078:136::" "8.8.8.8" ];
     };
     fail2ban = {
