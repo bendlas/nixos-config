@@ -159,6 +159,6 @@
 
   hardware.opengl.driSupport32Bit = true;
 
-  programs.cdemu.enable = true;
+  programs.cdemu.enable = false;
 
 }
