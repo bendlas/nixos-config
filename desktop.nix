@@ -89,7 +89,7 @@
   services = {
     i2p.enable = true;
     tor = {
-      enable = true; # FIXME true;
+      enable = false; # FIXME true;
       client.enable = true;
       relay.enable = true;
       relay.role = "bridge";
