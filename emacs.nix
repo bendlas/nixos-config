@@ -22,7 +22,7 @@ let
 
     magit magit-popup cljsbuild-mode clojars nix-mode
     clj-refactor clojure-mode
-    slime cider ensime
+    slime cider ensime tern company company-tern
     # magit-gh-pulls ## tries to access /homeless-shelter
 
   ]) ++ (with pkgs; [

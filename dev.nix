@@ -48,6 +48,7 @@ in
   environment.systemPackages = (with pkgs; [
     emacs.emacs.debug docker_compose
     nixops virtmanager
+    nodePackages.tern
   ]);
   virtualisation.docker = {
     enable = true;
