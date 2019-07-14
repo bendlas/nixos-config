@@ -41,6 +41,7 @@
   };
 
   hardware = {
+    sane.enable = true;
     cpu.intel.updateMicrocode = true;
     trackpoint.emulateWheel = true;
     bluetooth.enable = true;
