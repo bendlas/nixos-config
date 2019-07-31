@@ -126,7 +126,7 @@ in {
     buildCores = 4;
     extraOptions = ''
       binary-caches-parallel-connections = 24
-      gc-keep-outputs = false
+      gc-keep-outputs = true
       gc-keep-derivations = true
     '';
   };
