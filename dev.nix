@@ -28,7 +28,7 @@ in
     };
     nat = {
       enable = true;
-      internalInterfaces = [ "ve-+" ];
+      internalInterfaces = [ "ve-+" "anbox0" ];
     };
     # interfaces = {
     #   docker0.useDHCP = false;
