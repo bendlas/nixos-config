@@ -7,9 +7,9 @@
 
     pciutils ntfs3g wireshark st nodejs unetbootin gparted
 
-    debootstrap mercurial subversion cmake rustc cargo nim ant go pypy
+    debootstrap mercurial subversion cmake rustc cargo nim ant go
     pythonPackages.ipython guile nodePackages.grunt-cli mono
-    luajit luarocks racket dust
+    luajit luarocks racket # dust pypy
 
     dmenu glxinfo liberation_ttf xlibs.xkill
     xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp aspell
@@ -19,7 +19,7 @@
     chromium vlc inkscape steam idea.idea-community bitcoin
     unrar p7zip bsdiff gitAndTools.hub blender # antimony
     links2 qjackctl jack2Full beep wine winetricks radare2 radare2-cutter
-    valgrind sbcl lyx nix-generate-from-cpan paprefs pavucontrol npm2nix
+    valgrind sbcl lyx nix-generate-from-cpan paprefs pavucontrol
     pinentry dos2unix audacity pgadmin
     google-musicmanager xlibs.xhost # teamspeak_client
     gcolor3 signal-desktop xorg.xdpyinfo
