@@ -74,7 +74,6 @@ in {
       openDefaultPorts = true;
       user = "herwig";
     };
-    nscd.enable = false;
     resolved = {
       enable = true;
       dnssec = "allow-downgrade";
