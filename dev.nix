@@ -48,12 +48,16 @@ in
   environment.systemPackages = (with pkgs; [
     emacs.emacs.debug docker_compose
     nixops virtmanager
+    androidsdk_9_0
     nodePackages.tern
   ]);
   virtualisation.docker = {
     enable = true;
     enableOnBoot = false;
 
+  };
+  virtualisation.anbox = {
+    enable = true;
   };
   environment.enableDebugInfo = true;
   services = {
