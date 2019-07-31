@@ -29,7 +29,7 @@ in {
     inherit (pkgs.callPackage ./emacs.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsPackages emacs emacsWithPackages;
     chromium = pkgs.chromium.override {
       enablePepperFlash = true;
-      enableWideVine = true; ## FIX elfinfo
+      enableWideVine = false; ## FIX elfinfo
       pulseSupport = true;
       #gnomeSupport = true;
       #gnomeKeyringSupport = true;
