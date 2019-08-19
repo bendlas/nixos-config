@@ -26,7 +26,7 @@ let
     tern company company-tern
     spiral parseclj
     # magit-gh-pulls ## tries to access /homeless-shelter
-
+    flycheck lsp-mode toml-mode rust-mode cargo flycheck-rust
   ]) ++ (with pkgs; [
 
     ghostscript aspell
