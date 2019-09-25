@@ -11,12 +11,12 @@ let
     jvm-mode multiple-cursors nixos-options org org-present
     paredit nim-mode mmm-mode markdown-mode macrostep
     levenshtein php-mode rainbow-delimiters skewer-mode skewer-less
-    skewer-reload-stylesheets smex undo-tree wanderlust erlang elixir-mode alchemist
+    skewer-reload-stylesheets smex undo-tree wanderlust elixir-mode alchemist # erlang-mode
     yasnippet with-editor string-edit keyfreq scala-mode
-    uuidgen systemtap-mode gn coffee-mode cask-mode elf-mode lua-mode
+    uuidgen systemtap-mode gn-mode coffee-mode cask-mode elf-mode lua-mode
     elfeed elfeed-goodies elfeed-web elfeed-org volume dockerfile-mode yaml-mode
     impatient-mode cmake-mode livescript-mode
-    ivy ivy-xref treemacs elmacro
+    ivy ivy-xref treemacs elmacro hy-mode
 
   ]) ++ (with epkgs.melpaPackages; [
 

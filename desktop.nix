@@ -32,18 +32,14 @@
 
     qemu_kvm qemu ja2-stracciatella # virtmanager zcash
 
-    # androidenv.androidsdk_7_1_1_extras
-
-    # dwarf-fortress dwarf-therapist dwarf-fortress-packages.phoebus-theme
     dwarf-fortress
     dwarf-therapist
 
-    # telegram webtorrent
     tdesktop webtorrent_desktop
 
-#  ] ++ (with haskellPackages; [
-#    ghc cabal-install cabal2nix
-  ] ++ pkgs.gnome3.corePackages ++ pkgs.gnome3.optionalPackages);
+    dbus_tools dfeet systool openscad
+
+  ]);
 
   system.extraDependencies = [ pkgs.virtualboxExtpack ];
 
@@ -100,12 +96,6 @@
       host  all all 127.0.0.1/32   trust
       host  all all ::1/128        trust
     '';
-    gnome3 = {
-      gnome-keyring.enable = true;
-      at-spi2-core.enable = true;
-      gnome-user-share.enable = true;
-      gvfs.enable = true;
-    };
     xserver = {
       enable = true;
       exportConfiguration = true;
@@ -152,7 +142,7 @@
     ## xen build is broken
     libvirtd.enable = true;
     virtualbox.host = {
-      enable = true;
+      enable = false;
       enableExtensionPack = true;
     };
   };

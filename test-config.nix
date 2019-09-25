@@ -6,6 +6,13 @@
   networking.hostId = "cafebabe";
   networking.nat.externalInterface = "dummy";
   services.xserver.videoDrivers = [ "nvidia" "nouveau" "nv" "vesa" "intel" ];
-  hardware.firmware = [ pkgs.firmwareLinuxNonfree ];
+  system.extraDependencies = with pkgs; [
+    virtualboxExtpack
+    bluez5 crda wireless-regdb
+    vaapiVdpau
+    splix brgenml1cupswrapper
+    firmwareLinuxNonfree
+    opencl-icd mkl
+  ];
 
 }

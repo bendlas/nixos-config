@@ -50,6 +50,16 @@ in
     nixops virtmanager
     androidsdk_9_0
     nodePackages.tern
+
+    # (hy.override {
+    #   pythonPackages = python3Packages;
+    # })
+    mkl opencl-icd
+  ]) ++ (with pkgs.python3Packages; [
+    # pytorch
+    ipython
+    ## for gpt-2
+    # python requests tqdm fire numpy tensorflow regex
   ]);
   virtualisation.docker = {
     enable = true;
