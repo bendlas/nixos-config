@@ -45,9 +45,8 @@
   networking = rec {
     hostName = "nitox.bendlas.net";
     hostId = "f26c47cc";
-    nat.externalInterface = "enp6s0u2u1";
-#    nat.internalInterfaces = [ "enp5s0" ];
-#    nat.externalInterface = "enp5s0";
+    nat.externalInterface = "enp6s0+";
+    nat.internalInterfaces = [ "enp5s0" ];
     firewall.allowedTCPPorts = [ 80 443 ];
     nat.forwardPorts = [
       { destination = ":8080";  sourcePort = 80; }
