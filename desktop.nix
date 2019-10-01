@@ -53,7 +53,7 @@
     extraUsers."herwig".extraGroups = [
       "vboxusers" "cdrom" "networkmanager" "realtime" "libvirtd" "wireshark"
     ];
-    extraGroups = { realtime = {}; wireshark = {}; };
+    extraGroups = { realtime = {}; };
   };
 
   ## Define a group for jack and the like
@@ -68,18 +68,6 @@
     item   = "memlock";
     value  = "unlimited";
   }];
-
-  ## wireshark fix
-  security.wrappers = {
-    dumpcap = {
-      source = "${pkgs.wireshark}/bin/dumpcap";
-      owner = "root";
-      group = "wireshark";
-      setuid = true;
-      setgid = false;
-      permissions = "u+rx,g+x";
-    };
-  };
 
   require = [ ./base.nix ./io-scheduler.nix ];
   services = {
@@ -150,5 +138,6 @@
   hardware.opengl.driSupport32Bit = true;
 
   programs.cdemu.enable = false;
+  programs.wireshark.enable = true;
 
 }
