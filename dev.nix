@@ -54,7 +54,7 @@ in
     # (hy.override {
     #   pythonPackages = python3Packages;
     # })
-    mkl opencl-icd
+    mkl opencl-icd # cudatoolkit_10_1
   ]) ++ (with pkgs.python3Packages; [
     # pytorch
     ipython
