@@ -107,6 +107,7 @@ in {
       startWhenNeeded = true;
     };
     locate.enable = false;
+    physlock.enable = true;
   };
 
   security.sudo.wheelNeedsPassword = false;
