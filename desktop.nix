@@ -90,8 +90,11 @@
       layout = "us";
       xkbOptions = "eurosign:e";
       desktopManager.gnome3.enable = true;
-      displayManager.gdm.enable = false;
-      displayManager.lightdm.enable = true;
+      displayManager.gdm = {
+        enable = true;
+        wayland = false;
+      };
+      displayManager.lightdm.enable = false;
       windowManager.exwm = {
         enable = true;
         enableDefaultConfig = false;
