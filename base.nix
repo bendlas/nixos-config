@@ -5,6 +5,9 @@ in {
   system.stateVersion = "18.03";
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.cleanTmpDir = true;
+  boot.kernel.sysctl = {
+    "kernel.sysrq" = 1;
+  };
 
   environment.systemPackages = with pkgs; [
 
