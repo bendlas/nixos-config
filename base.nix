@@ -16,7 +16,7 @@ in {
     rsync gnupg gdb powertop lshw libxslt letsencrypt dvtm abduco dtach
     nox pv nethogs iftop jq iftop
 
-    boot leiningen gettext jdk maven3 s3cmd sqlite python mkpasswd # cask criu
+    boot leiningen gettext jdk maven3 s3cmd sqlite python mkpasswd cask # criu
     clojure # lumo
     graphviz
 
