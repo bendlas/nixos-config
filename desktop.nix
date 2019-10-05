@@ -3,7 +3,7 @@
 
   environment.systemPackages = (with pkgs; [
 
-    abiword gnumeric thunderbird visualvm # skype
+    abiword gnumeric visualvm # thunderbird skype
 
     pciutils ntfs3g wireshark st nodejs unetbootin gparted
 
@@ -37,7 +37,7 @@
 
     tdesktop webtorrent_desktop
 
-    dbus_tools dfeet systool openscad
+    dbus_tools dfeet systool # openscad
 
   ]);
 

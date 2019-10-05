@@ -42,7 +42,6 @@ in {
     #  mimiSupport = true;
     #};
     wine = pkgs.wineFull;
-#    linuxPackages = pkgs.linuxPackages_4_15;
     pixie = pkgs.pixie.override {
       buildWithPypy = true;
     };
@@ -64,30 +63,5 @@ in {
         collection-latex collection-latexextra collection-latexrecommended
         collection-fontsrecommended;
     };
-    # stdenv = pkgs.stdenv // {
-    #   platform = pkgs.stdenv.platform // {
-    #     # http://pkgs.fedoraproject.org/cgit/rpms/kernel.git/tree/Kbuild-Add-an-option-to-enable-GCC-VTA.patch
-    #     ## criu support
-    #     #  EXPERT y
-    #     #  CHECKPOINT_RESTORE y
-    #     ## modified by EXPERT y
-    #     #  RFKILL_INPUT y
-    #     ## systemtap support
-    #     #  DEBUG_INFO y
-    #     ## default correct
-    #     #  KPROBES y
-    #     #  RELAY y
-    #     #  DEBUG_FS y
-    #     #  MODULES y
-    #     #  MODULE_UNLOAD y
-    #     #  UPROBES y
-    #     kernelExtraConfig = ''
-    #       EXPERT y
-    #       CHECKPOINT_RESTORE y
-    #       RFKILL_INPUT y
-    #       DEBUG_INFO y
-    #     '';
-    #   };
-    # };
   };
 }

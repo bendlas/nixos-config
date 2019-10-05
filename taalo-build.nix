@@ -1,4 +1,4 @@
-{ stdenv, lib, runCommand, nixUnstable }:
+{ stdenv, lib, runCommand, nix }:
 
 let
   nixRemote = "ssh-ng://nix-remote-build@taalo.headcounter.org?compress=true";
@@ -6,7 +6,7 @@ let
   mkScript = cmd: lib.escapeShellArg ''
     #!${stdenv.shell}
     export NIX_REMOTE=${lib.escapeShellArg nixRemote}
-    exec ${lib.escapeShellArg nixUnstable}/bin/${cmd} "$@"
+    exec ${lib.escapeShellArg nix}/bin/${cmd} "$@"
   '';
 
 in runCommand "taalo-build" {} ''
