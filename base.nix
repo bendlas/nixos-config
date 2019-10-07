@@ -104,6 +104,7 @@ in {
     openssh = {
       enable = true;
       passwordAuthentication = false;
+      challengeResponseAuthentication = false;
       startWhenNeeded = true;
     };
     locate.enable = false;
