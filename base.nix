@@ -50,6 +50,7 @@ in {
     firewall.enable = true;
     firewall.allowedTCPPorts = [ 22 ];
     networkmanager.enable = false;
+    useDHCP = false;
     useNetworkd = true;
     extraHosts = ''
       127.0.0.1 ${config.networking.hostName}
