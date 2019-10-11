@@ -50,8 +50,13 @@ in {
     firewall.enable = true;
     firewall.allowedTCPPorts = [ 22 ];
     networkmanager.enable = false;
-    useDHCP = false;
+    useDHCP = true;
     useNetworkd = true;
+    # Hacky fix for lo losing address on wakeup
+    interfaces.lo = {
+      ipv4.addresses = [ { address = "127.0.0.1"; prefixLength = 8; } ];
+      ipv6.addresses = [ { address = "::1"; prefixLength = 128; } ];
+    };
     extraHosts = ''
       127.0.0.1 ${config.networking.hostName}
       ::1 ${config.networking.hostName}
