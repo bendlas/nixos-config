@@ -19,8 +19,6 @@
     hostName = "lenix.bendlas.net";
     hostId = "f26c47cd";
     nat.externalInterface = "wlp3s0";
-    interfaces.wlp3s0.useDHCP = true;
-    interfaces."enp0*".useDHCP = true;
     wireless = {
       enable = true;
       userControlled.enable = true;
