@@ -121,7 +121,7 @@ in {
 
   programs = {
     mosh.enable = true;
-    criu.enable = false;
+    criu.enable = true;
     systemtap.enable = true;
     zsh = {
       enable = true;
