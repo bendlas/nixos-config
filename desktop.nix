@@ -3,13 +3,13 @@
 
   environment.systemPackages = (with pkgs; [
 
-    abiword gnumeric visualvm # thunderbird skype
+    abiword gnumeric visualvm thunderbird skype
 
     pciutils ntfs3g wireshark st nodejs unetbootin gparted
 
     debootstrap mercurial subversion cmake rustc cargo nim ant go
     pythonPackages.ipython guile nodePackages.grunt-cli mono
-    luajit luarocks racket # dust pypy
+    luajit luarocks racket dust pypy
 
     dmenu glxinfo liberation_ttf xlibs.xkill
     xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp aspell
@@ -17,27 +17,27 @@
 
     firefox deluge dosbox alsaUtils gimp geoip clementine
     chromium vlc inkscape steam idea.idea-community bitcoin
-    unrar p7zip bsdiff gitAndTools.hub blender # antimony
+    unrar p7zip bsdiff gitAndTools.hub blender antimony
     links2 qjackctl jack2Full beep wine winetricks radare2 radare2-cutter
     valgrind sbcl lyx nix-generate-from-cpan paprefs pavucontrol
     pinentry dos2unix audacity pgadmin
-    google-musicmanager xlibs.xhost # teamspeak_client
+    google-musicmanager xlibs.xhost
     gcolor3 signal-desktop xorg.xdpyinfo
 
     texlive-bendlas
 
-    ffmpeg ipfs # stalin sauerbraten
+    ffmpeg ipfs sauerbraten pkgsi686Linux.stalin
 
     gnome3.cheese youtube-dl imagemagick nixui
 
-    qemu_kvm qemu ja2-stracciatella # virtmanager zcash
+    qemu_kvm qemu ja2-stracciatella zcash
 
     dwarf-fortress
     dwarf-therapist
 
-    tdesktop webtorrent_desktop
+    tdesktop webtorrent_desktop teamspeak_client
 
-    dbus_tools dfeet systool # openscad
+    dbus_tools dfeet systool openscad
 
   ]);
 

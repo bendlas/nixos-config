@@ -51,15 +51,17 @@ in
     androidsdk_9_0
     nodePackages.tern
 
-    # (hy.override {
-    #   pythonPackages = python3Packages;
-    # })
+    (hy.override {
+      pythonPackages = python3Packages;
+    })
     mkl opencl-icd # cudatoolkit_10_1
+    ## for neanderthal
+    # compute-runtime
   ]) ++ (with pkgs.python3Packages; [
-    # pytorch
+    pytorch
     ipython
     ## for gpt-2
-    # python requests tqdm fire numpy tensorflow regex
+    python requests tqdm fire numpy regex # tensorflow
   ]);
   virtualisation.docker = {
     enable = true;
