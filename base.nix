@@ -50,7 +50,7 @@ in {
     firewall.enable = true;
     firewall.allowedTCPPorts = [ 22 ];
     networkmanager.enable = false;
-    useDHCP = true;
+    useDHCP = false;
     useNetworkd = true;
     # Hacky fix for lo losing address on wakeup
     interfaces.lo = {
