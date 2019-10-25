@@ -47,13 +47,13 @@
     hostId = "f26c47cc";
     nat.externalInterface = "enp6s0+";
     nat.internalInterfaces = [ "enp5s0" ];
-    interfaces.enp5s0.useDHCP = true;
-    interfaces.enp6s0.useDHCP = true;
-    firewall.allowedTCPPorts = [ 80 443 ];
-    nat.forwardPorts = [
-      { destination = ":8080";  sourcePort = 80; }
-      { destination = ":8443"; sourcePort = 443; }
-    ];
+    # interfaces.enp5s0.useDHCP = true;
+    # interfaces.enp6s0.useDHCP = true;
+    # firewall.allowedTCPPorts = [ 80 443 ];
+    # nat.forwardPorts = [
+    #   { destination = ":8080";  sourcePort = 80; }
+    #   { destination = ":8443"; sourcePort = 443; }
+    # ];
   };
 
   services.xserver = {
