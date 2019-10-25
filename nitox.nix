@@ -10,7 +10,7 @@
       networking.firewall.allowedTCPPorts = [ 2049 111 4000 4001 ];
       networking.firewall.allowedUDPPorts = [ 2049 111 4000 4001 ];
       services.nfs.server = {
-        enable = true;
+        enable = false;
         statdPort = 4000;
         lockdPort = 4001;
         exports = ''
