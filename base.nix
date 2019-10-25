@@ -16,7 +16,7 @@ in {
     iptables telnet reptyr tree multipath_tools lm_sensors ent davfs2
     btrfsProgs dmidecode nmap gitFull vde2 gradle gnumake
     socat libressl diffoscope vim patchelf gcc clisp parted usbutils
-    rsync gnupg gdb powertop lshw libxslt letsencrypt dvtm abduco dtach
+    rsync gnupg gdb powertop lshw libxslt dvtm abduco dtach # letsencrypt
     nox pv nethogs iftop jq iftop
 
     boot leiningen gettext jdk maven3 s3cmd sqlite python mkpasswd cask # criu

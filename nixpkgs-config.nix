@@ -45,10 +45,7 @@ in {
     pixie = pkgs.pixie.override {
       buildWithPypy = true;
     };
-    pinentry = pkgs.pinentry.override {
-      gtk2 = null;
-      gcr = pkgs.gnome3.gcr;
-    };
+    pinentry = pkgs.pinentry.gnome3;
     dwarf-fortress = pkgs.dwarf-fortress.override {
       theme = "phoebus";
       enableDFHack = true;
@@ -62,6 +59,19 @@ in {
         booktabs pdfpages hyperref g-brief xstring numprint unravel
         collection-latex collection-latexextra collection-latexrecommended
         collection-fontsrecommended;
+    };
+    ml-workbench = pkgs.mkShell {
+      name = "ml-workbench";
+      buildInputs = (with pkgs; [
+        hy3 mkl opencl-icd cudatoolkit_10_1 intel-compute-runtime
+      ]) ++ (with pkgs.python3Packages; [
+        python pytorch ipython
+        ## for gpt-2
+        python requests tqdm fire numpy regex # tensorflow
+      ]);
+    };
+    hy3 = pkgs.hy.override {
+      pythonPackages = pkgs.python3Packages;
     };
   };
 }

@@ -45,24 +45,14 @@ in
       linkConfig.Unmanaged = true;
     };
   };
-  environment.systemPackages = (with pkgs; [
+  environment.systemPackages = with pkgs; [
     emacs.emacs.debug docker_compose
-    nixops virtmanager
+    # nixops
+    virtmanager
     androidsdk_9_0
     nodePackages.tern
-
-    (hy.override {
-      pythonPackages = python3Packages;
-    })
-    mkl opencl-icd # cudatoolkit_10_1
-    ## for neanderthal
-    # compute-runtime
-  ]) ++ (with pkgs.python3Packages; [
-    pytorch
-    ipython
-    ## for gpt-2
-    python requests tqdm fire numpy regex # tensorflow
-  ]);
+    # ml-workbench
+  ];
   virtualisation.docker = {
     enable = true;
     enableOnBoot = false;

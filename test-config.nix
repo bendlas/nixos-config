@@ -8,12 +8,12 @@
   networking.nat.externalInterface = "dummy";
   services.xserver.videoDrivers = [ "nvidia" "nouveau" "nv" "vesa" "intel" ];
   system.extraDependencies = with pkgs; [
-    virtualboxExtpack
+    # virtualboxExtpack
     bluez5 crda wireless-regdb
     vaapiVdpau
     splix brgenml1cupswrapper
     firmwareLinuxNonfree
-    opencl-icd mkl
+    # opencl-icd mkl
   ];
 
 }
