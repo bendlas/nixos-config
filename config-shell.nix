@@ -21,7 +21,7 @@ let
     for n in $configs/*
     do if [ $(basename $n) == sources.json ]
        then ln -s $sources $out/sources.json
-       else ln -s $n $out/
+       else cp $n $out/
        fi
     done
   '';
