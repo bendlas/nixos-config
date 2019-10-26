@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 {
   imports = [ ./desktop.nix ./dev.nix ];
+  bendlas.machine = "test-config";
   fileSystems."/" = { device = "/dev/null"; };
   boot.loader.grub.enable = false;
   boot.supportedFilesystems = [ "zfs" ];
