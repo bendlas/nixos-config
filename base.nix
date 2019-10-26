@@ -26,7 +26,7 @@ in {
     cowsay elfutils binutils nettools
     ncurses ncurses.dev ## for infocmp, figwheel repl
 
-    taalo-build git-new-workdir update-git-channel
+    taalo-build git-new-workdir
 
   ];
 

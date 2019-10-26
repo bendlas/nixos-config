@@ -26,7 +26,6 @@ in {
       ln -s ${pkgs.git}/share/git/contrib/workdir $out/bin
     '';
     taalo-build = pkgs.callPackage ./taalo-build.nix { };
-    update-git-channel = pkgs.callPackage ./update-git-channel.nix {};
     inherit (pkgs.callPackage ./emacs.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsPackages emacs emacsWithPackages;
     chromium = pkgs.chromium.override {
       enablePepperFlash = true;

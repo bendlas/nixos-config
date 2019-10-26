@@ -9,7 +9,7 @@ fetch() {
     remoteRepo=$1
     localRepo=$2
     branch=$3
-    rev=$(git ls-remote $remoteRepo $branch | cut -f1)
+    rev=$(git ls-remote $localRepo refs/heads/$branch | cut -f1)
     nix-shell -p nix-prefetch-git jq --run "
       nix-prefetch-git ${localRepo} ${rev} | jq '.url=\"${remoteRepo}\" | .branch=\"${branch}\"'
     "
