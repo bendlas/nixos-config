@@ -122,7 +122,7 @@
     ];
     openssh.forwardX11 = true;
     avahi = {
-      enable = true;
+      # enable = true;
       publish = {
         enable = true;
         userServices = true;
