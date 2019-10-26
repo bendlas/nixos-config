@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ -z "$1" ]
+then branch="dev-master"
+else branch="$1"
+fi
+remoteRepo=https://github.com/bendlas/nixpkgs.git
+localRepo=/home/herwig/checkout/nixpkgs
+rev=$(git ls-remote $remoteRepo $branch | cut -f1)
+
+nix-shell > pkgs-info.json -p nix-prefetch-git jq --run "
+  nix-prefetch-git ${localRepo} ${rev} | jq '.url=\"${remoteRepo}\" | .branch=\"${branch}\"'
+"
