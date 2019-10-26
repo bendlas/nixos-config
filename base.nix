@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let npc = import ./nixpkgs-config.nix;
 in {
-  require = [ ./log.nix ];
+  require = [ ./log.nix ./sources.nix ];
   system.stateVersion = "18.03";
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.cleanTmpDir = true;
@@ -140,12 +140,6 @@ in {
   };
 
   nix = {
-    nixPath = [
-      "nixpkgs=/etc/nixos/pkgs"
-      "nixos=/etc/nixos/pkgs/nixos"
-      "nixos-config=/etc/nixos/configuration.nix"
-    ];
-    # sandboxPaths = [ "/var/cache/ccache-chromium/" ];
     buildCores = 4;
     extraOptions = ''
       binary-caches-parallel-connections = 24

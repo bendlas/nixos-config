@@ -20,6 +20,7 @@
     }
   ];
 
+  bendlas.machine = "nitox";
   boot = {
     loader.grub = {
       enable = true;

@@ -1,0 +1,18 @@
+{
+  "nixpkgs": {
+    "url": "https://github.com/bendlas/nixpkgs.git",
+    "rev": "70400e048fb56a5c6fe2ea944f71508ade4703bd",
+    "date": "2019-10-25T15:13:39+02:00",
+    "sha256": "0dg27dlvhhw7a550501yhr6ahn049lyd5px0gdh25xhiwy9hr9p5",
+    "fetchSubmodules": false,
+    "branch": "dev-master"
+  },
+  "nixos-config": {
+    "url": "https://github.com/bendlas/nixos-config.git",
+    "rev": "0c42d109554db06fe7864454b2a39601b3e3aa46",
+    "date": "2019-10-25T15:16:58+02:00",
+    "sha256": "1fjamqj0hczc34caihz60icya8qcqx0p1xk2lzdw3nkl1n6nzhsj",
+    "fetchSubmodules": false,
+    "branch": "master"
+  }
+}
