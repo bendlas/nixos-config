@@ -1,30 +1,19 @@
+let filterGit = builtins.filterSource (p: t: t != "directory" || baseNameOf p != ".git"); in
 { pkgs ? import <nixpkgs> {}
 , lib ? pkgs.lib
 , mkShell ? pkgs.mkShell
 , fetchgit ? pkgs.fetchgit
 , runCommand ? pkgs.runCommand
 , machine ? "test-config"
+, configs ? filterGit ./.
 , pkgs-path ? null
-, config-path ? null
 }:
 let
   sources = lib.importJSON ./sources.json;
   fetch = src: fetchgit {
     inherit (sources.${src}) url rev sha256 fetchSubmodules;
   };
-  nixpkgs = if isNull pkgs-path then fetch "nixpkgs" else pkgs-path;
-  configs = runCommand "nixos-config" {
-    configs = if isNull config-path then fetch "nixos-config" else config-path;
-    sources = ./sources.json;
-  } ''
-    mkdir $out
-    for n in $configs/*
-    do if [ $(basename $n) == sources.json ]
-       then ln -s $sources $out/sources.json
-       else cp $n $out/
-       fi
-    done
-  '';
+  nixpkgs = if isNull pkgs-path then fetch "nixpkgs" else filterGit pkgs-path;
 in
 mkShell {
   shellHook = ''
