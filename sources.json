@@ -9,9 +9,9 @@
   },
   "nixos-config": {
     "url": "https://github.com/bendlas/nixos-config.git",
-    "rev": "0c42d109554db06fe7864454b2a39601b3e3aa46",
-    "date": "2019-10-25T15:16:58+02:00",
-    "sha256": "1fjamqj0hczc34caihz60icya8qcqx0p1xk2lzdw3nkl1n6nzhsj",
+    "rev": "bc39f0fbc72f815865f9b1bb71fd51c4b2b1cb14",
+    "date": "2019-10-26T19:00:43+02:00",
+    "sha256": "09vqznyfsdrkrn921sahblrwdw2bq4n3m6vq4zxhbwm3l89vcim4",
     "fetchSubmodules": false,
     "branch": "master"
   }
