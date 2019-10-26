@@ -52,11 +52,6 @@ in {
     networkmanager.enable = false;
     useDHCP = false;
     useNetworkd = true;
-    # Hacky fix for lo losing address on wakeup
-    interfaces.lo = {
-      ipv4.addresses = [ { address = "127.0.0.1"; prefixLength = 8; } ];
-      ipv6.addresses = [ { address = "::1"; prefixLength = 128; } ];
-    };
     extraHosts = ''
       127.0.0.1 ${config.networking.hostName}
       ::1 ${config.networking.hostName}
@@ -65,6 +60,17 @@ in {
       directDelivery = true;
       domain = config.networking.hostName;
       hostName = "mail.bendlas.net";
+    };
+  };
+
+  systemd.network.networks = {
+    "20-en-dhcp" = {
+      matchConfig.Name = "en*";
+      DHCP = "yes";
+    };
+    "20-wl-dhcp" = {
+      matchConfig.Name = "wl*";
+      DHCP = "yes";
     };
   };
 
