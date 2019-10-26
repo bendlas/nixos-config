@@ -63,17 +63,6 @@ in {
     };
   };
 
-  systemd.network.networks = {
-    "20-en-dhcp" = {
-      matchConfig.Name = "en*";
-      DHCP = "yes";
-    };
-    "20-wl-dhcp" = {
-      matchConfig.Name = "wl*";
-      DHCP = "yes";
-    };
-  };
-
   time.timeZone = "Europe/Vienna";
 
   i18n = {

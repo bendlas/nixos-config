@@ -3,4 +3,4 @@
 machine="$1"
 shift
 
-nix-shell config-shell.nix --arg machine "\"$machine\"" --run "nixos-rebuild $@"
+exec nix-shell config-shell.nix --arg machine "\"$machine\"" --run "nixos-rebuild $@"
