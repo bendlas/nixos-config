@@ -13,18 +13,7 @@ in {
   };
 
   config = {
-    environment.etc."nixos".source = pkgs.runCommand "nixos-config" {
-      inherit configs;
-      sources = ./sources.json;
-    } ''
-      mkdir $out
-      for n in $configs/*
-      do if [ $(basename $n) == sources.json ]
-         then ln -s $sources $out/sources.json
-         else ln -s $n $out/
-         fi
-      done
-    '';
+    environment.etc."nixos".source = configs;
     environment.etc."pkgs".source = nixpkgs;
     nix.nixPath = [
       "nixpkgs=/etc/pkgs"
