@@ -9,11 +9,12 @@ let filterGit = builtins.filterSource (p: t: t != "directory" || baseNameOf p !=
 , pkgs-path ? null
 }:
 let
-  sources = lib.importJSON ./sources.json;
-  fetch = src: fetchgit {
-    inherit (sources.${src}) url rev sha256 fetchSubmodules;
-  };
-  nixpkgs = if isNull pkgs-path then fetch "nixpkgs" else filterGit pkgs-path;
+  nixpkgs = if isNull pkgs-path
+            then
+              fetchgit {
+                inherit (lib.importJSON ./nixpkgs.json) url rev sha256 fetchSubmodules;
+              }
+            else filterGit pkgs-path;
 in
 mkShell {
   shellHook = ''

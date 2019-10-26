@@ -15,9 +15,4 @@ fetch() {
     "
 }
 
-jq > sources.json <<EOF
-{
-  "nixpkgs":$(fetch https://github.com/bendlas/nixpkgs.git /home/herwig/checkout/nixpkgs $branch),
-  "nixos-config":$(fetch https://github.com/bendlas/nixos-config.git /home/herwig/checkout/bendlas-nixos-config master)
-}
-EOF
+fetch https://github.com/bendlas/nixpkgs.git /home/herwig/checkout/nixpkgs $branch > nixpkgs.json
