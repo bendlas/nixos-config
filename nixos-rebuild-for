@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+machine="$1"
+shift
+
+nix-shell config-shell.nix --arg machine "\"$machine\"" --run "nixos-rebuild $@"
