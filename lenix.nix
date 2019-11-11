@@ -39,6 +39,7 @@
       enable = true;
       drivers = [ pkgs.splix pkgs.brgenml1cupswrapper ];
     };
+    avahi.hostName = "lenix";
   };
 
   hardware = {
