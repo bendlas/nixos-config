@@ -29,20 +29,6 @@ in
       enable = true;
       internalInterfaces = [ "ve-+" "anbox0" ];
     };
-    # interfaces = {
-    #   docker0.useDHCP = false;
-    #   virbr0.useDHCP = false;
-    # };
-  };
-  systemd.network.networks = {
-    "20-docker" = {
-      matchConfig.Name = "docker*";
-      linkConfig.Unmanaged = true;
-    };
-    "20-virbr" = {
-      matchConfig.Name = "virbr*";
-      linkConfig.Unmanaged = true;
-    };
   };
   environment.systemPackages = with pkgs; [
     emacs.emacs.debug docker_compose
@@ -68,8 +54,19 @@ in
   services = {
     postgresql = {
       enable = true;
-      package = pkgs.postgresql;
       enableTCPIP = true;
+      # authentication = pkgs.lib.mkForce ''
+      #   local all all                trust
+      #   host  all all 127.0.0.1/32   trust
+      #   host  all all ::1/128        trust
+      # '';
+    };
+    pgmanage = {
+      enable = true;
+      # allowCustomConnections = true;
+      connections = {
+        nitox = "hostaddr=127.0.0.1 port=5432 dbname=postgres sslmode=prefer";
+      };
     };
   };
   nix = {
