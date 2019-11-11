@@ -43,7 +43,7 @@
     ];
   };
 
-  services.avahi.hostName = "nitox.local";
+  services.avahi.hostName = "nitox";
 
   networking = rec {
     hostName = "nitox.bendlas.net";
