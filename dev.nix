@@ -60,6 +60,10 @@ in
   virtualisation.anbox = {
     enable = true;
   };
+  systemd.services.systemd-networkd-wait-online.serviceConfig.ExecStart = [
+    "" # clear old command
+    "${config.systemd.package}/lib/systemd/systemd-networkd-wait-online --ignore anbox0"
+  ];
   environment.enableDebugInfo = true;
   services = {
     postgresql = {
