@@ -43,6 +43,8 @@
     ];
   };
 
+  services.avahi.hostName = "nitox.local";
+
   networking = rec {
     hostName = "nitox.bendlas.net";
     hostId = "f26c47cc";
