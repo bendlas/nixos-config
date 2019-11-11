@@ -48,15 +48,29 @@
   networking = rec {
     hostName = "nitox.bendlas.net";
     hostId = "f26c47cc";
+
+    ## for network forwarding
     nat.externalInterface = "enp6s0+";
     nat.internalInterfaces = [ "enp5s0" ];
-    # interfaces.enp5s0.useDHCP = true;
-    # interfaces.enp6s0.useDHCP = true;
-    # firewall.allowedTCPPorts = [ 80 443 ];
-    # nat.forwardPorts = [
-    #   { destination = ":8080";  sourcePort = 80; }
-    #   { destination = ":8443"; sourcePort = 443; }
-    # ];
+
+    ## for dhcp
+    firewall.allowedUDPPorts = [ 67 ];
+  };
+
+  systemd.network.dhcpNetworks = [ "enp6*" ];
+
+  systemd.network.networks."30-nitox" = {
+    matchConfig.Name = "enp5s0";
+    address = [ "10.0.0.1/24" ];
+    networkConfig = {
+      ## handled by firewall config
+      # IPMasquerade = "yes";
+      DHCPServer = "yes";
+    };
+    dhcpServerConfig = {
+      PoolOffset= 32;
+      PoolSize= 32;
+    };
   };
 
   services.xserver = {
