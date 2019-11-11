@@ -26,7 +26,7 @@ in {
     cowsay elfutils binutils nettools
     ncurses ncurses.dev ## for infocmp, figwheel repl
 
-    taalo-build git-new-workdir
+    taalo-build git-new-workdir vnstat
 
   ];
 
@@ -110,6 +110,7 @@ in {
     };
     locate.enable = false;
     physlock.enable = true;
+    vnstat.enable = true;
   };
 
   security.sudo.wheelNeedsPassword = false;
