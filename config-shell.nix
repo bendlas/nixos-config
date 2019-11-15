@@ -1,11 +1,10 @@
-let filterGit = builtins.filterSource (p: t: t != "directory" || baseNameOf p != ".git"); in
 { pkgs ? import <nixpkgs> {}
 , lib ? pkgs.lib
 , mkShell ? pkgs.mkShell
 , fetchgit ? pkgs.fetchgit
 , runCommand ? pkgs.runCommand
 , machine ? "test-config"
-, configs ? filterGit ./.
+, configs ? pkgs.nix-gitignore.gitignoreSource [ ".git" ] ./.
 , pkgs-path ? null
 }:
 let
@@ -14,7 +13,7 @@ let
               fetchgit {
                 inherit (lib.importJSON ./nixpkgs.json) url rev sha256 fetchSubmodules;
               }
-            else filterGit pkgs-path;
+            else pkgs.nix-gitignore.gitignoreSource [ ".git" ] pkgs-path;
 in
 mkShell {
   shellHook = ''
