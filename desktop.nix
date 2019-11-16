@@ -85,6 +85,11 @@
 
   require = [ ./base.nix ./io-scheduler.nix ];
   services = {
+    compton = {
+      enable = true;
+      fade = true;
+      fadeDelta = 2;
+    };
     i2p.enable = true;
     tor = {
       enable = true;
