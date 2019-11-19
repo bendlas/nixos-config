@@ -50,14 +50,14 @@
     hostId = "f26c47cc";
 
     ## for network forwarding
-    nat.externalInterface = "enp6s0+";
+    nat.externalInterface = "enp0+";
     nat.internalInterfaces = [ "enp5s0" ];
 
     ## for dhcp
     firewall.allowedUDPPorts = [ 67 ];
   };
 
-  systemd.network.dhcpNetworks = [ "enp6*" ];
+  systemd.network.dhcpNetworks = [ "enp0*" ];
 
   systemd.network.networks."30-nitox" = {
     matchConfig.Name = "enp5s0";
