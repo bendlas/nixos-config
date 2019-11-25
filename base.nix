@@ -111,7 +111,7 @@ in {
     vnstat.enable = true;
   };
 
-  systemd.network.networks."10-dhcp" = {
+  systemd.network.networks."90-dhcp" = {
     matchConfig.Name = "enp* wlp*";
     DHCP = "yes";
   };

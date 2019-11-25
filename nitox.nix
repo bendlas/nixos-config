@@ -55,11 +55,12 @@
 
     ## for dhcp
     firewall.allowedUDPPorts = [ 67 ];
+
   };
 
   systemd.network-wait-online.ignore = [ "enp5s0" ];
 
-  systemd.network.networks."30-nitox" = {
+  systemd.network.networks."10-enp5s0" = {
     matchConfig.Name = "enp5s0";
     address = [ "10.0.0.1/24" ];
     networkConfig = {
