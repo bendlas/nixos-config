@@ -17,7 +17,7 @@ in {
     btrfsProgs dmidecode nmap gitFull vde2 gradle gnumake
     socat libressl diffoscope vim patchelf gcc clisp parted usbutils
     rsync gnupg gdb powertop lshw libxslt dvtm abduco dtach # letsencrypt
-    nox pv nethogs iftop jq iftop
+    nox pv nethogs iftop jq iftop moreutils
 
     boot leiningen gettext jdk maven3 s3cmd sqlite python mkpasswd cask # criu
     clojure # lumo
@@ -85,13 +85,11 @@ in {
     };
     resolved = {
       enable = true;
-      dnssec = "false";
-      # dnssec = "allow-downgrade";
-      #  DNS=8.8.8.8
+      dnssec = "allow-downgrade";
       extraConfig = ''
+        DNS=8.8.8.8
         DNSOverTLS=opportunistic
       '';
-      fallbackDns = [ "77.109.148.136" "2001:1620:2078:136::" "8.8.8.8" ];
     };
     fail2ban = {
       enable = true;
@@ -111,6 +109,11 @@ in {
     locate.enable = false;
     physlock.enable = true;
     vnstat.enable = true;
+  };
+
+  systemd.network.networks."10-dhcp" = {
+    matchConfig.Name = "enp* wlp*";
+    DHCP = "yes";
   };
 
   security.sudo.wheelNeedsPassword = false;

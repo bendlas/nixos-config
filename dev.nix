@@ -46,10 +46,12 @@ in
   virtualisation.anbox = {
     enable = true;
   };
-  systemd.services.systemd-networkd-wait-online.serviceConfig.ExecStart = [
-    "" # clear old command
-    "${config.systemd.package}/lib/systemd/systemd-networkd-wait-online --ignore anbox0"
-  ];
+  systemd.network-wait-online.ignore = [ "anbox0" ];
+  # systemd.services.systemd-networkd-wait-online.serviceConfig.ExecStart = [
+  #   "" # clear old command
+  #   ## "${config.systemd.package}/lib/systemd/systemd-networkd-wait-online --ignore anbox0"
+  #   "${config.systemd.package}/lib/systemd/systemd-networkd-wait-online -i lo:carrier"
+  # ];
   environment.enableDebugInfo = true;
   services = {
     postgresql = {

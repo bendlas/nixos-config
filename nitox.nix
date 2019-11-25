@@ -57,7 +57,7 @@
     firewall.allowedUDPPorts = [ 67 ];
   };
 
-  systemd.network.dhcpNetworks = [ "enp0*" ];
+  systemd.network-wait-online.ignore = [ "enp5s0" ];
 
   systemd.network.networks."30-nitox" = {
     matchConfig.Name = "enp5s0";
