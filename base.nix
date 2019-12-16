@@ -56,11 +56,6 @@ in {
       127.0.0.1 ${config.networking.hostName}
       ::1 ${config.networking.hostName}
     '';
-    defaultMailServer = {
-      directDelivery = true;
-      domain = config.networking.hostName;
-      hostName = "mail.bendlas.net";
-    };
   };
 
   time.timeZone = "Europe/Vienna";
@@ -74,6 +69,11 @@ in {
   ## boot.supportedFilesystems = [ "bcachefs" ]; ## "zfs" ];
 
   services = {
+    ssmtp = {
+      enable = true;
+      domain = config.networking.hostName;
+      hostName = "mail.bendlas.net";
+    };
     syncthing = {
       enable = true;
       openDefaultPorts = true;
