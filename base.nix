@@ -38,7 +38,7 @@ in {
   users.extraUsers = {
     "herwig" = {
       description = "Herwig Hochleitner";
-      extraGroups = [ "wheel" "networkmanager" ];
+      extraGroups = [ "wheel" "networkmanager" "dialout" ];
       shell = "/run/current-system/sw/bin/zsh";
       isNormalUser = true;
       uid = 1000;
@@ -60,9 +60,11 @@ in {
 
   time.timeZone = "Europe/Vienna";
 
+  console = {
+    keyMap = "us";
+    font = "lat9w-16";
+  };
   i18n = {
-    consoleFont = "lat9w-16";
-    consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
   };
 
