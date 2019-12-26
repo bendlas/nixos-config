@@ -85,7 +85,8 @@ in {
     };
     resolved = {
       enable = true;
-      dnssec = "allow-downgrade";
+      # dnssec = "allow-downgrade";
+      dnssec = "false";
       extraConfig = ''
         DNS=8.8.8.8
         DNSOverTLS=opportunistic
