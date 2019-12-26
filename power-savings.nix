@@ -26,7 +26,7 @@
     '';
     ## this leads to non-responsive input devices
     # ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"
-    i2p.enable = pkgs.lib.mkForce false;
-    tor.enable = pkgs.lib.mkForce false;
+    # i2p.enable = pkgs.lib.mkForce false;
+    # tor.enable = pkgs.lib.mkForce false;
   };
 }
