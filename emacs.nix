@@ -16,7 +16,7 @@ let
     uuidgen systemtap-mode gn-mode coffee-mode cask-mode elf-mode lua-mode
     elfeed elfeed-goodies elfeed-web elfeed-org volume dockerfile-mode yaml-mode
     impatient-mode cmake-mode livescript-mode
-    ivy ivy-xref treemacs elmacro hy-mode
+    ivy ivy-xref treemacs elmacro hy-mode robe
 
   ]) ++ (with epkgs.melpaPackages; [
 
