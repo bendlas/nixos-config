@@ -6,18 +6,18 @@
 
 { ## Outsource nixpkgs.config to be shared with nix-env
   require = [ ./desktop.nix ./hardware-configuration.nitox.nix ./dev.nix # ./distributed-build.nix
-    {
-      networking.firewall.allowedTCPPorts = [ 2049 111 4000 4001 ];
-      networking.firewall.allowedUDPPorts = [ 2049 111 4000 4001 ];
-      services.nfs.server = {
-        enable = false;
-        statdPort = 4000;
-        lockdPort = 4001;
-        exports = ''
-          /var/public    10.0.2.0/24(rw,nohide,insecure,no_subtree_check,fsid=0) 192.168.0.0/24(rw,nohide,insecure,no_subtree_check,fsid=0)
-        '';
-      };
-    }
+    # {
+    #   networking.firewall.allowedTCPPorts = [ 2049 111 4000 4001 ];
+    #   networking.firewall.allowedUDPPorts = [ 2049 111 4000 4001 ];
+    #   services.nfs.server = {
+    #     enable = false;
+    #     statdPort = 4000;
+    #     lockdPort = 4001;
+    #     exports = ''
+    #       /var/public    10.0.2.0/24(rw,nohide,insecure,no_subtree_check,fsid=0) 192.168.0.0/24(rw,nohide,insecure,no_subtree_check,fsid=0)
+    #     '';
+    #   };
+    # }
   ];
 
   bendlas.machine = "nitox";
@@ -50,29 +50,29 @@
     hostId = "f26c47cc";
 
     ## for network forwarding
-    nat.externalInterface = "enp0+";
-    nat.internalInterfaces = [ "enp5s0" ];
+    # nat.externalInterface = "enp6+";
+    # nat.internalInterfaces = [ "enp5s0" ];
 
     ## for dhcp
-    firewall.allowedUDPPorts = [ 67 ];
+    # firewall.allowedUDPPorts = [ 67 ];
 
   };
 
-  systemd.network-wait-online.ignore = [ "enp5s0" ];
+  # systemd.network-wait-online.ignore = [ "enp5s0" ];
 
-  systemd.network.networks."10-enp5s0" = {
-    matchConfig.Name = "enp5s0";
-    address = [ "10.0.0.1/24" ];
-    networkConfig = {
-      ## handled by firewall config
-      # IPMasquerade = "yes";
-      DHCPServer = "yes";
-    };
-    dhcpServerConfig = {
-      PoolOffset= 32;
-      PoolSize= 32;
-    };
-  };
+  # systemd.network.networks."10-enp5s0" = {
+  #   matchConfig.Name = "enp5s0";
+  #   address = [ "10.0.0.1/24" ];
+  #   networkConfig = {
+  #     ## handled by firewall config
+  #     # IPMasquerade = "yes";
+  #     DHCPServer = "yes";
+  #   };
+  #   dhcpServerConfig = {
+  #     PoolOffset= 32;
+  #     PoolSize= 32;
+  #   };
+  # };
 
   services.xserver = {
     videoDrivers = [ "nvidia" "nouveau" "nv" "vesa" ];
