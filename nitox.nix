@@ -50,8 +50,8 @@
     hostId = "f26c47cc";
 
     ## for network forwarding
-    # nat.externalInterface = "enp6+";
-    # nat.internalInterfaces = [ "enp5s0" ];
+    nat.externalInterface = "wwp+";
+    nat.internalInterfaces = [ "enp5s0" ];
 
     ## for dhcp
     # firewall.allowedUDPPorts = [ 67 ];
@@ -73,6 +73,18 @@
   #     PoolSize= 32;
   #   };
   # };
+
+  networking.networkmanager = {
+    enable = pkgs.lib.mkForce true;
+    unmanaged = [ "lo" "enp5s0" "anbox0" ];
+  };
+
+  # systemd.packages = [ pkgs.modemmanager ];
+  # environment.systemPackages = [ pkgs.modemmanager ];
+  # services.udev.packages = [ pkgs.modemmanager ];
+  # services.dbus.packages = [ pkgs.modemmanager ];
+  # systemd.services.ModemManager.aliases = [ "dbus-org.freedesktop.ModemManager1.service" ];
+
 
   services.xserver = {
     videoDrivers = [ "nvidia" "nouveau" "nv" "vesa" ];

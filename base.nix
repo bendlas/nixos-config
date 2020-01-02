@@ -115,7 +115,7 @@ in {
   };
 
   systemd.network.networks."90-dhcp" = {
-    matchConfig.Name = "enp* wlp*";
+    matchConfig.Name = "enp*"; #  wwp*
     DHCP = "yes";
   };
 
