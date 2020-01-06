@@ -3,22 +3,22 @@
 
   environment.systemPackages = (with pkgs; [
 
-    abiword gnumeric thunderbird # visualvm # skype
+    abiword gnumeric thunderbird
 
     pciutils ntfs3g wireshark st nodejs unetbootin gparted
 
-    debootstrap mercurial subversion cmake # rustc # cargo # nim # ant # go
-    guile nodePackages.grunt-cli mono # pythonPackages.ipython
+    debootstrap mercurial subversion cmake
+    guile nodePackages.grunt-cli mono
     luajit luarocks racket dust pypy
 
     dmenu glxinfo liberation_ttf xlibs.xkill
     xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp aspell
     aspellDicts.en aspellDicts.de dunst libnotify
 
-    dosbox alsaUtils gimp geoip # clementine # firefox # deluge
-    chromium vlc steam bitcoin # inkscape # idea.idea-community
-    unrar p7zip bsdiff gitAndTools.hub blender antimony
-    links2 qjackctl jack2Full beep radare2 radare2-cutter # wine # winetricks
+    dosbox alsaUtils gimp geoip
+    chromium vlc steam bitcoin
+    unrar p7zip bsdiff gitAndTools.hub
+    links2 qjackctl jack2Full beep radare2 radare2-cutter
     valgrind sbcl lyx nix-generate-from-cpan paprefs pavucontrol
     pinentry dos2unix audacity pgadmin
     google-musicmanager xlibs.xhost
@@ -51,7 +51,7 @@
       "telegram-desktop" "WebTorrent" "teamspeak"
       "inkscape" "idea-community" "firefox" "deluge"
       "clementine" "rustc" "cargo" "nim" "ant" "go"
-      "wine" "winetricks"
+      "wine" "winetricks" "blender" "antimony"
     ];
   })];
 
