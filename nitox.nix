@@ -51,14 +51,16 @@
 
     ## for network forwarding
     nat.externalInterface = "wwp+";
-    nat.internalInterfaces = [ "enp5s0" ];
+
+    bridges.br0.interfaces = [ "enp5s0" ];
+    interfaces.br0.macAddress = "52:CB:A3:76:0F:0E";
 
     ## for dhcp
     # firewall.allowedUDPPorts = [ 67 ];
 
   };
 
-  # systemd.network-wait-online.ignore = [ "enp5s0" ];
+  systemd.network-wait-online.ignore = [ "br0" ];
 
   # systemd.network.networks."10-enp5s0" = {
   #   matchConfig.Name = "enp5s0";
@@ -76,15 +78,8 @@
 
   networking.networkmanager = {
     enable = pkgs.lib.mkForce true;
-    unmanaged = [ "lo" "enp5s0" "anbox0" ];
+    unmanaged = [ "lo" "br0" "enp5s0" "anbox0" ];
   };
-
-  # systemd.packages = [ pkgs.modemmanager ];
-  # environment.systemPackages = [ pkgs.modemmanager ];
-  # services.udev.packages = [ pkgs.modemmanager ];
-  # services.dbus.packages = [ pkgs.modemmanager ];
-  # systemd.services.ModemManager.aliases = [ "dbus-org.freedesktop.ModemManager1.service" ];
-
 
   services.xserver = {
     videoDrivers = [ "nvidia" "nouveau" "nv" "vesa" ];

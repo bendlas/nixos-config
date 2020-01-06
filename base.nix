@@ -47,6 +47,8 @@ in {
   users.extraGroups = { nobody = {}; };
 
   networking = {
+    interfaces.br0.useDHCP = true;
+    nat.internalInterfaces = [ "br0" ];
     firewall.enable = true;
     firewall.allowedTCPPorts = [ 22 ];
     networkmanager.enable = false;
@@ -114,11 +116,6 @@ in {
     vnstat.enable = true;
   };
 
-  systemd.network.networks."90-dhcp" = {
-    matchConfig.Name = "enp*"; #  wwp*
-    DHCP = "yes";
-  };
-
   security.sudo.wheelNeedsPassword = false;
 
   programs = {
@@ -135,6 +132,10 @@ in {
       '';
     };
   };
+
+  environment.etc."qemu/bridge.conf".text = ''
+    allow br0
+  '';
 
   nix = {
     buildCores = 4;
