@@ -50,7 +50,7 @@
     hostId = "f26c47cc";
 
     ## for network forwarding
-    nat.externalInterface = "wwp+";
+    nat.externalInterface = "ww+";
 
     bridges.br0.interfaces = [ "enp5s0" ];
     interfaces.br0.macAddress = "52:CB:A3:76:0F:0E";
