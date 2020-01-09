@@ -19,10 +19,17 @@
   networking = rec {
     hostName = "lenix.bendlas.net";
     hostId = "f26c47cd";
-    nat.externalInterface = "wlp3s0";
+    # nat.externalInterface = "wlp3s0";
     wireless = {
       enable = true;
       userControlled.enable = true;
+    };
+    # bridges.br0.interfaces = [ "enp0s31f6" "wlp3s0" ];
+    # interfaces.br0.macAddress = "53:CB:A3:76:0F:0E";
+
+    interfaces = {
+      enp0s31f6.useDHCP = true;
+      wlp3s0.useDHCP = true;
     };
   };
 
