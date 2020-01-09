@@ -28,6 +28,8 @@ in {
 
     taalo-build git-new-workdir vnstat
 
+    inotify-tools
+
   ];
 
   ## Outsource nixpkgs.config to be shared with nix-env

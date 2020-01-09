@@ -37,6 +37,8 @@ in
     androidsdk_9_0
     nodePackages.tern
     # ml-workbench
+
+    elixir ruby
   ];
   virtualisation.docker = {
     enable = true;
