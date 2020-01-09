@@ -55,10 +55,17 @@
     bridges.br0.interfaces = [ "enp5s0" ];
     interfaces.br0.macAddress = "52:CB:A3:76:0F:0E";
 
+    interfaces.br0.useDHCP = true;
+    nat.internalInterfaces = [ "br0" ];
+
     ## for dhcp
     # firewall.allowedUDPPorts = [ 67 ];
 
   };
+
+  environment.etc."qemu/bridge.conf".text = ''
+    allow br0
+  '';
 
   systemd.network-wait-online.ignore = [ "br0" ];
 
