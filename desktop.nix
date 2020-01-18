@@ -59,7 +59,7 @@
 
   fonts = {
     fonts = with pkgs; [
-      noto-fonts proggyfonts dejavu_fonts inconsolata profont anonymousPro fira-code
+      noto-fonts proggyfonts dejavu_fonts inconsolata profont anonymousPro fira-code jetbrains-mono
     ];
   };
 
