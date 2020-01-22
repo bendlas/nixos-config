@@ -61,6 +61,9 @@
     fonts = with pkgs; [
       noto-fonts proggyfonts dejavu_fonts inconsolata profont anonymousPro fira-code jetbrains-mono
     ];
+    fontconfig.defaultFonts = {
+      monospace = [ "JetBrains Mono" ];
+    };
   };
 
   users = {
