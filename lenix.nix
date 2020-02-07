@@ -72,4 +72,6 @@
     };
   };
 
+  services.pcscd.enable = true;
+
 }
