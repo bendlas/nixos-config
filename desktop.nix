@@ -141,8 +141,8 @@
     };
   };
 
-  ## Pulseaudio uses 4713
-  # networking.firewall.allowedTCPPorts = [ 4713 ];
+  # Pulseaudio uses 4713
+  networking.firewall.allowedTCPPorts = [ 4713 ];
 
   virtualisation = {
     ## xen build is broken
