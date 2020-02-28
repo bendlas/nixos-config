@@ -23,7 +23,7 @@ in
       #  { from = 8000; to = 9000; }
       #];
       allowPing = true;
-      checkReversePath = false;
+      checkReversePath = "loose";
     };
     nat = {
       enable = true;
