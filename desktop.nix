@@ -20,20 +20,17 @@
     unrar p7zip bsdiff gitAndTools.hub
     links2 qjackctl jack2Full beep radare2 radare2-cutter
     valgrind sbcl lyx nix-generate-from-cpan paprefs pavucontrol
-    pinentry dos2unix audacity pgadmin
+    pinentry dos2unix audacity # pgadmin
     google-musicmanager xlibs.xhost
     gcolor3 signal-desktop xorg.xdpyinfo
 
     texlive-bendlas
 
-    ffmpeg ipfs sauerbraten pkgsi686Linux.stalin
+    ffmpeg ipfs pkgsi686Linux.stalin
 
     gnome3.cheese youtube-dl imagemagick nixui
 
     qemu_kvm qemu ja2-stracciatella zcash
-
-    dwarf-fortress
-    dwarf-therapist
 
     dbus_tools dfeet systool openscad
 
@@ -45,13 +42,15 @@
       "webtorrent_desktop" = [ "WebTorrent" ];
       "teamspeak_client" = [ "teamspeak" ];
       "idea.idea-community" = [ "idea-community" ];
+      "dwarf-fortress" = [ "dwarf-fortress" "dfhack" ];
+      "dwarf-therapist" = [ "DwarfTherapist" ];
     };
     installed = [
       "nixops" "hy" "python3" "skype" "visualvm"
       "telegram-desktop" "WebTorrent" "teamspeak"
       "inkscape" "idea-community" "firefox" "deluge"
       "clementine" "rustc" "cargo" "nim" "ant" "go"
-      "wine" "winetricks" "blender" "antimony"
+      "wine" "winetricks" "blender" "antimony" "sauerbraten"
     ];
   })];
 
