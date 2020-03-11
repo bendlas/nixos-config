@@ -18,6 +18,9 @@ let
     impatient-mode cmake-mode livescript-mode
     ivy ivy-xref treemacs elmacro hy-mode robe haml-mode
 
+    edit-list refine
+    golden-ratio workgroups2
+
   ]) ++ (with epkgs.melpaPackages; [
 
     magit magit-popup cljsbuild-mode clojars nix-mode
