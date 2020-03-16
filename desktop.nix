@@ -32,7 +32,7 @@
 
     qemu_kvm qemu ja2-stracciatella zcash
 
-    dbus_tools dfeet systool openscad
+    dbus_tools dfeet systool openscad zoom-us
 
   ]) ++ [(pkgs.buildLazyBinaries {
     # nixpkgs = (<nixpkgs>);
