@@ -45,6 +45,7 @@
       "idea.idea-community" = [ "idea-community" ];
       "dwarf-fortress" = [ "dwarf-fortress" "dfhack" ];
       "dwarf-therapist" = [ "DwarfTherapist" ];
+      "wine" = [ "wine" "winecfg" ];
     };
     installed = [
       "nixops" "hy" "python3" "skype" "visualvm"
