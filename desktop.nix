@@ -28,7 +28,8 @@
 
     ffmpeg ipfs pkgsi686Linux.stalin
 
-    gnome3.cheese youtube-dl imagemagick nixui
+    gnome3.cheese gnome3.gnome-sound-recorder
+    youtube-dl imagemagick nixui
 
     qemu_kvm qemu ja2-stracciatella zcash
 
