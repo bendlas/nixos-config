@@ -2,7 +2,7 @@
 let npc = import ./nixpkgs-config.nix;
 in {
   require = [ ./log.nix ./sources.nix ];
-  system.stateVersion = "18.03";
+  system.stateVersion = "20.03";
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.cleanTmpDir = true;
   boot.kernel.sysctl = {
