@@ -58,8 +58,8 @@
     interfaces.br0.useDHCP = true;
     nat.internalInterfaces = [ "br0" ];
 
-    ## for dhcp
-    # firewall.allowedUDPPorts = [ 67 ];
+    # for dhcp
+    firewall.allowedUDPPorts = [ 67 ];
 
   };
 
@@ -69,19 +69,19 @@
 
   systemd.network-wait-online.ignore = [ "br0" ];
 
-  # systemd.network.networks."10-enp5s0" = {
-  #   matchConfig.Name = "enp5s0";
-  #   address = [ "10.0.0.1/24" ];
-  #   networkConfig = {
-  #     ## handled by firewall config
-  #     # IPMasquerade = "yes";
-  #     DHCPServer = "yes";
-  #   };
-  #   dhcpServerConfig = {
-  #     PoolOffset= 32;
-  #     PoolSize= 32;
-  #   };
-  # };
+  systemd.network.networks."10-enp5s0" = {
+    matchConfig.Name = "br0";
+    address = [ "10.0.0.1/24" ];
+    networkConfig = {
+      ## handled by firewall config
+      # IPMasquerade = "yes";
+      DHCPServer = "yes";
+    };
+    dhcpServerConfig = {
+      PoolOffset= 32;
+      PoolSize= 32;
+    };
+  };
 
   networking.networkmanager = {
     enable = pkgs.lib.mkForce true;
