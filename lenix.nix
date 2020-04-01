@@ -31,6 +31,11 @@
       enp0s31f6.useDHCP = true;
       wlp3s0.useDHCP = true;
     };
+
+    networkmanager = {
+      enable = pkgs.lib.mkForce true;
+      unmanaged = [ "lo" "wlp3s0" "enp0s31f6" "anbox0" ];
+    };
   };
 
   services = {
