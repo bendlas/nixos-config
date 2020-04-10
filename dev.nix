@@ -4,12 +4,7 @@ let
   vitox-ip = "10.233.2.2";
 in
 {
-  ## require = [ ./taalo.nix ];
-  ## vuizvui.user.aszlig.programs.taalo-build.enable = true;
-
   ## require = [ ./matrix.nix ];
-
-
 
   networking = {
     extraHosts = ''
