@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {}
+{ pkgs ? import <nixpkgs> { config = import ./nixpkgs-config.nix; }
 , lib ? pkgs.lib
 , mkShell ? pkgs.mkShell
 , fetchgit ? pkgs.fetchgit
@@ -19,6 +19,7 @@ mkShell {
   shellHook = ''
     export NIX_PATH=nixpkgs=${nixpkgs}:nixos=${nixpkgs}/nixos:nixos-config=${configs}/${machine}.nix
   '';
+  buildInputs = [ (pkgs.localPackages ./desktop.packages) ];
   passthru = {
     inherit nixpkgs configs machine;
     nixos-config = "${configs}/${machine}.nix";

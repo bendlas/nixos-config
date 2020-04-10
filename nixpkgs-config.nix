@@ -21,6 +21,7 @@ in {
   };
 
   packageOverrides = pkgs: rec {
+    localPackages = pkgFile: pkgs.callPackage ./local-packages.nix { inherit pkgFile; };
     git-new-workdir = pkgs.runCommand "git-new-workdir" {} ''
       mkdir $out
       ln -s ${pkgs.git}/share/git/contrib/workdir $out/bin

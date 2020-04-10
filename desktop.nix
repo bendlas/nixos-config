@@ -31,30 +31,11 @@
     gnome3.cheese gnome3.gnome-sound-recorder
     youtube-dl imagemagick nixui
 
-    qemu_kvm qemu ja2-stracciatella zcash
+
 
     dbus_tools dfeet systool openscad zoom-us
-
-  ]) ++ [(pkgs.buildLazyBinaries {
-    # nixpkgs = (<nixpkgs>);
-    catalog = {
-      "ml-workbench" = [ "hy" "python3" ];
-      "tdesktop" = [ "telegram-desktop" ];
-      "webtorrent_desktop" = [ "WebTorrent" ];
-      "teamspeak_client" = [ "teamspeak" ];
-      "idea.idea-community" = [ "idea-community" ];
-      "dwarf-fortress" = [ "dwarf-fortress" "dfhack" ];
-      "dwarf-therapist" = [ "DwarfTherapist" ];
-      "wine" = [ "wine" "winecfg" ];
-    };
-    installed = [
-      "nixops" "hy" "python3" "skype" "visualvm"
-      "telegram-desktop" "WebTorrent" "teamspeak"
-      "inkscape" "idea-community" "firefox" "deluge"
-      "clementine" "rustc" "cargo" "nim" "ant" "go"
-      "wine" "winetricks" "blender" "antimony" "sauerbraten"
-    ];
-  })];
+    (localPackages ./desktop.packages)
+  ]);
 
   # system.extraDependencies = [ pkgs.virtualboxExtpack ];
 
