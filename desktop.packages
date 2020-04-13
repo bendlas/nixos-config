@@ -1,6 +1,21 @@
 tdesktop teamspeak_client idea.idea-community dwarf-fortress
-dwarf-therapist wine nixops skype visualvm inkscape firefox deluge
-clementine rustc cargo nim ant go winetricks blender antimony
+dwarf-therapist nixops skype visualvm inkscape firefox deluge
+clementine rustc cargo nim ant go blender antimony
+
+# wine winetricks
+
+ungoogled-chromium-bendlas chromium gnome3.cheese
+gnome3.gnome-sound-recorder youtube-dl
+
+abiword gnumeric thunderbird vlc steam bitcoin lyx gimp openscad
+audacity qjackctl
+
+nodejs debootstrap mercurial subversion cmake guile valgrind sbcl
+dos2unix nodePackages.grunt-cli mono luajit luarocks racket dust pypy
+radare2 radare2-cutter nix-generate-from-cpan ipfs
+pkgsi686Linux.stalin dosbox
+
+zoom-us signal-desktop google-musicmanager
 
 # ml-workbench
 # sauerbraten

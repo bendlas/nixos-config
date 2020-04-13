@@ -3,37 +3,19 @@
 
   environment.systemPackages = (with pkgs; [
 
-    abiword gnumeric thunderbird
+    pciutils ntfs3g wireshark st unetbootin gparted
 
-    pciutils ntfs3g wireshark st nodejs unetbootin gparted
+    paprefs pavucontrol alsaUtils ffmpeg imagemagick
 
-    debootstrap mercurial subversion cmake
-    guile nodePackages.grunt-cli mono
-    luajit luarocks racket dust pypy
+    glxinfo xlibs.xkill xlibs.xbacklight xlibs.xrandr xlibs.xev
+    xlibs.xhost xlibs.xkbcomp aspell aspellDicts.en aspellDicts.de
+    dunst libnotify xorg.xdpyinfo gcolor3 pinentry
 
-    dmenu glxinfo liberation_ttf xlibs.xkill
-    xlibs.xbacklight xlibs.xrandr xlibs.xev xlibs.xkbcomp aspell
-    aspellDicts.en aspellDicts.de dunst libnotify
+    geoip unrar p7zip bsdiff gitAndTools.hub links2 jack2Full beep
 
-    dosbox alsaUtils gimp geoip
-    chromium vlc steam bitcoin
-    unrar p7zip bsdiff gitAndTools.hub
-    links2 qjackctl jack2Full beep radare2 radare2-cutter
-    valgrind sbcl lyx nix-generate-from-cpan paprefs pavucontrol
-    pinentry dos2unix audacity # pgadmin
-    google-musicmanager xlibs.xhost
-    gcolor3 signal-desktop xorg.xdpyinfo
+    nixui dbus_tools dfeet systool
 
     texlive-bendlas
-
-    ffmpeg ipfs pkgsi686Linux.stalin
-
-    gnome3.cheese gnome3.gnome-sound-recorder
-    youtube-dl imagemagick nixui
-
-
-
-    dbus_tools dfeet systool openscad zoom-us
     (localPackages ./desktop.packages)
   ]);
 
@@ -41,7 +23,7 @@
 
   fonts = {
     fonts = with pkgs; [
-      noto-fonts proggyfonts dejavu_fonts inconsolata profont anonymousPro fira-code jetbrains-mono
+      noto-fonts proggyfonts dejavu_fonts inconsolata profont anonymousPro fira-code jetbrains-mono liberation_ttf
     ];
     fontconfig.defaultFonts = {
       monospace = [ "JetBrains Mono" ];
