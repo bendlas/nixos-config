@@ -21,7 +21,7 @@ in {
 
     boot leiningen gettext jdk maven3 s3cmd sqlite python mkpasswd cask # criu
     clojure # lumo
-    nix-du graphviz
+    graphviz # nix-du
 
     cowsay elfutils binutils nettools
     ncurses ncurses.dev ## for infocmp, figwheel repl
