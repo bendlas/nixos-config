@@ -73,5 +73,14 @@ in {
     hy3 = pkgs.hy.override {
       pythonPackages = pkgs.python3Packages;
     };
+    ungoogled-chromium-bendlas = pkgs.runCommand "ungoogled-chromium-bendlas" {
+      orig = pkgs.ungoogled-chromium;
+    } ''
+      mkdir -p $out/bin
+      for b in $orig/bin/*
+      do
+        ln -s $b $out/bin/ungoogled-$(basename $b)
+      done
+    '';
   };
 }
