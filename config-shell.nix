@@ -28,5 +28,6 @@ mkShell {
   passthru = {
     inherit nixpkgs configs machine;
     nixos-config = "${configs}/${machine}.nix";
+    pkgs = newPkgs;
   };
 }
