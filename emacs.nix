@@ -5,7 +5,7 @@ let
   builtinPackages = epkgs: (with epkgs; [
 
     cyberpunk-theme gh gitignore-mode groovy-mode haskell-mode htmlize
-    ibuffer-tramp ido-completing-read-plus idris-mode crm-custom
+    ibuffer-tramp epkgs."ido-completing-read+" idris-mode crm-custom
     javap-mode ninja-mode geiser commenter js2-mode xref-js2
     js2-highlight-vars js2-refactor js2-closure json-mode json-reformat
     jvm-mode multiple-cursors nixos-options org org-present
@@ -26,10 +26,11 @@ let
     magit magit-popup cljsbuild-mode clojars nix-mode
     clj-refactor clojure-mode
     slime cider # ensime
-    tern company company-tern
+    tern
     spiral parseclj
     # magit-gh-pulls ## tries to access /homeless-shelter
     flycheck lsp-mode toml-mode rust-mode cargo flycheck-rust
+    graphviz-dot-mode
   ]) ++ (with pkgs; [
 
     ghostscript aspell

@@ -3,7 +3,7 @@
 
   environment.systemPackages = (with pkgs; [
 
-    pciutils ntfs3g wireshark st unetbootin gparted
+    pciutils ntfs3g wireshark st gparted
 
     paprefs pavucontrol alsaUtils ffmpeg imagemagick
 
@@ -11,12 +11,12 @@
     xlibs.xhost xlibs.xkbcomp aspell aspellDicts.en aspellDicts.de
     dunst libnotify xorg.xdpyinfo gcolor3 pinentry
 
-    geoip unrar p7zip bsdiff gitAndTools.hub links2 jack2Full beep
+    geoip unrar bsdiff gitAndTools.hub links2 jack2Full beep
 
     nixui dbus_tools dfeet systool
 
     texlive-bendlas
-    (localPackages ./desktop.packages)
+    (localPackages ./desktop.packages config)
   ]);
 
   # system.extraDependencies = [ pkgs.virtualboxExtpack ];

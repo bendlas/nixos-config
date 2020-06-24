@@ -9,8 +9,6 @@ in {
   android_sdk.accept_license = true;
 
   firefox = {
-   enableGoogleTalkPlugin = true;
-   enableAdobeFlash = false;
    enableGnomeExtensions = true;
 #  jre = true;
   };
@@ -21,7 +19,12 @@ in {
   };
 
   packageOverrides = pkgs: rec {
-    localPackages = pkgFile: pkgs.callPackage ./local-packages.nix { inherit pkgFile; };
+    localPackages = pkgFile: config: pkgs.callPackage ./local-packages.nix {
+      pkgFile = ./desktop.packages;
+      source = pkgs.fetchgit {
+        inherit (pkgs.lib.importJSON ./nixpkgs.json) url rev sha256 fetchSubmodules;
+      };
+    };
     git-new-workdir = pkgs.runCommand "git-new-workdir" {} ''
       mkdir $out
       ln -s ${pkgs.git}/share/git/contrib/workdir $out/bin
@@ -70,9 +73,9 @@ in {
         python requests tqdm fire numpy regex # tensorflow
       ]);
     };
-    hy3 = pkgs.hy.override {
-      pythonPackages = pkgs.python3Packages;
-    };
+    # hy3 = pkgs.hy.override {
+    #   pythonPackages = pkgs.python3Packages;
+    # };
     ungoogled-chromium-bendlas = pkgs.runCommand "ungoogled-chromium-bendlas" {
       orig = pkgs.ungoogled-chromium;
     } ''
