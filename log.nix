@@ -8,7 +8,7 @@
   '';
 
   services.logrotate.enable = true;
-  services.logrotate.config = ''
+  services.logrotate.extraConfig = ''
     /var/log/*.log {
       weekly
       size 1M
