@@ -46,7 +46,7 @@
   services.avahi.hostName = "nitox";
 
   networking = rec {
-    hostName = "nitox.bendlas.net";
+    hostName = "nitox";
     hostId = "f26c47cc";
 
     ## for network forwarding

@@ -17,7 +17,7 @@
   };
 
   networking = rec {
-    hostName = "lenix.bendlas.net";
+    hostName = "lenix";
     hostId = "f26c47cd";
     # nat.externalInterface = "wlp3s0";
     wireless = {
