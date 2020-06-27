@@ -41,7 +41,7 @@ in
 
   };
   virtualisation.anbox = {
-    enable = true;
+    enable = false;
   };
   systemd.network-wait-online.ignore = [ "anbox0" ];
   # systemd.services.systemd-networkd-wait-online.serviceConfig.ExecStart = [
