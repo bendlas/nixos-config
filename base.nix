@@ -63,7 +63,7 @@ in {
   time.timeZone = "Europe/Vienna";
 
   console = {
-    keyMap = "us";
+    keyMap = pkgs.lib.mkDefault "us";
     font = "lat9w-16";
   };
   i18n = {
