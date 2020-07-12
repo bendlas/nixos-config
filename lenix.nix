@@ -38,6 +38,8 @@
     };
   };
 
+  systemd.network-wait-online.ignore = [ "enp0s31f6" ];
+
   services = {
     xserver = {
       videoDrivers = [ "intel" ];
