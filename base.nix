@@ -125,11 +125,23 @@ in {
     systemtap.enable = true;
     zsh = {
       enable = true;
-      promptInit = "";
+      shellAliases = {
+        l = "lid";
+      };
       interactiveShellInit = ''
-        unalias run-help
-        autoload -Uz run-help
+        export EDITOR="${pkgs.emacs}/bin/emacsclient -A '${pkgs.emacs}/bin/emacs -nw'"
+        export VISUAL="$EDITOR"
+        export ALTERNATE_EDITOR="${pkgs.vim}/bin/vim"
+        source ${./zshrc}
       '';
+      promptInit = ''
+          LP_PS1_FILE=${./liquidprompt.ps1}
+          LP_ENABLE_TEMP=0
+          source ${pkgs.callPackage ./liquidprompt.nix {}}/liquidprompt
+      '';
+    };
+    ssh = {
+      setXAuthLocation = true;
     };
   };
 
