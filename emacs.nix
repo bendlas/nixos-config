@@ -2,7 +2,7 @@
 
 let
 
-  builtinPackages = epkgs: (with epkgs; [
+  builtinPackages = epkgs: (with epkgs; with melpaPackages; [
 
     cyberpunk-theme gh gitignore-mode groovy-mode haskell-mode htmlize
     ibuffer-tramp epkgs."ido-completing-read+" idris-mode crm-custom
@@ -21,7 +21,11 @@ let
     edit-list refine
     golden-ratio workgroups2
 
-  ]) ++ (with epkgs.melpaPackages; [
+    projectile projectile-direnv projectile-codesearch
+    persp-mode persp-mode-projectile-bridge
+    exwm-x
+
+  #]) ++ (with epkgs.melpaPackages; [
 
     magit magit-popup cljsbuild-mode clojars nix-mode
     clj-refactor clojure-mode
