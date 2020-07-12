@@ -15,7 +15,7 @@ in {
     bind hdparm pmutils iotop rlwrap traceroute which # emacs ## is added by enabling exwm
     iptables telnet tree multipath_tools lm_sensors ent davfs2 # reptyr
     btrfsProgs dmidecode nmap gitFull vde2 gradle gnumake
-    socat libressl diffoscope vim patchelf gcc clisp parted usbutils
+    socat libressl vim patchelf gcc clisp parted usbutils # diffoscope
     rsync gnupg gdb powertop lshw libxslt dvtm abduco dtach # letsencrypt
     nox pv nethogs iftop jq iftop moreutils
 
