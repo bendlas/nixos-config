@@ -17,7 +17,7 @@ in {
     btrfsProgs dmidecode nmap gitFull vde2 gradle gnumake
     socat libressl vim patchelf gcc clisp parted usbutils # diffoscope
     rsync gnupg gdb powertop lshw libxslt dvtm abduco dtach # letsencrypt
-    nox pv nethogs iftop jq iftop moreutils
+    nox pv nethogs iftop jq iftop moreutils dhcp
 
     boot leiningen gettext jdk maven3 s3cmd sqlite python mkpasswd cask # criu
     clojure # lumo
