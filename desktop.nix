@@ -3,7 +3,7 @@
 
   environment.systemPackages = (with pkgs; [
 
-    pciutils ntfs3g wireshark st gparted
+    pciutils ntfs3g wireshark st gparted gksu
 
     paprefs pavucontrol alsaUtils ffmpeg imagemagick
 
@@ -13,7 +13,7 @@
 
     geoip unrar bsdiff gitAndTools.hub links2 jack2Full beep
 
-    nixui dbus_tools dfeet systool
+    dbus_tools dfeet systool # nixui
 
     texlive-bendlas
     (localPackages ./desktop.packages config)
@@ -59,7 +59,7 @@
       fade = true;
       fadeDelta = 2;
     };
-    i2p.enable = true;
+    i2p.enable = false; ## closure size
     tor = {
       enable = true;
       client.enable = true;
@@ -141,7 +141,7 @@
 
   virtualisation = {
     ## xen build is broken
-    libvirtd.enable = true;
+    # libvirtd.enable = true;
     # virtualbox.host = {
     #   enable = false;
     #   enableExtensionPack = true;

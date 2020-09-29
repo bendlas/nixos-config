@@ -17,11 +17,9 @@ in {
     btrfsProgs dmidecode nmap gitFull vde2 gradle gnumake
     socat libressl vim patchelf gcc clisp parted usbutils # diffoscope
     rsync gnupg gdb powertop lshw libxslt dvtm abduco dtach # letsencrypt
-    nox pv nethogs iftop jq iftop moreutils dhcp
+    nox pv nethogs iftop jq yq iftop moreutils dhcp
 
-    boot leiningen gettext jdk maven3 s3cmd sqlite python mkpasswd cask # criu
-    clojure # lumo
-    graphviz # nix-du
+    sqlite mkpasswd
 
     cowsay elfutils binutils nettools
     ncurses ncurses.dev ## for infocmp, figwheel repl
@@ -73,6 +71,7 @@ in {
   ## boot.supportedFilesystems = [ "bcachefs" ]; ## "zfs" ];
 
   services = {
+    flatpak.enable = true;
     ssmtp = {
       enable = true;
       domain = config.networking.hostName;
@@ -121,8 +120,6 @@ in {
   programs = {
     gnupg.agent.enable = true;
     mosh.enable = true;
-    criu.enable = true;
-    systemtap.enable = true;
     zsh = {
       enable = true;
       shellAliases = {

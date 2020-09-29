@@ -16,10 +16,18 @@ dwarf-fortress dwarf-therapist
 idea.idea-community nixops visualvm rustc cargo nim ant go dosbox
 
 nodejs debootstrap mercurial subversion cmake guile valgrind sbcl
-dos2unix nodePackages.grunt-cli mono luajit luarocks racket dust pypy
+dos2unix nodePackages.grunt-cli mono luajit luarocks racket dust
 radare2 radare2-cutter nix-generate-from-cpan
 
+python3 python3Packages.pip pypy
+
+boot leiningen gettext jdk maven3 clojure lumo
+
 pkgsi686Linux.stalin
+
+diffoscope
+
+graphviz nix-du
 
 ## Video
 
