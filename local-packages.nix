@@ -3,6 +3,7 @@
 , lib
 , stdenv
 , writeScriptBin
+, symlinkJoin
 , nix
 }:
 with lib;
@@ -16,9 +17,14 @@ let
       (concatMap (line: ssplit " " (elemAt (match "([^#]*)( *#.*)?" line) 0))
         (ssplit "\n" ps));
   packages = parsePackages (readFile pkgFile);
-in (writeScriptBin "update-nix-env" ''
-  #!${stdenv.shell} -e
-  exec ${nix}/bin/nix-env -f ${source} --keep-going -riA ${concatStringsSep " " packages}
-'') // {
+  updateScript = writeScriptBin "update-nix-env" ''
+    #!${stdenv.shell} -e
+    exec ${nix}/bin/nix-env -f ${source} --keep-going -riA ${concatStringsSep " " packages}
+  '';
+  buildScript = writeScriptBin "build-nix-env" ''
+    #!${stdenv.shell} -e
+    exec ${nix}/bin/nix-build --no-out-link ${source} --keep-going -A ${concatStringsSep " -A " packages}
+  '';
+in ( symlinkJoin { name = "local-packages"; paths = [ buildScript updateScript ]; } ) // {
   inherit packages;
 }

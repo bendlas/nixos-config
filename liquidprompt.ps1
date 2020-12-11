@@ -32,7 +32,7 @@ LP_HOST="@%F{2}$(hostname)%f"
 # see the README.
 
 # add time, jobs, load and battery
-LP_PS1="${LP_PS1_PREFIX}${LP_TIME}${LP_BATT}${LP_LOAD}${LP_JOBS}"
+LP_PS1="[${SHLVL}`]${LP_PS1_PREFIX}${LP_TIME}${LP_BATT}${LP_LOAD}${LP_JOBS}"
 # add user, host and permissions colon
 LP_PS1="${LP_PS1}${LP_BRACKET_OPEN}${LP_USER}${LP_HOST}${LP_PERM}"
 

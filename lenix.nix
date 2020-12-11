@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 
 { ## Outsource nixpkgs.config to be shared with nix-env
-  require = [ ./desktop.nix ./hardware-configuration.lenix-270.nix ./dev.nix ./power-savings.nix ];
+  require = [ ./desktop.nix ./hardware-configuration.lenix-270.nix
+              ./dev.nix ./power-savings.nix ./dev/hackrf.nix ];
 
   bendlas.machine = "lenix";
   environment.systemPackages = (with pkgs; [

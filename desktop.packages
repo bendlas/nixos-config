@@ -13,7 +13,8 @@ dwarf-fortress dwarf-therapist
 
 ## Dev tools
 
-idea.idea-community nixops visualvm rustc cargo nim ant go dosbox
+# nixops ## not working
+idea.idea-community visualvm rustc cargo nim ant go dosbox
 
 nodejs debootstrap mercurial subversion cmake guile valgrind sbcl
 dos2unix nodePackages.grunt-cli mono luajit luarocks racket dust
@@ -48,3 +49,7 @@ thunderbird bitcoin ipfs
 
 # ml-workbench
 webtorrent_desktop
+
+# sdr
+
+hackrf welle-io cubicsdr gnuradio
