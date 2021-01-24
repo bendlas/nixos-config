@@ -67,7 +67,7 @@
       controlSocket.enable = true;
       relay.enable = false;
       relay.role = "bridge";
-      relay.port = "80";
+      settings.ORPort = "80";
     };
 
     xserver = {
