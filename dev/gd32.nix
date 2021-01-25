@@ -4,7 +4,7 @@
     dfu-util
   ];
   services.udev.extraRules = ''
-    ATTRS{idProduct}=="28e9", ATTRS{idVendor}=="0189", MODE="660", GROUP="plugdev" SYMLINK+="gd32-dfu"
+    ATTRS{idProduct}=="0189", ATTRS{idVendor}=="28e9", MODE="660", GROUP="plugdev" SYMLINK+="gd32-dfu"
   '';
   users.extraUsers.herwig.extraGroups = [
     "plugdev"
