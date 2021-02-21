@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-
+  
   environment.systemPackages = (with pkgs; [
 
     pciutils ntfs3g wireshark st gparted gksu
@@ -16,7 +16,6 @@
     dbus_tools dfeet systool # nixui
 
     texlive-bendlas
-    (localPackages ./desktop.packages config)
   ]);
 
   # system.extraDependencies = [ pkgs.virtualboxExtpack ];
@@ -50,7 +49,7 @@
     value  = "unlimited";
   }];
 
-  require = [ ./base.nix ./io-scheduler.nix ];
+  require = [ ./base.nix ./io-scheduler.nix ./desktop-packages.nix ];
   console.useXkbConfig = true;
 
   services = {

@@ -25,7 +25,10 @@ mkShell {
     export NIX_PATH=nixpkgs=${nixpkgs}:nixos=${nixpkgs}/nixos:nixos-config=${configs}/${machine}.nix
     export NIXPKGS_CONFIG=${configs}/nixpkgs-config.nix
   '';
-  buildInputs = [ (localPackages ./desktop.packages) newPkgs.taalo-build ];
+  buildInputs = [
+    ## (localPackages ./desktop.packages)
+    newPkgs.taalo-build
+  ];
   passthru = {
     inherit nixpkgs configs machine;
     nixos-config = "${configs}/${machine}.nix";

@@ -11,4 +11,7 @@
   users.extraGroups = {
     plugdev = {};
   };
+  environment.systemPackages = with pkgs; [
+    hackrf welle-io cubicsdr gnuradio-with-packages gqrx
+  ];
 }

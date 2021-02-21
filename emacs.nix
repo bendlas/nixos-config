@@ -1,4 +1,4 @@
-{ emacs26, emacsPackagesGen, enableDebugInfo, pkgs }:
+{ emacs27, emacsPackagesGen, enableDebugInfo, pkgs }:
 
 let
 
@@ -21,8 +21,8 @@ let
     edit-list refine
     golden-ratio workgroups2
 
-    projectile projectile-direnv projectile-codesearch
-    persp-mode persp-mode-projectile-bridge
+    # projectile projectile-direnv projectile-codesearch
+    # persp-mode persp-mode-projectile-bridge
     exwm-x
 
   #]) ++ (with epkgs.melpaPackages; [
@@ -42,7 +42,7 @@ let
   ]);
 
   emacsPackages = emacsPackagesGen (
-    enableDebugInfo (emacs26.override {
+    enableDebugInfo (emacs27.override {
       inherit (pkgs) alsaLib imagemagick acl gpm Xaw3d;
       withGTK3 = true; withGTK2 = false;
       withXwidgets = true;

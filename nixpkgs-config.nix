@@ -19,12 +19,12 @@ in {
   };
 
   packageOverrides = pkgs: rec {
-    localPackages = pkgFile: config: pkgs.callPackage ./local-packages.nix {
-      pkgFile = ./desktop.packages;
-      source = pkgs.fetchgit {
-        inherit (pkgs.lib.importJSON ./nixpkgs.json) url rev sha256 fetchSubmodules;
-      };
-    };
+    # localPackages = pkgFile: config: pkgs.callPackage ./local-packages.nix {
+    #   pkgFile = ./desktop.packages;
+    #   source = pkgs.fetchgit {
+    #     inherit (pkgs.lib.importJSON ./nixpkgs.json) url rev sha256 fetchSubmodules;
+    #   };
+    # };
     git-new-workdir = pkgs.runCommand "git-new-workdir" {} ''
       mkdir $out
       ln -s ${pkgs.git}/share/git/contrib/workdir $out/bin
@@ -32,7 +32,7 @@ in {
     taalo-build = pkgs.callPackage ./taalo-build.nix { };
     inherit (pkgs.callPackage ./emacs.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsPackages emacs emacsWithPackages;
     chromium = pkgs.chromium.override {
-      enablePepperFlash = true;
+      #enablePepperFlash = true;
       enableWideVine = true;
       pulseSupport = true;
       #gnomeSupport = true;
