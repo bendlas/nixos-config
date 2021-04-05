@@ -22,7 +22,7 @@
     nodejs debootstrap mercurial subversion cmake guile valgrind sbcl
     dos2unix nodePackages.grunt-cli mono luajit luarocks racket
 
-    ## dust
+    # dust
 
     radare2 radare2-cutter nix-generate-from-cpan
 
@@ -42,7 +42,9 @@
 
     ## Audio
 
-    clementine gnome3.gnome-sound-recorder audacity qjackctl google-musicmanager
+    # clementine
+
+    gnome3.gnome-sound-recorder audacity qjackctl
 
     ## Documents
 
