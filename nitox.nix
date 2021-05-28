@@ -50,13 +50,13 @@
     hostId = "f26c47cc";
 
     ## for network forwarding
-    nat.externalInterface = "ww+";
+    # nat.externalInterface = "ww+";
 
     bridges.br0.interfaces = [ "enp5s0" ];
     interfaces.br0.macAddress = "52:CB:A3:76:0F:0E";
 
     interfaces.br0.useDHCP = true;
-    nat.internalInterfaces = [ "br0" ];
+    # nat.internalInterfaces = [ "br0" ];
 
     # for dhcp
     firewall.allowedUDPPorts = [ 67 ];
@@ -69,19 +69,19 @@
 
   systemd.network-wait-online.ignore = [ "br0" ];
 
-  systemd.network.networks."10-enp5s0" = {
-    matchConfig.Name = "br0";
-    address = [ "10.0.0.1/24" ];
-    networkConfig = {
-      ## handled by firewall config
-      # IPMasquerade = "yes";
-      DHCPServer = "yes";
-    };
-    dhcpServerConfig = {
-      PoolOffset= 32;
-      PoolSize= 32;
-    };
-  };
+  # systemd.network.networks."10-enp5s0" = {
+  #   matchConfig.Name = "br0";
+  #   address = [ "10.0.0.1/24" ];
+  #   networkConfig = {
+  #     ## handled by firewall config
+  #     # IPMasquerade = "yes";
+  #     DHCPServer = "yes";
+  #   };
+  #   dhcpServerConfig = {
+  #     PoolOffset= 32;
+  #     PoolSize= 32;
+  #   };
+  # };
 
   networking.networkmanager = {
     enable = pkgs.lib.mkForce true;
