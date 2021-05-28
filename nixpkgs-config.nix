@@ -8,6 +8,10 @@ in {
   allowBroken = false;
   android_sdk.accept_license = true;
 
+  permittedInsecurePackages = [
+    "python2.7-Pillow-6.2.2"
+  ];
+
   firefox = {
    enableGnomeExtensions = true;
 #  jre = true;

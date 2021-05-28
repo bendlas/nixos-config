@@ -6,7 +6,7 @@ let
 
     cyberpunk-theme gh gitignore-mode groovy-mode haskell-mode htmlize
     ibuffer-tramp epkgs."ido-completing-read+" idris-mode crm-custom
-    javap-mode ninja-mode geiser commenter js2-mode xref-js2
+    javap-mode ninja-mode commenter js2-mode xref-js2 # geiser
     js2-highlight-vars js2-refactor js2-closure json-mode json-reformat
     jvm-mode multiple-cursors nixos-options org org-present
     paredit nim-mode mmm-mode markdown-mode macrostep
