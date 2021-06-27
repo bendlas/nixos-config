@@ -43,7 +43,7 @@ let
 
   emacsPackages = emacsPackagesGen (
     enableDebugInfo (emacs27.override {
-      inherit (pkgs) alsaLib imagemagick acl gpm Xaw3d;
+      inherit (pkgs) alsa-lib imagemagick acl gpm Xaw3d;
       withGTK3 = true; withGTK2 = false;
       withXwidgets = true;
     }));

@@ -25,6 +25,7 @@
       enable = true;
       ## temp disable, as this interferes with /etc/wpa_supplicant.conf
       # userControlled.enable = true;
+      interfaces = [ "wlp3s0" ];
     };
 
     interfaces = {

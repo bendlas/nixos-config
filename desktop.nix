@@ -102,7 +102,7 @@
       };
 
       xkbOptions = "eurosign:e";
-      desktopManager.gnome3.enable = true;
+      desktopManager.gnome.enable = true;
       displayManager.gdm = {
         enable = false;
         wayland = false;
