@@ -30,7 +30,7 @@ let
     magit magit-popup cljsbuild-mode clojars nix-mode
     clj-refactor clojure-mode
     slime cider # ensime
-    tern
+    tern forth-mode
     spiral parseclj
     # magit-gh-pulls ## tries to access /homeless-shelter
     flycheck lsp-mode toml-mode rust-mode cargo flycheck-rust
