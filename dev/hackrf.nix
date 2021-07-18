@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   services.udev.extraRules = ''
     ATTR{idVendor}=="1d50", ATTR{idProduct}=="604b", SYMLINK+="hackrf-jawbreaker-%k", MODE="660", GROUP="plugdev"
@@ -12,6 +12,11 @@
     plugdev = {};
   };
   environment.systemPackages = with pkgs; [
-    hackrf welle-io cubicsdr gnuradio-with-packages gqrx
+    hackrf welle-io cubicsdr gqrx
+    (gnuradio3_8.override {
+       extraPackages = lib.attrVals [
+         "osmosdr" "ais" "rds"
+       ] gnuradio3_8Packages;
+     })
   ];
 }
