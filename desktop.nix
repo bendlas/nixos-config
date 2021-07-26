@@ -151,5 +151,6 @@
 
   programs.cdemu.enable = true;
   programs.wireshark.enable = true;
+  programs.steam.enable = true;
 
 }

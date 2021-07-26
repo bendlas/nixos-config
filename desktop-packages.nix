@@ -9,7 +9,6 @@
     ## Games
 
     wine winetricks
-    steam
 
     # sauerbraten
     dwarf-fortress dwarf-therapist
