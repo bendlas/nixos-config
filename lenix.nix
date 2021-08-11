@@ -22,27 +22,28 @@
     hostId = "f26c47cd";
     
     wireless = {
-      enable = true;
+      iwd.enable = true;
       ## temp disable, as this interferes with /etc/wpa_supplicant.conf
       # userControlled.enable = true;
-      interfaces = [ "wlp3s0" ];
+      # interfaces = [ "wlp3s0" ];
     };
 
     interfaces = {
       enp0s31f6.useDHCP = true;
-      wlp3s0.useDHCP = true;
+      wlan0.useDHCP = true;
     };
 
-    nat.externalInterface = "wlp3s0";
+    nat.externalInterface = "wlan0";
     nat.internalInterfaces = [ "enp0s31f6" ];
 
     # for dhcp
     firewall.allowedUDPPorts = [ 67 ];
 
-    networkmanager = {
-      enable = pkgs.lib.mkForce true;
-      unmanaged = [ "lo" "wlp3s0" "enp0s31f6" "anbox0" ];
-    };
+    ## for usb modem
+    # networkmanager = {
+    #   enable = pkgs.lib.mkForce true;
+    #   unmanaged = [ "lo" "wlan0" "enp0s31f6" "anbox0" ];
+    # };
   };
 
   systemd.network-wait-online.ignore = [ "enp0s31f6" ];
