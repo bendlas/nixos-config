@@ -39,10 +39,11 @@
     # for dhcp
     firewall.allowedUDPPorts = [ 67 ];
 
-    ## for usb modem
+    # ## for usb modem
     # networkmanager = {
     #   enable = pkgs.lib.mkForce true;
     #   unmanaged = [ "lo" "wlan0" "enp0s31f6" "anbox0" ];
+    #   packages = [ pkgs.networkmanager-openconnect pkgs.networkmanager-vpnc ];
     # };
   };
 

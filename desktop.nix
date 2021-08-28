@@ -140,7 +140,7 @@
 
   virtualisation = {
     ## xen build is broken
-    # libvirtd.enable = true;
+    libvirtd.enable = true;
     # virtualbox.host = {
     #   enable = false;
     #   enableExtensionPack = true;
