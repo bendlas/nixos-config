@@ -26,7 +26,8 @@ in
     };
   };
   environment.systemPackages = with pkgs; [
-    emacs.emacs.debug docker_compose
+    # emacs.emacs.debug
+    docker_compose
     # nixops
     virtmanager
     androidsdk_9_0

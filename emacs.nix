@@ -1,4 +1,4 @@
-{ emacs27, emacsPackagesGen, enableDebugInfo, pkgs }:
+{ emacs27, emacsPackagesFor, enableDebugInfo, pkgs }:
 
 let
 
@@ -25,7 +25,7 @@ let
     # persp-mode persp-mode-projectile-bridge
     exwm-x
 
-  #]) ++ (with epkgs.melpaPackages; [
+    #]) ++ (with epkgs.melpaPackages; [
 
     magit magit-popup cljsbuild-mode clojars nix-mode
     clj-refactor clojure-mode
@@ -41,18 +41,24 @@ let
 
   ]);
 
-  emacsPackages = emacsPackagesGen (
-    enableDebugInfo (emacs27.override {
-      inherit (pkgs) alsa-lib imagemagick acl gpm Xaw3d;
-      withGTK3 = true; withGTK2 = false;
-      withXwidgets = true;
-    }));
+  emacsUnwrapped = emacs27.override {
+    inherit (pkgs) alsa-lib imagemagick acl gpm Xaw3d;
+    withGTK3 = true; withGTK2 = false;
+    withXwidgets = true;
+  };
 
-  emacsWithPackages = pfn:
-    emacsPackages.emacsWithPackages (epkgs:
-      (builtinPackages epkgs) ++ (pfn epkgs));
+  emacsPackages = emacsPackagesFor (
+    #    enableDebugInfo (
+    emacsUnwrapped
+      #    )
+  );
 
-  emacs = emacsWithPackages (_: []);
+  emacsWithPackages = emacsPackages.emacsWithPackages;
+  #    pfn:
+  #    emacsPackages.emacsWithPackages (epkgs:
+  #      (builtinPackages epkgs) ++ (pfn epkgs));
+
+  emacs = emacsWithPackages builtinPackages;
 
 
 in {
