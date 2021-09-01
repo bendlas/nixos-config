@@ -53,16 +53,17 @@ let
       #    )
   );
 
-  emacsWithPackages = emacsPackages.emacsWithPackages;
-  #    pfn:
-  #    emacsPackages.emacsWithPackages (epkgs:
-  #      (builtinPackages epkgs) ++ (pfn epkgs));
+  # emacsPackages.emacsWithPackages;
+  emacsWithPackages = pfn:
+      emacsPackages.emacsWithPackages (epkgs:
+        (builtinPackages epkgs) ++ (pfn epkgs));
 
-  emacs = emacsWithPackages builtinPackages;
+  # emacs = emacsWithPackages builtinPackages;
+  emacs = emacsWithPackages (epkgs: []);
 
 
 in {
 
-  inherit emacsPackages emacs emacsWithPackages;
+  inherit emacsPackages emacsWithPackages emacs;
 
 }
