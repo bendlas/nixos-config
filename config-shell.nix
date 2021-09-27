@@ -14,10 +14,9 @@ let
                 inherit (lib.importJSON ./nixpkgs.json) url rev sha256 fetchSubmodules;
               }
             else pkgs.nix-gitignore.gitignoreSource [ ".git" ] pkgs-path;
-  newPkgs = import nixpkgs { config = import ./nixpkgs-config.nix; };
-  localPackages = pkgFile: newPkgs.callPackage ./local-packages.nix {
-    inherit pkgFile;
-    source = nixpkgs;
+  newPkgs = import nixpkgs {
+    config = import ./nixpkgs-config.nix;
+    overlays = import ./nixpkgs-overlays.nix;
   };
 in
 mkShell {
@@ -26,7 +25,6 @@ mkShell {
     export NIXPKGS_CONFIG=${configs}/nixpkgs-config.nix
   '';
   buildInputs = [
-    ## (localPackages ./desktop.packages)
     newPkgs.taalo-build
   ];
   passthru = {

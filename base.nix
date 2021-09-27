@@ -32,6 +32,7 @@ in {
 
   ## Outsource nixpkgs.config to be shared with nix-env
   nixpkgs.config = npc;
+  nixpkgs.overlays = import ./nixpkgs-overlays.nix;
   ## TODO replace with full config include
   system.copySystemConfiguration = true;
 
