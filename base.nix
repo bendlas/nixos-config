@@ -26,7 +26,7 @@ in {
 
     taalo-build git-new-workdir vnstat
 
-    inotify-tools
+    inotify-tools direnv
 
   ];
 
