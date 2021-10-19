@@ -99,12 +99,6 @@
 
   #  boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
 
-  users.extraUsers = {
-    "adele" = {
-      isNormalUser = true;
-    };
-  };
-
   services.pcscd.enable = true;
 
 }
