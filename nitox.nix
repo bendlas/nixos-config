@@ -84,10 +84,18 @@
   #   };
   # };
 
-  networking.networkmanager = {
-    enable = pkgs.lib.mkForce true;
-    unmanaged = [ "lo" "br0" "enp5s0" "anbox0" ];
+  users.extraUsers = {
+    "nara" = {
+      description = "Nara Richter";
+      isNormalUser = true;
+    };
   };
+
+  ## we don't need modemmanager any more
+  # networking.networkmanager = {
+  #   enable = pkgs.lib.mkForce true;
+  #   unmanaged = [ "lo" "br0" "enp5s0" "anbox0" ];
+  # };
 
   services.xserver = {
     videoDrivers = [ "nvidia" "nouveau" "nv" "vesa" ];
