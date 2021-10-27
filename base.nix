@@ -17,7 +17,7 @@ in {
     btrfsProgs dmidecode nmap gitFull vde2 gradle gnumake
     socat libressl vim patchelf gcc clisp parted usbutils # diffoscope
     rsync gnupg gdb powertop lshw libxslt dvtm abduco dtach # letsencrypt
-    nox pv nethogs iftop jq yq iftop moreutils dhcp gforth
+    nox pv nethogs iftop jq yq iftop moreutils dhcp
 
     sqlite mkpasswd
 
