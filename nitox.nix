@@ -43,6 +43,8 @@
       vaapiVdpau
     ];
   };
+  hardware.bluetooth.enable = true;
+  hardware.firmware = [ pkgs.firmwareLinuxNonfree ];
 
   services.avahi.hostName = "nitox";
 
