@@ -39,16 +39,14 @@ in {
       raspberryPi = {
         enable = true;
 	      version = 4;
+        ## FIXME: right now, this needs a manual update
+        ## https://github.com/NixOS/nixpkgs/pull/67902#discussion_r744178864
         firmwareConfig = ''
-          # hdmi_safe=1
+          # hdmi_drive=2
           # hdmi_group=1
-          # hdmi_mode=1
-          ## for hdmi audio
-          hdmi_drive=2
-          hdmi_group=1
-          dtoverlay=vc4-fkms-v3d
-          max_framebuffers=2
-          dtparam=audio=on
+          # dtoverlay=vc4-fkms-v3d
+          # max_framebuffers=2
+          # dtparam=audio=on
         '';
         uboot.enable = true;
       };
