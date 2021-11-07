@@ -1,7 +1,7 @@
 { pkgs, ... }: {
 
   environment.systemPackages = (with pkgs; [
-    chromium youtube-dl vlc
+    chromium youtube-dl vlc libva-utils
   ]);
 
   services.xserver = {

@@ -132,11 +132,8 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
-    #   firefox
     libraspberrypi tree tmux htop iftop raspberrypi-eeprom
-    systool usbutils git iw
+    systool usbutils git iw btop iotop
     (pkgs.runCommand "custom-tools" {
       inherit (pkgs.stdenv) shell;
       inherit (pkgs) libraspberrypi tmux htop iftop;
