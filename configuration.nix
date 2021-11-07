@@ -15,6 +15,8 @@ in {
       ./kodi-xorg.nix
       ./desktop.nix
       ./users.nix
+      ./networkd.nix
+      ./wifi.nix
     ];
 
   boot = {
@@ -111,15 +113,6 @@ in {
 
   networking.hostName = "rastox"; # Define your hostname.
 
-  networking.wireless.iwd.enable = true;
-  networking.wireless.iwd.settings = {
-    Network = {
-      EnableIPv6 = true;
-      # NameResolvingService=systemd
-      NameResolvingService = "resolvconf";
-    };
-  };
-
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
 
@@ -145,7 +138,7 @@ in {
   #   wget
     #   firefox
     libraspberrypi tree tmux htop iftop raspberrypi-eeprom
-    systool usbutils git
+    systool usbutils git iw
     (pkgs.runCommand "custom-tools" {
       inherit (pkgs.stdenv) shell;
       inherit (pkgs) libraspberrypi tmux htop iftop;
