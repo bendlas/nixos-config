@@ -13,10 +13,10 @@
   };
   environment.systemPackages = with pkgs; [
     hackrf welle-io cubicsdr gqrx
-    (gnuradio3_8.override {
-       extraPackages = lib.attrVals [
-         "osmosdr" "ais" "rds"
-       ] gnuradio3_8Packages;
-     })
+    # (gnuradio3_8.override {
+    #    extraPackages = lib.attrVals [
+    #      "osmosdr" "ais" "rds"
+    #    ] gnuradio3_8Packages;
+    #  })
   ];
 }

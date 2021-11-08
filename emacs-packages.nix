@@ -4,7 +4,7 @@ let
 
   builtinPackages = epkgs: (with epkgs; with melpaPackages; [
 
-    cyberpunk-theme gh gitignore-mode groovy-mode haskell-mode htmlize
+    cyberpunk-theme gh groovy-mode haskell-mode htmlize
     ibuffer-tramp epkgs."ido-completing-read+" idris-mode crm-custom
     javap-mode ninja-mode commenter js2-mode xref-js2 # geiser
     js2-highlight-vars js2-refactor js2-closure json-mode json-reformat
