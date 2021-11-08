@@ -70,7 +70,7 @@ in
     };
   };
   nix = {
-    trustedBinaryCaches = [ "https://headcounter.org/hydra" ];
+    trustedBinaryCaches = [ "https://headcounter.org/hydra" "ssh://nitox.local" ];
     binaryCachePublicKeys = [ "headcounter.org:/7YANMvnQnyvcVB6rgFTdb8p5LG1OTXaO+21CaOSBzg=" ];
   };
 
