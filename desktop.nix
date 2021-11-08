@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  
+
   environment.systemPackages = (with pkgs; [
 
     pciutils ntfs3g st gparted gksu
@@ -14,6 +14,8 @@
     geoip unrar bsdiff gitAndTools.hub links2 jack2Full beep
 
     dbus_tools dfeet systool # nixui
+
+    libva-utils
 
     texlive-bendlas
   ]);

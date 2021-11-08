@@ -29,6 +29,7 @@ in {
     #     inherit (pkgs.lib.importJSON ./nixpkgs.json) url rev sha256 fetchSubmodules;
     #   };
     # };
+    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
     git-new-workdir = pkgs.runCommand "git-new-workdir" {} ''
       mkdir $out
       ln -s ${pkgs.git}/share/git/contrib/workdir $out/bin
@@ -36,13 +37,9 @@ in {
     taalo-build = pkgs.callPackage ./taalo-build.nix { };
     inherit (pkgs.callPackage ./emacs-packages.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsPackages emacs emacsWithPackages;
     chromium = pkgs.chromium.override {
-      #enablePepperFlash = true;
       enableWideVine = true;
       pulseSupport = true;
-      #gnomeSupport = true;
-      #gnomeKeyringSupport = true;
-      #enableNaCl = false; # broken
-      #gconfPackage = pkgs.gnome2.GConf;
+      commandLineArgs = "--enable-features=VaapiVideoDecoder";
     };
     # Mass rebuild
     #xdg-open = pkgs.xdg-open.override {

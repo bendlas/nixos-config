@@ -9,8 +9,11 @@
 
   bendlas.machine = "lenix";
   environment.systemPackages = (with pkgs; [
-    bluez5 crda wireless-regdb
+    bluez5 crda wireless-regdb intel-gpu-tools
   ]);
+  environment.variables = {
+    VAAPI_MPEG4_ENABLED = "true";
+  };
 
   boot = {
     loader = {
@@ -92,8 +95,13 @@
     opengl = {
       enable = true;
       extraPackages = with pkgs; [
+        # intel-media-driver
         vaapiIntel
       ];
+      # extraPackages32 = with pkgs.pkgsi686Linux; [
+      #   intel-media-driver
+      #   # vaapiIntel
+      # ];
     };
   };
 
