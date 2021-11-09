@@ -105,4 +105,8 @@
     '';
   };
 
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
+  hardware.nvidia.modesetting.enable = true;
+  services.xserver.displayManager.gdm.nvidiaWayland = true;
+
 }

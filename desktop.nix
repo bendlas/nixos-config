@@ -56,7 +56,7 @@
 
   services = {
     compton = {
-      enable = true;
+      enable = false;
       fade = true;
       fadeDelta = 2;
     };
@@ -106,10 +106,10 @@
       xkbOptions = "eurosign:e";
       desktopManager.gnome.enable = true;
       displayManager.gdm = {
-        enable = false;
-        wayland = false;
+        enable = true;
+        # wayland = false;
       };
-      displayManager.lightdm.enable = true;
+      # displayManager.lightdm.enable = true;
       windowManager.exwm = {
         enable = true;
         enableDefaultConfig = false;
