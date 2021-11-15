@@ -16,3 +16,4 @@ fetch() {
 }
 
 fetch https://github.com/bendlas/nixpkgs.git /home/herwig/checkout/nixpkgs $branch > nixpkgs.json
+fetch https://github.com/nix-community/emacs-overlay.git https://github.com/nix-community/emacs-overlay.git master > emacs-overlay.json

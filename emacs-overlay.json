@@ -1,0 +1,12 @@
+{
+  "url": "https://github.com/nix-community/emacs-overlay.git",
+  "rev": "3128048fe8921ecb552a35306911d9d1e02a872c",
+  "date": "2021-11-15T17:22:54+00:00",
+  "path": "/nix/store/2kn6zq0sfqwib5xyc8vyg7j4apkjs757-emacs-overlay-3128048",
+  "sha256": "1pd6slvvixhmf3gs2d5i7nlrxsvn9y7lji675ym85qlcblp74l3k",
+  "fetchLFS": false,
+  "fetchSubmodules": false,
+  "deepClone": false,
+  "leaveDotGit": false,
+  "branch": "master"
+}

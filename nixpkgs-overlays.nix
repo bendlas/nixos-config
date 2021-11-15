@@ -1,5 +1,6 @@
 [
-  (import (builtins.fetchTarball {
-    url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+  (let pkgs = import <nixpkgs> {}; in
+   import (pkgs.fetchgit {
+    inherit (pkgs.lib.importJSON ./emacs-overlay.json) url rev sha256 fetchSubmodules;
   }))
 ]
