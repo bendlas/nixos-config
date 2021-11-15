@@ -6,7 +6,7 @@ let
 
     cyberpunk-theme gh groovy-mode haskell-mode htmlize
     ibuffer-tramp epkgs."ido-completing-read+" idris-mode crm-custom
-    javap-mode ninja-mode commenter js2-mode xref-js2 # geiser
+    javap-mode ninja-mode commenter js2-mode xref-js2 geiser
     js2-highlight-vars js2-refactor js2-closure json-mode json-reformat
     jvm-mode multiple-cursors nixos-options org org-present
     paredit nim-mode mmm-mode markdown-mode macrostep
@@ -15,7 +15,7 @@ let
     yasnippet with-editor string-edit keyfreq scala-mode
     uuidgen systemtap-mode gn-mode coffee-mode cask-mode elf-mode lua-mode
     elfeed elfeed-goodies elfeed-web elfeed-org volume dockerfile-mode yaml-mode
-    impatient-mode livescript-mode # cmake-mode
+    impatient-mode livescript-mode cmake-mode
     ivy ivy-xref treemacs elmacro hy-mode robe haml-mode
 
     edit-list refine
@@ -32,7 +32,7 @@ let
     slime cider # ensime
     tern forth-mode
     spiral parseclj
-    # magit-gh-pulls ## tries to access /homeless-shelter
+    magit-gh-pulls
     flycheck lsp-mode toml-mode rust-mode cargo flycheck-rust
     graphviz-dot-mode
   ]) ++ (with pkgs; [
