@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 
+set -eu
+
 machine="$1"
 shift
 
-exec nix-shell config-shell.nix --arg machine "\"$machine\"" --run "nixos-rebuild $@"
+exec nix-shell config-shell.nix --arg machine "\"$machine\"" --run "nixos-rebuild $*"
