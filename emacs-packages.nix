@@ -1,9 +1,22 @@
-{ emacs27, emacsPackagesFor, enableDebugInfo, pkgs }:
+{ emacsGcc, emacsPackagesFor
+, enableDebugInfo
+, pkgs
+}:
 
 let
 
-  builtinPackages = epkgs: (with epkgs; with melpaPackages; [
+  baseEmacs = emacsGcc;
 
+  emacsWithPackages = pfn:
+    emacsPackages.emacsWithPackages
+      (compOverrides [
+        (epkgs: epkgs // epkgs.melpaPackages)
+        (patchPackage "volume" "https://patch-diff.githubusercontent.com/raw/dbrock/volume.el/pull/8.patch" "sha256-6e5UXtWSeP3iJFhsLw6KrIZGYmjMkip2oiF+yn40VaE=")
+        (patchPackage "benchmark-init" "https://patch-diff.githubusercontent.com/raw/dholm/benchmark-init-el/pull/16.patch" "sha256-lVEKRgy60uvpl3jAeuo2mabldU8SwukHfwTgoAi9A9Q=")
+        (epkgs: builtinPackages epkgs ++ pfn epkgs ++ nativePkgs)
+      ]);
+
+  builtinPackages = epkgs: with epkgs; [
     cyberpunk-theme gh groovy-mode haskell-mode htmlize
     ibuffer-tramp epkgs."ido-completing-read+" idris-mode crm-custom
     javap-mode ninja-mode commenter js2-mode xref-js2 geiser
@@ -21,11 +34,11 @@ let
     edit-list refine
     golden-ratio workgroups2
 
+    benchmark-init
+
     # projectile projectile-direnv projectile-codesearch
     # persp-mode persp-mode-projectile-bridge
     exwm-x
-
-    #]) ++ (with epkgs.melpaPackages; [
 
     magit magit-popup cljsbuild-mode clojars nix-mode
     clj-refactor clojure-mode
@@ -35,28 +48,38 @@ let
     magit-gh-pulls
     flycheck lsp-mode toml-mode rust-mode cargo flycheck-rust
     graphviz-dot-mode
-  ]) ++ (with pkgs; [
+  ];
 
+  nativePkgs = with pkgs; [
     ghostscript aspell
+  ];
 
-  ]);
+  compOverrides = overrides: epkgs:
+    if 0 == builtins.length overrides
+    then epkgs
+    else compOverrides (builtins.tail overrides) ((builtins.head overrides) epkgs);
+  
+  patchPackage = pname: url: sha256: epkgs: epkgs // {
+    "${pname}" = epkgs."${pname}".overrideAttrs (old: {
+      patches = (old.patches or []) ++ [
+        (pkgs.fetchpatch {
+          inherit url sha256;
+        })
+      ];
+    });
+  };
 
-  emacsUnwrapped = emacs27.override {
+  emacsUnwrapped = baseEmacs.override {
     inherit (pkgs) alsa-lib imagemagick acl gpm Xaw3d;
     withGTK3 = true; withGTK2 = false;
     withXwidgets = true;
   };
 
   emacsPackages = emacsPackagesFor (
-    #    enableDebugInfo (
-    emacsUnwrapped
-      #    )
+    enableDebugInfo (
+      emacsUnwrapped
+    )
   );
-
-  # emacsPackages.emacsWithPackages;
-  emacsWithPackages = pfn:
-      emacsPackages.emacsWithPackages (epkgs:
-        (builtinPackages epkgs) ++ (pfn epkgs));
 
   # emacs = emacsWithPackages builtinPackages;
   emacs = emacsWithPackages (epkgs: []);

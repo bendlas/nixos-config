@@ -1,8 +1,12 @@
-let enableDebugInfo_ = lib: pkg:
-  lib.overrideDerivation pkg (attrs: {
-    outputs = attrs.outputs or [ "out" ] ++ [ "debug" ];
-    buildInputs = attrs.buildInputs ++ [ <nixpkgs/pkgs/build-support/setup-hooks/separate-debug-info.sh> ];
-  });
+let
+  enableDebugInfo_ = lib: pkg:
+    # lib.overrideDerivation
+    pkg.overrideAttrs (attrs: {
+      outputs = attrs.outputs or [ "out" ] ++ [ "debug" ];
+      buildInputs = attrs.buildInputs ++ [
+        <nixpkgs/pkgs/build-support/setup-hooks/separate-debug-info.sh>
+      ];
+    });
 in {
   allowUnfree = true;
   allowBroken = false;
@@ -35,7 +39,8 @@ in {
       ln -s ${pkgs.git}/share/git/contrib/workdir $out/bin
     '';
     taalo-build = pkgs.callPackage ./taalo-build.nix { };
-    inherit (pkgs.callPackage ./emacs-packages.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsPackages emacs emacsWithPackages;
+    # inherit (pkgs.callPackage ./emacs-packages.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsPackages emacs emacsWithPackages;
+    inherit (pkgs.callPackage ./emacs-packages.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsWithPackages;
     chromium = pkgs.chromium.override {
       enableWideVine = true;
       pulseSupport = true;
