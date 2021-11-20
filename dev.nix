@@ -61,13 +61,13 @@ in
       #   host  all all ::1/128        trust
       # '';
     };
-    pgmanage = {
-      enable = true;
-      # allowCustomConnections = true;
-      connections = {
-        nitox = "hostaddr=127.0.0.1 port=5432 dbname=postgres sslmode=prefer";
-      };
-    };
+    # pgmanage = {
+    #   enable = true;
+    #   # allowCustomConnections = true;
+    #   connections = {
+    #     nitox = "hostaddr=127.0.0.1 port=5432 dbname=postgres sslmode=prefer";
+    #   };
+    # };
   };
   nix = {
     trustedBinaryCaches = [ "https://headcounter.org/hydra" "ssh://nitox.local" ];
