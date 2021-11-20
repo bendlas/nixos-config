@@ -11,7 +11,7 @@ in {
 
   environment.systemPackages = with pkgs; [
 
-    file screen tmux htop wget psmisc utillinux zip unzip lsof
+    file screen tmux htop wget psmisc utillinux zip unzip lz4 lsof
     bind hdparm pmutils iotop rlwrap traceroute which # emacs ## is added by enabling exwm
     iptables telnet tree multipath_tools lm_sensors ent davfs2 # reptyr
     btrfsProgs dmidecode nmap gitFull vde2 gradle gnumake
