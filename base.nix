@@ -30,6 +30,12 @@ in {
 
   ];
 
+  environment.variables = {
+    EDITOR = "ed -p\\*";
+    VISUAL = "emacsclient -a 'emacs -nw'";
+    ALTERNATE_EDITOR = "nano";
+  };
+
   ## Outsource nixpkgs.config to be shared with nix-env
   nixpkgs.config = npc;
   nixpkgs.overlays = import ./nixpkgs-overlays.nix;
@@ -127,9 +133,6 @@ in {
         l = "lid";
       };
       interactiveShellInit = ''
-        export EDITOR="${pkgs.emacs}/bin/emacsclient -A '${pkgs.emacs}/bin/emacs -nw'"
-        export VISUAL="$EDITOR"
-        export ALTERNATE_EDITOR="${pkgs.vim}/bin/vim"
         source ${./zshrc}
       '';
       promptInit = ''
