@@ -28,6 +28,10 @@ in {
 
     inotify-tools direnv pass
 
+    zsh-capture-completion
+
+    ed nano
+
   ];
 
   environment.variables = {
