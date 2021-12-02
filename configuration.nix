@@ -17,6 +17,7 @@ in {
       ./users.nix
       ./networkd.nix
       ./wifi.nix
+      # ./video-rpi.nix
     ];
 
   boot = {
@@ -133,7 +134,8 @@ in {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     libraspberrypi tree tmux htop iftop raspberrypi-eeprom
-    systool usbutils git iw btop iotop
+    systool usbutils git iw btop iotop lsof
+    config.boot.kernelPackages.perf
     (pkgs.runCommand "custom-tools" {
       inherit (pkgs.stdenv) shell;
       inherit (pkgs) libraspberrypi tmux htop iftop;
