@@ -34,6 +34,9 @@
       enable = true;
       drivers = [ pkgs.splix ];
     };
+    udev.extraRules = ''
+      ATTR{idvendor}=="04e8", ATTR{idProduct}=="344f", MODE:="0660", GROUP:="lp", ENV{libsane_matched}:="yes"
+    '';
     i2p.enable = lib.mkForce false;
     tor.enable = lib.mkForce false;
   };
