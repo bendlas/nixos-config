@@ -53,8 +53,8 @@ in
   environment.enableDebugInfo = true;
   services = {
     postgresql = {
-      enable = true;
-      enableTCPIP = true;
+      enable = false;
+      enableTCPIP = false;
       # authentication = pkgs.lib.mkForce ''
       #   local all all                trust
       #   host  all all 127.0.0.1/32   trust
