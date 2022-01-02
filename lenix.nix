@@ -4,7 +4,7 @@
   require = [ ./desktop.nix ./hardware-configuration.lenix-270.nix
               ./dev.nix ./power-savings.nix ./dev/hackrf.nix ./dev/maple.nix
               ./dev/muart.nix ./dev/gd32.nix ./dev/saleae.nix ./dev/stlink.nix
-              ./dev/qemu.nix ./dev/forth.nix ./dev/skm.nix
+              ./dev/qemu.nix ./dev/forth.nix ./dev/skm.nix ./dev/android.nix
             ];
 
   bendlas.machine = "lenix";

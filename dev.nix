@@ -30,7 +30,6 @@ in
     docker_compose
     # nixops
     virtmanager
-    androidsdk_9_0
     nodePackages.tern
     # ml-workbench
     clojure-lsp
