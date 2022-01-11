@@ -1,5 +1,5 @@
 { emacsGcc, emacsPackagesFor
-, enableDebugInfo
+, enableDebugInfo, fetchFromGitHub
 , pkgs
 }:
 
@@ -13,6 +13,12 @@ let
         (epkgs: epkgs // epkgs.melpaPackages)
         (patchPackage "volume" "https://patch-diff.githubusercontent.com/raw/dbrock/volume.el/pull/8.patch" "sha256-6e5UXtWSeP3iJFhsLw6KrIZGYmjMkip2oiF+yn40VaE=")
         (patchPackage "benchmark-init" "https://patch-diff.githubusercontent.com/raw/dholm/benchmark-init-el/pull/16.patch" "sha256-lVEKRgy60uvpl3jAeuo2mabldU8SwukHfwTgoAi9A9Q=")
+        # (sourcePackage "cider" (fetchFromGitHub {
+        #   owner = "clojure-emacs";
+        #   repo = "cider";
+        #   rev = "v1.2.0";
+        #   sha256 = "sha256-Lovqe0CYnNH/65mHpBRxQBXsGZSYn2yLYf8s43KDQbA=";
+        # }))
         (epkgs: builtinPackages epkgs ++ pfn epkgs ++ nativePkgs)
       ]);
 
@@ -66,6 +72,12 @@ let
           inherit url sha256;
         })
       ];
+    });
+  };
+
+  sourcePackage = pname: src: epkgs: epkgs // {
+    "${pname}" = epkgs."${pname}".overrideAttrs (old: {
+      inherit src;
     });
   };
 
