@@ -1,8 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 { ## Outsource nixpkgs.config to be shared with nix-env
-  require = [ ./desktop.nix ./hardware-configuration.lenix-270.nix
-              ./dev.nix ./power-savings.nix ./dev/hackrf.nix ./dev/maple.nix
+  require = [ ./desktop.nix ./dev.nix ./power-savings.nix ./dev/hackrf.nix ./dev/maple.nix
               ./dev/muart.nix ./dev/gd32.nix ./dev/saleae.nix ./dev/stlink.nix
               ./dev/qemu.nix ./dev/forth.nix ./dev/skm.nix ./dev/android.nix
             ];
@@ -11,11 +10,14 @@
   environment.systemPackages = (with pkgs; [
     bluez5 crda wireless-regdb intel-gpu-tools
   ]);
+
   environment.variables = {
     VAAPI_MPEG4_ENABLED = "true";
   };
 
   boot = {
+    initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+    kernelModules = [ "kvm-intel" ];
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -23,10 +25,34 @@
     kernelParams = [ "resume=UUID=6567b6fd-c570-412e-8f53-b6ba1733640c" ];
   };
 
+  fileSystems = {
+    "/" ={
+      device = "/dev/disk/by-uuid/cf7a2c05-5a08-4716-aa30-2c3556f5033c";
+      fsType = "btrfs";
+    };
+    "/tmp" = {
+      device = "TMP";
+      fsType = "tmpfs";
+      options = [ "size=16G" "mode=1777" ];
+    };
+    "/boot" = {
+      device = "/dev/disk/by-uuid/D45C-9B25";
+      fsType = "vfat";
+    };
+    "/var/tmp" = {
+      device = "VARTMP";
+      fsType = "tmpfs";
+    };
+  };
+
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/083e3aab-29cd-4d4c-a9b6-027c9b413af5"; }
+  ];
+
   networking = rec {
     hostName = "lenix";
     hostId = "f26c47cd";
-    
+
     wireless = {
       iwd.enable = true;
       ## temp disable, as this interferes with /etc/wpa_supplicant.conf
@@ -108,5 +134,8 @@
   #  boot.extraModulePackages = [ pkgs.linuxPackages.v4l2loopback ];
 
   services.pcscd.enable = true;
+
+  nix.maxJobs = lib.mkDefault 2;
+  # powerManagement.cpuFreqGovernor = "powersave";
 
 }

@@ -5,7 +5,7 @@
 { config, pkgs, lib, ... }:
 
 { ## Outsource nixpkgs.config to be shared with nix-env
-  require = [ ./desktop.nix ./hardware-configuration.nitox.nix ./dev.nix # ./distributed-build.nix
+  require = [ ./desktop.nix ./dev.nix # ./distributed-build.nix
               ./dev/forth.nix ./zfs.nix
     # {
     #   networking.firewall.allowedTCPPorts = [ 2049 111 4000 4001 ];
@@ -23,6 +23,8 @@
 
   bendlas.machine = "nitox";
   boot = {
+    initrd.availableKernelModules = [ "ehci_pci" "ata_piix" "xhci_pci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
+    kernelModules = [ "kvm-intel" ];
     loader.grub = {
       enable = true;
       version = 2;
@@ -34,6 +36,34 @@
       options libahci             skip_host_reset=1
     '';
   };
+
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/3d369f1e-b1b5-4c36-90da-f34f2e0f6af0";
+      fsType = "btrfs";
+      options = [ "nossd" "discard" "compress=lzo" "noatime" "autodefrag" ];
+    };
+
+  fileSystems."/var/tmp" =
+    { device = "vartmp";
+      fsType = "tmpfs";
+      options = [ "size=1G" "mode=1777" ];
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/bf4791ad-62c0-481d-bc8c-a800ad9cf8f8";
+      fsType = "ext4";
+    };
+
+  #fileSystems."/tmp" =
+  #  { device = "tmp";
+  #    fsType = "tmpfs";
+  #    options = [ "size=48G" "mode=1777" ];
+  #  };
+
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/58a029ec-27e3-49cd-9ec1-2452ede1cec5"; }
+      { device = "/dev/disk/by-uuid/c4bd389b-dd2d-4777-a2f3-d55bbe000566"; }
+    ];
 
   hardware.cpu.intel.updateMicrocode = true;
   hardware.opengl = {
@@ -109,4 +139,5 @@
   hardware.nvidia.modesetting.enable = true;
   services.xserver.displayManager.gdm.nvidiaWayland = true;
 
+  nix.maxJobs = 2;
 }
