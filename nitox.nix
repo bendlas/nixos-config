@@ -23,7 +23,7 @@
 
   bendlas.machine = "nitox";
   boot = {
-    initrd.availableKernelModules = [ "ehci_pci" "ata_piix" "xhci_pci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
+    initrd.availableKernelModules = [ "bcache" "ehci_pci" "ata_piix" "xhci_pci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
     kernelModules = [ "kvm-intel" ];
     loader.grub = {
       enable = true;
@@ -31,7 +31,6 @@
       device = "/dev/sdb";
     };
     kernelParams = [ "nomodeset" "resume=UUID=58a029ec-27e3-49cd-9ec1-2452ede1cec5" "resume=UUID=c4bd389b-dd2d-4777-a2f3-d55bbe000566" ];
-    initrd.availableKernelModules = [ "bcache" ];
     extraModprobeConfig = ''
       options libahci             skip_host_reset=1
     '';
