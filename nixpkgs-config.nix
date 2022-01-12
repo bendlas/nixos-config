@@ -40,7 +40,7 @@ in {
     '';
     taalo-build = pkgs.callPackage ./taalo-build.nix { };
     # inherit (pkgs.callPackage ./emacs-packages.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsPackages emacs emacsWithPackages;
-    inherit (pkgs.callPackage ./emacs-packages.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsWithPackages;
+    inherit (pkgs.callPackage ./emacs-packages.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsWithPackages emacsPackages;
     chromium = pkgs.chromium.override {
       enableWideVine = true;
       pulseSupport = true;

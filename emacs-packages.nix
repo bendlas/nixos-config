@@ -23,6 +23,8 @@ let
       ]);
 
   builtinPackages = epkgs: with epkgs; [
+    (pkgs.callPackage ./emacs-bendlas.nix { emacsPackages = epkgs; })
+
     cyberpunk-theme gh groovy-mode haskell-mode htmlize
     ibuffer-tramp epkgs."ido-completing-read+" idris-mode crm-custom
     javap-mode ninja-mode commenter js2-mode xref-js2 geiser
