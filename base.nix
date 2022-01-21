@@ -118,7 +118,7 @@ in {
     openssh = {
       enable = true;
       passwordAuthentication = false;
-      challengeResponseAuthentication = false;
+      kbdInteractiveAuthentication = false;
       startWhenNeeded = true;
     };
     locate.enable = false;
