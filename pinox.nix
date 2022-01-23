@@ -1,6 +1,10 @@
 { lib, pkgs, config, ... }:
 {
+  bendlas.machine = "pinox";
   imports= [
+    # shared with ./base.nix
+    ./log.nix ./sources.nix ./nix.module.nix ./zsh.module.nix ./locale.module.nix
+    # mobile-nixos
     (import <mobile-nixos/lib/configuration.nix> { device = "pine64-pinephone"; })
     ./mobile-nixos-bootloader.nix
   ];
@@ -9,7 +13,7 @@
   
   users.users.nixos = {
     isNormalUser = true;
-
+    shell = "/run/current-system/sw/bin/zsh";
     # hashedPassword = "$6$/iwm2tpFKRjDn9bD$BkSA.FIsYEjyRQXvKrSDDkXmzoDLuioVaeOOUJIURJBxrJQoser/oAa1t951ozROazzwQEyWYHQGR/s.0kgAQ0";
 
     home = "/home/nixos";
@@ -31,17 +35,60 @@
 
   # "desktop" environment configuration
   powerManagement.enable = true;
-  # hardware.opengl.enable = true;
+  hardware.opengl.enable = true;
 
-  # =====
+  systemd.defaultUnit = "graphical.target";
+  systemd.services.phosh = {
+    wantedBy = [ "graphical.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.phosh}/bin/phosh";
+      User = 1000;
+      PAMName = "login";
+      WorkingDirectory = "~";
+
+      TTYPath = "/dev/tty7";
+      TTYReset = "yes";
+      TTYVHangup = "yes";
+      TTYVTDisallocate = "yes";
+
+      StandardInput = "tty-fail";
+      StandardOutput = "journal";
+      StandardError = "journal";
+
+      UtmpIdentifier = "tty7";
+      UtmpMode = "user";
+
+      Restart = "always";
+    };
+  };
+
+  services.xserver.desktopManager.gnome.enable = true;
+
+  # unpatched gnome-initial-setup is partially broken in small screens
+  services.gnome.gnome-initial-setup.enable = false;
+
+  services.locate.enable = false;
+
+  services.geoclue2.enable = true;
+  users.users.geoclue.extraGroups = [ "networkmanager" ];
+
+  programs.phosh.enable = true;
+  programs.calls.enable = true;
+  environment.gnome.excludePackages = with pkgs.gnome3; [
+    gnome-terminal
+  ];
 
   environment.systemPackages = with pkgs; [
-    git
+    git htop iotop tmux
+    (kgx.override { genericBranding = true; })
+
+    chatty megapixels
     # pipes
     # terminal
     # wget
   ];
 
+  ## may not be necessary with recent kernel
   environment.etc."machine-info".text = lib.mkDefault ''
       CHASSIS="handset"
     '';
@@ -55,18 +102,22 @@
 
     wireless.enable = false;
     wireless.iwd.enable = true;
-    # networkmanager.enable = true;
+    networkmanager.wifi.backend = "iwd";
 
     # FIXME : configure usb rndis through networkmanager in the future.
     # Currently this relies on stage-1 having configured it.
-    # networkmanager.unmanaged = [ "rndis0" "usb0" ];
+    networkmanager.unmanaged = [ "rndis0" "usb0" ];
   };
 
   # Setup USB gadget networking in initrd...
   # mobile.boot.stage-1.networking.enable = lib.mkDefault true;
 
   # Bluetooth
-  # hardware.bluetooth.enable = true;
+  hardware.bluetooth.enable = true;
+
+  # Accelerometer
+  hardware.sensor.iio.enable = true;
+  hardware.firmware = [ config.mobile.device.firmware ];
 
   ##########################################################################
   ## SSH
@@ -75,11 +126,11 @@
   services.openssh = {
     enable = true;
     passwordAuthentication = false;
-    # kbdInteractiveAuthentication = false;
-    challengeResponseAuthentication = false;
+    kbdInteractiveAuthentication = false;
+    # challengeResponseAuthentication = false;
   };
 
-  # programs.mosh.enable = true;
+  programs.mosh.enable = true;
 
   # ====
 
@@ -111,19 +162,13 @@
       automatic = true;
       options = "--delete-older-than 8d";
     };
-
-    # nix flakes
-    # package = pkgs.nixUnstable;
-    extraOptions = ''
-        experimental-features = nix-command flakes
-      '';
   };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  # system.stateVersion = "21.11"; # Did you read the comment?
+  system.stateVersion = "21.05"; # Did you read the comment?
 
 }
 
