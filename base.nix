@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let npc = import ./nixpkgs-config.nix;
 in {
-  require = [ ./log.nix ./sources.nix ];
+  require = [ ./log.nix ./sources.nix ./nix.module.nix ./zsh.module.nix ./locale.module.nix ];
   system.stateVersion = "20.03";
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.cleanTmpDir = true;
@@ -28,8 +28,6 @@ in {
 
     inotify-tools direnv pass
 
-    zsh-capture-completion
-
     ed nano
 
   ];
@@ -39,12 +37,6 @@ in {
     VISUAL = "emacsclient -a 'emacs -nw'";
     ALTERNATE_EDITOR = "nano";
   };
-
-  ## Outsource nixpkgs.config to be shared with nix-env
-  nixpkgs.config = npc;
-  nixpkgs.overlays = import ./nixpkgs-overlays.nix;
-  ## TODO replace with full config include
-  system.copySystemConfiguration = true;
 
   users.extraUsers = {
     "herwig" = {
@@ -67,16 +59,6 @@ in {
       127.0.0.1 ${config.networking.hostName}
       ::1 ${config.networking.hostName}
     '';
-  };
-
-  time.timeZone = "Europe/Vienna";
-
-  console = {
-    keyMap = pkgs.lib.mkDefault "us";
-    font = "lat9w-16";
-  };
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
   };
 
   ## boot.supportedFilesystems = [ "bcachefs" ]; ## "zfs" ];
@@ -131,33 +113,9 @@ in {
   programs = {
     gnupg.agent.enable = true;
     mosh.enable = true;
-    zsh = {
-      enable = true;
-      shellAliases = {
-        l = "lid";
-      };
-      interactiveShellInit = ''
-        source ${./zshrc}
-      '';
-      promptInit = ''
-          LP_PS1_FILE=${./liquidprompt.ps1}
-          LP_ENABLE_TEMP=0
-          source ${pkgs.callPackage ./liquidprompt.nix {}}/liquidprompt
-      '';
-    };
     ssh = {
       setXAuthLocation = true;
     };
-  };
-
-  nix = {
-    buildCores = 4;
-    extraOptions = ''
-      binary-caches-parallel-connections = 24
-      gc-keep-outputs = true
-      gc-keep-derivations = true
-      experimental-features = nix-command flakes
-    '';
   };
 
 }
