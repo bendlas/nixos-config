@@ -68,6 +68,7 @@
   services.gnome.gnome-initial-setup.enable = false;
 
   services.locate.enable = false;
+  services.flatpak.enable = true;
 
   services.geoclue2.enable = true;
   users.users.geoclue.extraGroups = [ "networkmanager" ];
@@ -82,10 +83,13 @@
     git htop iotop tmux
     (kgx.override { genericBranding = true; })
 
-    chatty megapixels
-    # pipes
-    # terminal
-    # wget
+    chatty megapixels firefox-wayland
+
+    # (chromium.override {
+    #   enableWideVine = false;
+    #   # commandLineArgs = "--ozone-platform-hint=wayland";
+    #   # --enable-features=VaapiVideoDecoder --ozone-platform-hint=auto --process-per-site
+    # })
   ];
 
   ## may not be necessary with recent kernel
@@ -112,10 +116,15 @@
 
   # Bluetooth
   hardware.bluetooth.enable = true;
-
+  mobile.boot.stage-1.firmware = [
+    config.mobile.device.firmware
+  ];
   # Accelerometer
   hardware.sensor.iio.enable = true;
-  hardware.firmware = [ config.mobile.device.firmware ];
+  hardware.firmware = [
+    config.mobile.device.firmware
+    # pkgs.firmwareLinuxNonfree
+  ];
 
   # ====
 
