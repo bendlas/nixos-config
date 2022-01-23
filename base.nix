@@ -156,6 +156,7 @@ in {
       binary-caches-parallel-connections = 24
       gc-keep-outputs = true
       gc-keep-derivations = true
+      experimental-features = nix-command flakes
     '';
   };
 
