@@ -1,8 +1,15 @@
-#!/usr/bin/env zsh
+#!/bin/sh
 
 set -eu
 
 machine="$1"
 shift
 
-exec nix-shell config-shell.nix --arg machine "\"$machine\"" --run "nixos-rebuild $*"
+exec nix-shell config-shell.nix \
+     --arg machine "\"$machine\"" \
+     --run "nixos-rebuild $*"
+#     --run "env | grep NIX_PATH"
+
+#     --arg pkgs-path "$(readlink -f ../nixpkgs)" \
+#     --arg mnos-path "$(readlink -f ../mobile-nixos)" \
+#     --arg pkgs-path "/nix/var/nix/profiles/per-user/root/channels/nixos" \
