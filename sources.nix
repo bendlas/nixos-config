@@ -1,17 +1,12 @@
 { lib, config, pkgs, ... }:
 
 with lib;
-with types;
 let
   inherit (pkgs.callPackage ./config-shell.nix {
     inherit (config.bendlas) machine;
   }) nixpkgs configs mobile-nixos nixos-hardware machine;
 in {
-
-  options.bendlas.machine = mkOption {
-    type = str;
-  };
-
+  imports = [ ./name.module.nix ];
   # keep synchronized with ./config-shell.nix
   config = {
     environment.etc."nixos".source = configs;

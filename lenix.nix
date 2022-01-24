@@ -50,9 +50,6 @@
   ];
 
   networking = rec {
-    hostName = "lenix";
-    hostId = "f26c47cd";
-
     wireless = {
       iwd.enable = true;
       ## temp disable, as this interferes with /etc/wpa_supplicant.conf
@@ -108,7 +105,6 @@
       enable = true;
       drivers = [ pkgs.splix pkgs.brgenml1cupswrapper ];
     };
-    avahi.hostName = "lenix";
   };
 
   hardware = {

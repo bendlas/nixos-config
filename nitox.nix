@@ -74,12 +74,7 @@
   hardware.bluetooth.enable = true;
   hardware.firmware = [ pkgs.firmwareLinuxNonfree ];
 
-  services.avahi.hostName = "nitox";
-
   networking = rec {
-    hostName = "nitox";
-    hostId = "f26c47cc";
-
     ## for network forwarding
     # nat.externalInterface = "ww+";
 
