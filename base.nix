@@ -1,7 +1,11 @@
+
 { config, pkgs, ... }:
 let npc = import ./nixpkgs-config.nix;
 in {
-  require = [ ./log.nix ./sources.nix ./nix.module.nix ./zsh.module.nix ./locale.module.nix ];
+  require = [
+    ./log.nix ./sources.nix ./nix.module.nix ./zsh.module.nix
+    ./locale.module.nix ./ssh.module.nix
+  ];
   system.stateVersion = "20.03";
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.cleanTmpDir = true;
@@ -88,34 +92,11 @@ in {
         DNSOverTLS=opportunistic
       '';
     };
-    fail2ban = {
-      enable = true;
-      jails = {
-        # this is predefined
-        ssh-iptables = ''
-          enabled  = true
-        '';
-      };
-    };
-    openssh = {
-      enable = true;
-      passwordAuthentication = false;
-      kbdInteractiveAuthentication = false;
-      startWhenNeeded = true;
-    };
     locate.enable = false;
     physlock.enable = true;
     vnstat.enable = true;
   };
-
   security.sudo.wheelNeedsPassword = false;
-
-  programs = {
-    gnupg.agent.enable = true;
-    mosh.enable = true;
-    ssh = {
-      setXAuthLocation = true;
-    };
-  };
+  programs.gnupg.agent.enable = true;
 
 }

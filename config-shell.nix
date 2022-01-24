@@ -26,7 +26,7 @@ let
   };
 in
 mkShell {
-  # FIXME: also put this into runtime?
+  # keep synchronized with ./sources.nix
   shellHook = ''
     export NIX_PATH=nixpkgs=${nixpkgs}:nixos=${nixpkgs}/nixos:mobile-nixos=${mobile-nixos}:nixos-hardware=${nixos-hardware}:nixos-config=${configs}/${machine}.nix
     export NIXPKGS_CONFIG=${configs}/nixpkgs-config.nix
@@ -35,7 +35,7 @@ mkShell {
     newPkgs.taalo-build
   ];
   passthru = {
-    inherit nixpkgs configs machine;
+    inherit nixpkgs configs mobile-nixos nixos-hardware machine;
     nixos-config = "${configs}/${machine}.nix";
     pkgs = newPkgs;
   };
