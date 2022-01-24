@@ -2,11 +2,17 @@
 
 {
 
+  users.defaultUserShell = pkgs.zsh;
+
   programs.zsh = {
     enable = true;
     shellAliases = {
       l = "lid";
     };
+    # disable the configuration tool
+    shellInit = ''
+      zsh-newuser-install() { :; }
+    '';
     interactiveShellInit = ''
       source ${./zshrc}
     '';
