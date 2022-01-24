@@ -42,7 +42,7 @@ in {
     # inherit (pkgs.callPackage ./emacs-packages.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsPackages emacs emacsWithPackages;
     inherit (pkgs.callPackage ./emacs-packages.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsWithPackages emacsPackages;
     chromium = pkgs.chromium.override {
-      enableWideVine = true;
+      enableWideVine = builtins.currentSystem == "x86_64-linux";
       pulseSupport = true;
       commandLineArgs = "--enable-features=VaapiVideoDecoder";
     };
