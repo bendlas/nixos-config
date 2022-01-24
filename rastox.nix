@@ -1,0 +1,3 @@
+{
+  imports = [ ./rastox/configuration.nix ];
+}

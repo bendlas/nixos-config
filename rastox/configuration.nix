@@ -50,9 +50,9 @@ in {
           # max_framebuffers=2
           # dtparam=audio=on
         '';
-        uboot.enable = true;
+        # uboot.enable = true;
       };
-      generic-extlinux-compatible.enable = true;
+      generic-extlinux-compatible.enable = false;
     };
     # initrd.kernelModules = [ "vc4" "bcm2835_dma" "i2c_bcm2835" ];
   };
