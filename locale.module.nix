@@ -4,8 +4,9 @@
   console = {
     keyMap = pkgs.lib.mkDefault "us";
     font = "lat9w-16";
+    # font = "Lat2-Terminus16";
   };
   i18n = {
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = pkgs.lib.mkDefault "en_US.UTF-8";
   };
 }
