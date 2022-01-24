@@ -1,0 +1,12 @@
+#!@shell@
+
+set -eu
+
+@tmux@/bin/tmux new-session -s server-monitor "exec journalctl -f" \; \
+ set-option remain-on-exit on \; \
+ bind-key r respawn-pane \; \
+ split-window -h "exec @htop@/bin/htop" \; \
+ split-window -v "exec @iftop@/bin/iftop -i wlan0" \; \
+ split-window -v "exec watch @out@/bin/pistatus" \; \
+ split-window -v "exec watch cat /sys/devices/system/cpu/cpu*/cpufreq/cpuinfo_cur_freq" \; \
+ split-window -h "exec watch cat /sys/class/thermal/thermal_zone0/temp" \;
