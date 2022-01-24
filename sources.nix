@@ -5,19 +5,26 @@ with types;
 let
   inherit (pkgs.callPackage ./config-shell.nix {
     inherit (config.bendlas) machine;
-  }) nixpkgs configs machine;
+  }) nixpkgs configs mobile-nixos machine;
 in {
 
   options.bendlas.machine = mkOption {
     type = str;
   };
 
+  # keep synchronized with ./config-shell.nix
   config = {
     environment.etc."nixos".source = configs;
-    environment.etc."pkgs".source = nixpkgs;
+    environment.etc."nixpkgs".source = nixpkgs;
+    environment.etc."mobile-nixos".source = mobile-nixos;
+    ## this is set non-configurable in <nixos/modules/programs/environment.nix>
+    ## to /etc/nix/nixpkgs-config.nix
+    # environment.variables.NIXPKGS_CONFIG = "/etc/nixos/nixpkgs-config.nix";
+    environment.etc."nix/nixpkgs-config.nix".source = "${configs}/nixpkgs-config.nix";
     nix.nixPath = [
-      "nixpkgs=/etc/pkgs"
+      "nixpkgs=/etc/nixpkgs"
       "nixos=/etc/pkgs/nixos"
+      "mobile-nixos=/etc/mobile-nixos"
       "nixos-config=/etc/nixos/${machine}.nix"
     ];
   };
