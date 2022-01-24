@@ -3,7 +3,8 @@
   bendlas.machine = "pinox";
   imports= [
     # shared with ./base.nix
-    ./log.nix ./sources.nix ./nix.module.nix ./zsh.module.nix ./locale.module.nix
+    ./log.nix ./sources.nix ./nix.module.nix ./zsh.module.nix
+    ./locale.module.nix ./ssh.module.nix
     # mobile-nixos
     (import <mobile-nixos/lib/configuration.nix> { device = "pine64-pinephone"; })
     ./mobile-nixos-bootloader.nix
@@ -118,19 +119,6 @@
   # Accelerometer
   hardware.sensor.iio.enable = true;
   hardware.firmware = [ config.mobile.device.firmware ];
-
-  ##########################################################################
-  ## SSH
-  ##########################################################################
-
-  services.openssh = {
-    enable = true;
-    passwordAuthentication = false;
-    kbdInteractiveAuthentication = false;
-    # challengeResponseAuthentication = false;
-  };
-
-  programs.mosh.enable = true;
 
   # ====
 
