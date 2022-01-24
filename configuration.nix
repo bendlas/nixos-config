@@ -46,6 +46,7 @@ in {
           # hdmi_drive=2
           # hdmi_group=1
           # dtoverlay=vc4-fkms-v3d
+          # dtoverlay=vc4-kms-v3d-pi4
           # max_framebuffers=2
           # dtparam=audio=on
         '';
