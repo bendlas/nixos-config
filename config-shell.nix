@@ -7,28 +7,28 @@
 , configs ? pkgs.nix-gitignore.gitignoreSource [ ".git" ] ./.
 , pkgs-path ? null
 , mnos-path ? null
+, nohw-path ? null
 }:
 let
-  nixpkgs = if isNull pkgs-path
-            then
-              fetchgit {
-                inherit (lib.importJSON ./nixpkgs.json) url rev sha256 fetchSubmodules;
-              }
-            else pkgs-path;
-  mobile-nixos = if isNull mnos-path
-                 then
-                   fetchgit {
-                     inherit (lib.importJSON ./mobile-nixos.json) url rev sha256 fetchSubmodules;
-                   }
-                 else mnos-path;
+  pathOrJson = path: json:
+    if isNull path
+    then
+      fetchgit {
+        inherit (lib.importJSON json) url rev sha256 fetchSubmodules;
+      }
+    else path;
+  nixpkgs = pathOrJson pkgs-path ./nixpkgs.json;
+  mobile-nixos = pathOrJson mnos-path ./mobile-nixos.json;
+  nixos-hardware = pathOrJson nohw-path ./nixos-hardware.json;
   newPkgs = import nixpkgs {
     config = import ./nixpkgs-config.nix;
     overlays = import ./nixpkgs-overlays.nix;
   };
 in
 mkShell {
+  # FIXME: also put this into runtime?
   shellHook = ''
-    export NIX_PATH=nixpkgs=${nixpkgs}:nixos=${nixpkgs}/nixos:mobile-nixos=${mobile-nixos}:nixos-config=${configs}/${machine}.nix
+    export NIX_PATH=nixpkgs=${nixpkgs}:nixos=${nixpkgs}/nixos:mobile-nixos=${mobile-nixos}:nixos-hardware=${nixos-hardware}:nixos-config=${configs}/${machine}.nix
     export NIXPKGS_CONFIG=${configs}/nixpkgs-config.nix
   '';
   buildInputs = [

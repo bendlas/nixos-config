@@ -19,3 +19,4 @@ fetch() {
 fetch https://github.com/bendlas/nixpkgs.git $CODE/nixpkgs $branch > nixpkgs.json
 fetch https://github.com/bendlas/mobile-nixos.git $CODE/mobile-nixos master > mobile-nixos.json
 fetch https://github.com/nix-community/emacs-overlay.git https://github.com/nix-community/emacs-overlay.git master > emacs-overlay.json
+fetch https://github.com/NixOS/nixos-hardware.git https://github.com/NixOS/nixos-hardware.git master > nixos-hardware.json
