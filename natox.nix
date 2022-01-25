@@ -6,6 +6,8 @@
     # shared with ./base.nix
     ./log.nix ./sources.nix ./nix.module.nix ./zsh.module.nix
     ./locale.module.nix ./ssh.module.nix
+    # -
+    ./epson-stylus-photo-r3000.module.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -104,6 +106,8 @@
       wideArea = false;
     };
     printing.enable = true;
+    # FIXME package proprietary epson-stylus-photo ...
+    printing.drivers = [ pkgs.epson-escpr pkgs.epson-escpr2 ];
     locate.enable = false;
     fstrim.enable = true;
     flatpak.enable = true;
@@ -207,5 +211,6 @@
   ];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.sane.enable = true;
 
 }
