@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
 
@@ -23,7 +23,7 @@
     '';
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; lib.mkIf ("unstable" == config.bendlas.stability) [
     zsh-capture-completion
   ];
 
