@@ -17,7 +17,11 @@ let
         inherit (lib.importJSON json) url rev sha256 fetchSubmodules;
       }
     else path;
-  nixpkgs = pathOrJson pkgs-path ./nixpkgs.json;
+  nixpkgs = if "stable" == import ./Prop.nix "machine" machine "stability" "unstable"
+            then
+              pathOrJson pkgs-path ./nixpkgs-stable.json
+            else
+              pathOrJson pkgs-path ./nixpkgs.json;
   mobile-nixos = pathOrJson mnos-path ./mobile-nixos.json;
   nixos-hardware = pathOrJson nohw-path ./nixos-hardware.json;
   newPkgs = import nixpkgs {
