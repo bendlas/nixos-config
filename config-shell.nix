@@ -17,7 +17,8 @@ let
         inherit (lib.importJSON json) url rev sha256 fetchSubmodules;
       }
     else path;
-  nixpkgs = if "stable" == import ./Prop.nix "machine" machine "stability" "unstable"
+  stability = import ./Prop.nix "machine" machine "stability" "unstable";
+  nixpkgs = if "stable" == stability
             then
               pathOrJson pkgs-path ./nixpkgs-stable.json
             else
@@ -39,7 +40,7 @@ mkShell {
     newPkgs.taalo-build
   ];
   passthru = {
-    inherit nixpkgs configs mobile-nixos nixos-hardware machine;
+    inherit nixpkgs configs mobile-nixos nixos-hardware machine stability;
     nixos-config = "${configs}/${machine}.nix";
     pkgs = newPkgs;
   };
