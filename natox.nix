@@ -33,7 +33,7 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "de_AT.UTF-8";
-  console.keyMap = "de";
+  console.keyMap = "us";
 
   # Enable sound.
   sound.enable = true;
