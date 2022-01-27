@@ -6,7 +6,8 @@
 
 { ## Outsource nixpkgs.config to be shared with nix-env
   require = [ ./desktop.nix ./dev.nix # ./distributed-build.nix
-              ./dev/forth.nix ./zfs.nix
+              ./dev/forth.nix ./zfs.nix ./dev/qemu.nix
+              ./ark.module.nix
     # {
     #   networking.firewall.allowedTCPPorts = [ 2049 111 4000 4001 ];
     #   networking.firewall.allowedUDPPorts = [ 2049 111 4000 4001 ];
