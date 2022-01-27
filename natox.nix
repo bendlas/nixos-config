@@ -8,6 +8,8 @@
     ./locale.module.nix ./ssh.module.nix
     # -
     ./epson-stylus-photo-r3000.module.nix
+    ./samba.module.nix
+    ./ark.module.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
