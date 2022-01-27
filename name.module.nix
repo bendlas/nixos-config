@@ -15,7 +15,7 @@ with types;
     type = attrsOf anything;
     default = config.bendlas.registry.machine."${
       config.bendlas.machine
-    }";
+    }" or { };
   };
   options.bendlas.stability = mkOption {
     type = enum ["stable" "unstable"];
