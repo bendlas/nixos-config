@@ -4,6 +4,8 @@
     # shared with ./base.nix
     ./log.nix ./sources.nix ./nix.module.nix ./zsh.module.nix
     ./locale.module.nix ./ssh.module.nix
+    # new base
+    ./access.module.nix
     # mediacenter config
     ./rastox/configuration.nix
   ];
