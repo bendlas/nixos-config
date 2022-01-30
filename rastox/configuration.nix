@@ -19,6 +19,7 @@ in {
       ./wifi.nix
       # ./video-rpi.nix
     ];
+  documentation.enable = false;
 
   boot = {
     consoleLogLevel = 7;
