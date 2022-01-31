@@ -6,6 +6,7 @@
 , machine ? "test-config"
 , configs ? pkgs.nix-gitignore.gitignoreSource [ ".git" ] ./.
 , pkgs-path ? null
+, pkgs-stable-path ? null
 , mnos-path ? null
 , nohw-path ? null
 }:
@@ -18,11 +19,11 @@ let
       }
     else path;
   stability = import ./Prop.nix "machine" machine "stability" "unstable";
+  nixpkgs-stable = pathOrJson pkgs-stable-path ./nixpkgs-stable.json;
+  nixpkgs-unstable = pathOrJson pkgs-path ./nixpkgs.json;
   nixpkgs = if "stable" == stability
-            then
-              pathOrJson pkgs-path ./nixpkgs-stable.json
-            else
-              pathOrJson pkgs-path ./nixpkgs.json;
+            then nixpkgs-stable
+            else nixpkgs-unstable;
   mobile-nixos = pathOrJson mnos-path ./mobile-nixos.json;
   nixos-hardware = pathOrJson nohw-path ./nixos-hardware.json;
   newPkgs = import nixpkgs {
@@ -33,14 +34,15 @@ in
 mkShell {
   # keep synchronized with ./sources.nix
   shellHook = ''
-    export NIX_PATH=nixpkgs=${nixpkgs}:nixos=${nixpkgs}/nixos:mobile-nixos=${mobile-nixos}:nixos-hardware=${nixos-hardware}:nixos-config=${configs}/${machine}.nix
+    export NIX_PATH=nixpkgs=${nixpkgs}:nixpkgs-unstable=${nixpkgs-unstable}:nixpkgs-stable=${nixpkgs-stable}:nixos=${nixpkgs}/nixos:mobile-nixos=${mobile-nixos}:nixos-hardware=${nixos-hardware}:nixos-config=${configs}/${machine}.nix
     export NIXPKGS_CONFIG=${configs}/nixpkgs-config.nix
   '';
   buildInputs = [
     newPkgs.taalo-build
   ];
   passthru = {
-    inherit nixpkgs configs mobile-nixos nixos-hardware machine stability;
+    inherit nixpkgs configs mobile-nixos nixos-hardware machine stability
+      nixpkgs-stable nixpkgs-unstable;
     nixos-config = "${configs}/${machine}.nix";
     pkgs = newPkgs;
   };
