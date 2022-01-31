@@ -9,4 +9,6 @@ set -eu
  split-window -v "exec @iftop@/bin/iftop -i wlan0" \; \
  split-window -v "exec watch @out@/bin/pistatus" \; \
  split-window -v "exec watch cat /sys/devices/system/cpu/cpu*/cpufreq/cpuinfo_cur_freq" \; \
- split-window -h "exec watch cat /sys/class/thermal/thermal_zone0/temp" \;
+ split-window -h "exec watch cat /sys/class/thermal/thermal_zone0/temp" \; \
+ new-window "exec watch -c iwctl station wlan0 show" \; \
+ previous-window \;
