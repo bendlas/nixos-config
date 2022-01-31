@@ -133,6 +133,7 @@
     firefox thunderbird chromium libreoffice gimp inkscape
     virt-manager qemu libguestfs p7zip
     python3 pciutils xorg.xkill spotify
+    teamspeak_client
   ];
 
   virtualisation.libvirtd = {
