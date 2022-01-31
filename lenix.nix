@@ -94,6 +94,10 @@
   };
 
   services = {
+    teamspeak3 = {
+      enable = true;
+      openFirewall = true;
+    };
     xserver = {
       videoDrivers = [ "intel" ];
       libinput.enable = false;
