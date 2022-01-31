@@ -135,5 +135,5 @@
   hardware.nvidia.modesetting.enable = true;
   services.xserver.displayManager.gdm.nvidiaWayland = true;
 
-  nix.maxJobs = 2;
+  nix.settings.max-jobs = 2;
 }

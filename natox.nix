@@ -177,6 +177,7 @@
   };
 
   nix = {
+    settings.max-jobs = 6;
     buildCores = 12;
     extraOptions = ''
       binary-caches-parallel-connections = 24

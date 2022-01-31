@@ -136,7 +136,7 @@
 
   services.pcscd.enable = true;
 
-  nix.maxJobs = lib.mkDefault 2;
+  nix.settings.max-jobs = 2;
   # powerManagement.cpuFreqGovernor = "powersave";
 
 }

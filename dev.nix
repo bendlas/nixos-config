@@ -69,8 +69,8 @@ in
     # };
   };
   nix = {
-    trustedBinaryCaches = [ "https://headcounter.org/hydra" "ssh://nitox.local" ];
-    binaryCachePublicKeys = [ "headcounter.org:/7YANMvnQnyvcVB6rgFTdb8p5LG1OTXaO+21CaOSBzg=" ];
+    settings.trusted-substituters = [ "https://headcounter.org/hydra" "ssh://nitox.local" ];
+    settings.trusted-public-keys = [ "headcounter.org:/7YANMvnQnyvcVB6rgFTdb8p5LG1OTXaO+21CaOSBzg=" ];
   };
 
   users.extraUsers = {
