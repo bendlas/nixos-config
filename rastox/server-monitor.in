@@ -12,4 +12,6 @@ set -eu
  split-window -h "exec watch cat /sys/class/thermal/thermal_zone0/temp" \; \
  new-window "exec watch -c iwctl station wlan0 show" \; \
  split-window -h "exec iotop" \; \
+ select-pane -L \; \
+ split-window -v "exec watch df -h" \; \
  previous-window \;
