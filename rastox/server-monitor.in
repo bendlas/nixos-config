@@ -11,4 +11,5 @@ set -eu
  split-window -v "exec watch cat /sys/devices/system/cpu/cpu*/cpufreq/cpuinfo_cur_freq" \; \
  split-window -h "exec watch cat /sys/class/thermal/thermal_zone0/temp" \; \
  new-window "exec watch -c iwctl station wlan0 show" \; \
+ split-window -h "exec iotop" \; \
  previous-window \;
