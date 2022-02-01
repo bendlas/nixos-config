@@ -11,10 +11,12 @@
     # mobile-nixos
     (import <mobile-nixos/lib/configuration.nix> { device = "pine64-pinephone"; })
     ./mobile-nixos-bootloader.nix
+    ./pinox/phosh.nix
+    # ./pinox/plasma-mobile.nix
   ];
 
   mobile-nixos.install-bootloader.enable = true;
-  
+
   users.users.nixos = {
     isNormalUser = true;
     shell = "/run/current-system/sw/bin/zsh";
@@ -37,47 +39,13 @@
   powerManagement.enable = true;
   hardware.opengl.enable = true;
 
-  systemd.defaultUnit = "graphical.target";
-  systemd.services.phosh = {
-    wantedBy = [ "graphical.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.phosh}/bin/phosh";
-      User = 1000;
-      PAMName = "login";
-      WorkingDirectory = "~";
-
-      TTYPath = "/dev/tty7";
-      TTYReset = "yes";
-      TTYVHangup = "yes";
-      TTYVTDisallocate = "yes";
-
-      StandardInput = "tty-fail";
-      StandardOutput = "journal";
-      StandardError = "journal";
-
-      UtmpIdentifier = "tty7";
-      UtmpMode = "user";
-
-      Restart = "always";
-    };
-  };
-
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # unpatched gnome-initial-setup is partially broken in small screens
-  services.gnome.gnome-initial-setup.enable = false;
-
   services.locate.enable = false;
   services.flatpak.enable = true;
 
   services.geoclue2.enable = true;
   users.users.geoclue.extraGroups = [ "networkmanager" ];
 
-  programs.phosh.enable = true;
   programs.calls.enable = true;
-  environment.gnome.excludePackages = with pkgs.gnome3; [
-    gnome-terminal
-  ];
 
   environment.systemPackages = with pkgs; [
     git htop iotop tmux
@@ -165,5 +133,3 @@
   system.stateVersion = "21.05"; # Did you read the comment?
 
 }
-
-  
