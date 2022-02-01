@@ -1,6 +1,7 @@
 { lib, pkgs, config, ... }:
 {
   bendlas.machine = "pinox";
+  bendlas.wheel.logins = [ "nixos" ];
   imports= [
     # shared with ./base.nix
     ./log.nix ./sources.nix ./nix.module.nix ./zsh.module.nix
@@ -22,7 +23,6 @@
     home = "/home/nixos";
     createHome = true;
     extraGroups = [
-      "wheel"
       "networkmanager"
       "video"
       "feedbackd"
