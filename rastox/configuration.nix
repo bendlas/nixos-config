@@ -19,12 +19,11 @@ in {
       ./wifi.nix
       # ./video-rpi.nix
     ];
+
   documentation.enable = false;
 
   boot = {
     consoleLogLevel = 7;
-    # extraTTYs = [ "ttyAMA0" ];
-    # kernelPackages = pkgs.linuxPackages_5_10;
     kernelPackages = pkgs.linuxPackages_rpi4;
     kernelParams = [
       # "dwc_otg.lpm_enable=0"
@@ -36,14 +35,44 @@ in {
     ];
     tmpOnTmpfs = true;
     loader = {
+      generic-extlinux-compatible.enable = true;
       grub.enable = false;
-      # generationsDir.enable = false;
+      ## just disable raspi firmware generation, for now. Please
+      ## update firmwareConfig yourself
       raspberryPi = {
-        enable = true;
+        enable = false;
 	      version = 4;
-        ## FIXME: right now, this needs a manual update
         ## https://github.com/NixOS/nixpkgs/pull/67902#discussion_r744178864
+        # firmwareDir = "/boot/firmware";
         firmwareConfig = ''
+          [pi3]
+          kernel=u-boot-rpi3.bin
+
+          [pi4]
+          kernel=u-boot-rpi4.bin
+          enable_gic=1
+          armstub=armstub8-gic.bin
+
+          # Otherwise the resolution will be weird in most cases, compared to
+          # what the pi3 firmware does by default.
+          disable_overscan=1
+
+          [all]
+          # Boot in 64-bit mode.
+          arm_64bit=1
+
+          # U-Boot needs this to work, regardless of whether UART is actually used or not.
+          # Look in arch/arm/mach-bcm283x/Kconfig in the U-Boot tree to see if this is still
+          # a requirement in the future.
+          enable_uart=1
+
+          # Prevent the firmware from smashing the framebuffer setup done by the mainline kernel
+          # when attempting to show low-voltage or overtemperature warnings.
+          avoid_warnings=1
+
+          # Boost to 1.8GHz if safe
+          arm_boost=1
+
           # hdmi_drive=2
           # hdmi_group=1
           # dtoverlay=vc4-fkms-v3d
@@ -51,11 +80,9 @@ in {
           # max_framebuffers=2
           # dtparam=audio=on
         '';
-        # uboot.enable = true;
+        uboot.enable = true;
       };
-      generic-extlinux-compatible.enable = false;
     };
-    # initrd.kernelModules = [ "vc4" "bcm2835_dma" "i2c_bcm2835" ];
   };
 
   sound.enable = true;
