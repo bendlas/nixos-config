@@ -90,7 +90,6 @@
       displayManager.gdm.enable = true;
       displayManager.gdm.autoSuspend = false;
       displayManager.gdm.wayland = false;
-      displayManager.gdm.nvidiaWayland = false;
       displayManager.lightdm.enable = false;
       desktopManager.gnome.enable = true;
       desktopManager.plasma5.enable = false;
