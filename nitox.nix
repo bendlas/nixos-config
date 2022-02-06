@@ -133,7 +133,7 @@
 
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
   hardware.nvidia.modesetting.enable = true;
-  services.xserver.displayManager.gdm.nvidiaWayland = true;
+  services.xserver.displayManager.gdm.wayland = true;
 
   nix.settings.max-jobs = 2;
 }
