@@ -3,7 +3,7 @@
 
   environment.systemPackages = (with pkgs; [
 
-    pciutils ntfs3g st gparted gksu
+    pciutils ntfs3g st gparted
 
     paprefs pavucontrol alsaUtils ffmpeg imagemagick
 
