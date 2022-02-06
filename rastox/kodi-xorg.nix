@@ -4,6 +4,6 @@
   # services.xserver.displayManager.autoLogin.enable = true;
   # services.xserver.displayManager.autoLogin.user = "kodi";
 
-  # Define a user account
-  users.extraUsers.kodi.isNormalUser = true;
+  # Defined in users.nix
+  # users.extraUsers.kodi.isNormalUser = true;
 }

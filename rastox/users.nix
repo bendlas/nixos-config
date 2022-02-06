@@ -13,6 +13,11 @@
         isNormalUser = true;
         uid = 1001;
       };
+      "kodi" = {
+        description = "Media Center";
+        isNormalUser = true;
+        uid = 1002;
+      };
     };
     extraGroups = { nobody = {}; };
   };
