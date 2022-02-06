@@ -103,7 +103,7 @@ in {
   # sound.enable = true;
   # hardware.pulseaudio.enable = true;
 
-  nix.buildCores = 4;
+  nix.settings.cores = 4;
 
   # nixpkgs.config.platform = lib.systems.platforms.aarch64-multiplatform;
 

@@ -173,7 +173,7 @@
 
   nix = {
     settings.max-jobs = 6;
-    buildCores = 12;
+    settings.cores = 12;
     extraOptions = ''
       binary-caches-parallel-connections = 24
       gc-keep-outputs = true
