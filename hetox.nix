@@ -9,4 +9,5 @@
     # gitlab / hdnews server
     ./hetox/configuration.nix
   ];
+  users.users.herwig.isNormalUser = true;
 }

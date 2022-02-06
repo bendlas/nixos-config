@@ -11,7 +11,7 @@ in {
   imports = [ ./name.module.nix ];
   # keep synchronized with ./config-shell.nix
   config = {
-    system.extraDependencies = [ config-shell ];
+    system.extraDependencies = lib.optionals ("stable" != config.bendlas.stability) [ config-shell ];
     environment.etc."nixos".source = configs;
     environment.etc."nixpkgs".source = nixpkgs;
     environment.etc."nixpkgs-unstable".source = nixpkgs-unstable;
