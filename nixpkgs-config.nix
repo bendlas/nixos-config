@@ -33,6 +33,14 @@ in {
     #     inherit (pkgs.lib.importJSON ./nixpkgs.json) url rev sha256 fetchSubmodules;
     #   };
     # };
+
+    ## this is unconditionally installed by gnome module, so disable it here
+    gnome-tour = pkgs.writeScriptBin "gnome-tour" ''
+      #!/bin/sh -eu
+      echo >&2 "gnome-tour has been removed"
+      exit 1
+    '';
+
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
     git-new-workdir = pkgs.runCommand "git-new-workdir" {} ''
       mkdir $out
