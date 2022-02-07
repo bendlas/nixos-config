@@ -34,7 +34,7 @@ let
   };
 in
 mkShell {
-  # keep synchronized with ./sources.nix
+  # keep synchronized with ./sources.module.nix
   shellHook = ''
     export NIX_PATH=nixpkgs=${nixpkgs}:nixpkgs-unstable=${nixpkgs-unstable}:nixpkgs-stable=${nixpkgs-stable}:nixos=${nixpkgs}/nixos:mobile-nixos=${mobile-nixos}:nixos-hardware=${nixos-hardware}:emacs-overlay=${emacs-overlay}:nixos-config=${configs}/${machine}.nix
     export NIXPKGS_CONFIG=${configs}/nixpkgs-config.nix

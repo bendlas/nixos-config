@@ -3,7 +3,7 @@
 
 {
   require = [
-    ./log.nix ./sources.nix ./nix.module.nix ./zsh.module.nix
+    ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
     ./locale.module.nix ./ssh.module.nix ./essential.module.nix
   ];
   system.stateVersion = "20.03";
