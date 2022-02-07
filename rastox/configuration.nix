@@ -137,13 +137,10 @@ in {
   networking.interfaces.eth0.useDHCP = true;
   networking.interfaces.wlan0.useDHCP = true;
 
-  programs.tmux.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    libraspberrypi tree tmux htop iftop raspberrypi-eeprom
-    systool usbutils git iw btop iotop lsof
-    config.boot.kernelPackages.perf
+    libraspberrypi raspberrypi-eeprom iw
     (pkgs.runCommand "custom-tools" {
       inherit (pkgs.stdenv) shell;
       inherit (pkgs) libraspberrypi tmux htop iftop;

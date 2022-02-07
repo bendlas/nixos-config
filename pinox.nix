@@ -5,7 +5,7 @@
   imports= [
     # shared with ./base.nix
     ./log.nix ./sources.nix ./nix.module.nix ./zsh.module.nix
-    ./locale.module.nix ./ssh.module.nix
+    ./locale.module.nix ./ssh.module.nix ./essential.module.nix
     # new base
     ./access.module.nix ./tmpfs.module.nix ./docu-disable.module.nix
     # mobile-nixos
@@ -43,7 +43,6 @@
   programs.calls.enable = true;
 
   environment.systemPackages = with pkgs; [
-    git htop iotop tmux
     (kgx.override { genericBranding = true; })
 
     chatty megapixels firefox-mobile

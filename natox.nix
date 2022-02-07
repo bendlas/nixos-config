@@ -5,7 +5,7 @@
   imports = [
     # shared with ./base.nix
     ./log.nix ./sources.nix ./nix.module.nix ./zsh.module.nix
-    ./locale.module.nix ./ssh.module.nix
+    ./locale.module.nix ./ssh.module.nix ./essential.module.nix
     # new base
     ./access.module.nix ./tmpfs.module.nix
     # -
@@ -119,11 +119,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    btop htop iotop iftop lshw powertop
-    pmutils hdparm traceroute which
-    file tree tmux lsof rlwrap pass
-    vim emacs ed nano git gnumake
-    wget curl ent socat rsync nmap tunctl
+    emacs gnumake tunctl
     firefox thunderbird chromium libreoffice gimp inkscape
     virt-manager qemu libguestfs p7zip
     python3 pciutils xorg.xkill spotify

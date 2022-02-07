@@ -19,12 +19,9 @@
   networking.interfaces.ens3.useDHCP = true;
 
   environment.systemPackages = with pkgs; [
-    ed vim emacs-nox tree git
+    emacs-nox
   ];
 
   system.stateVersion = "21.05"; # Did you read the comment?
-
-  users.users.root.initialHashedPassword = "";
-  services.openssh.permitRootLogin = "prohibit-password";
 
 }

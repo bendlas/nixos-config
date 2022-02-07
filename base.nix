@@ -1,10 +1,10 @@
 
 { config, pkgs, ... }:
-let npc = import ./nixpkgs-config.nix;
-in {
+
+{
   require = [
     ./log.nix ./sources.nix ./nix.module.nix ./zsh.module.nix
-    ./locale.module.nix ./ssh.module.nix
+    ./locale.module.nix ./ssh.module.nix ./essential.module.nix
   ];
   system.stateVersion = "20.03";
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -15,24 +15,19 @@ in {
 
   environment.systemPackages = with pkgs; [
 
-    file screen tmux btop htop wget psmisc utillinux zip unzip lz4 lsof
-    bind hdparm pmutils iotop rlwrap traceroute which # emacs ## is added by enabling exwm
-    iptables telnet tree multipath_tools lm_sensors ent davfs2 # reptyr
-    btrfsProgs dmidecode nmap gitFull vde2 gradle gnumake
-    socat libressl vim patchelf gcc clisp parted usbutils # diffoscope
-    rsync gnupg gdb powertop lshw libxslt dvtm abduco dtach # letsencrypt
-    nox pv nethogs iftop jq yq iftop moreutils dhcp
+    bind # emacs ## is added by enabling exwm
+    iptables multipath_tools davfs2 # reptyr
+    btrfsProgs dmidecode vde2 gradle gnumake
+    vim patchelf gcc clisp parted # diffoscope
+    gdb libxslt dvtm abduco dtach # letsencrypt
+    nox nethogs yq moreutils dhcp
 
-    sqlite mkpasswd
+    mkpasswd
 
     cowsay elfutils binutils
     ncurses ncurses.dev ## for infocmp, figwheel repl
 
     taalo-build git-new-workdir vnstat
-
-    inotify-tools direnv pass
-
-    ed nano
 
   ];
 
@@ -97,6 +92,5 @@ in {
     vnstat.enable = true;
   };
   security.sudo.wheelNeedsPassword = false;
-  programs.gnupg.agent.enable = true;
 
 }
