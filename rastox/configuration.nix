@@ -20,10 +20,6 @@ in {
       # ./video-rpi.nix
     ];
 
-  ## disable man and gnome-help
-  documentation.enable = false;
-  environment.gnome.excludePackages = [ pkgs.gnome.yelp ];
-
   boot = {
     consoleLogLevel = 7;
     kernelPackages = pkgs.linuxPackages_rpi4;
