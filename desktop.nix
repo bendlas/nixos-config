@@ -3,6 +3,8 @@
 
   environment.systemPackages = (with pkgs; [
 
+    polkit_gnome ## implements the pkexec dialog
+
     pciutils ntfs3g st gparted
 
     paprefs pavucontrol alsaUtils ffmpeg imagemagick
