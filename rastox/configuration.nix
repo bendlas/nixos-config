@@ -35,7 +35,6 @@ in {
       "cma=${toString cma}M"
       "usbhid.mousepoll=0"
     ];
-    tmpOnTmpfs = true;
     loader = {
       generic-extlinux-compatible.enable = true;
       grub.enable = false;

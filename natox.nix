@@ -7,7 +7,7 @@
     ./log.nix ./sources.nix ./nix.module.nix ./zsh.module.nix
     ./locale.module.nix ./ssh.module.nix
     # new base
-    ./access.module.nix
+    ./access.module.nix ./tmpfs.module.nix
     # -
     ./epson-stylus-photo-r3000.module.nix
     ./samba.module.nix
@@ -19,7 +19,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  boot.tmpOnTmpfs = true;
   boot.kernelParams = [ "amd_iommu=on" ];
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

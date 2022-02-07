@@ -7,7 +7,7 @@
     ./log.nix ./sources.nix ./nix.module.nix ./zsh.module.nix
     ./locale.module.nix ./ssh.module.nix
     # new base
-    ./access.module.nix
+    ./access.module.nix ./tmpfs.module.nix
     # mobile-nixos
     (import <mobile-nixos/lib/configuration.nix> { device = "pine64-pinephone"; })
     ./mobile-nixos-bootloader.nix

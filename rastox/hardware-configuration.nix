@@ -18,17 +18,6 @@
       fsType = "ext4";
     };
 
-  fileSystems."/tmp" =
-    { device = "TMP";
-      fsType = "tmpfs";
-      options = [ "size=16G" "mode=1777" ];
-    };
-
-  fileSystems."/var/tmp" =
-    { device = "VARTMP";
-      fsType = "tmpfs";
-    };
-
   fileSystems."/boot/firmware" =
     { device = "/dev/disk/by-uuid/D449-45AA";
       fsType = "vfat";

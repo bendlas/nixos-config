@@ -4,7 +4,7 @@
   require = [ ./desktop.nix ./dev.nix ./power-savings.nix ./dev/hackrf.nix ./dev/maple.nix
               ./dev/muart.nix ./dev/gd32.nix ./dev/saleae.nix ./dev/stlink.nix
               ./dev/qemu.nix ./dev/forth.nix ./dev/skm.nix ./dev/android.nix
-              ./ark.module.nix
+              ./ark.module.nix ./tmpfs.module.nix
             ];
 
   bendlas.machine = "lenix";
@@ -31,18 +31,9 @@
       device = "/dev/disk/by-uuid/cf7a2c05-5a08-4716-aa30-2c3556f5033c";
       fsType = "btrfs";
     };
-    "/tmp" = {
-      device = "TMP";
-      fsType = "tmpfs";
-      options = [ "size=16G" "mode=1777" ];
-    };
     "/boot" = {
       device = "/dev/disk/by-uuid/D45C-9B25";
       fsType = "vfat";
-    };
-    "/var/tmp" = {
-      device = "VARTMP";
-      fsType = "tmpfs";
     };
   };
 

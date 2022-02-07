@@ -1,13 +1,9 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, lib, ... }:
 
-{ ## Outsource nixpkgs.config to be shared with nix-env
+{
   require = [ ./desktop.nix ./dev.nix # ./distributed-build.nix
               ./dev/forth.nix ./zfs.nix ./dev/qemu.nix
-              ./ark.module.nix
+              ./ark.module.nix ./tmpfs.module.nix
     # {
     #   networking.firewall.allowedTCPPorts = [ 2049 111 4000 4001 ];
     #   networking.firewall.allowedUDPPorts = [ 2049 111 4000 4001 ];
@@ -43,22 +39,10 @@
       options = [ "nossd" "discard" "compress=lzo" "noatime" "autodefrag" ];
     };
 
-  fileSystems."/var/tmp" =
-    { device = "vartmp";
-      fsType = "tmpfs";
-      options = [ "size=1G" "mode=1777" ];
-    };
-
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/bf4791ad-62c0-481d-bc8c-a800ad9cf8f8";
       fsType = "ext4";
     };
-
-  #fileSystems."/tmp" =
-  #  { device = "tmp";
-  #    fsType = "tmpfs";
-  #    options = [ "size=48G" "mode=1777" ];
-  #  };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/58a029ec-27e3-49cd-9ec1-2452ede1cec5"; }
