@@ -1,9 +1,9 @@
 {
   "url": "https://github.com/bendlas/nixpkgs.git",
-  "rev": "6f8f19d04fedb84dd13c5287d5b5dfe009a07b93",
-  "date": "2022-02-07T16:04:36+01:00",
-  "path": "/nix/store/cph92xcik1lqdz8s96ckmc6zf86xgdg5-nixpkgs-6f8f19d",
-  "sha256": "0a20ni7cqsc4aibd7dahjgcdpwzm37fqi3z8d96apcpgbm8q11cl",
+  "rev": "d3a2a8019ebc59ca8a043ee1feeb7fbef7030590",
+  "date": "2022-02-07T16:42:52+01:00",
+  "path": "/nix/store/nfpqfd1blq496gwg3zrkbciama8l96cg-nixpkgs-d3a2a80",
+  "sha256": "12wwi0xq232s4dnzqnm7bs7dprjqkk9alvdqqci11m9byk219frl",
   "fetchLFS": false,
   "fetchSubmodules": false,
   "deepClone": false,
