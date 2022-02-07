@@ -4,7 +4,7 @@
 {
   require = [
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
-    ./locale.module.nix ./ssh.module.nix ./essential.module.nix
+    ./locale.module.nix ./ssh.module.nix ./essential.module.nix ./mdns.module.nix
   ];
   system.stateVersion = "20.03";
   boot.kernelPackages = pkgs.linuxPackages_latest;

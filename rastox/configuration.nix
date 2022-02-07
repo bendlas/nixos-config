@@ -104,15 +104,6 @@ in {
 
   powerManagement.cpuFreqGovernor = "ondemand";
   services.cron.enable = false;
-  services.avahi = {
-    publish.enable = true;
-    publish.addresses = true;
-    # publish.workstation = true;
-    enable = true;
-    nssmdns = true;
-    wideArea = false;
-    # extraServiceFiles.ssh = "${pkgs.avahi}/etc/avahi/services/ssh.service";
-  };
 
   hardware.enableRedistributableFirmware = true;
   hardware.firmware = [ pkgs.raspberrypifw ];

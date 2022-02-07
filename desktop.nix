@@ -123,11 +123,6 @@
       miraclecast
     ];
     openssh.forwardX11 = true;
-    avahi = {
-      enable = true;
-      nssmdns = true;
-      wideArea = false;
-    };
   };
 
   hardware.pulseaudio = {

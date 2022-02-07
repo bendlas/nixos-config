@@ -5,7 +5,7 @@
   imports = [
     # shared with ./base.nix
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
-    ./locale.module.nix ./ssh.module.nix ./essential.module.nix
+    ./locale.module.nix ./ssh.module.nix ./essential.module.nix ./mdns.module.nix
     # new base
     ./access.module.nix ./tmpfs.module.nix
     # -
@@ -94,12 +94,6 @@
       desktopManager.plasma5.enable = false;
       layout = "de";
       xkbOptions = "eurosign:e";
-    };
-    avahi = {
-      # FIXME enable discovery
-      enable = true;
-      nssmdns = true;
-      wideArea = false;
     };
     printing.enable = true;
     # FIXME package proprietary epson-stylus-photo ...
