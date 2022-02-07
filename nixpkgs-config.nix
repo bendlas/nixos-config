@@ -7,6 +7,7 @@ let
         <nixpkgs/pkgs/build-support/setup-hooks/separate-debug-info.sh>
       ];
     });
+  setPrio' = lib: num: drv: lib.addMetaAttrs { priority = num; } drv;
 in {
   allowUnfree = true;
   allowBroken = false;
@@ -26,7 +27,7 @@ in {
     build = "wineWow";
   };
 
-  packageOverrides = pkgs: rec {
+  packageOverrides = pkgs: let setPrio = setPrio' pkgs.lib; in rec {
     # localPackages = pkgFile: config: pkgs.callPackage ./local-packages.nix {
     #   pkgFile = ./desktop.packages;
     #   source = pkgs.fetchgit {
@@ -40,6 +41,13 @@ in {
       echo >&2 "gnome-tour has been removed"
       exit 1
     '';
+
+    ## prioritize packages to avoid path collisions
+    nettools = setPrio 9 pkgs.nettools; ## nettools are deprecated in favor of inetutils
+    traceroute = setPrio 2 pkgs.traceroute; ## traceroute should override inetutils, see https://askubuntu.com/questions/1017286/what-is-the-difference-between-traceroute-from-traceroute-and-inetutils-tracerou
+    ncurses = setPrio 6 pkgs.ncurses; ## defer to per-terminal terminfo
+    androidsdk_9_0 = setPrio 6 pkgs.androidsdk_9_0; ## defer to e2fsprogs
+    unrar = setPrio 4 pkgs.unrar; ## open-source unrar should override proprietary rar
 
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
     git-new-workdir = pkgs.runCommand "git-new-workdir" {} ''
