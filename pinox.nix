@@ -51,7 +51,7 @@
     git htop iotop tmux
     (kgx.override { genericBranding = true; })
 
-    chatty megapixels firefox-wayland
+    chatty megapixels firefox-mobile
 
     # (chromium.override {
     #   enableWideVine = false;
