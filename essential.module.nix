@@ -22,7 +22,7 @@
     hdparm pmutils rlwrap which gnupg sqlite
     ed nano inotify-tools direnv pass libressl
 
-    zip unzip lz4 xz gzip rar unrar
+    zip unzip lz4 xz gzip brotli bzip2 p7zip zstd
   ];
 
 }
