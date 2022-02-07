@@ -17,11 +17,12 @@
 
   mobile-nixos.install-bootloader.enable = true;
 
+  ## disable man and gnome-help
+  documentation.enable = false;
+  environment.gnome.excludePackages = [ pkgs.gnome.yelp ];
+
   users.users.nixos = {
     isNormalUser = true;
-    shell = "/run/current-system/sw/bin/zsh";
-    # hashedPassword = "$6$/iwm2tpFKRjDn9bD$BkSA.FIsYEjyRQXvKrSDDkXmzoDLuioVaeOOUJIURJBxrJQoser/oAa1t951ozROazzwQEyWYHQGR/s.0kgAQ0";
-
     home = "/home/nixos";
     createHome = true;
     extraGroups = [
@@ -32,8 +33,6 @@
     ];
     uid = 1000;
   };
-
-  # users.users.root.hashedPassword = "$6$WfCoQedRbl7KIWrB$JQ2dGRjIo2kWlV/105W.vuXIMjBZ00K8nAAhNEN/pQdJGyw794xFB3BNVyTV/5hQoandq782C0QwrBnl231VF0";
 
   # "desktop" environment configuration
   powerManagement.enable = true;
