@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
 
   ## disable man and gnome-help
