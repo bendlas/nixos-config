@@ -18,8 +18,8 @@
     bind # emacs ## is added by enabling exwm
     iptables multipath_tools davfs2 # reptyr
     btrfsProgs dmidecode vde2 gradle gnumake
-    vim patchelf gcc clisp parted # diffoscope
-    gdb libxslt dvtm abduco dtach # letsencrypt
+    vim patchelf gcc clisp parted
+    gdb libxslt dvtm abduco dtach
     nox nethogs yq moreutils dhcp
 
     mkpasswd
