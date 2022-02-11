@@ -25,6 +25,7 @@ let
       pkgs.cups
     ];
     extraOutputsToInstall = [ "opt" ];
+    # FIXME: add /lib emulation to lsb-release, similar to https://github.com/archlinux/svntogit-community/blob/packages/ld-lsb/trunk/PKGBUILD
     extraBuildCommands = ''
       (cd lib; ln -s ./ld-2.33.so ld-lsb-x86-64.so.3)
     '';
