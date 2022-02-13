@@ -24,10 +24,13 @@ in {
     # environment.variables.NIXPKGS_CONFIG = "/etc/nixos/nixpkgs-config.nix";
     environment.etc."nix/nixpkgs-config.nix".source = "${configs}/nixpkgs-config.nix";
     nix.nixPath = [
-      "nixpkgs=/etc/nixpkgs"
       "nixos=/etc/pkgs/nixos"
+      "nixpkgs=/etc/nixpkgs"
+      "nixpkgs-unstable=/etc/nixpkgs-unstable"
+      "nixpkgs-stable=/etc/nixpkgs-stable"
       "mobile-nixos=/etc/mobile-nixos"
       "nixos-hardware=/etc/nixos-hardware"
+      "emacs-overlay=/etc/emacs-overlay"
       "nixos-config=/etc/nixos/${machine}.nix"
     ];
   };
