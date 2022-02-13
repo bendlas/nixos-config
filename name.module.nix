@@ -22,6 +22,7 @@ with types;
   };
   config = {
     networking.hostName = config.bendlas.machine;
+    networking.domain = "bendlas.net";
     services.avahi.hostName = config.bendlas.machine;
     bendlas.stability = config.bendlas.machineReg.stability or "unstable";
   };
