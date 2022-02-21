@@ -4,6 +4,7 @@
   require = [ ./desktop.nix ./dev.nix ./power-savings.nix ./dev/hackrf.nix ./dev/maple.nix
               ./dev/muart.nix ./dev/gd32.nix ./dev/saleae.nix ./dev/stlink.nix
               ./dev/qemu.nix ./dev/forth.nix ./dev/skm.nix ./dev/android.nix
+              ./dev/container.nix
               ./ark.module.nix ./tmpfs.module.nix
             ];
 

@@ -17,15 +17,20 @@
     ./code-server.module.nix
   ];
   bendlas.machine = "virtox";
-  vital.code-server = {
+  bendlas.code-server = {
     enable = true;
-    domain = "code.bendlas.net";
+    # domain = "code.bendlas.net";
     user = "root";
   };
   boot.isContainer = true;
   networking = rec {
     #useHostResolvConf = false;
   };
+  users.users = {
+    test.isNormalUser = true;
+  };
+  networking.firewall.allowedTCPPorts = [ 7800 8800 8801 ];
+
   #services.resolved.enable = true;
 
   # nix.nixPath = [ "nixos-config=/etc/nixos-config/instances/vitox.nix" ];
