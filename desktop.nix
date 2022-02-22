@@ -53,7 +53,10 @@
     value  = "unlimited";
   }];
 
-  require = [ ./base.nix ./io-scheduler.nix ./desktop-packages.nix ];
+  require = [
+    ./base.nix ./io-scheduler.nix ./desktop-packages.nix
+    ./sound.module.nix
+  ];
   console.useXkbConfig = true;
 
   services = {
@@ -124,19 +127,6 @@
     ];
     openssh.forwardX11 = true;
   };
-
-  hardware.pulseaudio = {
-    enable = true;
-    package = pkgs.pulseaudioFull;
-    tcp.enable = true;
-    zeroconf = {
-      discovery.enable = true;
-      publish.enable = true;
-    };
-  };
-
-  # Pulseaudio uses 4713
-  networking.firewall.allowedTCPPorts = [ 4713 ];
 
   virtualisation = {
     ## xen build is broken
