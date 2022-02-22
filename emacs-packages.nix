@@ -36,7 +36,7 @@ let
     yasnippet with-editor string-edit keyfreq scala-mode
     uuidgen systemtap-mode gn-mode coffee-mode cask-mode elf-mode lua-mode
     elfeed elfeed-goodies elfeed-web elfeed-org volume dockerfile-mode yaml-mode
-    impatient-mode livescript-mode cmake-mode
+    impatient-mode livescript-mode cmake-mode adoc-mode
     ivy ivy-xref treemacs elmacro hy-mode robe haml-mode
 
     edit-list refine
