@@ -27,7 +27,7 @@
     cowsay elfutils binutils
     ncurses ncurses.dev ## for infocmp, figwheel repl
 
-    taalo-build git-new-workdir vnstat
+    taalo-build vnstat
 
   ];
 
