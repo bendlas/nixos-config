@@ -50,6 +50,8 @@
 
     chatty megapixels firefox-mobile
 
+    tdesktop # signal-desktop ## not yet available on aarch64
+
     # (chromium.override {
     #   enableWideVine = false;
     #   # commandLineArgs = "--ozone-platform-hint=wayland";
