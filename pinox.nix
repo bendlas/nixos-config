@@ -8,6 +8,8 @@
     ./locale.module.nix ./ssh.module.nix ./essential.module.nix ./mdns.module.nix
     # new base
     ./access.module.nix ./tmpfs.module.nix ./docu-disable.module.nix ./nm-iwd.module.nix
+    # shared with ./desktop.nix
+    ./sound.module.nix
     # mobile-nixos
     (import <mobile-nixos/lib/configuration.nix> { device = "pine64-pinephone"; })
     ./mobile-nixos-bootloader.nix
