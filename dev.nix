@@ -70,7 +70,7 @@ in
     # };
   };
   nix = {
-    settings.trusted-substituters = [ "https://headcounter.org/hydra" "ssh://nitox.local" ];
+    settings.trusted-substituters = [ "https://headcounter.org/hydra" "ssh://nitox.local" "ssh://natox.local" "ssh://lenix.local" "ssh://rastox.local" "ssh://pinox.local" ];
     settings.trusted-public-keys = [ "headcounter.org:/7YANMvnQnyvcVB6rgFTdb8p5LG1OTXaO+21CaOSBzg=" ];
   };
 
