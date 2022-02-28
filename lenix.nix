@@ -86,6 +86,7 @@
   };
 
   services = {
+    avahi.interfaces = [ "wlan0" "enp0s31f6" ];
     teamspeak3 = {
       enable = true;
       openFirewall = true;

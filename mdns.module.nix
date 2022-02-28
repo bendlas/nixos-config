@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
 
   require = [ ./name.module.nix ];
@@ -9,6 +10,7 @@
     nssmdns = true;
     wideArea = false;
     # extraServiceFiles.ssh = "${pkgs.avahi}/etc/avahi/services/ssh.service";
+    interfaces = lib.mkDefault (throw "Please set `services.avahi.interfaces` explicitly, in order to avoid configuring ve-* interfaces");
   };
 
 }
