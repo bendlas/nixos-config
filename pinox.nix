@@ -7,7 +7,7 @@
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
     ./locale.module.nix ./ssh.module.nix ./essential.module.nix ./mdns.module.nix
     # new base
-    ./access.module.nix ./tmpfs.module.nix ./docu-disable.module.nix
+    ./access.module.nix ./tmpfs.module.nix ./docu-disable.module.nix ./nm-iwd.module.nix
     # mobile-nixos
     (import <mobile-nixos/lib/configuration.nix> { device = "pine64-pinephone"; })
     ./mobile-nixos-bootloader.nix
@@ -64,10 +64,6 @@
   ##########################################################################
 
   networking = {
-    wireless.enable = false;
-    wireless.iwd.enable = true;
-    networkmanager.wifi.backend = "iwd";
-
     # FIXME : configure usb rndis through networkmanager in the future.
     # Currently this relies on stage-1 having configured it.
     networkmanager.unmanaged = [ "rndis0" "usb0" ];
