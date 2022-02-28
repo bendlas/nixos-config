@@ -10,7 +10,7 @@ fi
 
 CODE=$(readlink -f ..)
 
-fetch() {
+snap() {
     remoteRepo=$1
     localRepo=$2
     branch=$3
@@ -18,8 +18,8 @@ fetch() {
     nix-prefetch-git $localRepo $rev | jq ".url=\"${remoteRepo}\" | .branch=\"${branch}\""
 }
 
-fetch https://github.com/bendlas/nixpkgs.git $CODE/nixpkgs $branch > nixpkgs.json
-fetch https://github.com/NixOS/nixpkgs.git https://github.com/NixOS/nixpkgs.git nixos-${release} > nixpkgs-stable.json
-fetch https://github.com/bendlas/mobile-nixos.git https://github.com/bendlas/mobile-nixos.git master > mobile-nixos.json
-fetch https://github.com/nix-community/emacs-overlay.git https://github.com/nix-community/emacs-overlay.git master > emacs-overlay.json
-fetch https://github.com/NixOS/nixos-hardware.git https://github.com/NixOS/nixos-hardware.git master > nixos-hardware.json
+snap https://github.com/bendlas/nixpkgs.git $CODE/nixpkgs $branch > nixpkgs.json
+snap https://github.com/NixOS/nixpkgs.git https://github.com/NixOS/nixpkgs.git nixos-${release} > nixpkgs-stable.json
+snap https://github.com/bendlas/mobile-nixos.git https://github.com/bendlas/mobile-nixos.git master > mobile-nixos.json
+snap https://github.com/nix-community/emacs-overlay.git https://github.com/nix-community/emacs-overlay.git master > emacs-overlay.json
+snap https://github.com/NixOS/nixos-hardware.git https://github.com/NixOS/nixos-hardware.git master > nixos-hardware.json
