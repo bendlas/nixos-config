@@ -7,7 +7,7 @@
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
     ./locale.module.nix ./ssh.module.nix ./essential.module.nix ./mdns.module.nix
     # new base
-    ./access.module.nix ./tmpfs.module.nix
+    ./access.module.nix ./tmpfs.module.nix ./nm-iwd.module.nix
     # -
     ./epson-stylus-photo-r3000.module.nix
     ./samba.module.nix
@@ -21,14 +21,13 @@
 
   boot.kernelParams = [ "amd_iommu=on" ];
 
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.enp9s0.useDHCP = true;
-  networking.interfaces.wlp8s0.useDHCP = true;
+  ## controlled by iwd and named wlan0
+  # networking.interfaces.wlp8s0.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -79,6 +78,7 @@
   };
 
   services = {
+    avahi.interfaces = [ "wlan0" "enp9s0" ];
     openssh.forwardX11 = true;
     xserver = {
       enable = true;
