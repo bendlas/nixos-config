@@ -113,7 +113,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    emacs gnumake tunctl
+    bendlasEmacs gnumake tunctl
     firefox thunderbird chromium libreoffice gimp inkscape
     virt-manager qemu libguestfs p7zip
     python3 pciutils xorg.xkill spotify

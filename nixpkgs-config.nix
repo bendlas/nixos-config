@@ -27,7 +27,11 @@ in {
     build = "wineWow";
   };
 
-  packageOverrides = pkgs: let setPrio = setPrio' pkgs.lib; in rec {
+  packageOverrides = pkgs: let
+    setPrio = setPrio' pkgs.lib;
+    ## workaround. `emacs` from this misses .override method, so can't be set as main `emacs` pkg
+    customEmacs = pkgs.callPackage ./emacs-packages.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; };
+  in rec {
     # localPackages = pkgFile: config: pkgs.callPackage ./local-packages.nix {
     #   pkgFile = ./desktop.packages;
     #   source = pkgs.fetchgit {
@@ -56,7 +60,8 @@ in {
     '';
     taalo-build = pkgs.callPackage ./taalo-build.nix { };
     # inherit (pkgs.callPackage ./emacs-packages.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsPackages emacs emacsWithPackages;
-    inherit (pkgs.callPackage ./emacs-packages.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsWithPackages emacsPackages;
+    inherit (customEmacs) emacsWithPackages emacsPackages;
+    bendlasEmacs = customEmacs.emacs;
     chromium = pkgs.chromium.override {
       enableWideVine = builtins.currentSystem == "x86_64-linux";
       pulseSupport = true;
