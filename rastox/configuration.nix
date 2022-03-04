@@ -15,7 +15,6 @@ in {
       ./kodi-xorg.nix
       ./desktop.nix
       ./users.nix
-      ./networkd.nix
       ./wifi.nix
       # ./video-rpi.nix
     ];

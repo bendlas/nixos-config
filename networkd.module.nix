@@ -1,6 +1,7 @@
 {
 
   networking = {
+    useHostResolvConf = false;
     useNetworkd = true;
     useDHCP = false;
     networkmanager.enable = false;

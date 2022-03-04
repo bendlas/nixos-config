@@ -5,6 +5,7 @@
   require = [
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
     ./locale.module.nix ./ssh.module.nix ./essential.module.nix ./mdns.module.nix
+    ./networkd.module.nix
   ];
   system.stateVersion = "20.03";
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -50,10 +51,7 @@
 
   networking = {
     firewall.enable = true;
-    firewall.allowedTCPPorts = [ 22 ];
-    networkmanager.enable = false;
-    useDHCP = false;
-    useNetworkd = true;
+    # firewall.allowedTCPPorts = [ 22 ];
     extraHosts = ''
       127.0.0.1 ${config.networking.hostName}
       ::1 ${config.networking.hostName}
@@ -79,9 +77,7 @@
       servers = [ "77.109.148.136" "2001:1620:2078:136::" "8.8.8.8" ];
     };
     resolved = {
-      enable = true;
       # dnssec = "allow-downgrade";
-      dnssec = "false";
       extraConfig = ''
         DNS=8.8.8.8
         DNSOverTLS=opportunistic
