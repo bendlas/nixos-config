@@ -115,6 +115,8 @@
     '';
   };
 
+  services.avahi.interfaces = [ "br0" ];
+
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
   hardware.nvidia.modesetting.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
