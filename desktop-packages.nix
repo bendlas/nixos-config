@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs; [
     ## Chats
 
-    tdesktop teamspeak_client signal-desktop skype
+    tdesktop signal-desktop
 
     ## Games
 
@@ -16,7 +16,7 @@
     ## Dev tools
 
     # nixops ## not working
-    idea.idea-community visualvm rustc cargo nim ant go dosbox
+    visualvm rustc cargo nim ant go dosbox
 
     nodejs debootstrap mercurial subversion cmake guile valgrind sbcl
     dos2unix nodePackages.grunt-cli mono luajit luarocks racket

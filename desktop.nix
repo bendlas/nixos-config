@@ -9,13 +9,13 @@
 
     paprefs pavucontrol alsaUtils ffmpeg imagemagick
 
-    glxinfo xlibs.xkill xlibs.xbacklight xlibs.xrandr xlibs.xev
-    xlibs.xhost xlibs.xkbcomp aspell aspellDicts.en aspellDicts.de
+    glxinfo xorg.xkill xorg.xbacklight xorg.xrandr xorg.xev
+    xorg.xhost xorg.xkbcomp aspell aspellDicts.en aspellDicts.de
     dunst libnotify xorg.xdpyinfo gcolor3 pinentry
 
     geoip unrar bsdiff gitAndTools.hub links2 jack2Full beep
 
-    dbus_tools dfeet systool # nixui
+    dbus dfeet # nixui
 
     libva-utils
 

@@ -71,7 +71,7 @@ in {
     #xdg-open = pkgs.xdg-open.override {
     #  mimiSupport = true;
     #};
-    wine = pkgs.wineFull;
+    wine = pkgs.winePackages.full;
     pixie = pkgs.pixie.override {
       buildWithPypy = true;
     };

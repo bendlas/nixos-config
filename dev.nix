@@ -27,7 +27,7 @@ in
   };
   environment.systemPackages = with pkgs; [
     # emacs.emacs.debug
-    docker_compose
+    docker-compose
     # nixops
     virtmanager
     nodePackages.tern

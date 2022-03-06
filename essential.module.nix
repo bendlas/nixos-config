@@ -15,10 +15,10 @@
 
   environment.systemPackages = with pkgs; [
     tree file screen utillinux ent jq
-    systool pciutils usbutils lshw lm_sensors
+    sysfsutils pciutils usbutils lshw lm_sensors
     psmisc htop btop lsof pv powertop
     config.boot.kernelPackages.perf
-    telnet netcat nmap traceroute socat rsync wget curl
+    inetutils netcat nmap traceroute socat rsync wget curl
     hdparm pmutils rlwrap which gnupg sqlite
     ed nano inotify-tools direnv pass libressl
 
