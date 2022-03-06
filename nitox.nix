@@ -2,7 +2,7 @@
 
 {
   require = [ ./desktop.nix ./dev.nix # ./distributed-build.nix
-              ./dev/forth.nix ./zfs.nix ./dev/qemu.nix
+              ./dev/forth.nix ./dev/qemu.nix # ./zfs.nix
               ./ark.module.nix ./tmpfs.module.nix
     # {
     #   networking.firewall.allowedTCPPorts = [ 2049 111 4000 4001 ];
@@ -109,7 +109,7 @@
   # };
 
   services.xserver = {
-    videoDrivers = [ "nvidia" "nouveau" "nv" "vesa" ];
+    videoDrivers = [ "nvidia" "vesa" ]; #  "nouveau" "nv" "vesa" ];
     deviceSection = ''
       Option "Coolbits" "12"
     '';
