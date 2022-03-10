@@ -23,7 +23,7 @@ in {
     ## to /etc/nix/nixpkgs-config.nix
     # environment.variables.NIXPKGS_CONFIG = "/etc/nixos/nixpkgs-config.nix";
     environment.etc."nix/nixpkgs-config.nix".source = "${configs}/nixpkgs-config.nix";
-    environment.etc."nixpkgs/overlays.nix".source = "${configs}/nixpkgs-overlays.nix";
+    environment.etc."nix/overlays.nix".source = "${configs}/nixpkgs-overlays.nix";
     nix.nixPath = [
       "nixos=/etc/pkgs/nixos"
       "nixpkgs=/etc/nixpkgs"
@@ -33,7 +33,7 @@ in {
       "nixos-hardware=/etc/nixos-hardware"
       "emacs-overlay=/etc/emacs-overlay"
       "nixos-config=/etc/nixos/${machine}.nix"
-      "nixpkgs-overlays=/etc/nixpkgs/overlays.nix"
+      "nixpkgs-overlays=/etc/nix/overlays.nix"
     ];
   };
 
