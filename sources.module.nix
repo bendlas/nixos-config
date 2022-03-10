@@ -19,10 +19,11 @@ in {
     environment.etc."mobile-nixos".source = mobile-nixos;
     environment.etc."nixos-hardware".source = nixos-hardware;
     environment.etc."emacs-overlay".source = emacs-overlay;
-    ## this is set non-configurable in <nixos/modules/programs/environment.nix>
+    ## $NIXPKGS_CONFIG is set non-configurable in <nixos/modules/programs/environment.nix>
     ## to /etc/nix/nixpkgs-config.nix
     # environment.variables.NIXPKGS_CONFIG = "/etc/nixos/nixpkgs-config.nix";
     environment.etc."nix/nixpkgs-config.nix".source = "${configs}/nixpkgs-config.nix";
+    environment.etc."nixpkgs/overlays.nix".source = "${configs}/nixpkgs-overlays.nix";
     nix.nixPath = [
       "nixos=/etc/pkgs/nixos"
       "nixpkgs=/etc/nixpkgs"
@@ -32,6 +33,7 @@ in {
       "nixos-hardware=/etc/nixos-hardware"
       "emacs-overlay=/etc/emacs-overlay"
       "nixos-config=/etc/nixos/${machine}.nix"
+      "nixpkgs-overlays=/etc/nixpkgs/overlays.nix"
     ];
   };
 
