@@ -27,8 +27,8 @@ lid () {
 }
 
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=100000
+SAVEHIST=100000
 #unsetopt nomatch
 bindkey -e
 
