@@ -34,7 +34,7 @@
 
   services.nginx = {
     enable = true;
-    user = config.services.gitlab.user;
+    ## user = config.services.gitlab.user;
     recommendedProxySettings = true;
     virtualHosts = {
       "${config.services.gitlab.host}" = {

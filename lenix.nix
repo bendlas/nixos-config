@@ -53,6 +53,7 @@
     interfaces = {
       enp0s31f6.useDHCP = true;
       wlan0.useDHCP = true;
+      # ve-virtox.useDHCP = true;
     };
 
     nat.externalInterface = "wlan0";

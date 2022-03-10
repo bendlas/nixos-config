@@ -1,5 +1,15 @@
 { config, pkgs, lib, ... }:
 # https://github.com/breakds/nixvital/blob/master/modules/services/code-server.nix
+
+# let
+#   ## nix-shell -p nix-prefetch-github --run "nix-prefetch-github breakds nixvital"
+#   nixvital = pkgs.fetchFromGitHub {
+#     owner = "breakds";
+#     repo = "nixvital";
+#     rev = "1e4bde2ec4a07b547079654e87c4ac242c6e3d90";
+#     sha256 = "yHkpIyISiBj2s2asu7zA7As1BEhAFaZKSSmStO/gCBI=";
+#   };
+# in
 let cfg = config.bendlas.code-server;
 
 in {
