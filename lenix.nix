@@ -53,6 +53,7 @@
     interfaces = {
       enp0s31f6.useDHCP = true;
       wlan0.useDHCP = true;
+      enp0s20f0u1.useDHCP = true; ## USB Net from phone
       # ve-virtox.useDHCP = true;
     };
 
