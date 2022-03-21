@@ -6,7 +6,7 @@ let
     inherit (config.bendlas) machine;
   };
   inherit (config-shell) nixpkgs nixpkgs-stable nixpkgs-unstable
-    configs mobile-nixos nixos-hardware emacs-overlay machine;
+    configs mobile-nixos nixos-hardware machine;
 in {
   imports = [ ./name.module.nix ];
   # keep synchronized with ./config-shell.nix
@@ -18,7 +18,6 @@ in {
     environment.etc."nixpkgs-stable".source = nixpkgs-stable;
     environment.etc."mobile-nixos".source = mobile-nixos;
     environment.etc."nixos-hardware".source = nixos-hardware;
-    environment.etc."emacs-overlay".source = emacs-overlay;
     ## $NIXPKGS_CONFIG is set non-configurable in <nixos/modules/programs/environment.nix>
     ## to /etc/nix/nixpkgs-config.nix
     # environment.variables.NIXPKGS_CONFIG = "/etc/nixos/nixpkgs-config.nix";
@@ -31,7 +30,6 @@ in {
       "nixpkgs-stable=/etc/nixpkgs-stable"
       "mobile-nixos=/etc/mobile-nixos"
       "nixos-hardware=/etc/nixos-hardware"
-      "emacs-overlay=/etc/emacs-overlay"
       "nixos-config=/etc/nixos/${machine}.nix"
       "nixpkgs-overlays=/etc/nix/overlays.nix"
     ];
