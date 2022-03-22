@@ -60,8 +60,9 @@ in {
     '';
     taalo-build = pkgs.callPackage ./taalo-build.nix { };
     # inherit (pkgs.callPackage ./emacs-packages.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; }) emacsPackages emacs emacsWithPackages;
-    inherit (customEmacs) emacsWithPackages emacsPackages;
-    bendlasEmacs = customEmacs.emacs;
+    inherit (customEmacs) emacsWithPackages emacsPackages emacsWithPackagesNox emacsPackagesNox;
+    emacsBendlas = customEmacs.emacs;
+    emacsBendlasNox = customEmacs.emacsNox;
     chromium = pkgs.chromium.override {
       enableWideVine = builtins.currentSystem == "x86_64-linux";
       pulseSupport = true;

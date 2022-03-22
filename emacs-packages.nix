@@ -7,7 +7,7 @@ let
 
   baseEmacs = emacsGcc;
 
-  emacsWithPackages = pfn:
+  emacsWithPackagesFor = emacsPackages: pfn:
     emacsPackages.emacsWithPackages
       (compOverrides [
         (epkgs: epkgs // epkgs.melpaPackages)
@@ -83,24 +83,38 @@ let
     });
   };
 
+  ## emacs with X
   emacsUnwrapped = baseEmacs.override {
     inherit (pkgs) alsa-lib imagemagick acl gpm Xaw3d;
     withGTK3 = true; withGTK2 = false;
     withXwidgets = true;
   };
-
   emacsPackages = emacsPackagesFor (
     enableDebugInfo (
       emacsUnwrapped
     )
   );
-
-  # emacs = emacsWithPackages builtinPackages;
+  emacsWithPackages = emacsWithPackagesFor emacsPackages;
   emacs = emacsWithPackages (epkgs: []);
 
+  ## emacs without X
+  emacsUnwrappedNox = baseEmacs.override {
+    withX = false;
+    withNS = false;
+    withGTK2 = false;
+    withGTK3 = false;
+  };
+  emacsPackagesNox = emacsPackagesFor (
+    enableDebugInfo (
+      emacsUnwrappedNox
+    )
+  );
+  emacsWithPackagesNox = emacsWithPackagesFor emacsPackagesNox;
+  emacsNox = emacsWithPackagesNox (epkgs: []);
 
 in {
 
   inherit emacsPackages emacsWithPackages emacs;
+  inherit emacsPackagesNox emacsWithPackagesNox emacsNox;
 
 }
