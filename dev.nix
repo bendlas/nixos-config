@@ -32,8 +32,7 @@ in
     virtmanager
     nodePackages.tern
     # ml-workbench
-    ## FIXME https://github.com/NixOS/nixpkgs/issues/157574
-    (callPackage <nixpkgs-stable> {}).clojure-lsp
+    clojure-lsp ccls
     elixir ruby
   ];
   virtualisation.docker = {

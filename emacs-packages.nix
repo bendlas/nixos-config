@@ -54,8 +54,11 @@ let
     tern forth-mode
     spiral parseclj
     magit-gh-pulls
-    flycheck lsp-mode toml-mode rust-mode cargo flycheck-rust
+    flycheck toml-mode rust-mode cargo flycheck-rust
     graphviz-dot-mode
+
+    ## LSP support
+    lsp-mode ccls
   ];
 
   nativePkgs = with pkgs; [
