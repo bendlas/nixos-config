@@ -8,6 +8,9 @@
     ./access.module.nix ./tmpfs.module.nix
     # gitlab / hdnews server
     ./hetox/configuration.nix
+    ## TODO
+    # ./nextcloud.module.nix
+    # ./matrix-server.module.nix
   ];
   users.users.herwig.isNormalUser = true;
 }
