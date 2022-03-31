@@ -19,7 +19,8 @@
   networking.interfaces.ens3.useDHCP = true;
 
   environment.systemPackages = with pkgs; [
-    emacsBendlasNox
+    # emacsBendlasNox
+    emacs-nox
   ];
 
   system.stateVersion = "21.05"; # Did you read the comment?
