@@ -8,6 +8,8 @@
     ./access.module.nix ./tmpfs.module.nix
     # gitlab / hdnews server
     ./hetox/configuration.nix
+    # code server
+    ./code-server.module.nix
     ## TODO
     # ./nextcloud.module.nix
     # ./matrix-server.module.nix
