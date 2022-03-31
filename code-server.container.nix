@@ -33,7 +33,7 @@ with types;
         services.code-server = {
           enable = true;
           host = containerOptions.localAddress;
-          extraPackages = [ pkgs.git pkgs.clojure ];
+          extraPackages = with pkgs; [ leiningen git ];
           auth = "none";
         };
       };

@@ -17,6 +17,7 @@
   networking.hostName = "hetox"; # Define your hostname.
   networking.useDHCP = false;
   networking.interfaces.ens3.useDHCP = true;
+  networking.nat.externalInterface = "ens3";
 
   environment.systemPackages = with pkgs; [
     # emacsBendlasNox

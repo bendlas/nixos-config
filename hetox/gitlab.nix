@@ -34,14 +34,12 @@
 
   services.nginx = {
     enable = true;
-    ## user = config.services.gitlab.user;
     recommendedProxySettings = true;
     virtualHosts = {
       "${config.services.gitlab.host}" = {
         enableACME = true;
         forceSSL = true;
         locations."/" = {
-          # http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass
           proxyPass = "http://unix:/var/run/gitlab/gitlab-workhorse.socket";
           proxyWebsockets = true;
         };

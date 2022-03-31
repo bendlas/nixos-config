@@ -4,7 +4,7 @@
     ./code-server.container.nix
   ];
 
-  bendlas.code-server-container."code-server-test" = {
+  bendlas.code-server-container."code-server-container" = {
     user = "dev";
     containerOptions = {
       autoStart = true;
@@ -12,7 +12,7 @@
       hostAddress = "10.9.8.1";
       localAddress = "10.9.8.32";
       config = {
-        environment.systemPackages = with pkgs; [ babashka ];
+        environment.systemPackages = with pkgs; [ babashka git clojure clojure-lsp leiningen ];
       };
       bindMounts = {
         "/home/code-server" = {
@@ -24,6 +24,11 @@
   };
   users.users = {
     dev.isNormalUser = true;
+  };
+
+  networking.nat = {
+    enable = true;
+    internalInterfaces = [ "ve-code-sermcxs" ];
   };
 
   services.nginx = let
@@ -44,25 +49,24 @@
     '';
   in {
     enable = true;
-    recommendedProxySettings = false;
+    recommendedProxySettings = true;
     virtualHosts."code.bendlas.net" = {
-      default = true;
+      enableACME = true;
+      forceSSL = true;
       locations."/oauth2/" = {
         proxyPass = config.services.oauth2_proxy.nginx.proxy;
         extraConfig = ''
-          proxy_set_header Host                    $host;
-          proxy_set_header X-Real-IP               $remote_addr;
           proxy_set_header X-Scheme                $scheme;
           proxy_set_header X-Auth-Request-Redirect $request_uri;
         '';
       };
       locations."/" = {
-        proxyPass = "http://${config.containers."code-server-test".localAddress}:4444/";
+        proxyPass = "http://${config.containers."code-server-container".localAddress}:4444/";
         proxyWebsockets = true;
         extraConfig = auth;
       };
       locations."/preview" = {
-        proxyPass = "http://${config.containers."code-server-test".localAddress}:8080/";
+        proxyPass = "http://${config.containers."code-server-container".localAddress}:8080/";
         proxyWebsockets = true;
         extraConfig = auth;
       };
@@ -72,6 +76,7 @@
   services.oauth2_proxy = {
     enable = true;
     cookie.secure = true;
+    cookie.httpOnly = false;
     email.domains = [ "*" ];
     provider = "gitlab";
     scope = "openid read_user email";
