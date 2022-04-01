@@ -38,6 +38,9 @@ zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
 
+# reclaim ctrl+s
+setopt noflowcontrol
+
 if [ "n$TERM" "==" "ndumb" ]; then
     unsetopt zle
     unsetopt prompt_cr
