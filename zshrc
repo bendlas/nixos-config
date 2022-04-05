@@ -1,8 +1,8 @@
 rpgrep () {
-    echo $1
-    for pid in `pgrep -P $1`
+    for pid in $*
     do
-	rpgrep $pid
+        echo $pid
+	rpgrep `pgrep -P $pid`
     done
 }
 
@@ -25,6 +25,16 @@ lid () {
         less -F $1
     fi
 }
+
+rwhich () {
+    (
+        set -euo pipefail
+        which "$@" | xargs readlink -f
+    )
+}
+
+compdef _less rless
+compdef _which rwhich # huh, just saw this working, now it doesn't. for rless, it does ... :/
 
 HISTFILE=~/.histfile
 HISTSIZE=100000
@@ -53,6 +63,7 @@ else
     alias ls='ls --color=auto'
     alias dir='ls --color=auto --format=vertical'
     alias vdir='ls --color=auto --format=long'
+    alias tree='tree -C'
     
     # completion using ls colors
     zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
