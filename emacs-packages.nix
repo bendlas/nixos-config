@@ -1,11 +1,11 @@
-{ emacsGcc, emacsPackagesFor
+{ emacsNativeComp, emacsPackagesFor
 , enableDebugInfo, fetchFromGitHub
 , pkgs
 }:
 
 let
 
-  baseEmacs = emacsGcc;
+  baseEmacs = emacsNativeComp;
 
   emacsWithPackagesFor = emacsPackages: pfn:
     emacsPackages.emacsWithPackages
