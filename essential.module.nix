@@ -24,7 +24,7 @@
 
     zip unzip lz4 xz gzip brotli bzip2 p7zip zstd
 
-    git-new-workdir
+    git-new-workdir nix-du nix-tree
   ];
 
 }

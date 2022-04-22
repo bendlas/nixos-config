@@ -33,7 +33,7 @@
 
     diffoscope
 
-    graphviz nix-du
+    graphviz
 
     ## Video
 
