@@ -24,6 +24,30 @@ let
 
   builtinPackages = epkgs: with epkgs; [
     (pkgs.callPackage ./emacs-bendlas.nix { emacsPackages = epkgs; })
+    (epkgs.trivialBuild {
+      pname = "emacs-gdb";
+      version = "bendlas";
+      src = pkgs.fetchFromGitHub {
+        owner = "weirdNox";
+        repo = "emacs-gdb";
+        rev = "985423594e91a4fb774d4dc5322d4b9750393419";
+        sha256 = "sha256-CDwbFTQ/CCGasEG5n3ww/moe7HgO6CFR+hpWY5L79Sw=";
+      };
+      packageRequires = with epkgs; [ hydra ];
+      preBuild = ''
+        echo BUILD
+        make gdb-module.so
+      '';
+      postInstall = ''
+        echo "echo \$installPhase"
+        echo "$installPhase"
+        echo "typeset -f installPhase"
+        typeset -f installPhase
+        echo "ls -l"
+        ls -l
+        install *.so $LISPDIR
+      '';
+    })
 
     cyberpunk-theme gh groovy-mode haskell-mode htmlize
     ibuffer-tramp epkgs."ido-completing-read+" idris-mode crm-custom
