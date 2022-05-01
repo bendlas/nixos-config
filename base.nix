@@ -62,11 +62,6 @@
 
   services = {
     flatpak.enable = true;
-    ssmtp = {
-      enable = true;
-      domain = config.networking.hostName;
-      hostName = "mail.bendlas.net";
-    };
     syncthing = {
       enable = true;
       openDefaultPorts = true;

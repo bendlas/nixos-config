@@ -1,9 +1,9 @@
 {
   "url": "https://github.com/NixOS/nixos-hardware.git",
-  "rev": "1a0ccdbf4583ed0fce37eea7955e8ef90f840a9f",
-  "date": "2022-04-13T12:31:54+01:00",
-  "path": "/nix/store/xb1f6vm9fv4j37wx75hcqi6xcbp55mkx-nixos-hardware-1a0ccdb",
-  "sha256": "094fs5l51ih2gm5ssg56rcryq4dybsxwi2sjhya34v8ycnpr636d",
+  "rev": "6b4ebea9093c997c5f275c820e679108de4871ab",
+  "date": "2022-04-21T07:34:06+01:00",
+  "path": "/nix/store/pvnd4g0pq8d8r227a91s4199d6imdwch-nixos-hardware-6b4ebea",
+  "sha256": "13r0c6dni2mxsgdxjd4bf9irbwp848xvgh15qcn9ra1p29fqf5ab",
   "fetchLFS": false,
   "fetchSubmodules": false,
   "deepClone": false,
