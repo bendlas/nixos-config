@@ -24,7 +24,7 @@ in {
     environment.etc."nix/nixpkgs-config.nix".source = "${configs}/nixpkgs-config.nix";
     environment.etc."nix/overlays.nix".source = "${configs}/nixpkgs-overlays.nix";
     nix.nixPath = [
-      "nixos=/etc/pkgs/nixos"
+      "nixos=/etc/nixpkgs/nixos"
       "nixpkgs=/etc/nixpkgs"
       "nixpkgs-unstable=/etc/nixpkgs-unstable"
       "nixpkgs-stable=/etc/nixpkgs-stable"
