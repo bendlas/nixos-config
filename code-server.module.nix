@@ -89,6 +89,13 @@
     extraConfig.oidc-issuer-url = "https://git.bendlas.net";
     setXauthrequest = true;
   };
+  systemd.services.oauth2_proxy.serviceConfig = {
+    ## make sure that restart rate limiting doesn't permanently disable oauth2_proxy
+    ## introduce pause before restarting
+    RestartSec = 3;
+    ## disable restart rate limiting
+    StartLimitIntervalSec = 0;
+  };
   users.groups.oauth2_proxy = {};
   users.users.oauth2_proxy.group = "oauth2_proxy";
 }
