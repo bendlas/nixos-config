@@ -32,32 +32,16 @@
     };
   };
 
-  services.nginx = {
-    enable = true;
-    recommendedProxySettings = true;
-    virtualHosts = {
-      "${config.services.gitlab.host}" = {
-        enableACME = true;
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "http://unix:/var/run/gitlab/gitlab-workhorse.socket";
-          proxyWebsockets = true;
-        };
-      };
+  services.nginx.virtualHosts."${config.services.gitlab.host}" = {
+    enableACME = true;
+    forceSSL = true;
+    locations."/" = {
+      proxyPass = "http://unix:/var/run/gitlab/gitlab-workhorse.socket";
+      proxyWebsockets = true;
     };
   };
 
   security.acme.email = config.services.gitlab.initialRootEmail;
-  security.acme.acceptTerms = true;
-
-  networking.firewall = {
-    enable = true;
-    # allowPing = false;
-    allowedTCPPorts = [
-      # 22
-      80 443
-    ];
-  };
 
   services.postgresql.package = pkgs.postgresql_14;
 

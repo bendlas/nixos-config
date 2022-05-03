@@ -5,11 +5,9 @@
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
     ./locale.module.nix ./ssh.module.nix ./essential.module.nix
     # new base
-    ./access.module.nix ./tmpfs.module.nix
+    ./access.module.nix ./tmpfs.module.nix ./nginx.module.nix
     # gitlab / hdnews server
     ./hetox/configuration.nix
-    # code server
-    ./code-server.module.nix
     ## TODO
     # ./nextcloud.module.nix
     # ./matrix-server.module.nix

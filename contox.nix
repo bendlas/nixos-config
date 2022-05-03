@@ -6,7 +6,7 @@
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
     ./locale.module.nix ./ssh.module.nix ./essential.module.nix
     # new base
-    ./access.module.nix ./tmpfs.module.nix
+    ./access.module.nix ./tmpfs.module.nix ./nginx.module.nix
     # code server
     ./code-server.module.nix
     # contox
@@ -14,9 +14,9 @@
   ];
 
   ## web
-  services.nginx.enable = lib.mkForce false;
-  # security.acme.email = "herwig@bendlas.net"
-  # security.acme.acceptTerms = true;
+  # services.nginx.enable = lib.mkForce false;
+  security.acme.email = "herwig@bendlas.net";
+  security.acme.acceptTerms = true;
 
   ## contox main
   users.users.herwig.isNormalUser = true;
