@@ -21,7 +21,7 @@
   bendlas.machine = "nitox";
   boot = {
     initrd.availableKernelModules = [ "bcache" "ehci_pci" "ata_piix" "xhci_pci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = [ "kvm-intel" "nct6775" ];
     loader.grub = {
       enable = true;
       version = 2;
