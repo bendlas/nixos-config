@@ -13,6 +13,12 @@
     (modulesPath + "/profiles/qemu-guest.nix")
   ];
 
+  ## web
+  services.nginx.enable = lib.mkForce false;
+  # security.acme.email = "herwig@bendlas.net"
+  # security.acme.acceptTerms = true;
+
+  ## contox main
   users.users.herwig.isNormalUser = true;
 
   boot.loader.grub.enable = true;
@@ -24,8 +30,7 @@
   networking.interfaces.eth0.useDHCP = true;
   system.stateVersion = "21.11";
 
-
-  # hardware-configuration.nix
+  ## hardware-configuration.nix
   boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "virtio_pci" "virtio_scsi" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
 
