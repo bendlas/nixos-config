@@ -20,7 +20,7 @@
 
   bendlas.machine = "nitox";
   boot = {
-    initrd.availableKernelModules = [ "bcache" "ehci_pci" "ata_piix" "xhci_pci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
+    initrd.availableKernelModules = [ "bcache" "ehci_pci" "ata_piix" "xhci_pci" "usb_storage" "usbhid" "sd_mod" "sr_mod" "amdgpu" ];
     kernelModules = [ "kvm-intel" "nct6775" ];
     loader.grub = {
       enable = true;
@@ -52,8 +52,20 @@
   hardware.cpu.intel.updateMicrocode = true;
   hardware.opengl = {
     enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
     extraPackages = with pkgs; [
-      vaapiVdpau
+      # vaapiVdpau
+      ## amdgpu opencl
+      rocm-opencl-icd
+      rocm-opencl-runtime
+      ## open source vulcan
+      amdvlk
+      ## video
+      vaapiIntel
+    ];
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk
     ];
   };
   hardware.bluetooth.enable = true;
@@ -109,17 +121,18 @@
   # };
 
   services.xserver = {
-    videoDrivers = [ "nvidia" "vesa" ]; #  "nouveau" "nv" "vesa" ];
-    deviceSection = ''
-      Option "Coolbits" "12"
-    '';
+    videoDrivers = [ "amdgpu" "vesa" ]; # "nvidia" "nouveau" "nv" "vesa" ];
+    # deviceSection = ''
+    #   Option "Coolbits" "12"
+    # '';
   };
 
   services.avahi.interfaces = [ "br0" ];
 
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
-  hardware.nvidia.modesetting.enable = true;
-  services.xserver.displayManager.gdm.wayland = true;
+  # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
+  # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
+  # hardware.nvidia.modesetting.enable = true;
+  # services.xserver.displayManager.gdm.wayland = true;
 
   nix.settings.max-jobs = 2;
 }
