@@ -1,5 +1,5 @@
 
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   require = [
@@ -8,7 +8,7 @@
     ./networkd.module.nix
   ];
   system.stateVersion = "20.03";
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
   boot.cleanTmpDir = true;
   boot.kernel.sysctl = {
     "kernel.sysrq" = 1;
