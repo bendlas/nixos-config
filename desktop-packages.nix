@@ -27,7 +27,7 @@
 
     python3 python3Packages.pip pypy
 
-    boot leiningen gettext jdk maven3 clojure lumo
+    boot leiningen gettext jdk maven3 clojure
 
     pkgsi686Linux.stalin
 
