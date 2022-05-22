@@ -7,6 +7,39 @@
               ./dev/qemu.nix ./dev/forth.nix ./dev/skm.nix ./dev/android.nix
               ./dev/container.nix ./dev/ft2232h.nix
               ./ark.module.nix ./tmpfs.module.nix
+
+              { # Ethernet Server (for nitox)
+                networking.nat.externalInterface = "wlan0";
+                networking.nat.internalInterfaces = [ "enp0s31f6" ];
+                systemd.network-wait-online.ignore = [ "enp0s31f6" ];
+
+                systemd.network.networks."10-enp0s31f6" = {
+                  matchConfig.Name = "enp0s31f6";
+                  address = [ "10.0.0.1/24" ];
+                  networkConfig = {
+                    ## handled by firewall config
+                    # IPMasquerade = "yes";
+                    DHCPServer = "yes";
+                  };
+                  dhcpServerConfig = {
+                    PoolOffset= 32;
+                    PoolSize= 32;
+                  };
+                };
+
+                services.avahi.interfaces = [ "enp0s31f6" ];
+                # for dhcp
+                networking.firewall.allowedUDPPorts = [ 67 ];
+              }
+
+              # { ## USB Modem
+              #   services.networkmanager = {
+              #     enable = pkgs.lib.mkForce true;
+              #     unmanaged = [ "lo" "wlan0" "enp0s31f6" "anbox0" ];
+              #     packages = [ pkgs.networkmanager-openconnect pkgs.networkmanager-vpnc ];
+              #   };
+              # }
+
             ];
 
   bendlas.machine = "lenix";
@@ -52,44 +85,15 @@
     };
 
     interfaces = {
-      enp0s31f6.useDHCP = true;
       wlan0.useDHCP = true;
-      enp0s20f0u1.useDHCP = true; ## USB Net from phone
+      enp0s31f6.useDHCP = true; ## USB Net from phone
+      enp0s20f0u6.useDHCP = true; ## USB Net from phone
       # ve-virtox.useDHCP = true;
-    };
-
-    nat.externalInterface = "wlan0";
-    nat.internalInterfaces = [ "enp0s31f6" ];
-
-    # for dhcp
-    firewall.allowedUDPPorts = [ 67 ];
-
-    # ## for usb modem
-    # networkmanager = {
-    #   enable = pkgs.lib.mkForce true;
-    #   unmanaged = [ "lo" "wlan0" "enp0s31f6" "anbox0" ];
-    #   packages = [ pkgs.networkmanager-openconnect pkgs.networkmanager-vpnc ];
-    # };
-  };
-
-  systemd.network-wait-online.ignore = [ "enp0s31f6" ];
-
-  systemd.network.networks."10-enp0s31f6" = {
-    matchConfig.Name = "enp0s31f6";
-    address = [ "10.0.0.1/24" ];
-    networkConfig = {
-      ## handled by firewall config
-      # IPMasquerade = "yes";
-      DHCPServer = "yes";
-    };
-    dhcpServerConfig = {
-      PoolOffset= 32;
-      PoolSize= 32;
     };
   };
 
   services = {
-    avahi.interfaces = [ "wlan0" "enp0s31f6" ];
+    avahi.interfaces = [ "wlan0" ];
     teamspeak3 = {
       enable = true;
       openFirewall = true;
