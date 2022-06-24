@@ -23,7 +23,8 @@
 
     # dust
 
-    radare2 radare2-cutter nix-generate-from-cpan
+    radare2 # radare2-cutter ## not building
+    nix-generate-from-cpan
 
     python3 python3Packages.pip pypy
 
