@@ -1,7 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   require = [
     ./code-server.container.nix
+    {
+      options.bendlas.enableSSL = with lib; with types; mkOption {
+        default = true;
+        type = bool;
+      };
+    }
   ];
 
   bendlas.code-server-container."code-server-container" = {
@@ -32,7 +38,7 @@
   };
 
   services.nginx = let
-    auth = ''
+    auth = lib.optionalString config.bendlas.enableSSL ''
       auth_request /oauth2/auth;
       error_page 401 = /oauth2/start;
 
@@ -51,8 +57,8 @@
     enable = true;
     recommendedProxySettings = true;
     virtualHosts."code.bendlas.net" = {
-      enableACME = true;
-      forceSSL = true;
+      enableACME = config.bendlas.enableSSL;
+      forceSSL = config.bendlas.enableSSL;
       locations."/oauth2/" = {
         proxyPass = config.services.oauth2_proxy.nginx.proxy;
         extraConfig = ''

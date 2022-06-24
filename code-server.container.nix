@@ -35,6 +35,28 @@ with types;
           host = containerOptions.localAddress;
           extraPackages = with pkgs; [ leiningen git ];
           auth = "none";
+          package = pkgs.openvscode-server;
+          extraArguments = [
+            "--disable-telemetry"
+            "--extensions-dir"
+            "${(pkgs.buildEnv {
+              name = "code-server-extensions";
+              paths = with pkgs.vscode-utils; [
+                (extensionFromVscodeMarketplace {
+                  name = "calva";
+                  publisher = "betterthantomorrow";
+                  version = "2.0.286";
+                  sha256 = "sha256-2N+QhKO2KQNAlOSmXsfXGGX5xAvUGiv7bp+PL//kesk=";
+                })
+                (extensionFromVscodeMarketplace {
+                  name = "nix-ide";
+                  publisher = "jnoortheen";
+                  version = "0.1.20";
+                  sha256 = "sha256-Q6X41I68m0jaCXaQGEFOoAbSUrr/wFhfCH5KrduOtZo=";
+                })
+              ];
+            })}/share/vscode/extensions"
+          ];
         };
       };
     })
