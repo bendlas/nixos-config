@@ -6,7 +6,7 @@
     ./locale.module.nix ./essential.module.nix # ./mdns.module.nix ./ssh.module.nix
     ./networkd.module.nix ./nginx.module.nix
 
-    ./code-server.module.nix
+    ./code-server.module.nix ./factorio-server.module.nix
   ];
   bendlas.machine = "virtox";
   bendlas.enableSSL = false;

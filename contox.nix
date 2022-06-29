@@ -7,8 +7,9 @@
     ./locale.module.nix ./ssh.module.nix ./essential.module.nix
     # new base
     ./access.module.nix ./tmpfs.module.nix ./nginx.module.nix
-    # code server
+    # servers
     ./code-server.module.nix
+    ./factorio-server.module.nix
     # contox
     (modulesPath + "/profiles/qemu-guest.nix")
   ];
