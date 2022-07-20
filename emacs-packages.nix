@@ -76,7 +76,7 @@ let
     clj-refactor clojure-mode
     slime cider # ensime
     tern forth-mode
-    spiral parseclj
+    parseclj # spiral
     magit-gh-pulls
     flycheck toml-mode rust-mode cargo flycheck-rust
     graphviz-dot-mode
