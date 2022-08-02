@@ -106,8 +106,8 @@ in {
 
   services.avahi.interfaces = [ "eth0" "wlan0" ];
 
-  hardware.enableRedistributableFirmware = true;
-  hardware.firmware = [ pkgs.raspberrypifw ];
+  # hardware.enableRedistributableFirmware = true;
+  # hardware.firmware = [ pkgs.raspberrypifw ];
   # nixpkgs.overlays = [
   #   (self: super: {
   #     firmwareLinuxNonfree = super.firmwareLinuxNonfree.overrideAttrs (old: {
