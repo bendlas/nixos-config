@@ -42,8 +42,11 @@
 
   programs.calls.enable = true;
 
+  services.avahi.interfaces = [ "wlan0" ];
+
   environment.systemPackages = with pkgs; [
-    (kgx.override { genericBranding = true; })
+    # (kgx.override { genericBranding = true; })
+    kgx
 
     chatty megapixels firefox-mobile
 
