@@ -7,6 +7,19 @@
       enable = true;
       user = "nixos";
       group = "users";
+      # package = pkgs.phosh.overrideDerivation (d: rec {
+      #   name = "${d.pname}-${version}";
+      #   version = assert d.version == "0.17.0"; "0.20.0_beta3";
+      #   src = pkgs.fetchFromGitLab {
+      #     domain = "gitlab.gnome.org";
+      #     group = "World";
+      #     owner = "Phosh";
+      #     repo = d.pname;
+      #     rev = "v${version}";
+      #     fetchSubmodules = true; # including gvc and libcall-ui which are designated as subprojects
+      #     sha256 = "sha256-876/fCwsDJUsPZNcX4ZA4y3xLhttCdXzo8ZkxGKH/BE=";
+      #   };
+      # });
     };
   };
 

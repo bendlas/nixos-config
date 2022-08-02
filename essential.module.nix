@@ -18,7 +18,7 @@
     sysfsutils pciutils usbutils lshw lm_sensors
     psmisc htop btop lsof pv powertop
     # config.boot.kernelPackages.perf ## need to update mobile-nixos kernel for this
-    telnet inetutils netcat nmap traceroute socat rsync wget curl
+    inetutils netcat nmap traceroute socat rsync wget curl
     hdparm pmutils rlwrap which gnupg sqlite
     ed nano inotify-tools direnv pass libressl
 
