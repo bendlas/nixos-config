@@ -104,6 +104,8 @@ in {
   powerManagement.cpuFreqGovernor = "ondemand";
   services.cron.enable = false;
 
+  services.avahi.interfaces = [ "eth0" "wlan0" ];
+
   hardware.enableRedistributableFirmware = true;
   hardware.firmware = [ pkgs.raspberrypifw ];
   # nixpkgs.overlays = [
