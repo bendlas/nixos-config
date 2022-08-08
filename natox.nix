@@ -179,23 +179,24 @@
   system.stateVersion = "21.11"; # Did you read the comment?
 
   ## Hardware Configuration
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "uas" "sd_mod" ];
+  # temp sensor
+  boot.initrd.kernelModules = [ "nct6775" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/7d91e41d-5551-4588-bd71-6bc731beee53";
-    fsType = "xfs";
+    device = "/dev/disk/by-uuid/c9ebd73b-6a5e-4194-91da-92916e481c77";
+    fsType = "ext4";
   };
 
   fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-uuid/6A08-8778";
+    device = "/dev/disk/by-uuid/F22D-E8BA";
     fsType = "vfat";
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/6215e0be-9063-4c9e-b049-ce655128356c"; }
+      { device = "/dev/disk/by-uuid/fe7dcd85-96c3-4a5f-a5b0-eb5fff0f131e"; }
   ];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
