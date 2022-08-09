@@ -21,6 +21,12 @@
 
   boot.kernelParams = [ "amd_iommu=on" ];
 
+  ## resolve wifi firmware crashes
+  boot.extraModprobeConfig = ''
+    options iwlwifi 11n_disable=1 swcrypto=0 bt_coex_active=0 power_save=0 uapsd_disable=1
+    options iwlmvm power_scheme=1
+  '';
+
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
@@ -180,9 +186,8 @@
 
   ## Hardware Configuration
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "uas" "sd_mod" ];
-  # temp sensor
-  boot.initrd.kernelModules = [ "nct6775" ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-amd" "nct6775" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
