@@ -4,7 +4,16 @@
 , fetchgit ? pkgs.fetchgit
 , runCommand ? pkgs.runCommand
 , machine ? "test-config"
-, configs ? pkgs.nix-gitignore.gitignoreSource [ ".git" ] ./.
+, configs ? (
+  import (pkgs.fetchFromGitHub {
+    owner = "hercules-ci";
+    repo = "gitignore.nix";
+    # put the latest commit sha of gitignore Nix library here:
+    rev = "f2ea0f8ff1bce948ccb6b893d15d5ea3efaf1364";
+    # use what nix suggests in the mismatch message here:
+    sha256 = "sha256-wk38v/mbLsOo6+IDmmH1H0ADR87iq9QTTD1BP9X2Ags=";
+  }) { inherit (pkgs) lib; }
+).gitignoreSource ./.
 , pkgs-path ? null
 , pkgs-stable-path ? null
 , mnos-path ? null
