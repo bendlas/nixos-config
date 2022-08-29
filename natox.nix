@@ -9,7 +9,7 @@
     # new base
     ./access.module.nix ./tmpfs.module.nix ./nm-iwd.module.nix
     # -
-    ./epson-stylus-photo-r3000.module.nix
+    # ./epson-stylus-photo-r3000.module.nix
     ./samba.module.nix
     ./ark.module.nix
   ];
@@ -22,8 +22,9 @@
   boot.kernelParams = [ "amd_iommu=on" ];
 
   ## resolve wifi firmware crashes
+  # options iwlwifi 11n_disable=1 swcrypto=0 bt_coex_active=0 power_save=0 uapsd_disable=1
   boot.extraModprobeConfig = ''
-    options iwlwifi 11n_disable=1 swcrypto=0 bt_coex_active=0 power_save=0 uapsd_disable=1
+    options iwlwifi swcrypto=0 power_save=0 uapsd_disable=1
     options iwlmvm power_scheme=1
   '';
 
@@ -101,9 +102,9 @@
       layout = "de";
       xkbOptions = "eurosign:e";
     };
-    printing.enable = true;
-    # FIXME package proprietary epson-stylus-photo ...
-    printing.drivers = [ pkgs.epson-escpr pkgs.epson-escpr2 ];
+    # printing.enable = true;
+    ## FIXME package proprietary epson-stylus-photo ...
+    # printing.drivers = [ pkgs.epson-escpr pkgs.epson-escpr2 ];
     locate.enable = false;
     fstrim.enable = true;
     flatpak.enable = true;
