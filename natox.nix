@@ -125,6 +125,7 @@
     virt-manager qemu libguestfs p7zip
     python3 pciutils xorg.xkill spotify
     teamspeak_client
+    webtorrent_desktop vlc
   ];
 
   virtualisation.libvirtd = {
