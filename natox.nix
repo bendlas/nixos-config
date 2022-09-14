@@ -19,14 +19,15 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "amd_iommu=on" ];
 
   ## resolve wifi firmware crashes
   # options iwlwifi 11n_disable=1 swcrypto=0 bt_coex_active=0 power_save=0 uapsd_disable=1
-  boot.extraModprobeConfig = ''
-    options iwlwifi swcrypto=0 power_save=0 uapsd_disable=1
-    options iwlmvm power_scheme=1
-  '';
+  # boot.extraModprobeConfig = ''
+  #   options iwlwifi swcrypto=0 power_save=0 uapsd_disable=1
+  #   options iwlmvm power_scheme=1
+  # '';
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
