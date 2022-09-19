@@ -8,29 +8,29 @@
               ./dev/container.nix ./dev/ft2232h.nix
               ./ark.module.nix ./tmpfs.module.nix
 
-              { # Ethernet Server (for nitox)
-                networking.nat.externalInterface = "wlan0";
-                networking.nat.internalInterfaces = [ "enp0s31f6" ];
-                systemd.network-wait-online.ignore = [ "enp0s31f6" ];
+              # { # Ethernet Server (for nitox)
+              #   networking.nat.externalInterface = "wlan0";
+              #   networking.nat.internalInterfaces = [ "enp0s31f6" ];
+              #   systemd.network-wait-online.ignore = [ "enp0s31f6" ];
 
-                systemd.network.networks."10-enp0s31f6" = {
-                  matchConfig.Name = "enp0s31f6";
-                  address = [ "10.0.0.1/24" ];
-                  networkConfig = {
-                    ## handled by firewall config
-                    # IPMasquerade = "yes";
-                    DHCPServer = "yes";
-                  };
-                  dhcpServerConfig = {
-                    PoolOffset= 32;
-                    PoolSize= 32;
-                  };
-                };
+              #   systemd.network.networks."10-enp0s31f6" = {
+              #     matchConfig.Name = "enp0s31f6";
+              #     address = [ "10.0.0.1/24" ];
+              #     networkConfig = {
+              #       ## handled by firewall config
+              #       # IPMasquerade = "yes";
+              #       DHCPServer = "yes";
+              #     };
+              #     dhcpServerConfig = {
+              #       PoolOffset= 32;
+              #       PoolSize= 32;
+              #     };
+              #   };
 
-                services.avahi.interfaces = [ "enp0s31f6" ];
-                # for dhcp
-                networking.firewall.allowedUDPPorts = [ 67 ];
-              }
+              #   services.avahi.interfaces = [ "enp0s31f6" ];
+              #   # for dhcp
+              #   networking.firewall.allowedUDPPorts = [ 67 ];
+              # }
 
               # { ## USB Modem
               #   services.networkmanager = {
@@ -86,14 +86,14 @@
 
     interfaces = {
       wlan0.useDHCP = true;
-      enp0s31f6.useDHCP = true; ## USB Net from phone
+      enp0s31f6.useDHCP = true;
       enp0s20f0u6.useDHCP = true; ## USB Net from phone
       # ve-virtox.useDHCP = true;
     };
   };
 
   services = {
-    avahi.interfaces = [ "wlan0" ];
+    avahi.interfaces = [ "wlan0" "enp0s31f6" ];
     teamspeak3 = {
       enable = true;
       openFirewall = true;
