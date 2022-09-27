@@ -14,7 +14,7 @@
   programs.gnupg.agent.enable = true;
 
   environment.systemPackages = with pkgs; [
-    tree file screen utillinux ent jq
+    tree file screen util-linux ent jq
     sysfsutils pciutils usbutils lshw lm_sensors
     psmisc htop btop lsof pv powertop
     config.boot.kernelPackages.perf
