@@ -7,6 +7,7 @@
        then "challengeResponseAuthentication"
        else "kbdInteractiveAuthentication"}" = false;
     startWhenNeeded = true;
+    forwardX11 = true;
   };
   services.fail2ban = {
     enable = true;
