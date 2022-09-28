@@ -5,7 +5,7 @@
   services.xserver.desktopManager = {
     phosh = {
       enable = true;
-      user = "nixos";
+      user = "herwig";
       group = "users";
       # package = pkgs.phosh.overrideDerivation (d: rec {
       #   name = "${d.pname}-${version}";

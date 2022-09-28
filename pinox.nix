@@ -1,7 +1,7 @@
 { lib, pkgs, config, ... }:
 {
   bendlas.machine = "pinox";
-  bendlas.wheel.logins = [ "nixos" ];
+  bendlas.wheel.logins = [ "herwig" ];
   imports= [
     # shared with ./base.nix
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
@@ -17,11 +17,24 @@
     # ./pinox/plasma-mobile.nix
   ];
 
-  mobile-nixos.install-bootloader.enable = true;
+  mobile-nixos.install-bootloader = {
+    enable = true;
+    target = "/dev/disk/by-label/NIXOS_BOOT";
+  };
 
-  users.users.nixos = {
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/95ae60eb-2058-431b-b566-51542172d1b0";
+    fsType = "ext4";
+  };
+
+  swapDevices =[{
+    device = "/dev/disk/by-uuid/f3cb75f2-6045-4a40-b81b-075f0daf4328";
+  }];
+
+
+  users.users.herwig = {
     isNormalUser = true;
-    home = "/home/nixos";
+    home = "/home/herwig";
     createHome = true;
     extraGroups = [
       "networkmanager"
@@ -127,6 +140,6 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "21.05"; # Did you read the comment?
+  system.stateVersion = "22.11";
 
 }
