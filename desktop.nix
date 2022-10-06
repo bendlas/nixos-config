@@ -7,13 +7,13 @@
 
     pciutils ntfs3g st gparted
 
-    paprefs pavucontrol alsaUtils ffmpeg imagemagick
+    paprefs pavucontrol alsa-utils ffmpeg imagemagick
 
     glxinfo xorg.xkill xorg.xbacklight xorg.xrandr xorg.xev
     xorg.xhost xorg.xkbcomp aspell aspellDicts.en aspellDicts.de
     dunst libnotify xorg.xdpyinfo gcolor3 pinentry
 
-    geoip unrar bsdiff gitAndTools.hub links2 jack2Full beep
+    geoip unrar bsdiff gitAndTools.hub links2 jack2 beep
 
     dbus dfeet # nixui
 

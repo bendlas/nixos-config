@@ -29,7 +29,7 @@ in
     # emacs.emacs.debug
     docker-compose
     # nixops
-    virtmanager
+    virt-manager
     nodePackages.tern
     # ml-workbench
     clojure-lsp ccls

@@ -38,13 +38,13 @@
 
     ## Video
 
-    inkscape blender antimony gimp openscad gnome3.cheese vlc
+    inkscape blender antimony gimp openscad gnome.cheese vlc
 
     ## Audio
 
     # clementine
 
-    gnome3.gnome-sound-recorder audacity qjackctl
+    gnome.gnome-sound-recorder audacity qjackctl
 
     ## Documents
 
