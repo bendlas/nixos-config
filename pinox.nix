@@ -19,7 +19,7 @@
 
   mobile-nixos.install-bootloader = {
     enable = true;
-    target = "/dev/disk/by-label/NIXOS_BOOT";
+    target = "/dev/mmcblk2p3";
   };
 
   fileSystems."/" = {
