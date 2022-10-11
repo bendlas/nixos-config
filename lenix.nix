@@ -7,6 +7,7 @@
               ./dev/qemu.nix ./dev/forth.nix ./dev/skm.nix ./dev/android.nix
               ./dev/container.nix ./dev/ft2232h.nix
               ./ark.module.nix ./tmpfs.module.nix
+              ./waydroid.module.nix
 
               # { # Ethernet Server (for nitox)
               #   networking.nat.externalInterface = "wlan0";
