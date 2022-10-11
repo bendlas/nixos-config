@@ -22,7 +22,7 @@ in
     };
     nat = {
       enable = true;
-      internalInterfaces = [ "ve-+" "anbox0" ];
+      internalInterfaces = [ "ve-+" ];
     };
   };
   environment.systemPackages = with pkgs; [
@@ -40,10 +40,7 @@ in
     enableOnBoot = false;
 
   };
-  virtualisation.anbox = {
-    enable = false;
-  };
-  systemd.network-wait-online.ignore = [ "anbox0" ];
+
   # systemd.services.systemd-networkd-wait-online.serviceConfig.ExecStart = [
   #   "" # clear old command
   #   ## "${config.systemd.package}/lib/systemd/systemd-networkd-wait-online --ignore anbox0"
