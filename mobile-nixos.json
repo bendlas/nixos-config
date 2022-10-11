@@ -1,9 +1,9 @@
 {
   "url": "https://github.com/NixOS/mobile-nixos.git",
-  "rev": "ca872f1a617674c4045e880aab8a45037e73700b",
-  "date": "2022-10-03T22:56:26-04:00",
-  "path": "/nix/store/lxd7dc38dfh85qn989axzmmgnixb0lls-mobile-nixos-ca872f1",
-  "sha256": "0w8yynr01dliqnlv8b24sfk32l7cdba1yz6494y1pagp6ycn2hdp",
+  "rev": "0bf9b6da8c4d0ee31c3e988c99893de4da7df74a",
+  "date": "2022-10-09T20:51:47-04:00",
+  "path": "/nix/store/vf9smg5gnbs4apcmd7x1j9x8hgkvbnpn-mobile-nixos-0bf9b6d",
+  "sha256": "124vxcc0cjd25xr6r0fynapz4q9v9n1vliw8fip0c17frpzy6vh2",
   "fetchLFS": false,
   "fetchSubmodules": false,
   "deepClone": false,
