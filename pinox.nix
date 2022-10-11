@@ -1,13 +1,15 @@
 { lib, pkgs, config, ... }:
 {
   bendlas.machine = "pinox";
-  bendlas.wheel.logins = [ "nixos" ];
+  bendlas.wheel.logins = [ "herwig" ];
   imports= [
     # shared with ./base.nix
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
     ./locale.module.nix ./ssh.module.nix ./essential.module.nix ./mdns.module.nix
     # new base
     ./access.module.nix ./tmpfs.module.nix ./docu-disable.module.nix ./nm-iwd.module.nix
+    # shared with ./desktop.nix
+    ./sound.module.nix
     # mobile-nixos
     (import <mobile-nixos/lib/configuration.nix> { device = "pine64-pinephone"; })
     ./mobile-nixos-bootloader.nix
@@ -15,11 +17,24 @@
     # ./pinox/plasma-mobile.nix
   ];
 
-  mobile-nixos.install-bootloader.enable = true;
+  mobile-nixos.install-bootloader = {
+    enable = true;
+    target = "/dev/mmcblk2p3";
+  };
 
-  users.users.nixos = {
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/95ae60eb-2058-431b-b566-51542172d1b0";
+    fsType = "ext4";
+  };
+
+  swapDevices =[{
+    device = "/dev/disk/by-uuid/f3cb75f2-6045-4a40-b81b-075f0daf4328";
+  }];
+
+
+  users.users.herwig = {
     isNormalUser = true;
-    home = "/home/nixos";
+    home = "/home/herwig";
     createHome = true;
     extraGroups = [
       "networkmanager"
@@ -49,6 +64,8 @@
     kgx
 
     chatty megapixels firefox-mobile
+
+    tdesktop # signal-desktop ## not yet available on aarch64
 
     # (chromium.override {
     #   enableWideVine = false;
@@ -114,8 +131,8 @@
 
   nix = {
     gc = {
-      automatic = true;
-      options = "--delete-older-than 8d";
+      # automatic = true;
+      # options = "--delete-older-than 8d";
     };
   };
 
@@ -123,6 +140,6 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "21.05"; # Did you read the comment?
+  system.stateVersion = "22.11";
 
 }
