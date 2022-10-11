@@ -17,7 +17,7 @@
     tree file screen util-linux ent jq
     sysfsutils pciutils usbutils lshw lm_sensors
     psmisc htop btop lsof pv powertop
-    # config.boot.kernelPackages.perf ## need to update mobile-nixos kernel for this
+    config.boot.kernelPackages.perf
     inetutils netcat nmap traceroute socat rsync wget curl
     hdparm pmutils rlwrap which gnupg sqlite
     ed nano inotify-tools direnv pass libressl
