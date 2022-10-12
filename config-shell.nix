@@ -9,9 +9,9 @@
     owner = "hercules-ci";
     repo = "gitignore.nix";
     # put the latest commit sha of gitignore Nix library here:
-    rev = "f2ea0f8ff1bce948ccb6b893d15d5ea3efaf1364";
+    rev = "a20de23b925fd8264fd7fad6454652e142fd7f73";
     # use what nix suggests in the mismatch message here:
-    sha256 = "sha256-wk38v/mbLsOo6+IDmmH1H0ADR87iq9QTTD1BP9X2Ags=";
+    sha256 = "sha256-8DFJjXG8zqoONA1vXtgeKXy68KdJL5UaXR8NtVMUbx8=";
   }) { inherit (pkgs) lib; }
 ).gitignoreSource ./.
 , pkgs-path ? null
