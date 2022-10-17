@@ -62,6 +62,7 @@ let
     ibuffer-tramp epkgs."ido-completing-read+" idris-mode crm-custom
     javap-mode ninja-mode commenter js2-mode xref-js2 geiser
     js2-highlight-vars js2-refactor js2-closure json-mode json-reformat
+    typescript-mode
     jvm-mode multiple-cursors nixos-options org org-present
     paredit nim-mode mmm-mode markdown-mode macrostep
     levenshtein php-mode rainbow-delimiters skewer-mode skewer-less
