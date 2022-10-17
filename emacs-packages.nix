@@ -7,6 +7,15 @@ let
 
   baseEmacs = emacsNativeComp;
 
+  # baseEmacs = emacsGit.overrideAttrs (_: {
+  #   src = pkgs.fetchFromGitHub {
+  #     owner = "commercial-emacs";
+  #     repo = "commercial-emacs";
+  #     rev = "54a6e8174e22c649c3c3896f15b2a2e05c13c5cc";
+  #     sha256 = "sha256-fureWFTpizuzQ7YfsCJ5fh+YfVDR3goTMd0zKsd0bhk=";
+  #   };
+  # });
+
   emacsWithPackagesFor = emacsPackages: pfn:
     emacsPackages.emacsWithPackages
       (compOverrides [
