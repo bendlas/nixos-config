@@ -1,0 +1,22 @@
+From 2ea666e083a65e674333239962b7b3a2c822fa77 Mon Sep 17 00:00:00 2001
+From: Herwig Hochleitner <herwig@bendlas.net>
+Date: Wed, 12 Oct 2022 16:42:13 +0200
+Subject: [PATCH] waydroid-net: set default gateway through DHCP
+
+fix https://github.com/waydroid/waydroid/issues/196
+---
+ data/scripts/waydroid-net.sh | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/data/scripts/waydroid-net.sh b/data/scripts/waydroid-net.sh
+index 995177c..bfcde16 100755
+--- a/data/scripts/waydroid-net.sh
++++ b/data/scripts/waydroid-net.sh
+@@ -197,5 +197,6 @@ start() {
+     dnsmasq $LXC_DHCP_CONFILE_ARG $LXC_DOMAIN_ARG $LXC_DHCP_PING_ARG -u ${DNSMASQ_USER} \
+             --strict-order --bind-interfaces --pid-file="${varrun}"/dnsmasq.pid \
+             --listen-address ${LXC_ADDR} --dhcp-range ${LXC_DHCP_RANGE} \
++            --dhcp-option router,${LXC_ADDR} \
+             --dhcp-lease-max=${LXC_DHCP_MAX} --dhcp-no-override \
+             --except-interface=lo --interface=${LXC_BRIDGE} \
+             --dhcp-leasefile="${varlib}"/misc/dnsmasq.${LXC_BRIDGE}.leases \
