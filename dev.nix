@@ -27,7 +27,6 @@ in
   };
   environment.systemPackages = with pkgs; [
     # emacs.emacs.debug
-    docker-compose
     # nixops
     virt-manager
     nodePackages.tern
@@ -35,11 +34,6 @@ in
     clojure-lsp ccls
     elixir ruby
   ];
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = false;
-
-  };
 
   # systemd.services.systemd-networkd-wait-online.serviceConfig.ExecStart = [
   #   "" # clear old command
@@ -76,7 +70,6 @@ in
       shell = "/run/current-system/sw/bin/zsh";
       isNormalUser = true;
     };
-    "herwig".extraGroups = [ "docker" ];
   };
 
   # containers.vitox = {
