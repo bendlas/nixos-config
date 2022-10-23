@@ -53,15 +53,15 @@ in {
     androidsdk_9_0 = setPrio 6 pkgs.androidsdk_9_0; ## defer to e2fsprogs
     unrar = setPrio 4 pkgs.unrar; ## open-source unrar should override proprietary rar
 
-    waydroid = pkgs.waydroid.overrideDerivation (args: {
-      patches = args.patches or [] ++ [
-        ./waydroid.patch
-        # (pkgs.fetchpatch {
-        #   url = "https://github.com/bendlas/waydroid/commit/2ea666e083a65e674333239962b7b3a2c822fa77.patch";
-        #   sha256 = "sha256-jKO3W81gllgD/QQY6me/5nAQVZtgQlDTisfWjmr8jhw=";
-        # })
-      ];
-    });
+    # waydroid = pkgs.waydroid.overrideDerivation (args: {
+    #   patches = args.patches or [] ++ [
+    #     ./waydroid.patch
+    #     # (pkgs.fetchpatch {
+    #     #   url = "https://github.com/bendlas/waydroid/commit/2ea666e083a65e674333239962b7b3a2c822fa77.patch";
+    #     #   sha256 = "sha256-jKO3W81gllgD/QQY6me/5nAQVZtgQlDTisfWjmr8jhw=";
+    #     # })
+    #   ];
+    # });
 
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
     git-new-workdir = pkgs.runCommand "git-new-workdir" {} ''
