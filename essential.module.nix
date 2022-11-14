@@ -14,9 +14,9 @@
   programs.gnupg.agent.enable = true;
 
   environment.systemPackages = with pkgs; [
-    tree file screen util-linux ent jq
+    tree file screen util-linux ent jq jet difftastic
     sysfsutils pciutils usbutils lshw lm_sensors
-    psmisc htop btop lsof pv powertop
+    psmisc htop btop lsof pv powertop bmon
     config.boot.kernelPackages.perf
     inetutils netcat nmap traceroute socat rsync wget curl
     hdparm pmutils rlwrap which gnupg sqlite
