@@ -8,18 +8,18 @@
   '';
 
   services.logrotate.enable = true;
-  services.logrotate.extraConfig = ''
-    /var/log/*.log {
-      weekly
-      size 1M
-      dateext
-      rotate 2
-      compress
-      delaycompress
-      copytruncate
-      notifempty
-      missingok
-    }
-  '';
+  services.logrotate.settings = {
+    "/var/log/*.log" = {
+      weekly = true;
+      size = "1M";
+      dateext = true;
+      rotate = 2;
+      compress = true;
+      delaycompress = true;
+      copytruncate = true;
+      notifempty = true;
+      missingok = true;
+    };
+  };
 
 }
