@@ -67,7 +67,7 @@ let
     paredit nim-mode mmm-mode markdown-mode macrostep
     levenshtein php-mode rainbow-delimiters skewer-mode skewer-less
     skewer-reload-stylesheets smex undo-tree wanderlust elixir-mode alchemist # erlang-mode
-    yasnippet with-editor string-edit keyfreq scala-mode
+    yasnippet with-editor string-edit-at-point keyfreq scala-mode
     uuidgen systemtap-mode gn-mode coffee-mode cask-mode elf-mode lua-mode
     elfeed elfeed-goodies elfeed-web elfeed-org volume dockerfile-mode yaml-mode
     impatient-mode livescript-mode cmake-mode adoc-mode
