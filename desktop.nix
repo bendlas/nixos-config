@@ -5,17 +5,17 @@
 
     polkit_gnome ## implements the pkexec dialog
 
-    pciutils ntfs3g st gparted
+    pciutils ntfs3g
 
-    paprefs pavucontrol alsa-utils ffmpeg imagemagick
+    alsa-utils ffmpeg imagemagick
 
-    glxinfo xorg.xkill xorg.xbacklight xorg.xrandr xorg.xev
+    glxinfo
     xorg.xhost xorg.xkbcomp aspell aspellDicts.en aspellDicts.de
-    dunst libnotify xorg.xdpyinfo gcolor3 pinentry
+    libnotify xorg.xdpyinfo pinentry
 
     geoip unrar bsdiff gitAndTools.hub links2 jack2 beep
 
-    dbus dfeet # nixui
+    dbus # nixui
 
     libva-utils
 
@@ -54,8 +54,8 @@
   }];
 
   require = [
-    ./base.nix ./io-scheduler.nix ./desktop-packages.nix
-    ./sound.module.nix
+    ./base.nix ./io-scheduler.nix
+    ./sound.module.nix ./desktop.module.nix
   ];
   console.useXkbConfig = true;
 

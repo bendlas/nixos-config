@@ -2,9 +2,14 @@
 
 {
   environment.systemPackages = with pkgs; [
+
+    ## Admin
+
+    st gparted dfeet
+
     ## Chats
 
-    tdesktop signal-desktop
+    tdesktop signal-desktop mumble
 
     ## Games
 
@@ -15,15 +20,15 @@
 
     ## Dev tools
 
+    xorg.xkill xorg.xbacklight xorg.xrandr xorg.xev
+
     # nixops ## not working
     visualvm rustc cargo nim ant go dosbox
 
     nodejs debootstrap mercurial subversion cmake guile valgrind sbcl
     dos2unix nodePackages.grunt-cli mono luajit luarocks racket
 
-    # dust
-
-    radare2 # radare2-cutter ## not building
+    radare2 radare2-cutter
     nix-generate-from-cpan
 
     python3 python3Packages.pip pypy
@@ -38,9 +43,11 @@
 
     ## Video
 
-    inkscape blender antimony gimp openscad gnome.cheese vlc
+    inkscape blender antimony gimp openscad gnome.cheese vlc gcolor3
 
     ## Audio
+
+    paprefs pavucontrol
 
     # clementine
 
