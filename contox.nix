@@ -16,8 +16,8 @@
 
   ## web
   # services.nginx.enable = lib.mkForce false;
-  security.acme.email = "herwig@bendlas.net";
-  security.acme.acceptTerms = true;
+  # security.acme.defaults.email = "herwig@bendlas.net";
+  # security.acme.acceptTerms = true;
 
   ## contox main
   users.users.herwig.isNormalUser = true;
@@ -45,4 +45,5 @@
   ];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
 }

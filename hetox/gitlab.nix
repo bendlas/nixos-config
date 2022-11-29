@@ -41,7 +41,7 @@
     };
   };
 
-  security.acme.email = config.services.gitlab.initialRootEmail;
+  security.acme.defaults.email = config.services.gitlab.initialRootEmail;
 
   services.postgresql.package = pkgs.postgresql_14;
 
