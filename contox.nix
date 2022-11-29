@@ -10,6 +10,7 @@
     # servers
     ./code-server.module.nix
     ./factorio-server.module.nix
+    ./valheim-server.module.nix
     # contox
     (modulesPath + "/profiles/qemu-guest.nix")
   ];
