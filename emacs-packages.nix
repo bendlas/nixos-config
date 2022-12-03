@@ -1,11 +1,11 @@
-{ emacsNativeComp, emacsPackagesFor
+{ emacsUnstable, emacsPackagesFor
 , enableDebugInfo, fetchFromGitHub
 , pkgs
 }:
 
 let
 
-  baseEmacs = emacsNativeComp;
+  baseEmacs = emacsUnstable;
 
   # baseEmacs = emacsGit.overrideAttrs (_: {
   #   src = pkgs.fetchFromGitHub {
