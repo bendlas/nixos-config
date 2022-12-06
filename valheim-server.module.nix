@@ -4,7 +4,8 @@ let
   worldName = "Manulinarium";
   public = false;
   port = 2456;
-  appUpdateArgs = "-beta public-test -betapassword yesimadebackups";
+  # appUpdateArgs = "-beta public-test -betapassword yesimadebackups";
+  appUpdateArgs = "";
 in {
   users.users.valheim = {
     # Valheim puts save data in the home directory.
