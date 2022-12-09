@@ -43,7 +43,7 @@
 
     ## Video
 
-    inkscape blender antimony gimp openscad gnome.cheese vlc gcolor3
+    inkscape blender antimony gimp gnome.cheese vlc gcolor3 # openscad
 
     ## Audio
 

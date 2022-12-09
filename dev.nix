@@ -32,7 +32,8 @@ in
     nodePackages.tern
     # ml-workbench
     clojure-lsp ccls
-    elixir ruby
+    # elixir
+    # ruby
   ];
 
   # systemd.services.systemd-networkd-wait-online.serviceConfig.ExecStart = [
