@@ -99,7 +99,7 @@ in {
         scheme-medium koma-script mathpazo gtl
         booktabs pdfpages hyperref g-brief xstring numprint unravel
         collection-latex collection-latexextra collection-latexrecommended
-        collection-fontsrecommended;
+        collection-fontsrecommended komacv biblatex-ieee fontawesome;
     };
     ml-workbench = pkgs.mkShell {
       name = "ml-workbench";
