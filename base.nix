@@ -68,7 +68,7 @@
     };
     dnsmasq = {
       enable = false;
-      servers = [ "77.109.148.136" "2001:1620:2078:136::" "8.8.8.8" ];
+      settings.servers = [ "77.109.148.136" "2001:1620:2078:136::" "8.8.8.8" ];
     };
     resolved = {
       # dnssec = "allow-downgrade";
