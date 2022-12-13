@@ -12,6 +12,8 @@
     # ./epson-stylus-photo-r3000.module.nix
     ./samba.module.nix
     ./ark.module.nix
+    #
+    ./vfio.module.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -20,7 +22,6 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = [ "amd_iommu=on" ];
 
   ## resolve wifi firmware crashes
   # options iwlwifi 11n_disable=1 swcrypto=0 bt_coex_active=0 power_save=0 uapsd_disable=1
@@ -85,6 +86,8 @@
     enableRedistributableFirmware = true;
   };
 
+
+
   services = {
     avahi.interfaces = [ "wlan0" "enp9s0" ];
     openssh.forwardX11 = true;
@@ -134,6 +137,16 @@
     qemu.swtpm.enable = true;
     # qemu.ovmf.enable = true;
     # qemu.ovmf.package = pkgs.OVMFFull;
+  };
+
+  virtualisation.vfio = {
+    enable = false; ## FIXME doesn't boot
+    IOMMUType = "amd";
+    devices = [ "10de:13c2" "10de:0fbb" ];
+    blacklistNvidia = false;
+    disableEFIfb = true;
+    ignoreMSRs = true;
+    applyACSpatch = false;
   };
 
   # environment.etc."polkit-1/localauthority.conf.d/90-silence-steam.pkla".text = ''
