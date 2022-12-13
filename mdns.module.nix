@@ -25,12 +25,23 @@
     wideArea = false;
     # extraServiceFiles.ssh = "${pkgs.avahi}/etc/avahi/services/ssh.service";
     interfaces = lib.mkDefault (throw "Please set `services.avahi.interfaces` explicitly, in order to avoid configuring ve-* interfaces");
+    reflector = true; ## reflect incoming queries to all interfaces
+    extraConfig = ''
+
+      [server]
+      disallow-other-stacks=yes
+    '';
   };
 
   ## avoid clashing with resolved
   ## https://www.reddit.com/r/archlinux/comments/djg602/are_avahi_and_systemdresolved_really_incompatible/f47jhs6/
   services.resolved.extraConfig = ''
     MulticastDNS=resolve
+  '';
+
+  # disable chromium-builtin mdns stack
+  environment.etc."chromium/policies/managed/disable_mediarouter.json".text = ''
+    { "EnableMediaRouter": false }
   '';
 
 }
