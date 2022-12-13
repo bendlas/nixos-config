@@ -19,6 +19,7 @@
 
   services.avahi = {
     enable = true;
+    openFirewall = true;
     publish.enable = true;
     publish.addresses = true;
     nssmdns = true;
