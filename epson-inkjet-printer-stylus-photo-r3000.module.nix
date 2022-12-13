@@ -11,7 +11,7 @@
   ];
 
   services.printing.enable = true;
-  services.printing.logLevel = "debug";
+  # services.printing.logLevel = "debug";
   services.printing.drivers = [ pkgs.epson-inkjet-printer-stylus-photo-r3000 ];
 
 }
