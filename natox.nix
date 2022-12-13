@@ -9,7 +9,7 @@
     # new base
     ./access.module.nix ./tmpfs.module.nix ./nm-iwd.module.nix
     # -
-    # ./epson-stylus-photo-r3000.module.nix
+    ./epson-inkjet-printer-stylus-photo-r3000.module.nix
     ./samba.module.nix
     ./ark.module.nix
     #
