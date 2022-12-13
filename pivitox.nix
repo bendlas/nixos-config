@@ -3,7 +3,8 @@
   require = [
     # shared with ./base.nix
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
-    ./locale.module.nix ./essential.module.nix # ./mdns.module.nix ./ssh.module.nix
+    ./locale.module.nix ./essential.module.nix ./convenient.module.nix
+    # ./mdns.module.nix ./ssh.module.nix
     ./networkd.module.nix
 
     ./access.module.nix ./docu-disable.module.nix

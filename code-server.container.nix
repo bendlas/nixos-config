@@ -25,7 +25,8 @@ with types;
         require = [
           (containerOptions.config or {})
           ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
-          ./locale.module.nix ./essential.module.nix # ./mdns.module.nix ./ssh.module.nix
+          ./locale.module.nix ./essential.module.nix ./convenient.module.nix
+          # ./mdns.module.nix ./ssh.module.nix
           # ./networkd.module.nix
         ];
         networking.firewall.allowedTCPPorts = [ 4444 ];

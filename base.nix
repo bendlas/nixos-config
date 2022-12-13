@@ -3,8 +3,8 @@
 {
   require = [
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
-    ./locale.module.nix ./ssh.module.nix ./essential.module.nix ./mdns.module.nix
-    ./networkd.module.nix
+    ./locale.module.nix ./ssh.module.nix ./essential.module.nix ./convenient.module.nix
+    ./mdns.module.nix ./networkd.module.nix
   ];
   system.stateVersion = "20.03";
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
