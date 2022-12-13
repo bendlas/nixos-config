@@ -1,7 +1,7 @@
 #!/usr/bin/env nix-shell
 #! nix-shell -i bash -p git nix-prefetch-git jq
 
-release=22.05
+release=22.11
 
 if [ -z "$1" ]
 then branch="dev-master"
