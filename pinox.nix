@@ -62,6 +62,8 @@
 
   programs.calls.enable = true;
 
+  programs.xwayland.enable = true;
+
   services.avahi.interfaces = [ "wlan0" ];
 
   environment.systemPackages = with pkgs; [
