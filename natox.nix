@@ -12,6 +12,7 @@
     ./epson-inkjet-printer-stylus-photo-r3000.module.nix
     ./samba.module.nix
     ./ark.module.nix
+    ./steam.module.nix
     #
     ./vfio.module.nix
   ];
@@ -106,19 +107,9 @@
       layout = "de";
       xkbOptions = "eurosign:e";
     };
-    # printing.enable = true;
-    ## FIXME package proprietary epson-stylus-photo ...
-    # printing.drivers = [ pkgs.epson-escpr pkgs.epson-escpr2 ];
     locate.enable = false;
     fstrim.enable = true;
     flatpak.enable = true;
-  };
-
-  programs = {
-    ## get this via flatpak
-    # steam.enable = true;
-    ## only needed this for plasma5 combiened with gnome
-    # ssh.askPassword = lib.mkForce "${pkgs.x11_ssh_askpass}/libexec/x11-ssh-askpass";
   };
 
   # List packages installed in system profile. To search, run:
@@ -149,15 +140,6 @@
     applyACSpatch = false;
   };
 
-  # environment.etc."polkit-1/localauthority.conf.d/90-silence-steam.pkla".text = ''
-  #   [Stop steam user from prompting for network permissions]
-  #   Identity=unix-user:herwig;unix-user:nara
-  #   Action=org.freedesktop.NetworkManager.settings.modify.system
-  #   ResultActive=no
-  #   ResultInactive=no
-  #   ResultAny=no
-  # '';
-
   ## FIXME: port to NM
   # networking.nat.externalInterface = "wlan0";
   # networking.nat.internalInterfaces = [ "enp0s31f6" ];
@@ -178,8 +160,6 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    ## wayland flags
-    # chromium.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
   };
 
   nix = {
