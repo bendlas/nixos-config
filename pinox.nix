@@ -32,6 +32,17 @@
     fsType = "ext4";
   };
 
+  fileSystems."/sdcard" = {
+    device = "/dev/disk/by-uuid/ee8b2efa-17f4-4248-9e11-010937e2f458";
+    fsType = "ext4";
+  };
+
+  fileSystems."/var/lib/waydroid" = {
+    depends = [ "/sdcard" ];
+    device = "/sdcard/var/lib/waydroid";
+    options = [ "bind" ];
+  };
+
   swapDevices =[{
     device = "/dev/disk/by-uuid/f3cb75f2-6045-4a40-b81b-075f0daf4328";
   }];
