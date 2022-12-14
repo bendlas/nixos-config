@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
 
   virtualisation = {
@@ -6,6 +7,12 @@
     lxc.enable = true;
     lxc.lxcfs.enable = true;
   };
+
+  ## override default from nixos. necessary since lineageos 18
+  ## should be no problem any more
+  ## https://wiki.debian.org/LXC/CGroupV2
+  ## https://github.com/lxc/lxc/issues/3206
+  systemd.enableUnifiedCgroupHierarchy = lib.mkForce true;
 
   # networking.interfaces.waydroid0.useDHCP = true;
   # services.avahi.interfaces = [ "waydroid0" ];
