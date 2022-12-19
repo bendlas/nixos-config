@@ -123,5 +123,16 @@ in {
         ln -s $b $out/bin/ungoogled-$(basename $b)
       done
     '';
+
+    steam-run-bendlas = (pkgs.steamPackages.override {
+      buildFHSUserEnv = pkgs.buildFHSUserEnvBubblewrap.override {
+        bubblewrap = pkgs.bubblewrap.overrideDerivation (drv: {
+          patches = (drv.patches or []) ++ [(pkgs.fetchpatch {
+            url = "https://github.com/containers/bubblewrap/pull/402.patch";
+            sha256 = "sha256-0gHpmaHxxKXIzeUaRcFjkl0Du9Hy6xsfS++quc7D+iI=";
+          })];
+        });
+      };
+    }).steam-fhsenv.run;
   };
 }

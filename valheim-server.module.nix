@@ -26,8 +26,11 @@ in {
           +app_update 896660 ${appUpdateArgs} validate \
           +quit
       '';
+      # steam-run-bendlas to pass through SIGINT through bwrap
+      # https://github.com/containers/bubblewrap/pull/402
+      KillSignal = "SIGINT"; # for saving on shutdown
       ExecStart = ''
-        ${pkgs.steam-run}/bin/steam-run ./valheim_server.x86_64 \
+        ${pkgs.steam-run-bendlas}/bin/steam-run ./valheim_server.x86_64 \
           -nographics -batchmode \
           -name "${serverName}" \
           -port ${toString port} \
