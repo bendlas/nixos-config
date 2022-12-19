@@ -4,9 +4,11 @@
   require = [ ./desktop.nix ./dev.nix ./power-savings.nix ./dev/hackrf.nix
               # ./dev/maple.nix ./dev/saleae.nix ## pulseview is broken
               ./dev/muart.nix ./dev/gd32.nix ./dev/stlink.nix
-              ./dev/qemu.nix ./dev/forth.nix ./dev/skm.nix ./dev/android.nix
+              ./dev/qemu.nix ./dev/forth.nix ./dev/skm.nix
+              # ./dev/android.nix
               ./dev/container.nix ./dev/ft2232h.nix
-              ./ark.module.nix ./tmpfs.module.nix
+              # ./ark.module.nix
+              ./tmpfs.module.nix
               ./waydroid.module.nix ./docker.module.nix
 
               # { # Ethernet Server (for nitox)
@@ -95,10 +97,10 @@
 
   services = {
     avahi.interfaces = [ "wlan0" "enp0s31f6" ];
-    teamspeak3 = {
-      enable = true;
-      openFirewall = true;
-    };
+    # teamspeak3 = {
+    #   enable = true;
+    #   openFirewall = true;
+    # };
     xserver = {
       videoDrivers = [ "intel" ];
       libinput.enable = false;
