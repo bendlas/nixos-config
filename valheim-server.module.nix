@@ -5,7 +5,7 @@ let
   public = false;
   port = 2456;
   # appUpdateArgs = "-beta public-test -betapassword yesimadebackups";
-  appUpdateArgs = "";
+  appUpdateArgs = "-beta public"; # downgrade if changing branches
 in {
   users.users.valheim = {
     # Valheim puts save data in the home directory.
