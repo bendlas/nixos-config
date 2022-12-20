@@ -113,6 +113,22 @@
       enable = true;
       drivers = [ pkgs.splix pkgs.brgenml1cupswrapper ];
     };
+    borgbackup.jobs = {
+      herwig_dropbox = {
+        user = "herwig";
+        paths = [
+          "/home/herwig/Dropbox"
+        ];
+        repo = "borg@hetox.bendlas.net:Dropbox";
+        encryption = {
+          mode = "repokey-blake2";
+          passCommand = "${pkgs.pass}/bin/pass borgbackup/herwig";
+        };
+        compression = "auto,zstd";
+        startAt = "daily";
+        environment.BORG_RSH = "ssh -i /home/herwig/.ssh/id_ed25519_borgbackup";
+      };
+    };
   };
 
   hardware = {

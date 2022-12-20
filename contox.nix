@@ -16,6 +16,22 @@
   ];
 
   services.valheim-server.password = builtins.readFile /etc/secrets/valheim-server-password;
+  services.borgbackup.jobs.valheim-contox = {
+    user = "valheim";
+    repo = "borg@hetox.bendlas.net:.";
+    compression = "auto,zstd";
+    startAt = []; ## disable timer, will be started by path watcher
+    paths = [ "/var/lib/valheim/.config/unity3d/IronGate/Valheim/" ];
+  };
+  ## timer for delaying backup after path change
+  systemd.timers.borgbackup-job-valheim-contox = {
+    timerConfig.OnActiveSec = "10 seconds";
+    timerConfig.AccuracySec = "1 seconds";
+  };
+  systemd.paths.borgbackup-job-valheim-contox = {
+    wantedBy = [ "multi-user.target" ];
+    pathConfig.PathChanged = "/var/lib/valheim/.config/unity3d/IronGate/Valheim";
+  };
 
   ## web
   # services.nginx.enable = lib.mkForce false;
