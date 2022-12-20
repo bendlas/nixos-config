@@ -4,10 +4,10 @@
   bendlas.machine = "hetox";
   imports = [
     ./hetox/hardware-configuration.nix ./hetox/gitlab.nix
-    # shared with ./base.nix
+    ## shared with ./base.nix
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
-    ./locale.module.nix ./ssh.module.nix ./essential.module.nix ./convenient.module.nix
-    # new base
+    ./locale.module.nix ./ssh.module.nix ./essential.module.nix # ./convenient.module.nix
+    ## new base
     ./access.module.nix ./tmpfs.module.nix ./nginx.module.nix
     ## TODO
     # ./nextcloud.module.nix
