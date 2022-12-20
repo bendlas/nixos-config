@@ -4,27 +4,32 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/profiles/qemu-guest.nix")
-    ];
+  imports = [
+    (modulesPath + "/profiles/qemu-guest.nix")
+  ];
 
   boot.initrd.availableKernelModules = [ "ata_piix" "virtio_pci" "virtio_scsi" "xhci_pci" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/1a44af06-22dd-4f88-98cf-ec963d37c74d";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/1a44af06-22dd-4f88-98cf-ec963d37c74d";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/FA01-0821";
-      fsType = "vfat";
-    };
+  fileSystems."/var/borgbackup" = {
+    device = "/dev/disk/by-uuid/973c2d03-b27e-436b-b8c1-be21f3c08131";
+    fsType = "ext4";
+  };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/482ddf7f-4cb3-42b1-86f9-24c7424744a6"; }
-    ];
+  fileSystems."/boot/efi" = {
+    device = "/dev/disk/by-uuid/FA01-0821";
+    fsType = "vfat";
+  };
+
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/482ddf7f-4cb3-42b1-86f9-24c7424744a6"; }
+  ];
 
 }
