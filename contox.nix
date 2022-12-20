@@ -15,6 +15,8 @@
     (modulesPath + "/profiles/qemu-guest.nix")
   ];
 
+  services.valheim-server.password = builtins.readFile /etc/secrets/valheim-server-password;
+
   ## web
   # services.nginx.enable = lib.mkForce false;
   # security.acme.defaults.email = "herwig@bendlas.net";

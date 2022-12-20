@@ -7,10 +7,13 @@
     # ./mdns.module.nix ./ssh.module.nix
     ./networkd.module.nix ./nginx.module.nix
 
-    ./code-server.module.nix ./factorio-server.module.nix
+    # { require = [ ./code-server.module.nix ];
+    #   bendlas.enableSSL = false; }
+    # ./factorio-server.module.nix
+    # { require = [ ./valheim-server.module.nix ];
+    #   services.valheim-server.password = "nope"; }
   ];
   bendlas.machine = "virtox";
-  bendlas.enableSSL = false;
   boot.isContainer = true;
   # networking.interfaces.eth0.useDHCP = true;
   # networking.firewall.allowedTCPPorts = [ 80 ];
