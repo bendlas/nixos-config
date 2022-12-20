@@ -60,6 +60,7 @@
   console.useXkbConfig = true;
 
   services = {
+    flatpak.enable = true;
     compton = {
       enable = false;
       fade = true;

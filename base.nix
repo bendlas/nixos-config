@@ -60,7 +60,6 @@
   ## boot.supportedFilesystems = [ "bcachefs" ]; ## "zfs" ];
 
   services = {
-    flatpak.enable = true;
     syncthing = {
       enable = true;
       openDefaultPorts = true;
