@@ -3,7 +3,7 @@
 
   bendlas.machine = "hetox";
   imports = [
-    ./hetox/hardware-configuration.nix ./hetox/gitlab.nix
+    ./hetox/hardware-configuration.nix ./hetox/gitlab.nix ./hetox/borgbackup.nix
     ## shared with ./base.nix
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
     ./locale.module.nix ./ssh.module.nix ./essential.module.nix # ./convenient.module.nix
