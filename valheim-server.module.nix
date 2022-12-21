@@ -28,10 +28,13 @@ in {
   ## periodically check steam for updates to valheim dedicated server
   ## restart server if update is available (will be picked up by server ExecStartPre)
   systemd.timers.valheim-update-scanner = {
-    wantedBy = [ "timers.target" ];
+    description = "Timer periodically re-scanning for valheim updates";
+    wantedBy = [ "valheim.service" ];
+    timerConfig.OnActiveSec = "10 minutes";
     timerConfig.OnUnitInactiveSec = "10 minutes";
   };
   systemd.services.valheim-update-scanner = {
+    description = "Check for valheim server updates";
     serviceConfig.Type = "oneshot";
     serviceConfig.User = "valheim";
     path = with pkgs; [ curl jq coreutils ];

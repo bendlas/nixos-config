@@ -4,7 +4,7 @@
   imports = [
     # shared with ./base.nix
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
-    ./locale.module.nix ./ssh.module.nix ./essential.module.nix ./convenient.module.nix
+    ./locale.module.nix ./ssh.module.nix ./essential.module.nix # ./convenient.module.nix
     # new base
     ./access.module.nix ./tmpfs.module.nix ./nginx.module.nix
     # servers
@@ -16,21 +16,33 @@
   ];
 
   services.valheim-server.password = builtins.readFile /etc/secrets/valheim-server-password;
+
   services.borgbackup.jobs.valheim-contox = {
     user = "valheim";
     repo = "borg@hetox.bendlas.net:.";
     compression = "auto,zstd";
+    encryption.mode = "none";
     startAt = []; ## disable timer, will be started by path watcher
     paths = [ "/var/lib/valheim/.config/unity3d/IronGate/Valheim/" ];
   };
-  ## timer for delaying backup after path change
+  ## borg backup jobs get an implicit borgbackup-job-* prefix on systemd unit level
+  ## thus this timer will trigger the backup job
   systemd.timers.borgbackup-job-valheim-contox = {
+    description = "Backup delay timer for valheim server config and saves. Delays backup start in order to ensure that everything has been written properly";
     timerConfig.OnActiveSec = "10 seconds";
     timerConfig.AccuracySec = "1 seconds";
+    ## stop timer after job completion, to re-prime for start
+    timerConfig.RemainAfterElapse = false;
   };
   systemd.paths.borgbackup-job-valheim-contox = {
+    description = "File watcher for valheim server config and saves";
     wantedBy = [ "multi-user.target" ];
-    pathConfig.PathChanged = "/var/lib/valheim/.config/unity3d/IronGate/Valheim";
+    pathConfig.PathChanged = [
+      "/var/lib/valheim/.config/unity3d/IronGate/Valheim"
+      "/var/lib/valheim/.config/unity3d/IronGate/Valheim/worlds_local"
+    ];
+    ## trigger delay timer instead of service directly
+    pathConfig.Unit = "borgbackup-job-valheim-contox.timer";
   };
 
   ## web
