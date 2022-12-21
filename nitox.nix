@@ -20,34 +20,32 @@
 
   bendlas.machine = "nitox";
   boot = {
-    initrd.availableKernelModules = [ "bcache" "ehci_pci" "ata_piix" "xhci_pci" "usb_storage" "usbhid" "sd_mod" "sr_mod" "amdgpu" ];
+    initrd.availableKernelModules = [ "ehci_pci" "ahci" "nvme" "xhci_pci" "usbhid" "sd_mod" "sr_mod" "bcache" ];
     kernelModules = [ "kvm-intel" "nct6775" ];
     loader.grub = {
       enable = true;
       version = 2;
-      device = "/dev/sdb";
+      device = "/dev/sda";
     };
-    kernelParams = [ "resume=UUID=58a029ec-27e3-49cd-9ec1-2452ede1cec5" "resume=UUID=c4bd389b-dd2d-4777-a2f3-d55bbe000566" ];
+    kernelParams = [ "resume=UUID=a0056ae3-75e7-45aa-8b13-9cdeb395b96e" ];
     extraModprobeConfig = ''
       options libahci             skip_host_reset=1
     '';
   };
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/3d369f1e-b1b5-4c36-90da-f34f2e0f6af0";
-      fsType = "btrfs";
-      options = [ "nossd" "discard" "compress=lzo" "noatime" "autodefrag" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/b3f6dbba-8c4c-422d-80e3-b396c92b9c2a";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/bf4791ad-62c0-481d-bc8c-a800ad9cf8f8";
-      fsType = "ext4";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/bf4791ad-62c0-481d-bc8c-a800ad9cf8f8";
+    fsType = "ext4";
+  };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/58a029ec-27e3-49cd-9ec1-2452ede1cec5"; }
-      { device = "/dev/disk/by-uuid/c4bd389b-dd2d-4777-a2f3-d55bbe000566"; }
-    ];
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/a0056ae3-75e7-45aa-8b13-9cdeb395b96e"; }
+  ];
 
   hardware.cpu.intel.updateMicrocode = true;
 
@@ -79,7 +77,7 @@
     # nat.externalInterface = "ww+";
 
     hostId = "f26c47cc";
-    bridges.br0.interfaces = [ "enp5s0" ];
+    bridges.br0.interfaces = [ "enp6s0" ];
     interfaces.br0.macAddress = "52:CB:A3:76:0F:0E";
 
     interfaces.br0.useDHCP = true;
@@ -96,7 +94,7 @@
 
   systemd.network-wait-online.ignore = [ "br0" ];
 
-  # systemd.network.networks."10-enp5s0" = {
+  # systemd.network.networks."10-enp6s0" = {
   #   matchConfig.Name = "br0";
   #   address = [ "10.0.0.1/24" ];
   #   networkConfig = {
@@ -120,7 +118,7 @@
   ## we don't need modemmanager any more
   # networking.networkmanager = {
   #   enable = lib.mkForce true;
-  #   unmanaged = [ "lo" "br0" "enp5s0" "anbox0" ];
+  #   unmanaged = [ "lo" "br0" "enp6s0" "anbox0" ];
   # };
 
   services.xserver = {
