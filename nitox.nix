@@ -43,6 +43,12 @@
     fsType = "ext4";
   };
 
+  fileSystems."/var/spinning-rust" = {
+    device = "/dev/disk/by-uuid/3d369f1e-b1b5-4c36-90da-f34f2e0f6af0";
+    fsType = "btrfs";
+    options = [ "nossd" "discard" "compress=lzo" "noatime" "autodefrag" ];
+  };
+
   swapDevices = [
     { device = "/dev/disk/by-uuid/a0056ae3-75e7-45aa-8b13-9cdeb395b96e"; }
   ];
