@@ -3,19 +3,20 @@
 {
   bendlas.machine = "natox";
   imports = [
-    # shared with ./base.nix
+    ## shared with ./base.nix
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
     ./locale.module.nix ./ssh.module.nix ./essential.module.nix ./convenient.module.nix
     ./mdns.module.nix
-    # new base
+    ## new base
     ./access.module.nix ./tmpfs.module.nix ./nm-iwd.module.nix
-    # -
+    ## -
     ./epson-inkjet-printer-stylus-photo-r3000.module.nix
     ./samba.module.nix
     ./ark.module.nix
     ./steam.module.nix
-    #
+    ## in dev
     ./vfio.module.nix
+    # ./brother-mfc-6490cw.module.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -131,6 +132,7 @@
     # qemu.ovmf.package = pkgs.OVMFFull;
   };
 
+  ## TODO look at https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/
   virtualisation.vfio = {
     enable = false; ## FIXME doesn't boot
     IOMMUType = "amd";
