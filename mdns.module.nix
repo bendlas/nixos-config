@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 {
 
   require = [
@@ -17,6 +17,16 @@
     # })
   ];
 
+  ## This causes too many rebuilds
+  # nixpkgs.config.packageOverrides = super: {
+  #   avahi = super.avahi.overrideDerivation ({ patches ? [], ... }: {
+  #     ## Prevent avahi from ever detecting mDNS conflicts. This works around
+  #     ## https://github.com/lathiat/avahi/issues/117
+  #     ## https://github.com/lopsided98/nixos-config/commit/f4c53bf60a7b016ef07f4c2ef72292922ef81784
+  #     patches = patches ++ [ ./avahi-disable-conflicts.patch ];
+  #   });
+  # };
+
   services.avahi = {
     enable = true;
     openFirewall = true;
@@ -26,7 +36,13 @@
     wideArea = false;
     # extraServiceFiles.ssh = "${pkgs.avahi}/etc/avahi/services/ssh.service";
     interfaces = lib.mkDefault (throw "Please set `services.avahi.interfaces` explicitly, in order to avoid configuring ve-* interfaces");
-    reflector = true; ## reflect incoming queries to all interfaces
+    ## reflect incoming queries to all interfaces
+    ## attempted to disable this for phony conflicts
+    # reflector = true;
+    ## this may help with phony naming conflicts
+    ## enable if disabling reflector didn't help
+    # cacheEntriesMax = 0;
+    ## disallow-other-stacks: disallow interference from resolved and others
     extraConfig = ''
 
       [server]
