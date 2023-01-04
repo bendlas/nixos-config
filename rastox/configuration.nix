@@ -100,7 +100,7 @@ in {
   powerManagement.cpuFreqGovernor = "ondemand";
   services.cron.enable = false;
 
-  services.avahi.interfaces = [ "eth0" "wlan0" ];
+  services.avahi.interfaces = [ "end0" "wlan0" ];
 
   # hardware.enableRedistributableFirmware = true;
   # hardware.firmware = [ pkgs.raspberrypifw ];
@@ -122,7 +122,7 @@ in {
   ## Per-interface useDHCP will be mandatory in the future, so this generated config
   ## replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.eth0.useDHCP = true;
+  networking.interfaces.end0.useDHCP = true;
   # networking.interfaces.wlan0.useDHCP = true;
 
   environment.systemPackages = with pkgs; [
