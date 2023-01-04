@@ -12,6 +12,16 @@
     ## TODO
     # ./nextcloud.module.nix
     # ./matrix-server.module.nix
+    {
+      users.users.autossh = {
+        isSystemUser = true;
+        openssh.authorizedKeys.keys = [
+          "command=\"/usr/bin/env false\" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKJbkyXIY5eI+G+uK60Hensh+EmpMithyDhWQSvNOv58 autossh@rastox"
+        ];
+        group = "autossh";
+      };
+      users.groups.autossh = {};
+    }
   ];
 
   users.users.herwig.isNormalUser = true;
