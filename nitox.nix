@@ -132,6 +132,22 @@
     # '';
   };
 
+  # ## AMD ROCM / HIP support
+
+  # systemd.tmpfiles.rules = [
+  #   "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.hip}"
+  # ];
+
+  # nixpkgs.overlays = [
+  #   (import ((import <nixpkgs> {}).fetchFromGitHub {
+  #     owner = "nixos-rocm";
+  #     repo = "nixos-rocm";
+  #     rev = "baa7e3b14f10dc4fc057cb83847e1a727f080b2d";
+  #     sha256 = "sha256-0hEQPooixFP4nqtsAdN2RYcyatNgO0w5xE7SfhS0+SE=";
+  #   }))
+  # ];
+  # nixpkgs.config.rocmTargets = [ "gfx803" ];
+
   services.avahi.interfaces = [ "br0" ];
 
   # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
