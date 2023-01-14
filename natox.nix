@@ -7,6 +7,8 @@
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
     ./locale.module.nix ./ssh.module.nix ./essential.module.nix ./convenient.module.nix
     ./mdns.module.nix
+    ./desktop.essential.module.nix
+    ./desktop.layout-us-gerextra.nix
     ## new base
     ./access.module.nix ./tmpfs.module.nix ./nm-iwd.module.nix
     ## -
@@ -107,7 +109,6 @@
       desktopManager.gnome.enable = true;
       desktopManager.plasma5.enable = false;
       layout = "de";
-      xkbOptions = "eurosign:e";
     };
     locate.enable = false;
     fstrim.enable = true;

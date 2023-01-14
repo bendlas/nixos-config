@@ -1,6 +1,7 @@
 {
 
   programs.steam.enable = true;
+  hardware.steam-hardware.enable = true;
 
   ## prevent NM auth dialogs
   ## see https://github.com/ValveSoftware/steam-for-linux/issues/7856#issuecomment-1327053152

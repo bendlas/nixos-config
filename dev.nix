@@ -32,6 +32,7 @@ in
     nodePackages.tern
     # ml-workbench
     clojure-lsp ccls
+    rnix-lsp
     # elixir
     # ruby
   ];

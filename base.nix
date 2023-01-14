@@ -9,33 +9,21 @@
   system.stateVersion = "20.03";
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
   boot.cleanTmpDir = true;
-  boot.kernel.sysctl = {
-    "kernel.sysrq" = 1;
-  };
 
   environment.systemPackages = with pkgs; [
 
     bind # emacs ## is added by enabling exwm
     iptables multipath-tools davfs2 # reptyr
-    btrfs-progs dmidecode vde2 gradle gnumake
+    dmidecode vde2 gradle gnumake
     vim patchelf gcc clisp parted
     gdb libxslt dvtm abduco dtach
-    nox nethogs yq moreutils dhcp
+    nox nethogs
 
-    mkpasswd
-
-    cowsay elfutils binutils
     ncurses ncurses.dev ## for infocmp, figwheel repl
 
     taalo-build vnstat
 
   ];
-
-  environment.variables = {
-    EDITOR = "ed -p\\*";
-    VISUAL = "emacsclient -a 'emacs -nw'";
-    ALTERNATE_EDITOR = "nano";
-  };
 
   users.extraUsers = {
     "herwig" = {
@@ -47,15 +35,6 @@
     };
   };
   users.extraGroups = { nobody = {}; };
-
-  networking = {
-    firewall.enable = true;
-    # firewall.allowedTCPPorts = [ 22 ];
-    extraHosts = ''
-      127.0.0.1 ${config.networking.hostName}
-      ::1 ${config.networking.hostName}
-    '';
-  };
 
   ## boot.supportedFilesystems = [ "bcachefs" ]; ## "zfs" ];
 

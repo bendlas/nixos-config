@@ -55,8 +55,6 @@
 
   hardware.cpu.intel.updateMicrocode = true;
 
-  hardware.steam-hardware.enable = true;
-
   hardware.opengl = {
     enable = true;
     driSupport = true;

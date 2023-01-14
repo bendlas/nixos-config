@@ -3,13 +3,9 @@
 {
   environment.systemPackages = with pkgs; [
 
-    ## Admin
-
-    st gparted dfeet
-
     ## Chats
 
-    tdesktop signal-desktop mumble
+    tdesktop signal-desktop
 
     ## Games
 
@@ -19,8 +15,6 @@
     dwarf-fortress dwarf-therapist
 
     ## Dev tools
-
-    xorg.xkill xorg.xbacklight xorg.xrandr xorg.xev
 
     # nixops ## not working
     visualvm rustc cargo nim ant go dosbox
@@ -43,15 +37,12 @@
 
     ## Video
 
-    inkscape blender antimony gimp gnome.cheese vlc gcolor3 # openscad
+    inkscape blender antimony gimp # openscad
 
     ## Audio
 
-    paprefs pavucontrol
-
     # clementine
-
-    gnome.gnome-sound-recorder audacity qjackctl
+    audacity
 
     ## Documents
 
