@@ -6,7 +6,7 @@
     ## shared with ./base.nix
     ./log.module.nix ./sources.module.nix ./nix.module.nix ./zsh.module.nix
     ./locale.module.nix ./ssh.module.nix ./essential.module.nix ./convenient.module.nix
-    ./mdns.module.nix
+    ./sound.module.nix
     ./desktop.essential.module.nix
     ./desktop.layout-us-gerextra.nix
     ## new base
@@ -76,7 +76,6 @@
   security.sudo.wheelNeedsPassword = true;
 
   hardware = {
-    pulseaudio.enable = true;
     # nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
     nvidia.modesetting.enable = false;
     nvidia.powerManagement.enable = true;

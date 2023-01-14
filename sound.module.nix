@@ -4,6 +4,7 @@
   require = [ ./mdns.module.nix ];
 
   sound.enable = true;
+  hardware.bluetooth.enable = true;
   hardware.pulseaudio = {
     enable = true;
     support32Bit = true;
