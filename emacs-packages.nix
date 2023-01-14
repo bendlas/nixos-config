@@ -20,6 +20,11 @@ let
     emacsPackages.emacsWithPackages
       (compOverrides [
         (epkgs: epkgs // epkgs.melpaPackages)
+        # see https://github.com/NixOS/nix-mode/pull/177
+        (updatePackage "nix-mode" (epkgs: old: {
+          propagatedBuildInputs = old.propagatedBuildInputs ++ [ epkgs.reformatter ];
+          propagatedUserEnvPkgs = old.propagatedUserEnvPkgs ++ [ epkgs.reformatter ];
+        }))
         # (patchPackage "volume" "https://patch-diff.githubusercontent.com/raw/dbrock/volume.el/pull/8.patch" "sha256-6e5UXtWSeP3iJFhsLw6KrIZGYmjMkip2oiF+yn40VaE=")
         # (patchPackage "benchmark-init" "https://patch-diff.githubusercontent.com/raw/dholm/benchmark-init-el/pull/16.patch" "sha256-lVEKRgy60uvpl3jAeuo2mabldU8SwukHfwTgoAi9A9Q=")
         # (sourcePackage "cider" (fetchFromGitHub {
@@ -113,6 +118,10 @@ let
         })
       ];
     });
+  };
+
+  updatePackage = pname: f: epkgs: epkgs // {
+    "${pname}" = epkgs."${pname}".overrideAttrs (f epkgs);
   };
 
   sourcePackage = pname: src: epkgs: epkgs // {
