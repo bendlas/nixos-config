@@ -49,7 +49,6 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "de_AT.UTF-8";
-  console.keyMap = "us";
 
   # Enable sound.
   sound.enable = true;
