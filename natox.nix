@@ -8,7 +8,7 @@
     ./locale.module.nix ./ssh.module.nix ./essential.module.nix ./convenient.module.nix
     ./sound.module.nix
     ./desktop.essential.module.nix
-    ./desktop.layout-us-gerextra.nix
+    ./desktop.layout-us-gerextra.module.nix
     ## new base
     ./access.module.nix ./tmpfs.module.nix ./nm-iwd.module.nix
     ## -

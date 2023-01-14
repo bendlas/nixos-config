@@ -32,7 +32,7 @@
     ./steam.module.nix
     ./desktop.essential.module.nix
     ./desktop.convenient.module.nix
-    ./desktop.layout-us-gerextra.nix
+    ./desktop.layout-us-gerextra.module.nix
   ];
 
   services = {
