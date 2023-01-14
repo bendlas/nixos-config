@@ -1,12 +1,13 @@
 { config, pkgs, ... }:
 {
 
-  # environment.systemPackages = (with pkgs; [
+  environment.systemPackages = (with pkgs; [
+    texlive-bendlas
   #   polkit_gnome ## implements the pkexec dialog
   #   xorg.xkbcomp aspell aspellDicts.en aspellDicts.de
   #   pinentry
   #   # nixui
-  # ]);
+  ]);
 
   # system.extraDependencies = [ pkgs.virtualboxExtpack ];
 

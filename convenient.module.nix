@@ -18,7 +18,7 @@
 
     config.boot.kernelPackages.perf
 
-    texlive-bendlas yq
+    yq
 
     ### Pure nice to have
 
