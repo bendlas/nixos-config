@@ -3,7 +3,7 @@ let
     # lib.overrideDerivation
     pkg.overrideAttrs (attrs: {
       outputs = attrs.outputs or [ "out" ] ++ [ "debug" ];
-      buildInputs = attrs.buildInputs ++ [
+      nativeBuildInputs = attrs.nativeBuildInputs ++ [
         <nixpkgs/pkgs/build-support/setup-hooks/separate-debug-info.sh>
       ];
     });
@@ -29,9 +29,15 @@ in {
 
   packageOverrides = pkgs: let
     setPrio = setPrio' pkgs.lib;
+    enableDebugInfo = enableDebugInfo_ pkgs.lib;
     ## workaround. `emacs` from this misses .override method, so can't be set as main `emacs` pkg
-    customEmacs = pkgs.callPackage ./emacs-packages.nix { enableDebugInfo = enableDebugInfo_ pkgs.lib; };
+    customEmacs = pkgs.callPackage ./emacs-packages.nix { inherit enableDebugInfo; };
   in rec {
+
+    inherit enableDebugInfo;
+
+    gitignoreNix = import ./gitignore.nix pkgs;
+
     # localPackages = pkgFile: config: pkgs.callPackage ./local-packages.nix {
     #   pkgFile = ./desktop.packages;
     #   source = pkgs.fetchgit {

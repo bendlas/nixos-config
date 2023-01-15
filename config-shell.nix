@@ -4,15 +4,8 @@
 , fetchgit ? pkgs.fetchgit
 , runCommand ? pkgs.runCommand
 , machine ? "test-config"
-, gitignore-src ? pkgs.fetchFromGitHub {
-  owner = "hercules-ci";
-  repo = "gitignore.nix";
-  # put the latest commit sha of gitignore Nix library here:
-  rev = "a20de23b925fd8264fd7fad6454652e142fd7f73";
-  # use what nix suggests in the mismatch message here:
-  sha256 = "sha256-8DFJjXG8zqoONA1vXtgeKXy68KdJL5UaXR8NtVMUbx8=";
-}
-, configs ? (import gitignore-src { inherit (pkgs) lib; }).gitignoreSource ./.
+, gitignoreNix ? import ./gitignore.nix pkgs
+, configs ? gitignoreNix.gitignoreSource ./.
 , pkgs-path ? null
 , pkgs-stable-path ? null
 , mnos-path ? null
@@ -42,7 +35,7 @@ let
 in
 mkShell {
   ## protect from GC
-  GITIGNORE_SRC = gitignore-src;
+  GITIGNORE_SRC = gitignoreNix.src;
   ## keep synchronized with ./sources.module.nix
   shellHook = ''
     export NIX_PATH=nixpkgs=${nixpkgs}:nixpkgs-unstable=${nixpkgs-unstable}:nixpkgs-stable=${nixpkgs-stable}:nixos=${nixpkgs}/nixos:mobile-nixos=${mobile-nixos}:nixos-hardware=${nixos-hardware}:nixos-config=${configs}/${machine}.nix:nixpkgs-overlays=${configs}/nixpkgs-overlays.nix
