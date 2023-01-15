@@ -1,9 +1,9 @@
 {
   "url": "https://github.com/nix-community/emacs-overlay.git",
-  "rev": "800685a0ad5dfa94d6e3fffb5ffa1a208ad8c76a",
-  "date": "2023-01-14T17:26:21+00:00",
-  "path": "/nix/store/5brzn78f33rhl8pvm7wah5i0m9ppbnkj-emacs-overlay-800685a",
-  "sha256": "04rxbrbvb9cc638hyskd9sw8ziwys3km0niji419zml3am48a254",
+  "rev": "64730859c8decadbbc7f9b133af438306c441c3f",
+  "date": "2023-01-15T10:11:34+00:00",
+  "path": "/nix/store/j6hx2r297cz3q05g812ap3438i7wndsg-emacs-overlay-6473085",
+  "sha256": "161axz4jvrp8hkfkfnzhk5z1li9zjjc1x98hdccv1qzigykaz3gz",
   "fetchLFS": false,
   "fetchSubmodules": false,
   "deepClone": false,
