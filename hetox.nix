@@ -17,6 +17,7 @@
         isSystemUser = true;
         openssh.authorizedKeys.keys = [
           "command=\"/usr/bin/env false\" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKJbkyXIY5eI+G+uK60Hensh+EmpMithyDhWQSvNOv58 autossh@rastox"
+          "command=\"/usr/bin/env false\" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINydu//Or1ch82XHgguSuRvlaLx+yhj6/N4BAdU0Rdj0 autossh@jellydeck"
         ];
         group = "autossh";
       };
