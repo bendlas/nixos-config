@@ -79,6 +79,19 @@ in {
     inherit (customEmacs) emacsWithPackages emacsPackages emacsWithPackagesNox emacsPackagesNox;
     emacsBendlas = customEmacs.emacs;
     emacsBendlasNox = customEmacs.emacsNox;
+    emacsCommercial = pkgs.callPackage (
+      { emacsGit }: (emacsGit.override {
+        nativeComp = false;
+        withPgtk = false;
+      }).overrideAttrs (_: {
+        src = pkgs.fetchFromGitHub {
+          owner = "commercial-emacs";
+          repo = "commercial-emacs";
+          rev = "4311c820b69e7861690163d75f9ea0f74800c23a";
+          sha256 = "sha256-Hs+UZc8wgxT4GtWM8k5gOV6gygVU5ogSzF4E00Na5vc=";
+        };
+      })
+    ) { };
     chromium = pkgs.chromium.override {
       enableWideVine = builtins.currentSystem == "x86_64-linux";
       pulseSupport = true;
