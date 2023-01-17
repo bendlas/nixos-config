@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
 
@@ -21,8 +21,10 @@
   services.xserver = {
     enable = true;
     desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
-    displayManager.gdm.autoSuspend = false;
+    displayManager.lightdm.enable = true;
+    # displayManager.gdm.enable = true;
+    # displayManager.gdm.autoSuspend = false;
+    # videoDrivers = [ "panfrost" "vesa" ];
   };
 
   systemd.targets.sleep.enable = false;
@@ -48,8 +50,17 @@
 
   ## Hardware config
 
+  ## TODO maybe solve boot issue with CONFIG_USE_PREBOOT=n
+  ## see https://gitlab.manjaro.org/manjaro-arm/packages/core/uboot-rockpro64/-/issues/4#note_18623
+
+  boot.consoleLogLevel = 7;
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
+
+  boot.kernelPackages = lib.recurseIntoAttrs
+    (pkgs.linuxPackagesFor (pkgs.callPackage ./rotox.kernel.nix {
+      inherit (config.boot) kernelPatches;
+    }));
   boot.kernelParams = [
     "console=ttyS2,115200n8"
     # "loglevel=7"
