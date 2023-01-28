@@ -12,7 +12,7 @@
     # shared with ./desktop.nix
     ./desktop.essential.module.nix ./desktop.layout-us-gerextra.module.nix
     # new base
-    ./access.module.nix ./tmpfs.module.nix ./docu-disable.module.nix
+    ./access.module.nix ./docu-disable.module.nix # ./tmpfs.module.nix
     # ./kodi-wayland.nix
     ./rastox/kodi-xorg.nix
     ./rastox/users.nix
