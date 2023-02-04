@@ -31,8 +31,6 @@ in
     virt-manager
     nodePackages.tern
     # ml-workbench
-    clojure-lsp ccls
-    rnix-lsp nil
     # elixir
     # ruby
   ];

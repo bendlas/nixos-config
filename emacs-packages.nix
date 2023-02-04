@@ -103,6 +103,10 @@ let
 
   nativePkgs = with pkgs; [
     ghostscript aspell
+    ## LSP packages
+    clojure-lsp ccls
+    rnix-lsp nil
+    rust-analyzer
   ];
 
   compOverrides = overrides: epkgs:
