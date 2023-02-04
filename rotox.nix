@@ -13,6 +13,10 @@
     ./desktop.essential.module.nix ./desktop.layout-us-gerextra.module.nix
     # new base
     ./access.module.nix ./docu-disable.module.nix # ./tmpfs.module.nix
+    (import <mobile-nixos/lib/configuration.nix> {
+      device = "pine64-pinephonepro";
+      # device = null;
+    })
     # ./kodi-wayland.nix
     ./rastox/kodi-xorg.nix
     ./rastox/users.nix
@@ -21,9 +25,10 @@
   services.xserver = {
     enable = true;
     desktopManager.gnome.enable = true;
-    displayManager.lightdm.enable = true;
-    # displayManager.gdm.enable = true;
-    # displayManager.gdm.autoSuspend = false;
+    # displayManager.lightdm.enable = true;
+    displayManager.gdm.enable = true;
+    displayManager.gdm.autoSuspend = false;
+    displayManager.gdm.wayland = false;
     # videoDrivers = [ "panfrost" "vesa" ];
   };
 
@@ -50,21 +55,20 @@
 
   ## Hardware config
 
-  ## TODO maybe solve boot issue with CONFIG_USE_PREBOOT=n
-  ## see https://gitlab.manjaro.org/manjaro-arm/packages/core/uboot-rockpro64/-/issues/4#note_18623
-
   boot.consoleLogLevel = 7;
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
+  mobile.bootloader.enable = false;
 
-  boot.kernelPackages = lib.recurseIntoAttrs
-    (pkgs.linuxPackagesFor (pkgs.callPackage ./rotox.kernel.nix {
-      inherit (config.boot) kernelPatches;
-    }));
-  boot.kernelParams = [
-    "console=ttyS2,115200n8"
-    # "loglevel=7"
-  ];
+  # nixpkgs.overlays = [(import <mobile-nixos/overlay/overlay.nix>)];
+  # boot.kernelPackages = lib.recurseIntoAttrs
+  #   (pkgs.linuxPackagesFor (pkgs.callPackage ./rotox.kernel.nix {
+  #     inherit (config.boot) kernelPatches;
+  #   }));
+  # boot.kernelParams = [
+  #   "console=ttyS2,115200n8"
+  #   # "loglevel=7"
+  # ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/62fcf4f0-0cac-4d13-8acc-ad12901312cb";
