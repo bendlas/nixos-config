@@ -1,19 +1,21 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   services.openssh = {
     enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-    };
-    # passwordAuthentication = false;
-    # kbdInteractiveAuthentication = false;
-    # "${if "stable" == config.bendlas.stability
-    #    then "challengeResponseAuthentication"
-    #    else "kbdInteractiveAuthentication"}" = false;
     startWhenNeeded = true;
     forwardX11 = true;
-  };
+  } // (
+    if "stable" == config.bendlas.stability
+    then {
+      passwordAuthentication = false;
+      kbdInteractiveAuthentication = false;
+    } else {
+      settings = {
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+      };
+    }
+  );
   services.fail2ban = {
     enable = true;
     jails = {
