@@ -74,7 +74,7 @@
     dbus.packages = with pkgs; [
       miraclecast
     ];
-    openssh.forwardX11 = true;
+    openssh.settings.X11Forwarding = true;
   };
 
   virtualisation = {

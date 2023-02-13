@@ -3,7 +3,7 @@
   services.openssh = {
     enable = true;
     startWhenNeeded = true;
-    forwardX11 = true;
+    settings.X11Forwarding = true;
   } // (
     if "stable" == config.bendlas.stability
     then {
