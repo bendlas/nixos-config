@@ -3,16 +3,17 @@
   services.openssh = {
     enable = true;
     startWhenNeeded = true;
-    settings.X11Forwarding = true;
   } // (
     if "stable" == config.bendlas.stability
     then {
       passwordAuthentication = false;
       kbdInteractiveAuthentication = false;
+      forwardX11 = true;
     } else {
       settings = {
         PasswordAuthentication = false;
         KbdInteractiveAuthentication = false;
+        X11Forwarding = true;
       };
     }
   );
