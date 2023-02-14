@@ -93,7 +93,6 @@
 
   services = {
     avahi.interfaces = [ "wlan0" "enp9s0" ];
-    openssh.forwardX11 = true;
     xserver = {
       enable = true;
       videoDrivers = [ "nvidia" "nouveau" "nv" "vesa" ];
