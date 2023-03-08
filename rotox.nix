@@ -14,8 +14,7 @@
     # new base
     ./access.module.nix ./docu-disable.module.nix # ./tmpfs.module.nix
     (import <mobile-nixos/lib/configuration.nix> {
-      device = "pine64-pinephonepro";
-      # device = null;
+      device = "pine64-rockpro";
     })
     # ./kodi-wayland.nix
     ./rastox/kodi-xorg.nix
@@ -49,6 +48,7 @@
   networking.interfaces.end0.useDHCP = true;
 
   environment.systemPackages = with pkgs; [
+    deluge webtorrent_desktop chromium youtube-dl
   ];
 
   system.stateVersion = "23.05";
@@ -59,16 +59,6 @@
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
   mobile.bootloader.enable = false;
-
-  # nixpkgs.overlays = [(import <mobile-nixos/overlay/overlay.nix>)];
-  # boot.kernelPackages = lib.recurseIntoAttrs
-  #   (pkgs.linuxPackagesFor (pkgs.callPackage ./rotox.kernel.nix {
-  #     inherit (config.boot) kernelPatches;
-  #   }));
-  # boot.kernelParams = [
-  #   "console=ttyS2,115200n8"
-  #   # "loglevel=7"
-  # ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/62fcf4f0-0cac-4d13-8acc-ad12901312cb";
