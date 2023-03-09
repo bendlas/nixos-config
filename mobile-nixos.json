@@ -1,9 +1,9 @@
 {
   "url": "https://github.com/bendlas/mobile-nixos.git",
-  "rev": "06c4f898a7ed20b50cf43649257f06c0aa4a8dd8",
-  "date": "2023-03-09T00:48:52+01:00",
-  "path": "/nix/store/fx7q307dd5sy5xk6f1dspkkyjcyzg0wy-mobile-nixos-06c4f89",
-  "sha256": "0s980inss9qddlk3vk7n1dllqhyrs45n4ipria3fj48883khp1hd",
+  "rev": "6c72f71a285d1ce0935384f2f94c52e7170fe94e",
+  "date": "2023-03-09T01:54:08+01:00",
+  "path": "/nix/store/dlwhg3wg2b848xy5dp84k1g0kpvgkkdk-mobile-nixos-6c72f71",
+  "sha256": "0pi2i5klgcx6ydrgykdky2l736zsbrdl324ki381fsdypzaz6v0f",
   "fetchLFS": false,
   "fetchSubmodules": false,
   "deepClone": false,

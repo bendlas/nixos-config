@@ -14,7 +14,7 @@
     # new base
     ./access.module.nix ./docu-disable.module.nix # ./tmpfs.module.nix
     (import <mobile-nixos/lib/configuration.nix> {
-      device = "pine64-rockpro";
+      device = "pine64-rockpro64";
     })
     # ./kodi-wayland.nix
     ./rastox/kodi-xorg.nix
