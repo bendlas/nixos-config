@@ -19,6 +19,8 @@
 
     xorg.xkill xorg.xbacklight xorg.xrandr xorg.xev
 
+    xdotool
+
     ## Video
 
     gnome.cheese vlc gcolor3 glxinfo youtube-dl
