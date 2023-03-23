@@ -1,6 +1,8 @@
+{ pkgs, ... }:
 {
 
   ## see https://docs.gitlab.com/omnibus/settings/memory_constrained_envs.html
+  ## see https://techoverflow.net/2020/04/18/how-i-reduced-gitlab-memory-consumption-in-my-docker-based-setup/
 
   boot.kernel.sysctl = {
     "vm.swappiness" = 10;
@@ -8,26 +10,16 @@
 
   services.gitlab = {
     puma.workers = 0;
+    extraEnv = {
+      LD_PRELOAD = "${pkgs.jemalloc}/lib/libjemalloc.so";
+      # ENABLE_RBTRACE = "1";
+      RUBY_GC_HEAP_FREE_SLOTS_MIN_RATIO = "0.001";
+      RUBY_GC_HEAP_FREE_SLOTS_MAX_RATIO = "0.02";
+      ## https://github.com/jemalloc/jemalloc/blob/dev/TUNING.md
+      MALLOC_CONF = "background_thread:true,dirty_decay_ms:5000,muzzy_decay_ms:5000,narenas:1,lg_tcache_max:13";
+    };
     extraConfig = {
-      sidekiq.max_concurrency = 10;
-      prometheus_monitoring.enable = false;
-      gitlab_rails.env.MALLOC_CONF = "dirty_decay_ms:1000,muzzy_decay_ms:1000";
-      gitaly.env.MALLOC_CONF = "dirty_decay_ms:1000,muzzy_decay_ms:1000";
-      gitaly.env.GITALY_COMMAND_SPAWN_MAX_PARALLEL = "2";
-      gitaly.cgroups_count = 2;
-      gitaly.cgroups_mountpoint = "/sys/fs/cgroup";
-      gitaly.cgroups_hierarchy_root = "gitaly";
-      gitaly.cgroups_memory_enabled = true;
-      gitaly.cgroups_memory_bytes = 500000;
-      gitaly.cgroups_cpu_enabled = true;
-      gitaly.cgroups_cpu_shares = 512;
-      gitaly.concurrency = [{
-        rpc = "/gitaly.SmartHTTPService/PostReceivePack";
-        max_per_repo = 3;
-      } {
-        rpc = "/gitaly.SSHService/SSHUploadPack";
-        max_per_repo = 3;
-      }];
+      prometheus.enabled = false;
     };
 
   };
