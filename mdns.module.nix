@@ -52,8 +52,13 @@
 
   ## avoid clashing with resolved
   ## https://www.reddit.com/r/archlinux/comments/djg602/are_avahi_and_systemdresolved_really_incompatible/f47jhs6/
+  # services.resolved.extraConfig = ''
+  #   MulticastDNS=resolve
+  # '';
+  ## revised: resolved started binding 5353, even just for `MulticastDNS=resolve`. So disable it completely.
+  ## mDNS will be serviced at NSS level
   services.resolved.extraConfig = ''
-    MulticastDNS=resolve
+    MulticastDNS=no
   '';
 
   # disable chromium-builtin mdns stack
