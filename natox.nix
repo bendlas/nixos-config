@@ -92,7 +92,7 @@
 
 
   services = {
-    avahi.interfaces = [ "wlan0" "enp9s0" ];
+    avahi.allowInterfaces = [ "wlan0" "enp9s0" ];
     xserver = {
       enable = true;
       videoDrivers = [ "nvidia" "nouveau" "nv" "vesa" ];

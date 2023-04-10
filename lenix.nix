@@ -30,7 +30,7 @@
               #     };
               #   };
 
-              #   services.avahi.interfaces = [ "enp0s31f6" ];
+              #   services.avahi.allowInterfaces = [ "enp0s31f6" ];
               #   # for dhcp
               #   networking.firewall.allowedUDPPorts = [ 67 ];
               # }
@@ -96,7 +96,7 @@
   };
 
   services = {
-    avahi.interfaces = [ "wlan0" "enp0s31f6" ];
+    avahi.allowInterfaces = [ "wlan0" "enp0s31f6" ];
     # teamspeak3 = {
     #   enable = true;
     #   openFirewall = true;

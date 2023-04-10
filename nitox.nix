@@ -148,7 +148,7 @@
   # ];
   # nixpkgs.config.rocmTargets = [ "gfx803" ];
 
-  services.avahi.interfaces = [ "br0" ];
+  services.avahi.allowInterfaces = [ "br0" ];
 
   # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_470;
   # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390;

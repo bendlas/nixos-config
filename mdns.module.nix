@@ -35,7 +35,7 @@
     nssmdns = true;
     wideArea = false;
     # extraServiceFiles.ssh = "${pkgs.avahi}/etc/avahi/services/ssh.service";
-    interfaces = lib.mkDefault (throw "Please set `services.avahi.interfaces` explicitly, in order to avoid configuring ve-* interfaces");
+    allowInterfaces = lib.mkDefault (throw "Please set `services.avahi.allowInterfaces` explicitly, in order to avoid configuring ve-* interfaces");
     ## reflect incoming queries to all interfaces
     ## attempted to disable this for phony conflicts
     # reflector = true;

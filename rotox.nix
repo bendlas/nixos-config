@@ -42,7 +42,7 @@
   };
 
   services.cron.enable = false;
-  services.avahi.interfaces = [ "end0" ];
+  services.avahi.allowInterfaces = [ "end0" ];
 
   networking.useDHCP = false;
   networking.interfaces.end0.useDHCP = true;
