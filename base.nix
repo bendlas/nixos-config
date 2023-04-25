@@ -8,7 +8,7 @@
   ];
   system.stateVersion = "20.03";
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
-  boot.cleanTmpDir = true;
+  boot.tmp.cleanOnBoot = true;
 
   environment.systemPackages = with pkgs; [
 

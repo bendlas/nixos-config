@@ -1,8 +1,8 @@
 {
 
   ## tmpfs for /tmp
-  boot.tmpOnTmpfs = true;
-  boot.tmpOnTmpfsSize = "150%";
+  boot.tmp.useTmpfs = true;
+  boot.tmp.tmpfsSize = "150%";
 
   ## tmpfs for /var/tmp
   systemd.mounts = [{
