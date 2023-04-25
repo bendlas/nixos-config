@@ -34,6 +34,7 @@
     ./desktop.essential.module.nix
     ./desktop.convenient.module.nix
     ./desktop.layout-us-gerextra.module.nix
+    ./desktop.exwm.module.nix
   ];
 
   services = {
@@ -64,11 +65,6 @@
         # wayland = false;
       };
       displayManager.lightdm.enable = true;
-      displayManager.startx.enable = true;
-      windowManager.exwm = {
-        enable = true;
-        enableDefaultConfig = false;
-      };
     };
     upower.enable = true;
     dbus.packages = with pkgs; [
