@@ -31,13 +31,13 @@
 
     pkgsi686Linux.stalin
 
-    diffoscope
+    # diffoscope ## pulls in androidsdk ~ 2 GiB
 
     graphviz
 
     ## Video
 
-    inkscape blender antimony gimp # openscad
+    inkscape blender antimony gimp openscad
 
     ## Audio
 
