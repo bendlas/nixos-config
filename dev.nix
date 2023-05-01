@@ -9,6 +9,7 @@ in
   networking = {
     extraHosts = ''
       127.0.0.1  app.phoenix.dev mobile.phoenix.dev
+      10.233.1.2 virtox.local auth.virtox.local git.virtox.local pgadmin.virtox.local protected.virtox.local
       ${vitox-ip} jk.local hdnews.local hdirect.local static.local stats.local sub.hdnews.local
     '';
     firewall = {
